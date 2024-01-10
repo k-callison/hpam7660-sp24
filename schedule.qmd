@@ -13,6 +13,7 @@ library(knitr)
 library(kableExtra)
 library(lubridate)
 library(glue)
+library(rmarkdown)
 
 schedule <- read_csv("data/schedule.csv", show_col_types = FALSE) 
 ```

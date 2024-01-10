@@ -7,8 +7,8 @@ project:
     - "!files/"
 
 website:
-  title: "Gov 50"
-  favicon: "files/img/gov50-icon-512.png"
+  title: "HPAM 7660 - Health Policy Analysis"
+  favicon: "img/Health Policy Analysis Banner.png"
   navbar:
     pinned: true
     background: "#3498db"

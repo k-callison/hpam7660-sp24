@@ -15,8 +15,8 @@ website:
     right:
       - syllabus.qmd
       - schedule.qmd
-      - text: "Staff"
-        file: staff.qmd
+      - text: "About"
+        file: about.qmd
       - text: "Materials"
         file: materials/index.qmd
       - text: "Assignments"

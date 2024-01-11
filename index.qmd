@@ -1,8 +1,8 @@
 ---
-title: "Data Science for the Social Sciences"
+title: "Health Policy Analysis"
 subtitle: "Learning to use data to explore the social, political, and economic world"
 details: |
-  Gov 50 • Fall 2023<br>Harvard University
+  HPAM 7660 • Spring 2024<br>Tulane University
 sidebar: false
 toc: false
 page-layout: full
@@ -10,7 +10,7 @@ format:
   html:
     template-partials:
       - html/home/title-block.html
-course-logo: /files/img/gov50-icon-512.png
+course-logo: /files/img/Health Policy Analysis Banner.png
 ---
 
 

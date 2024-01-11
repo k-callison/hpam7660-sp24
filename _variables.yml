@@ -1,4 +1,4 @@
-author: Matthew Blackwell
+author: Kevin Callison
 
 instructor:
   name: Kevin Callison
@@ -15,7 +15,6 @@ course:
   days: "Tue/Thu"
   time: "1:00–2:15 PM"
   location: "Tidewater 1903"
-  dates: "September 3rd-December 20th, 2023"
   github: "https://github.com/gov50/gov50-f23"
   url: "https://mattblackwell.github.io/gov50-f23"
   copyright_year: "2023"
@@ -23,5 +22,5 @@ course:
   ed: "https://edstem.org/us/courses/43339/"
 
 university:
-  name: "Harvard University"
+  name: "Tulane University School of Public Health and Tropical Medicine"
   url: "https://www.harvard.edu"

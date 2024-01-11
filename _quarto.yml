@@ -11,7 +11,7 @@ website:
   favicon: "img/site_image.png"
   navbar:
     pinned: true
-    background: "#3498db"
+    background: "#006747"
     right:
       - syllabus.qmd
       - schedule.qmd

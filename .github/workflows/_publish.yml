@@ -17,7 +17,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Install rmarkdown package
-        run: R -e "install.packages('rmarkdown')"
+        run: R -e "install.packages('rmarkdown', lib='/Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/library'
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

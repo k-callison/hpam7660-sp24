@@ -17,12 +17,8 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Install rmarkdown package
-        run: |
-          R -e "install.packages('rmarkdown', lib=Sys.getenv('HOME')/.R/library', repos = 'https://cloud.r-project.org/', type='source', INSTALL_opts='--no-lock')"
-        
-      - name: Check R library permissions
-        run: ls -l "$HOME/.R/library"
-        
+        run: R -e "install.packages('rmarkdown', lib=Sys.getenv('HOME')/.R/library', repos = 'https://cloud.r-project.org/', type='source', INSTALL_opts='--no-lock')"
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:

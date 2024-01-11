@@ -90,7 +90,7 @@ Policy Memo Due Dates:
 Your final course grade will be calculated according to the following ranges:
 
 | Letter Grade      | Percentage |
-|:-------------|:-------------------------|
+|:-----------|:---------------------------|
 | A  | 94% and above                    |
 | A- | 90 to 93.9%                    |
 | B+ | 85 to 89.9%                |
@@ -114,10 +114,10 @@ Tulane University recognizes the inherent dignity of all individuals and promote
 | Confidential     | Private |
 |:-------------------|:-------------------|
 | Except in extreme circumstances, involving imminent danger to one’s self or others, nothing will be share without your explicit permission.  | Conversations are kept as confidential as possible, but information is shared with key staff members so the University can offer resources and accommodations and take action if necessary for safety reasons.                    |
-| Counseling & Psychological Services (CAPS):\ (504) 314-2277 | Case Management & Victim Support Services (CMVSS):\ (504) 314-2160  |
+| Counseling & Psychological Services (CAPS):<br> (504) 314-2277 | Case Management & Victim Support Services (CMVSS):<br> (504) 314-2160  |
 | Student Health Center\
 Downtown: (504) 988-6929\
-Uptown: (504) 865-5255
+Uptown: (504) 865-5255 | 
  | Tulane University Police (TUPD)\
 Downtown: (504) 988-5531\
 Uptown: (504) 865-5911

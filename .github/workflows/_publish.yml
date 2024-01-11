@@ -18,7 +18,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
       
       - name: Install rmarkdown package
-        run: R -e "install.packages('rmarkdown', lib=Sys.getenv('HOME')/'.R/library')"
+        run: R -e "install.packages('rmarkdown', lib=file.path(Sys.getenv('HOME'), '.R', 'library'))"
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

@@ -616,7 +616,6 @@
         "R",
         "cellranger",
         "cli",
-        "curl",
         "gargle",
         "glue",
         "googledrive",
@@ -736,7 +735,6 @@
       "Requirements": [
         "R",
         "R6",
-        "curl",
         "jsonlite",
         "mime",
         "openssl"

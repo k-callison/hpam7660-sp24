@@ -22,13 +22,6 @@ output:
 
 :::
 
-### Office Hours
-
-- {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
-- {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
-- {{< fa university >}} &nbsp; {{< var instructor.office >}}
-- {{< fa university >}} &nbsp; {{< var instructor.office_loc >}}
-
 ::: {.g-col-6}
 ### Course Details
 
@@ -37,6 +30,13 @@ output:
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
 
 :::
+
+::: {.g-col-6}
+### Office Hours
+
+- {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
+- {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
+- {{< fa university >}} &nbsp; {{< var instructor.office_loc >}}
 
 :::
 

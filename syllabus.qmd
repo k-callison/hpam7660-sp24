@@ -20,6 +20,7 @@ output:
 - {{< fa location-dot >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
 
+
 ### Office Hours
 
 - {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
@@ -36,12 +37,6 @@ output:
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
 
 :::
-
-### Office Hours
-
-- {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
-- {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
-- {{< fa location-dot >}} &nbsp; {{< var instructor.office_loc >}}
 
 :::
 

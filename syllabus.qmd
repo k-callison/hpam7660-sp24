@@ -1,7 +1,7 @@
 ---
 title: "Syllabus"
 slug: syllabus
-summary: "Information about the content and policies for Gov 50"
+summary: "Information about the content and policies for HPAM 7660"
 citeproc: true
 output:
   blogdown::html_page:
@@ -19,18 +19,6 @@ output:
 - {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
 - {{< fa university >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
-- {{< fa brands twitter >}} &nbsp; [{{< var instructor.twitter >}}](https://www.twitter.com/{{< var instructor.twitter >}})
-- {{< fa calendar-check >}} &nbsp; [Schedule an appointment]({{< var instructor.appointment_url >}})
-
-### Teaching fellows
-
-- Ahmet Akbiyik
-- James Jolin
-- Jerry Min
-- Laura Royden
-- Julio Solis Arce
-- Andy Wang
-
 
 :::
 
@@ -38,35 +26,61 @@ output:
 ### Course details
 
 - {{< fa calendar >}} &nbsp; {{< var course.days >}}
-- {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
 - {{< fa clock >}} &nbsp; {{< var course.time >}}
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
-- {{< fa brands slack >}} &nbsp; [Slack]({{< var course.slack >}})
-
-### Course assistants
-
-- TBD
 
 :::
 
 :::
 
 
-## Course objectives
+## Course Descripton
+
+HPAM 7660 presents an overview of health policy in the United States – its scope, its dynamics, and its conceptual and practical dilemmas. The course is designed to acquaint students with major issues in the policymaking process, specifically in formulating, implementing, and assessing those patterns of government decision. Students will explore the history and structure of the American health care system, as well as explore a policy issue of their choosing using the Bardach analytical method.
+
+### Course Readings
+
+We will use the following online (and free!) textbook along with various readings that will be posted to the course website under the Assignments tab.
+
+- Ismay, Chester and Albert Y. Kim. 2022. [*Statistical Inference via Data Science: A ModernDive into R and the Tidyverse*](https://moderndive.com/index.html). 
+
+### Course Evaluation
+
+The following components and weights will be used to calculate your final grade:
+
+| Category      | Percent of Final Grade |
+|:--------------|:-----------------------|
+| Class participation   | 10%                    |
+| Reading Discussion Questions & Problem Sets  | 40%                    |
+| Policy Memo         | 30%                    |
+| Case Presentation | 20%                    |
+| Peer Assessment | 25% |
 
 
-In this course, you will learn the basics of data science as applied to the social sciences. This involves two broad skill sets: (1) learning the computing and programming tools to both manage and analyze data; and (2) understanding the conceptual foundations of why we might manage or analyze data in one way versus another. This course will address both of these topics.
+*Policy Memo - throughout the semester, you will construct a policy memo to be submitted on the final day of class. The memo should advocate for a policy position of your choice and can be targeted to local leaders (e.g., mayor, city council, etc.), or state or federal legislators. The target audience will depend on the scope of your policy. The final draft of the policy memo should be approximately 8-10 pages, excluding references.
 
-Specifically, at the end of the course you should be able to:
+The University of Southern California library provides a good [guide](https://libguides.usc.edu/writingguide/assignments/policymemo) for writing a policy memo. Note that as the guide states: “You should not approach writing a policy memo in the same way as you would an academic research paper. Yes, there are certain commonalities in how the content is presented [e.g., a well-written problem statement], but the overarching objective of a policy memo is not to discover or create new knowledge. It is focused on providing a pre-determined group of readers the rationale for choosing a particular policy alternative or specific course of action. In this sense, most policy memos possess a component of advocacy and advice intended to promote evidence-based dialog about an issue.”
+Your policy memo will consist of the following 7 sections, that will be submitted individually throughout the semester before a final version of the memo to be submitted on the last day of class:
 
-- Summarize and visualize data
-- Wrangle messy data into tidy forms
-- Evaluate claims about causality
-- Be able to use linear regression to analyze data
-- Understand uncertainty in data analysis and how to quantify it
-- Use professional tools for data analysis such as R, RStudio, git, and GitHub
+1.	Executive summary\
+2.	Introduction and problem definition (Bardach Step 1)\
+3.	Issue analysis (Bardach Step 2)\
+4.	Proposed solutions (Bardach Steps 3, 4, & 5)\  
+5.	Strategic recommendations (Bardach Step 6 & Step 7)\
+6.	Conclusion (Bardach Step 8)\
+7.	References\
 
-We will also attempt to inspire a passion for data analysis and create a community among the students to deepen their learning. 
+Policy Memo Due Dates:
+1.	Problem statement – Feb. 28th\ 
+2.	Preliminary reference list – March 14th\  
+3.	Introduction and problem definition draft – March 21st\  
+4.	Issue analysis draft – March 28th\
+5.	Proposed solutions draft – April 11th\   
+6.	Strategic recommendations draft – April 25th\ 
+7.	Executive summary and conclusions draft – May 2nd\  
+8.	Final draft & Infographic – May 9th\ 
+
+
 
 ### Expectations
 

@@ -10,7 +10,7 @@ format:
   html:
     template-partials:
       - html/home/title-block.html
-course-logo: /img/Health Policy Analysis Banner.png
+course-logo: /img/site_image.png
 ---
 
 
@@ -31,13 +31,9 @@ course-logo: /img/Health Policy Analysis Banner.png
 ### Course details
 
 - {{< fa calendar >}} &nbsp; {{< var course.days >}}
-- {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
 - {{< fa clock >}} &nbsp; {{< var course.time >}}
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
-- {{< fa brands slack >}} &nbsp; [Slack]({{< var course.slack >}})
-- {{< fa wrench >}} &nbsp; [Study Hall Schedule](resources/study-halls.qmd)
-- {{< fa person-circle-question >}} &nbsp; [Office Hours Schedule](resources/office-hours.qmd)
-- {{< fa calendar >}} &nbsp; [Gov 50 Google Calendar](https://tinyurl.com/gov50calendar)
+
 :::
 
 ::: {.g-col-12 .g-col-md-4 .contact-policy}

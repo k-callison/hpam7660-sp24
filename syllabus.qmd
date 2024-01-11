@@ -57,7 +57,7 @@ The following components and weights will be used to calculate your final grade:
 | Peer Assessment | 25% |
 
 
-*Policy Memo - throughout the semester, you will construct a policy memo to be submitted on the final day of class. The memo should advocate for a policy position of your choice and can be targeted to local leaders (e.g., mayor, city council, etc.), or state or federal legislators. The target audience will depend on the scope of your policy. The final draft of the policy memo should be approximately 8-10 pages, excluding references.
+*Policy Memo* - throughout the semester, you will construct a policy memo to be submitted on the final day of class. The memo should advocate for a policy position of your choice and can be targeted to local leaders (e.g., mayor, city council, etc.), or state or federal legislators. The target audience will depend on the scope of your policy. The final draft of the policy memo should be approximately 8-10 pages, excluding references.
 
 The University of Southern California library provides a good [guide](https://libguides.usc.edu/writingguide/assignments/policymemo) for writing a policy memo. Note that as the guide states: “You should not approach writing a policy memo in the same way as you would an academic research paper. Yes, there are certain commonalities in how the content is presented [e.g., a well-written problem statement], but the overarching objective of a policy memo is not to discover or create new knowledge. It is focused on providing a pre-determined group of readers the rationale for choosing a particular policy alternative or specific course of action. In this sense, most policy memos possess a component of advocacy and advice intended to promote evidence-based dialog about an issue.”
 Your policy memo will consist of the following 7 sections, that will be submitted individually throughout the semester before a final version of the memo to be submitted on the last day of class:
@@ -70,7 +70,7 @@ Your policy memo will consist of the following 7 sections, that will be submitte
 6.	Conclusion (Bardach Step 8)\
 7.	References\
 
-Policy Memo Due Dates:
+Policy Memo Due Dates:\
 1.	Problem statement – Feb. 28th\ 
 2.	Preliminary reference list – March 14th\  
 3.	Introduction and problem definition draft – March 21st\  
@@ -79,6 +79,50 @@ Policy Memo Due Dates:
 6.	Strategic recommendations draft – April 25th\ 
 7.	Executive summary and conclusions draft – May 2nd\  
 8.	Final draft & Infographic – May 9th\ 
+
+*Case Presentation* - The case presentation will take place on May 2nd. The case presentation will coincide with a series of panel discussion during our “virtual D.C. experience”. I’ll provide more detail on the schedule and content of these panels on the course website along with a rubric for the case presentations.
+
+*Reading Discussion Questions & Problem Sets* – Reading discussion questions will be due by class time each Tuesday afternoon and should be submitted through Canvas. I will post the reading discussion questions to Canvas at least a week in advance of the due date.  
+
+*Peer Assessment* - The peer assessment component of your grade will consist of anonymous grading of your team contribution by the other members of your team (more specific details to follow).
+
+Your final course grade will be calculated according to the following ranges:
+
+| Letter Grade      | Percentage |
+|:--------------|:-----------------------|
+| A  | 94% and above                    |
+| A- | 90-93.9%                    |
+| B+ | 85-89.9%                |
+| B  | 80-84.9%                    |
+| B- | 75-79.9% |
+| C  | 70-74.9% |
+| F  | <70% |
+
+### SPHTM Honor Code
+
+I expect that you will abide by the school’s Honor Code and Code of Academic Conduct. Failure to do so will result in referral to the Honor Board. I encourage you to discuss the lectures and coursework with your colleagues to facilitate your understanding of the material. But I expect that you will engage in independent scholarship when completing your own work, properly citing external assistance or sources. If you have any questions about these expectations, please refer to the code or ask me in advance. 
+
+### Americans with Disabilities Act of 1990
+
+It is the policy and practice of Tulane University to comply with the Americans with Disabilities Act (Pub. L. No. 101-336), Section 504 of the Rehabilitation Act of 1973 (Pub. L. No. 93-112, §504, as amended), and state and local requirements regarding individuals with disabilities. Under these laws, no qualified individual with a disability shall be denied access to or participation in services, programs, and activities of Tulane University. Students seeking academic adjustments or accommodations must register their disabilities with the Goldman Center for Student Accessibility. For more information about this issue, please consult https://accessibility.tulane.edu/. 
+
+### Title IX
+
+Tulane University recognizes the inherent dignity of all individuals and promotes respect for all people. As such, Tulane is committed to providing an environment free of all forms of discrimination including sexual and gender-based discrimination, harassment, and violence like sexual assault, intimate partner violence, and stalking. If you (or someone you know) has experienced or is experiencing these types of behaviors, know that you are not alone. Resources and support are available: you can learn more at https://allin.tulane.edu/content/all. Any and all of your communications on these matters will be treated as either “Confidential” or “Private” as explained in the chart below. Please know that if you choose to confide in me I am mandated by the university to report to the Title IX Coordinator, as Tulane and I want to be sure you are connected with all the support the university can offer. You do not need to respond to outreach from the university if you do not want to.
+
+| Confidential     | Private |
+|:--------------|:-----------------------|
+| Except in extreme circumstances, involving imminent danger to one’s self or others, nothing will be share without your explicit permission.  | Conversations are kept as confidential as possible, but information is shared with key staff members so the University can offer resources and accommodations and take action if necessary for safety reasons.                    |
+| Counseling & Psychological Services (CAPS): (504) 314-2277 | Case Management & Victim Support Services (CMVSS): (504) 314-2160                    |
+| Student Health Center\
+Downtown: (504) 988-6929\
+Uptown: (504) 865-5255\
+ | Tulane University Police (TUPD)\
+Downtown: (504) 988-5531\
+Uptown: (504) 865-5911\
+               |
+| Sexual Aggression Peer Hotline and Education (SAPHE): (504) 654-9543 | Title IX Coordinator: (504) 865-5611 or titleix@tulane.edu                   |
+
 
 
 

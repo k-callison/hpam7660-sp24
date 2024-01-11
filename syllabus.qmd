@@ -31,7 +31,6 @@ output:
 
 :::
 
-::: {.g-col-6}
 ### Office Hours
 
 - {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}

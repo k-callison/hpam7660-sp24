@@ -70,7 +70,8 @@ Your policy memo will consist of the following 7 sections, that will be submitte
 6.	Conclusion (Bardach Step 8)\
 7.	References\
 
-Policy Memo Due Dates:\
+Policy Memo Due Dates:
+
 1.	Problem statement – Feb. 28th\ 
 2.	Preliminary reference list – March 14th\  
 3.	Introduction and problem definition draft – March 21st\  
@@ -91,11 +92,11 @@ Your final course grade will be calculated according to the following ranges:
 | Letter Grade      | Percentage |
 |:--------------|:-----------------------|
 | A  | 94% and above                    |
-| A- | 90-93.9%                    |
-| B+ | 85-89.9%                |
-| B  | 80-84.9%                    |
-| B- | 75-79.9% |
-| C  | 70-74.9% |
+| A- | 90 to 93.9%                    |
+| B+ | 85 to 89.9%                |
+| B  | 80 to 84.9%                    |
+| B- | 75 to 79.9% |
+| C  | 70 to 74.9% |
 | F  | <70% |
 
 ### SPHTM Honor Code
@@ -104,24 +105,25 @@ I expect that you will abide by the school’s Honor Code and Code of Academic C
 
 ### Americans with Disabilities Act of 1990
 
-It is the policy and practice of Tulane University to comply with the Americans with Disabilities Act (Pub. L. No. 101-336), Section 504 of the Rehabilitation Act of 1973 (Pub. L. No. 93-112, §504, as amended), and state and local requirements regarding individuals with disabilities. Under these laws, no qualified individual with a disability shall be denied access to or participation in services, programs, and activities of Tulane University. Students seeking academic adjustments or accommodations must register their disabilities with the Goldman Center for Student Accessibility. For more information about this issue, please consult https://accessibility.tulane.edu/. 
+It is the policy and practice of Tulane University to comply with the Americans with Disabilities Act (Pub. L. No. 101-336), Section 504 of the Rehabilitation Act of 1973 (Pub. L. No. 93-112, §504, as amended), and state and local requirements regarding individuals with disabilities. Under these laws, no qualified individual with a disability shall be denied access to or participation in services, programs, and activities of Tulane University. Students seeking academic adjustments or accommodations must register their disabilities with the [Goldman Center for Student Accessibility](https://accessibility.tulane.edu/). 
 
 ### Title IX
 
-Tulane University recognizes the inherent dignity of all individuals and promotes respect for all people. As such, Tulane is committed to providing an environment free of all forms of discrimination including sexual and gender-based discrimination, harassment, and violence like sexual assault, intimate partner violence, and stalking. If you (or someone you know) has experienced or is experiencing these types of behaviors, know that you are not alone. Resources and support are available: you can learn more at https://allin.tulane.edu/content/all. Any and all of your communications on these matters will be treated as either “Confidential” or “Private” as explained in the chart below. Please know that if you choose to confide in me I am mandated by the university to report to the Title IX Coordinator, as Tulane and I want to be sure you are connected with all the support the university can offer. You do not need to respond to outreach from the university if you do not want to.
+Tulane University recognizes the inherent dignity of all individuals and promotes respect for all people. As such, Tulane is committed to providing an environment free of all forms of discrimination including sexual and gender-based discrimination, harassment, and violence like sexual assault, intimate partner violence, and stalking. If you (or someone you know) has experienced or is experiencing these types of behaviors, know that you are not alone. Resources and support are available: you can learn more [here](https://allin.tulane.edu/content/all). Any and all of your communications on these matters will be treated as either “Confidential” or “Private” as explained in the chart below. Please know that if you choose to confide in me I am mandated by the university to report to the Title IX Coordinator, as Tulane and I want to be sure you are connected with all the support the university can offer. You do not need to respond to outreach from the university if you do not want to.
 
 | Confidential     | Private |
 |:--------------|:-----------------------|
 | Except in extreme circumstances, involving imminent danger to one’s self or others, nothing will be share without your explicit permission.  | Conversations are kept as confidential as possible, but information is shared with key staff members so the University can offer resources and accommodations and take action if necessary for safety reasons.                    |
-| Counseling & Psychological Services (CAPS): (504) 314-2277 | Case Management & Victim Support Services (CMVSS): (504) 314-2160                    |
+| Counseling & Psychological Services (CAPS): (504) 314-2277 | Case Management & Victim Support Services (CMVSS):\ 
+(504) 314-2160                    |
 | Student Health Center\
 Downtown: (504) 988-6929\
-Uptown: (504) 865-5255\
+Uptown: (504) 865-5255
  | Tulane University Police (TUPD)\
 Downtown: (504) 988-5531\
-Uptown: (504) 865-5911\
+Uptown: (504) 865-5911
                |
-| Sexual Aggression Peer Hotline and Education (SAPHE): (504) 654-9543 | Title IX Coordinator: (504) 865-5611 or titleix@tulane.edu                   |
+| Sexual Aggression Peer Hotline and Education (SAPHE):\ (504) 654-9543 | Title IX Coordinator: (504) 865-5611 or\ email: titleix@tulane.edu    |
 
 
 

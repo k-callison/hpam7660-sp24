@@ -112,10 +112,10 @@ It is the policy and practice of Tulane University to comply with the Americans 
 Tulane University recognizes the inherent dignity of all individuals and promotes respect for all people. As such, Tulane is committed to providing an environment free of all forms of discrimination including sexual and gender-based discrimination, harassment, and violence like sexual assault, intimate partner violence, and stalking. If you (or someone you know) has experienced or is experiencing these types of behaviors, know that you are not alone. Resources and support are available: you can learn more [here](https://allin.tulane.edu/content/all). Any and all of your communications on these matters will be treated as either “Confidential” or “Private” as explained in the chart below. Please know that if you choose to confide in me I am mandated by the university to report to the Title IX Coordinator, as Tulane and I want to be sure you are connected with all the support the university can offer. You do not need to respond to outreach from the university if you do not want to.
 
 | Confidential     | Private |
-|:--------------|:-----------------------|
+|:-------------------|:-------------------|
 | Except in extreme circumstances, involving imminent danger to one’s self or others, nothing will be share without your explicit permission.  | Conversations are kept as confidential as possible, but information is shared with key staff members so the University can offer resources and accommodations and take action if necessary for safety reasons.                    |
 | Counseling & Psychological Services (CAPS): (504) 314-2277 | Case Management & Victim Support Services (CMVSS):\ 
-(504) 314-2160                    |
+| (504) 314-2160                    |
 | Student Health Center\
 Downtown: (504) 988-6929\
 Uptown: (504) 865-5255
@@ -124,6 +124,35 @@ Downtown: (504) 988-5531\
 Uptown: (504) 865-5911
                |
 | Sexual Aggression Peer Hotline and Education (SAPHE):\ (504) 654-9543 | Title IX Coordinator: (504) 865-5611 or\ email: titleix@tulane.edu    |
+
+### Student Learning Objectives
+
+1.	Exhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to health services.\
+2.	Develop a framework to critically discuss and evaluate policy issues affecting the U.S. health care system.\
+3.	Compare and contrast the public policy objectives of various stakeholders with the realities of the political process.\
+4.	Critically evaluate the research literature that examines the federal and state roles in health services.\
+5.	Evaluate current proposals advanced in Congress and by the private sector that impact health services delivery.\
+6.	Demonstrate a working understanding of the legislative process and the related federal and state regulation processes.\
+
+### Course Competencies
+
+The Department of Health Policy & Management has adopted a set of competencies for evaluating each of our masters-level programs, including both the MPH in Health Policy and the MHA. Our accrediting bodies ask that we demonstrate, on a course level, which program competencies are supported and developed through this particular course. Some competencies are given more attention in the course activities and materials. The subsections below indicate to what extent each competency is addressed in the course materials, activities, and evaluation process.
+
+**MPH in Health Policy Program Competencies**
+| Competency  | Degree Covered |  Learning Objectives
+|:------------|:------------|------------|
+Analyze the influence of policy mechanisms on patient and provider behavior and health systems outcomes. | P | 1,3,5,6,7 |
+Assess health systems performance and issues of quality, access, and efficiency. | R | 1,2,3,5,6,7 |
+Critique health policy literature. | R | 4 |
+Communicate health policy issues written and orally. | P | 2,3,4 |
+
+**MHA Program Competencies**
+| Competency  | Degree Covered |  Learning Objectives
+|:------------|:------------|------------|
+Speak and write in a clear, concise, and logical manner in formal and informal situations within health care settings to convey cogent business presentations and to facilitate a group. (Effective Communication) | R | 2,4 |
+Consider the business, demographic, ethno-cultural, political, and regulatory factors in developing strategies that continually improve the long-term success and viability of health care organizations. (Strategic Management) | R | 1,3,5 |
+Deconstruct complex problems into smaller elements and synthesize that with other data to derive recommendations. (Critical Thinking and Analysis) | P | 6,7 |
+<font size= "2"> Rating Scale for Degree of Coverage: P = primary, R = reinforcing
 
 
 

@@ -17,8 +17,14 @@ output:
 ### Instructor
 
 - {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
-- {{< fa university >}} &nbsp; {{< var instructor.office >}}
+- {{< fa location-dot >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
+
+### Office Hours
+
+- {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
+- {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
+- {{< fa location-dot >}} &nbsp; {{< var instructor.office_loc >}}
 
 :::
 
@@ -35,7 +41,7 @@ output:
 
 - {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
 - {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
-- {{< fa university >}} &nbsp; {{< var instructor.office_loc >}}
+- {{< fa location-dot >}} &nbsp; {{< var instructor.office_loc >}}
 
 :::
 
@@ -163,7 +169,6 @@ Consider the business, demographic, ethno-cultural, political, and regulatory fa
 Deconstruct complex problems into smaller elements and synthesize that with other data to derive recommendations. (Critical Thinking and Analysis) | P | 6,7 |
 <font size= "3"> Rating Scale for Degree of Coverage: P = primary, R = reinforcing <font size= "5"> <br> 
 
-:::{.callout-note}
 **Competency Map**
 
 | Learning Objective  | Program Competency |  Learning Activity | Primary Assessment
@@ -176,7 +181,6 @@ Evaluate current proposals advanced in Congress and by the private sector that i
 Demonstrate a working understanding of private insurance and the federal and state regulation that oversees it. | MPH in HP – Competency 1 <br> MHA – Strategic Management | Lectures | Exams |
 Examine the development and regulation of the private insurance market over the past 20 years. | MPH in HP – Competency 1 | Lectures | Exams |
 
-:::
 
 
 

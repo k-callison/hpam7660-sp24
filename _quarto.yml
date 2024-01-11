@@ -13,10 +13,10 @@ website:
     pinned: true
     background: "#006747"
     right:
-      - syllabus.qmd
-      - schedule.qmd
       - text: "About"
         file: about.qmd
+      - syllabus.qmd
+      - schedule.qmd
       - text: "Materials"
         file: materials/index.qmd
       - text: "Assignments"

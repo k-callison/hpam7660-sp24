@@ -1,23 +1,20 @@
 author: Matthew Blackwell
 
 instructor:
-  name: Prof. Matt Blackwell
-  name_no_title: Matt Blackwell
-  email: mblackwell@gov.harvard.edu
-  url: "https://mattblackwell.org"
-  twitter: matt_blackwell
-  github: matt_blackwell
-  office: "CGIS Knafel 305"
+  name: Kevin Callison
+  name_no_title: Kevin Callison
+  email: kcallison@tulane.edu
+  office: "Tidewater 1915"
   contact_policy: >-
     General questions about the course should be posted to either the course Ed Discussion board or the course Slack. Someone on the teaching staff will attempt to respond to these messages within 25 hours, but also remember that life can be busy and chaotic for everyone (including me!), so if I don't respond right away, don't worry! For other issues (absences, etc), feel free to email me or send me a direct message on Slack.
   appointment_url: https://calendly.com/matt_blackwell/
 
 course:
-  number: "Gov 50"
-  semester: "Fall 2023"
+  number: "HPAM 7660"
+  semester: "Spring 2024"
   days: "Tue/Thu"
-  time: "12:00–1:15 PM"
-  location: "Emerson 105"
+  time: "1:00–2:15 PM"
+  location: "Tidewater 1903"
   dates: "September 3rd-December 20th, 2023"
   github: "https://github.com/gov50/gov50-f23"
   url: "https://mattblackwell.github.io/gov50-f23"

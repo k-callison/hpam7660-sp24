@@ -22,16 +22,19 @@ output:
 
 :::
 
+### Office Hours
+
+- {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
+- {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
+- {{< fa university >}} &nbsp; {{< var instructor.office >}}
+- {{< fa university >}} &nbsp; {{< var instructor.office_loc >}}
+
 ::: {.g-col-6}
 ### Course Details
 
 - {{< fa calendar >}} &nbsp; {{< var course.days >}}
 - {{< fa clock >}} &nbsp; {{< var course.time >}}
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
-
-### Office Hours
-
-- {{< fa university >}} &nbsp; {{< var instructor.office >}}
 
 :::
 

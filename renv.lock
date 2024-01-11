@@ -334,6 +334,16 @@
       ],
       "Hash": "e8a1e41acf02548751f45c718d55aa6a"
     },
+    "curl": {
+      "Package": "curl",
+      "Version": "5.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "ce88d13c0b10fe88a37d9c59dba2d7f9"
+    },
     "data.table": {
       "Package": "data.table",
       "Version": "1.14.10",
@@ -616,6 +626,7 @@
         "R",
         "cellranger",
         "cli",
+        "curl",
         "gargle",
         "glue",
         "googledrive",
@@ -735,6 +746,7 @@
       "Requirements": [
         "R",
         "R6",
+        "curl",
         "jsonlite",
         "mime",
         "openssl"

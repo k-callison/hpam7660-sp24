@@ -23,18 +23,22 @@ output:
 :::
 
 ::: {.g-col-6}
-### Course details
+### Course Details
 
 - {{< fa calendar >}} &nbsp; {{< var course.days >}}
 - {{< fa clock >}} &nbsp; {{< var course.time >}}
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
 
-:::
+### Office Hours
+
+- {{< fa university >}} &nbsp; {{< var instructor.office >}}
 
 :::
 
+:::
 
-## Course Descripton
+
+### Course Descripton
 
 HPAM 7660 presents an overview of health policy in the United States – its scope, its dynamics, and its conceptual and practical dilemmas. The course is designed to acquaint students with major issues in the policymaking process, specifically in formulating, implementing, and assessing those patterns of government decision. Students will explore the history and structure of the American health care system, as well as explore a policy issue of their choosing using the Bardach analytical method.
 
@@ -99,6 +103,10 @@ Your final course grade will be calculated according to the following ranges:
 | C  | 70 to 74.9% |
 | F  | <70% |
 
+### Late Policy
+
+Late submissions will be given half credit.
+
 ### SPHTM Honor Code
 
 I expect that you will abide by the school’s Honor Code and Code of Academic Conduct. Failure to do so will result in referral to the Honor Board. I encourage you to discuss the lectures and coursework with your colleagues to facilitate your understanding of the material. But I expect that you will engage in independent scholarship when completing your own work, properly citing external assistance or sources. If you have any questions about these expectations, please refer to the code or ask me in advance. 
@@ -147,13 +155,12 @@ Communicate health policy issues written and orally. | P | 2,3,4 |
 Speak and write in a clear, concise, and logical manner in formal and informal situations within health care settings to convey cogent business presentations and to facilitate a group. (Effective Communication) | R | 2,4 |
 Consider the business, demographic, ethno-cultural, political, and regulatory factors in developing strategies that continually improve the long-term success and viability of health care organizations. (Strategic Management) | R | 1,3,5 |
 Deconstruct complex problems into smaller elements and synthesize that with other data to derive recommendations. (Critical Thinking and Analysis) | P | 6,7 |
-
 <font size= "3"> Rating Scale for Degree of Coverage: P = primary, R = reinforcing <font size= "5"> <br> 
 
 **Competency Map**
 
 | Learning Objective  | Program Competency |  Learning Activity | Primary Assessment
-|:------------|:------------|:--------|:--------|
+|:--------------|:------------|:-------|:-------|
 Exhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to health services. | MPH in HP – Competency 1 <br> MHA – Strategic Management | Lectures | Exams |
 Develop a framework to critically discuss and evaluate whether the “market” in health services is or is not a policy issue. | MPH in HP – Competency 1 | Lectures <br> Group Presentations | Exams |
 Compare and contrast the public policy objectives of Medicare, Medicaid, and the private insurance sector with the realities of the political process. | MPH in HP – Competency 2 <br> MHA – Critical Thinking | Lectures <br> Group Presentations | Exams <br> Policy Memo |

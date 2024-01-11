@@ -5,6 +5,9 @@ instructor:
   name_no_title: Kevin Callison
   email: kcallison@tulane.edu
   office: "Tidewater 1915"
+  office_days: "Tuesday/Thursday"
+  office_time: "2:15-3:15 PM"
+  office_loc: "Tidewater 1915 or [Zoom](https://tulane.zoom.us/j/97830766613?pwd=SjVmVzlhdXd2UkRGU3l0d3duYnlaQT09&from=addon)"
   contact_policy: >-
     General questions about the course should be posted to either the course Ed Discussion board or the course Slack. Someone on the teaching staff will attempt to respond to these messages within 25 hours, but also remember that life can be busy and chaotic for everyone (including me!), so if I don't respond right away, don't worry! For other issues (absences, etc), feel free to email me or send me a direct message on Slack.
   appointment_url: https://calendly.com/matt_blackwell/
@@ -12,7 +15,7 @@ instructor:
 course:
   number: "HPAM 7660"
   semester: "Spring 2024"
-  days: "Tue/Thu"
+  days: "Tuesday/Thursday"
   time: "1:00–2:15 PM"
   location: "Tidewater 1903"
   github: "https://github.com/gov50/gov50-f23"

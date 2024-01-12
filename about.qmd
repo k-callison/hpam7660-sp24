@@ -18,6 +18,14 @@ HPAM 7660 - Health Policy Analysis presents an overview of health policy in the 
 
 ### Course Instructors
 
+```{r packages-data, include=FALSE} 
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(lubridate)
+library(glue)
+```
+
 ::: {.grid .d-flex .align-items-center}
 
 ::: {.g-col-3}

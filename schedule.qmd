@@ -1,7 +1,7 @@
 ---
 title: "Schedule"
 slug: schedule
-summary: "HPAM 7660 schedule with readings, due dates, and links to materials. - test to see if this updates"
+summary: "HPAM 7660 schedule with readings, due dates, and links to materials."
 toc: false
 sidebar: false
 page-layout: full
@@ -17,6 +17,8 @@ library(glue)
 schedule <- read_csv("data/schedule.csv", show_col_types = FALSE) 
 ```
         
+
+TEST TO SEE IF THIS CHANGES!
 
 The detailed course schedule for the semester is below. Please note that dates and topics are subject to change and will depend on the pace of the course. Please stay apprised of any changes announced in class. You can find the materials for each course meeting under the “Content” links for that week. You should generally: 
    

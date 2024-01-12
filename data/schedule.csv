@@ -1,8 +1,8 @@
 week,date,date_end,title,deadline, reading,content,tutorial,assignment
 1,2024-01-16,,Course Introduction,,,"materials/01_intro",,
 1,2024-01-18,,U.S. Healt Policy Landscape,,,,,https://tulane.instructure.com/courses/2275811/assignments/14466540/
-2,2024-01-23,,Policy Analysis Overview,,,,,
-2,2024-01-25,,Policy Analysis Overview,,,"materials/01_intro",,
+2,2024-01-23,,Policy Analysis Overview,,,"materials/02_overview",,
+2,2024-01-25,,Policy Analysis Overview,,,,,
 3,2024-01-30,,Tutorial 2,11:59 PM,,,https://mblackwell.shinyapps.io/02-data-wrangling/,
 3,2024-02-01,,Data wrangling,,MD Ch 3,"materials/02_r_data_viz",,
 4,2024-02-06,,Tutorial 3,11:59 PM,QSS 2.1-2.2,,https://mblackwell.shinyapps.io/03-causality/,

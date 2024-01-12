@@ -9,4 +9,4 @@ date: 2024-01-12
 
 ## Thursday, January 18
 
--[Assignment - Introduce Yourself](https://tulane.instructure.com/courses/2275811/assignments/14466540/)
+- [Assignment - Introduce Yourself](https://tulane.instructure.com/courses/2275811/assignments/14466540/)

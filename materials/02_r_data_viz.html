@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-05">
+<meta name="dcterms.date" content="2023-09-11">
 
-<title>HPAM 7660 - Health Policy Analysis - Introduction to Gov 50</title>
+<title>HPAM 7660 - Health Policy Analysis - Data Visualization and Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../materials/01_intro.html">Course Materials</a></li><li class="breadcrumb-item"><a href="../materials/01_intro.html">1: Introduction to Gov 50</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../materials/01_intro.html">Course Materials</a></li><li class="breadcrumb-item"><a href="../materials/02_r_data_viz.html">2: Data Visualization and Wrangling</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -187,13 +187,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../materials/01_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../materials/01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Introduction to Gov 50</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../materials/02_r_data_viz.html" class="sidebar-item-text sidebar-link">
+  <a href="../materials/02_r_data_viz.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">2: Data Visualization and Wrangling</span></a>
   </div>
 </li>
@@ -276,8 +276,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#readings" id="toc-readings" class="nav-link active" data-scroll-target="#readings">Readings</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#slides-and-code" id="toc-slides-and-code" class="nav-link" data-scroll-target="#slides-and-code">Slides and Code</a></li>
   </ul>
 </nav>
     </div>
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Gov 50</h1>
+<h1 class="title">Data Visualization and Data Wrangling</h1>
 </div>
 
 
@@ -297,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 5, 2023</p>
+      <p class="date">September 11, 2023</p>
     </div>
   </div>
   
@@ -310,30 +310,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings">Readings</h2>
 <ul>
-<li>The <a href="../syllabus.html">syllabus</a> and <a href="../schedule.html">schedule</a> pages.</li>
-<li>Review and try to start <a href="../assignments/00-problem-set.html">Problem Set 0</a></li>
+<li>Tuesday: <a href="https://moderndive.com/2-viz.html">Chapter 2 of Modern Dive</a></li>
+<li>Thursday: <a href="https://moderndive.com/3-wrangling.html">Chapter 3 of Modern Dive</a></li>
+<li>Finish <a href="../assignments/00-problem-set.html">Problem Set 0</a></li>
 </ul>
 </section>
-<section id="code" class="level2">
-<h2 class="anchored" data-anchor-id="code">Code</h2>
-<p>To follow along with the visualization material on Thursday, run the following code at the R Console in RStudio:</p>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<ul>
+<li>Install the Gov 50 data package that has new data for this week:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gapminder"</span>, <span class="at">repos =</span> <span class="st">"http://cran.rstudio.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"mattblackwell/gov50data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<section id="slides-and-code" class="level2">
+<h2 class="anchored" data-anchor-id="slides-and-code">Slides and Code</h2>
 <ul>
-<li>Tuesday (9/5) lecture:
+<li>Tuesday (9/12) lecture:
 <ul>
-<li><a href="../slides/01_intro.pdf">PDF of slides as I present them</a></li>
-<li><a href="../slides/01_intro_handout.pdf">PDF of handout version of slides</a> (no incremental slides)</li>
+<li><a href="../slides/03_data_viz.pdf">PDF of slides as I present them</a></li>
+<li><a href="../slides/03_data_viz_handout.pdf">PDF of handout version of slides</a> (no incremental slides)</li>
+<li>Code: <a href="../files/code/lecture3.Rmd"><code>lecture3.Rmd</code></a></li>
 </ul></li>
-<li>Thursday (9/7) lecture:
+<li>Thursday (9/14) lecture: Data Wrangling
 <ul>
-<li><a href="../slides/02_rintro_data_viz.pdf">PDF of slides as I present them</a></li>
-<li><a href="../slides/02_rintro_data_viz_handout.pdf">PDF of handout version of slides</a> (no incremental slides)</li>
-<li>Code: <a href="../files/code/lecture2.Rmd"><code>lecture2.Rmd</code></a></li>
+<li><a href="../slides/04_data_wrangling.pdf">PDF of slides as I present them</a></li>
+<li><a href="../slides/04_data_wrangling_handout.pdf">PDF of handout version of slides</a> (no incremental slides)</li>
+<li>Code: <a href="../files/code/lecture4.Rmd"><code>lecture4.Rmd</code></a></li>
 </ul></li>
 </ul>
 

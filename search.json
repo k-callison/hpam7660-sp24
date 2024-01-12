@@ -56,6 +56,48 @@
     "text": "Frank T. Berrios ’25\n\n\n\n\n\n\n\n\n\n   Mitja Bof ’26\n\n\n\n\n\n\n\n\n\n   Kate De Groote ’24\n\n\n\n\n\n\n\n\n\n   Alina Esanu ’24\n\n\n\n\n\n\n\n\n\n   Eric Forteza ’24\n\n\n\n\n\n\n\n\n\n   Alex Heuss ’26\n\n\n\n\n\n\n\n\n\n   Tracy Jiang ’24\n\n\n\n\n\n\n\n\n\n   Ryan McCarthy ’24\n\n\n\n\n\n\n\n\n\n   Zachary Mecca ’24\n\n\n\n\n\n\n\n\n\n   Chris Mesfin ’26\n\n\n\n\n\n\n\n\n\n   Vivian Nguyen ’24\n\n\n\n\n\n\n\n\n\n   Isa Peña ’24\n\n\n\n\n\n\n\n\n\n   Julia Poulson ’26\n\n\n\n\n\n\n\n\n\n   Gowri Rangu ’26\n\n\n\n\n\n\n\n\n\n   Azeez Richardson ’25\n\n\n\n\n\n\n\n\n\n   Cameron Snowden ’25\n\n\n\n\n\n\n\n\n\n   Jason Wang ’24"
   },
   {
+    "objectID": "materials/02_r_data_viz.html",
+    "href": "materials/02_r_data_viz.html",
+    "title": "Data Visualization and Data Wrangling",
+    "section": "",
+    "text": "Tuesday: Chapter 2 of Modern Dive\nThursday: Chapter 3 of Modern Dive\nFinish Problem Set 0"
+  },
+  {
+    "objectID": "materials/02_r_data_viz.html#readings",
+    "href": "materials/02_r_data_viz.html#readings",
+    "title": "Data Visualization and Data Wrangling",
+    "section": "",
+    "text": "Tuesday: Chapter 2 of Modern Dive\nThursday: Chapter 3 of Modern Dive\nFinish Problem Set 0"
+  },
+  {
+    "objectID": "materials/02_r_data_viz.html#data",
+    "href": "materials/02_r_data_viz.html#data",
+    "title": "Data Visualization and Data Wrangling",
+    "section": "Data",
+    "text": "Data\n\nInstall the Gov 50 data package that has new data for this week:\n\n\nremotes::install_github(\"mattblackwell/gov50data\")"
+  },
+  {
+    "objectID": "materials/02_r_data_viz.html#slides-and-code",
+    "href": "materials/02_r_data_viz.html#slides-and-code",
+    "title": "Data Visualization and Data Wrangling",
+    "section": "Slides and Code",
+    "text": "Slides and Code\n\nTuesday (9/12) lecture:\n\nPDF of slides as I present them\nPDF of handout version of slides (no incremental slides)\nCode: lecture3.Rmd\n\nThursday (9/14) lecture: Data Wrangling\n\nPDF of slides as I present them\nPDF of handout version of slides (no incremental slides)\nCode: lecture4.Rmd"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\n            Health Policy Analysis\n        ",
+    "section": "",
+    "text": "Health Policy Analysis\n        \n        \n            Using data and causal inference to inform evidence-based policy\n        \n        \n            HPAM 7660 • Spring 2024Tulane University\n        \n    \n    \n      \n        \n        \n        \n      \n    \n\n\n\n\nInstructor\n\n   Kevin Callison\n   Tidewater 1915\n   kcallison@tulane.edu\n\n\n\nCourse details\n\n   Tuesday/Thursday\n   1:00–2:15 PM\n   Tidewater 1202\n\n\n\nContacting me\nI’ll have office hours in Tidwater 1915 and on Zoom on Tuesdays and Thursdays after class. If that time doesn’t work for you, please email me and we can find a time that does. I’m also in my office most days from 9 to 5, so please feel free to stop by."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About HPAM 7660",
+    "section": "",
+    "text": "Course Description\nHPAM 7660 - Health Policy Analysis presents an overview of health policy in the United States – its scope, its dynamics, and its conceptual and practical dilemmas. The course is designed to acquaint students with major issues in the policymaking process, specifically in formulating, implementing, and assessing those patterns of government decision. Students will explore the history and structure of the American health care system, as well as explore a policy issue of their choosing using the Bardach analytical method.\n\n\nStudent Learning Objectives\n\nExhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to health services.\n\nDevelop a framework to critically discuss and evaluate policy issues affecting the U.S. health care system.\n\nCompare and contrast the public policy objectives of various stakeholders with the realities of the political process.\n\nCritically evaluate the research literature that examines the federal and state roles in health services.\n\nEvaluate current proposals advanced in Congress and by the private sector that impact health services delivery.\n\nDemonstrate a working understanding of the legislative process and the related federal and state regulation processes.\n\n\n\n\nCourse Instructors\n\n\n\n\n\n\n   Kevin Callison, PhD\n   Tidewater 1915\n   kcallison@tulane.edu\n   Webpage\n\n\n\n\n\n\n\n\n\n   Chip Kahn, CEO Federation of American Hospitals\n   Webpage"
+  },
+  {
     "objectID": "materials/01_intro.html",
     "href": "materials/01_intro.html",
     "title": "Introduction to Gov 50",
@@ -82,20 +124,6 @@
     "title": "Introduction to Gov 50",
     "section": "Slides",
     "text": "Slides\n\nTuesday (9/5) lecture:\n\nPDF of slides as I present them\nPDF of handout version of slides (no incremental slides)\n\nThursday (9/7) lecture:\n\nPDF of slides as I present them\nPDF of handout version of slides (no incremental slides)\nCode: lecture2.Rmd"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About HPAM 7660",
-    "section": "",
-    "text": "Course Description\nHPAM 7660 - Health Policy Analysis presents an overview of health policy in the United States – its scope, its dynamics, and its conceptual and practical dilemmas. The course is designed to acquaint students with major issues in the policymaking process, specifically in formulating, implementing, and assessing those patterns of government decision. Students will explore the history and structure of the American health care system, as well as explore a policy issue of their choosing using the Bardach analytical method.\n\n\nStudent Learning Objectives\n\nExhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to health services.\n\nDevelop a framework to critically discuss and evaluate policy issues affecting the U.S. health care system.\n\nCompare and contrast the public policy objectives of various stakeholders with the realities of the political process.\n\nCritically evaluate the research literature that examines the federal and state roles in health services.\n\nEvaluate current proposals advanced in Congress and by the private sector that impact health services delivery.\n\nDemonstrate a working understanding of the legislative process and the related federal and state regulation processes.\n\n\n\n\nCourse Instructors\n\n\n\n\n\n\n   Kevin Callison, PhD\n   Tidewater 1915\n   kcallison@tulane.edu\n   Webpage\n\n\n\n\n\n\n\n\n\n   Chip Kahn, CEO Federation of American Hospitals\n   Webpage"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\n            Health Policy Analysis\n        ",
-    "section": "",
-    "text": "Health Policy Analysis\n        \n        \n            Using data and causal inference to inform evidence-based policy\n        \n        \n            HPAM 7660 • Spring 2024Tulane University\n        \n    \n    \n      \n        \n        \n        \n      \n    \n\n\n\n\nInstructor\n\n   Kevin Callison\n   Tidewater 1915\n   kcallison@tulane.edu\n\n\n\nCourse details\n\n   Tuesday/Thursday\n   1:00–2:15 PM\n   Tidewater 1202\n\n\n\nContacting me\nI’ll have office hours in Tidwater 1915 and on Zoom on Tuesdays and Thursdays after class. If that time doesn’t work for you, please email me and we can find a time that does. I’m also in my office most days from 9 to 5, so please feel free to stop by."
   },
   {
     "objectID": "schedule.html",

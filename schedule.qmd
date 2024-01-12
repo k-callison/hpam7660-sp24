@@ -1,7 +1,7 @@
 ---
 title: "Schedule"
 slug: schedule
-summary: "HPAM 7660 schedule with readings, due dates, and links to materials."
+summary: "HPAM 7660 schedule with readings, due dates, and links to materials. - test to see if this updates"
 toc: false
 sidebar: false
 page-layout: full

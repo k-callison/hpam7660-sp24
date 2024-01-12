@@ -1,6 +1,6 @@
 ---
 title: "HPAM 7660 - Week 1 Materials"
-date: 2024-01-12
+subtitle: "Course Introduction & U.S. Health Policy Landscape"
 ---
 
 ## Tuesday, January 16

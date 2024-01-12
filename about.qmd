@@ -42,7 +42,7 @@ library(glue)
 - {{< fa user >}} &nbsp; [{{< var instructor.name_title >}}]({{< var instructor.url >}})
 - {{< fa university >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
-- {{< fa globe-pointer >}} &nbsp; [Webpage]({{< var instructor.website_url >}})
+- {{< fa laptop >}} &nbsp; [Webpage]({{< var instructor.website_url >}})
 
 ::: 
 
@@ -57,8 +57,8 @@ library(glue)
 
 ::: {.g-col-9}
 
-- {{< fa user >}} &nbsp; [{{< var instructor.name2 >}}]
-- {{< fa globe-pointer >}} &nbsp; [Webpage]({{< var instructor.website_url2 >}})
+- {{< fa user >}} &nbsp; {{< var instructor.name2 >}}
+- {{< fa laptop >}} &nbsp; [Webpage]({{< var instructor.website_url2 >}})
 
 ::: 
 

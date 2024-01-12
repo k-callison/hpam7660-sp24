@@ -1,6 +1,6 @@
 ---
 title: "Health Policy Analysis"
-subtitle: "Learning to use data to explore the social, political, and economic world"
+subtitle: "Using data and causal inference to inform evidence-based policy"
 details: |
   HPAM 7660 • Spring 2024<br>Tulane University
 sidebar: false

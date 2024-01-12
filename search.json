@@ -128,30 +128,23 @@
   {
     "objectID": "materials/01_intro.html",
     "href": "materials/01_intro.html",
-    "title": "Introduction to Gov 50",
+    "title": "HPAM 7660 - Week 1 Materials",
     "section": "",
-    "text": "The syllabus and schedule pages.\nReview and try to start Problem Set 0"
+    "text": "Slides"
   },
   {
-    "objectID": "materials/01_intro.html#readings",
-    "href": "materials/01_intro.html#readings",
-    "title": "Introduction to Gov 50",
+    "objectID": "materials/01_intro.html#tuesday-january-16",
+    "href": "materials/01_intro.html#tuesday-january-16",
+    "title": "HPAM 7660 - Week 1 Materials",
     "section": "",
-    "text": "The syllabus and schedule pages.\nReview and try to start Problem Set 0"
+    "text": "Slides"
   },
   {
-    "objectID": "materials/01_intro.html#code",
-    "href": "materials/01_intro.html#code",
-    "title": "Introduction to Gov 50",
-    "section": "Code",
-    "text": "Code\nTo follow along with the visualization material on Thursday, run the following code at the R Console in RStudio:\n\ninstall.packages(\"gapminder\", repos = \"http://cran.rstudio.com\")"
-  },
-  {
-    "objectID": "materials/01_intro.html#slides",
-    "href": "materials/01_intro.html#slides",
-    "title": "Introduction to Gov 50",
-    "section": "Slides",
-    "text": "Slides\n\nTuesday (9/5) lecture:\n\nPDF of slides as I present them\nPDF of handout version of slides (no incremental slides)\n\nThursday (9/7) lecture:\n\nPDF of slides as I present them\nPDF of handout version of slides (no incremental slides)\nCode: lecture2.Rmd"
+    "objectID": "materials/01_intro.html#thursday-january-18",
+    "href": "materials/01_intro.html#thursday-january-18",
+    "title": "HPAM 7660 - Week 1 Materials",
+    "section": "Thursday, January 18",
+    "text": "Thursday, January 18\n-Assignment - Introduce Yourself"
   },
   {
     "objectID": "materials/index.html",

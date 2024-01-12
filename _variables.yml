@@ -11,6 +11,11 @@ instructor:
   contact_policy: >-
     I'll have office hours in Tidwater 1915 and on [Zoom](https://tulane.zoom.us/j/97830766613?pwd=SjVmVzlhdXd2UkRGU3l0d3duYnlaQT09&from=addon) on Tuesdays and Thursdays after class. If that time doesn't work for you, please email me and we can find a time that does. I'm also in my office most days from 9 to 5, so please feel free to stop by.
   appointment_url: https://calendly.com/matt_blackwell/
+  website_url: https://sph.tulane.edu/hpm/kevin-callison
+
+coinstructor:
+  name: Chip Kahn
+  website_url: https://www.fah.org/about-fah/fah-staff/charles-n-kahn-iii-chip/
 
 course:
   number: "HPAM 7660"

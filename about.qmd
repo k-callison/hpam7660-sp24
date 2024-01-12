@@ -39,9 +39,10 @@ library(glue)
 
     
   
-- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
+- {{< fa user >}} &nbsp; [{{< var instructor.name_title >}}]({{< var instructor.url >}})
 - {{< fa university >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
+- {{< fa globe-pointer >}} &nbsp; {{< var instructor.website_url >}}
 
 ::: 
 
@@ -56,9 +57,8 @@ library(glue)
 
 ::: {.g-col-9}
 
-- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
-- {{< fa university >}} &nbsp; {{< var instructor.office >}}
-- {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
+- {{< fa user >}} &nbsp; [{{< var coinstructor.name >}}]
+- {{< fa globe-pointer >}} &nbsp; {{< var coinstructor.website_url >}}
 
 ::: 
 

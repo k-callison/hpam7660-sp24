@@ -1,7 +1,7 @@
 ---
 title: "Schedule"
 slug: schedule
-summary: "Schedule of the Gov 50 semester with readings, due dates, and links to materials."
+summary: "HPAM 7660 schedule with readings, due dates, and links to materials."
 toc: false
 sidebar: false
 page-layout: full
@@ -18,7 +18,7 @@ schedule <- read_csv("data/schedule.csv", show_col_types = FALSE)
 ```
         
 
-Below is the schedule for the semester. You can find the materials for each course meeting under the “Content” links for that week. You should generally: 
+The detailed course schedule for the semester is below. Please note that dates and topics are subject to change and will depend on the pace of the course. Please stay apprised of any changes announced in class. You can find the materials for each course meeting under the “Content” links for that week. You should generally: 
    
 - watch the lecture videos (if any) and complete the readings by Tuesday;
 - complete the tutorials by Monday evening at 11:59pm; and

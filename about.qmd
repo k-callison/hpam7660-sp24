@@ -47,7 +47,13 @@ library(glue)
 
 :::
 
+::: {.grid .d-flex .align-items-center}
+
+::: {.g-col-3}
+
 ![](img/kahn_pic.png)
+:::
+
 ::: {.g-col-9}
 
 - {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
@@ -55,3 +61,5 @@ library(glue)
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
 
 ::: 
+
+:::

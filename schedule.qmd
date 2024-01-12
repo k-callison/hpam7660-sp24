@@ -55,7 +55,7 @@ schedule <- schedule %>%
                                 glue('<a href="{tutorial}"><i class="fa-solid fa-laptop-code fa-lg"></i></a>'),
                                 glue('<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>'))) %>%
     mutate(var_assignment = ifelse(!is.na(assignment),
-                                   glue('<a href="{assignment}.qmd"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>'),
+                                   glue('<a href="{assignment}"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>'),
                                    glue('<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>'))) %>%
     mutate(col_date = ifelse(is.na(date_end),
                              glue('<strong>{format(date, "%B %e")}</strong>'),

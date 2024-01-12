@@ -68,7 +68,7 @@ week_index <- week_count |> pull(n) |> set_names(paste0("Week ", week_count$Week
  
 tbl <- schedule |>
   select(-Week) |>
-  kbl(escap = FALSE, align = "lllcccc", table.attr = 'class="schedule-table"') |>
+  kbl(escap = FALSE, align = "llcccc", table.attr = 'class="schedule-table"') |>
   kable_styling() |>
   column_spec(1, width = "20%", extra_css = "padding-right: 20px;") |>  
   column_spec(2, width = "65%") |>  

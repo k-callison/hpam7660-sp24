@@ -8,7 +8,7 @@ project:
 
 website:
   title: "HPAM 7660 - Health Policy Analysis"
-  favicon: "img/site_image.png"
+  favicon: "img/site_icon.png"
   navbar:
     pinned: true
     background: "#006747"

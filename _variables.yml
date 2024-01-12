@@ -2,7 +2,7 @@ author: Kevin Callison
 
 instructor:
   name: Kevin Callison
-  name_no_title: Kevin Callison
+  name_title: Kevin Callison, PhD
   email: kcallison@tulane.edu
   office: "Tidewater 1915"
   office_days: "Tuesday/Thursday"
@@ -14,7 +14,7 @@ instructor:
   website_url: https://sph.tulane.edu/hpm/kevin-callison
 
 coinstructor:
-  name: Chip Kahn
+  name: Chip Kahn, CEO Federation of American Hospitals
   website_url: https://www.fah.org/about-fah/fah-staff/charles-n-kahn-iii-chip/
 
 course:

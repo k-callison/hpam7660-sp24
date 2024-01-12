@@ -15,3 +15,26 @@ HPAM 7660 - Health Policy Analysis presents an overview of health policy in the 
 4. Critically evaluate the research literature that examines the federal and state roles in health services.\
 5. Evaluate current proposals advanced in Congress and by the private sector that impact health services delivery.\
 6. Demonstrate a working understanding of the legislative process and the related federal and state regulation processes.\
+
+### Course Instructors
+
+::: {.grid .d-flex .align-items-center}
+
+::: {.g-col-3}
+
+
+![](img/callison_pic.png)
+ 
+:::
+
+::: {.g-col-9}
+
+    
+  
+- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
+- {{< fa university >}} &nbsp; {{< var instructor.office >}}
+- {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
+
+::: 
+
+:::

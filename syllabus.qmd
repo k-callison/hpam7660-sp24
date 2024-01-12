@@ -17,7 +17,7 @@ output:
 ### Instructor
 
 - {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
-- {{< fa location-dot >}} &nbsp; {{< var instructor.office >}}
+- {{< fa university >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
 
 
@@ -25,7 +25,7 @@ output:
 
 - {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
 - {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
-- {{< fa location-dot >}} &nbsp; {{< var instructor.office_loc >}}
+- {{< fa university >}} &nbsp; {{< var instructor.office_loc >}}
 
 :::
 
@@ -34,7 +34,7 @@ output:
 
 - {{< fa calendar >}} &nbsp; {{< var course.days >}}
 - {{< fa clock >}} &nbsp; {{< var course.time >}}
-- {{< fa location-dot >}} &nbsp; {{< var course.location >}}
+- {{< fa university >}} &nbsp; {{< var course.location >}}
 
 :::
 

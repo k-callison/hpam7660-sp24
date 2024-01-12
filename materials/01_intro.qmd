@@ -1,30 +1,12 @@
 ---
-title: "Introduction to Gov 50"
-date: 2023-09-05
+title: "HPAM 7660 - Week 1 Materials"
+date: 2024-01-12
 ---
 
+## Tuesday, January 16
 
-## Readings 
+- [Slides](/slides/01_intro.pdf)
 
-- The [syllabus](/syllabus.qmd) and [schedule](/schedule.qmd) pages. 
-- Review and try to start [Problem Set 0](/assignments/00-problem-set.html)
+## Thursday, January 18
 
-## Code 
-
-To follow along with the visualization material on Thursday, run the following code at the R Console in RStudio:
-
-```{r eval = FALSE}
-install.packages("gapminder", repos = "http://cran.rstudio.com")
-```
-
-
-## Slides
-
-- Tuesday (9/5) lecture: 
-  - [PDF of slides as I present them](/slides/01_intro.pdf)
-  - [PDF of handout version of slides](/slides/01_intro_handout.pdf) (no incremental slides)
-
-- Thursday (9/7) lecture: 
-  - [PDF of slides as I present them](/slides/02_rintro_data_viz.pdf)
-  - [PDF of handout version of slides](/slides/02_rintro_data_viz_handout.pdf) (no incremental slides)
-  - Code: [`lecture2.Rmd`](/files/code/lecture2.Rmd)
+-[Assignment - Introduce Yourself](https://tulane.instructure.com/courses/2275811/assignments/14466540/)

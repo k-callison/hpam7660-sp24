@@ -60,7 +60,7 @@ schedule <- schedule %>%
     mutate(col_content = var_content,
            col_tutorial = var_tutorial,
            col_assignment = var_assignment) %>%
-  select(Week = week, Date = col_date, Title = col_title, Materials = col_content,
+  select(Week = week, Date = col_date, Topic = col_title, Materials = col_content,
          Tutorial = col_tutorial, Assignment = col_assignment) 
 
 week_count <- schedule |> count(Week)
@@ -71,9 +71,8 @@ tbl <- schedule |>
   kbl(escap = FALSE, align = "rllcccc", table.attr = 'class="schedule-table"') |>
   kable_styling() |>
   column_spec(1, width = "20%", extra_css = "padding-right: 20px;") |>  
-  column_spec(2, width = "45%") |>  
-  column_spec(3, width = "20%") |>  
-  column_spec(c(4:5), width = "5%") |>
+  column_spec(2, width = "65%") |>  
+  column_spec(c(3:5), width = "5%") |>
   pack_rows(index = week_index,
               label_row_css = "border-bottom: 2px solid #000000;")
 

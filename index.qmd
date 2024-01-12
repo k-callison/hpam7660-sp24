@@ -10,7 +10,7 @@ format:
   html:
     template-partials:
       - html/home/title-block.html
-course-logo: /img/site_image.png
+course-logo: /img/site_image_alt.png
 ---
 
 

@@ -1,34 +1,8 @@
 ---
-title: "Readings, lectures, and videos"
+title: "Course Slides"
 ---
 
- 
+Below you will find links to the slides used in class. I will typically post slides AFTER each class period. 
 
-Each class session has a set of required readings that you should complete ***before*** attempting the tutorials. 
+1. [Course Introduction](/slides/HPAM_7660_Introduction_Slides.pdf)
 
-
-1. [Course Introduction](/slides/01_intro_handout.pdf)
-2. [Introduction to R and RStudio](/slides/02_rintro_data_viz_handout.pdf)
-3. [Data Visualization](/slides/03_data_viz_handout.pdf)
-4. [Data Wrangling](/slides/04_data_wrangling_handout.pdf)
-5. [Data Wrangling and Barplots](/slides/05_data_wrangling_handout.pdf)
-6. [Causality](/slides/06_causality_handout.pdf)
-7. [Randomized Experiments](/slides/07_rand_exp_handout.pdf)
-8. [Observational Studies](/slides/08_obs_studies_handout.pdf)
-9. [Summarizing Data](/slides/09_summarizing_data_handout.pdf)
-10. [Survey Sampling](/slides/10_survey_sampling_handout.pdf)
-11. [Bivariate Relationships and Functions](/slides/11_bivariate_handout.pdf)
-12. [Joining and Tidying Data](/slides/12_tidy_joins_handout.pdf)
-13. [Midterm Review and Prediction](/slides/13_prediction_handout.pdf)
-14. [Regression](/slides/14_regression_handout.pdf)
-15. [Model Fit](/slides/15_regression_ii_handout.pdf)
-16. [Multiple Regression and Categorical Predictors](/slides/16_multiple_regression_handout.pdf)
-17. [Sampling](/slides/17_sampling_handout.pdf)
-18. [Sampling Distributions](/slides/18_sampling_dist_handout.pdf)
-19. [The Bootstrap](/slides/19_bootstrap_handout.pdf)
-20. [More Confidence Intervals](/slides/20_conf_int_handout.pdf)
-21. [Hypothesis Testing](/slides/21_hyp_tests_handout.pdf)
-22. [Two-sample Hypothesis Testing](/slides/22_hyp_tests_diff_handout.pdf)
-23. [Mathematical Models of Inference](/slides/23_math_models_handout.pdf)
-24. [Mathematical Models for Hypothesis Testing](/slides/24_math_models_ii_handout.pdf)
-25. [Inference for Linear Regression](/slides/25_ols_inference_handout.pdf)

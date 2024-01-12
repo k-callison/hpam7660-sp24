@@ -1,0 +1,36 @@
+---
+title: "Office House Schedule"
+slug: schedule
+summary: "Schedule of the Gov 50 Office Hours."
+toc: false
+sidebar: false
+page-layout: full
+---
+
+ 
+```{r packages-data, include=FALSE} 
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(lubridate)
+library(glue)
+library(googlesheets4)
+schedule <- read_csv("../data/office-hours.csv", show_col_types = FALSE,
+                     col_types = list(.default = col_character())) 
+```
+  
+  
+For the latest schedule, including changes to the schedule, please check Ed or the [Gov 50 Google calendar](https://tinyurl.com/gov50calendar).
+  
+```{r build-table, eval = TRUE, echo=FALSE, results="asis"}
+tbl <- schedule |>
+  kbl(escap = FALSE, align = "lllll", table.attr = 'class="schedule-table"') |>
+  kable_styling() |>
+  column_spec(1:4, width = "20%", extra_css = "padding-right: 20px;") |>  
+  column_spec(5, width = "60%")
+
+  cat(tbl)
+```
+  
+ 
+ 

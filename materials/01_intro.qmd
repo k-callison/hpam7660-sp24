@@ -5,8 +5,8 @@ subtitle: "Course Introduction & U.S. Health Policy Landscape"
 
 ## Tuesday, January 16
 
-- [Slides](/slides/01_intro.pdf)
+- Slides - [Course Introduction](/slides/01_intro.pdf)
 
 ## Thursday, January 18
 
-- [Assignment - Introduce Yourself](https://tulane.instructure.com/courses/2275811/assignments/14466540/)
+- Assignment - [Introduce Yourself](https://tulane.instructure.com/courses/2275811/assignments/14466540/)

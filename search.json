@@ -21,39 +21,32 @@
     "text": "More details to come…"
   },
   {
-    "objectID": "resources/index.html",
-    "href": "resources/index.html",
-    "title": "Resources",
-    "section": "",
-    "text": "Getting Software Set Up\nR Tutorials Instructions (for running locally in RStudio)\nProblem Sets and Exams Instructions\nR Cheatsheet\nTroubleshooting Guide\n\n\n\n\n\nHands On Programming with R\nR for Data Science\n\n\n\n\n\nR Markdown Tutorial\nR Markdown: The Definitive Guide\n\n\n\n\n\nHappy Git with R"
-  },
-  {
     "objectID": "resources/index.html#software-installation-guides",
     "href": "resources/index.html#software-installation-guides",
-    "title": "Resources",
-    "section": "",
-    "text": "Getting Software Set Up\nR Tutorials Instructions (for running locally in RStudio)\nProblem Sets and Exams Instructions\nR Cheatsheet\nTroubleshooting Guide"
+    "title": "HPAM 7660 Resources",
+    "section": "Software Installation Guides",
+    "text": "Software Installation Guides\n\nGetting Software Set Up\nR Tutorials Instructions (for running locally in RStudio)\nProblem Sets and Exams Instructions\nR Cheatsheet\nTroubleshooting Guide"
   },
   {
     "objectID": "resources/index.html#r-tutorials",
     "href": "resources/index.html#r-tutorials",
-    "title": "Resources",
-    "section": "",
-    "text": "Hands On Programming with R\nR for Data Science"
+    "title": "HPAM 7660 Resources",
+    "section": "R Tutorials",
+    "text": "R Tutorials\n\nHands On Programming with R\nR for Data Science"
   },
   {
     "objectID": "resources/index.html#r-markdown",
     "href": "resources/index.html#r-markdown",
-    "title": "Resources",
-    "section": "",
-    "text": "R Markdown Tutorial\nR Markdown: The Definitive Guide"
+    "title": "HPAM 7660 Resources",
+    "section": "R Markdown",
+    "text": "R Markdown\n\nR Markdown Tutorial\nR Markdown: The Definitive Guide"
   },
   {
     "objectID": "resources/index.html#git-and-github-resources",
     "href": "resources/index.html#git-and-github-resources",
-    "title": "Resources",
-    "section": "",
-    "text": "Happy Git with R"
+    "title": "HPAM 7660 Resources",
+    "section": "Git and GitHub Resources",
+    "text": "Git and GitHub Resources\n\nHappy Git with R"
   },
   {
     "objectID": "materials/02_overview.html",

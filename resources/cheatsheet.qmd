@@ -15,7 +15,7 @@ library(gapminder)
 ```
 
 
-## R Basics (Week 1)
+## R Basics
 
 ### Creating a vector 
 
@@ -54,7 +54,7 @@ We can also use the `mypackage::` prefix to access package functions without loa
 knitr::kable(head(mtcars))
 ```
 
-## Data Visualization (Week 2)
+## Data Visualization
 
 ### Scatter plot
 
@@ -176,7 +176,7 @@ ggplot(data = midwest,
 ```
 
 
-## Data Wrangling (week 2-3)
+## Data Wrangling
 
 ### Subsetting a data frame
 

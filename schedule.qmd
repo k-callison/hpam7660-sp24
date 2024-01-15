@@ -50,7 +50,7 @@ schedule <- schedule %>%
     mutate(col_date = ifelse(is.na(date_end),
                              glue('<span>{format(date, "%B %e")}</span>'),
                              glue('<span>{format(date, "%B %e")}</span>–<span>{format(date_end, "%B %e")}</span>'))) %>%
-    mutate(col_title = glue('<span class="content-title">{var_title}</span>{var_deadline}')) %>%
+    mutate(col_title = glue('<span class="content-title" style="font-weight: normal;">{var_title}</span>{var_deadline}')) %>%
     mutate(col_content = var_content,
            col_tutorial = var_tutorial,
            col_assignment = var_assignment) %>%

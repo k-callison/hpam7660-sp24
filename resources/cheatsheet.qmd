@@ -8,7 +8,7 @@ You will need to load the following libraries in RStudio before attempting some 
 #| label: packages
 #| message: false
 library(tidyverse)
-library(gov50data)
+library(nycflights13)
 library(gapminder)
 ```
 
@@ -178,14 +178,14 @@ ggplot(data = midwest,
 
 ### Subsetting a data frame
 
-Use the `filter()` function from the `dplyr` package to subset a data frame.
+Use the `filter()` function from the `dplyr` package to subset a data frame. In this example, you'll use the nycflights13 data and filter by United Airlines flights.
 
 
 ```{r}
-library(gov50data)
+library(nycflights13)
 
 news |>
-  filter(weekday == "Tue")
+  filter(carrier == "UA")
 ```
 
 

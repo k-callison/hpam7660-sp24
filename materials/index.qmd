@@ -2,7 +2,7 @@
 title: "Course Slides"
 ---
 
-Below you will find links to the slides used in class. I will typically post slides AFTER each class period. 
+Below you will find links to the slides used in class. I will typically post slides before each class period. 
 
-1. [Course Introduction](/slides/HPAM_7660_Introduction_Slides.pdf)
+1. [Course Introduction Slides](/slides/HPAM_7660_Introduction_Slides.pdf)
 

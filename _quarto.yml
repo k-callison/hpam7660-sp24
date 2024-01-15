@@ -37,7 +37,7 @@ website:
           contents:
             - text: "1: Week 1 Materials, Jan. 16 & Jan. 18"
               file: materials/01_intro.qmd
-            - text: "2: Data Visualization and Wrangling"
+            - text: "2: Week 2 Materials, "
               file: materials/02_r_data_viz.qmd
             - text: "3: Data Wrangling and Causality"
               file: materials/03_data_wrangling.qmd

@@ -1,0 +1,53 @@
+---
+title: "Troubleshooting for RStudio and GitHub"
+---
+
+## Missing Git tab in RStudio
+
+If you are missing your Git tab in RStudio, the most likely culprit is that you simply don't have the RStudio project for the repository open in RStudio. In the upper right-hand corner of RStudio, you can see the current project that is open. If you do not have a project open, you might see this:
+
+![](/img/no_project.png)
+
+To get to your project, simply click on that Project: (None) button to reveal a list of recent projects, from which you will usually see the one you are working on:
+
+![](/img/project_list.png)
+
+
+## Errors pushing to GitHub
+
+If you trying to push to GitHub and you get an error saying something like:
+
+> /usr/bin/git push origin HEAD:refs/heads/main To https://github.com/gov50-f23/gov-50-hw-2-mattblackwell.git ! [rejected] HEAD -> main (non-fast-forward) error: failed to push some refs to 'https://github.com/gov50-f23/gov-50-hw-2-mattblackwell.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+This can happen if you edit the repository manually on the GitHub website rather than in your local version. Sometimes you can fix this problem by simply hitting the "Pull" button in RStudio:
+
+![](/img/pull.png)
+
+If this solves your problem, great! If you get an error message when trying to pull, then you'll need to resolve the conflicts manually. First start a new session of RStudio by going to the Session menu and hitting "New Session":
+
+![](/img/new_session.png)
+
+This will open a new RStudio window. In this new window, we are going to create a new project from the same repository. When creating this new project, be sure to add `_new` to the end of the project directory name:
+
+![](/img/new_clone.png)
+
+Now you should have two RStudio sessions with two different projects: the original local one and a new one directly from GitHub:
+
+![](/img/both_projects.png)
+
+Assuming you want to overwrite whatever is on the GitHub website with what is on you local computer, copy the contents of your Rmd file from the old RStudio project to the same Rmd file in the new RStudio project. In the new RStudio project, knit the Rmd file, commit any changes, and then push to GitHub. Thew new RStudio project should be all synced now. 
+
+Once you are confident that the new project has all of the changes that you want, simply delete the old RStudio project from your computer. 
+
+
+## Files larger than 100 MB
+
+If you get a push error complaining about files greater than 100 MB, you will need to follow similar steps to the "pull error" steps in the last section. Once you have copied over the contents of your Rmd files, you can then add your data files. For files over 100 MB, you will add them to the the `.gitignore` file of your new repository. To do this, add the file to your new repository and it will show up in the Git tab. Right-click on the new file in the Git tab and hit the Ignore button:
+
+![](/img/gitignore.png)
+
+A dialog box will open and you can hit "Save" which will add or amend a `.gitignore` file in your repository. You should then stage and commit that `.gitignore` file and push. 
+
+![](/img/committing-gitignore.png)
+
+A good practice would be to now write an Rmd file or R script that will load the ignored big data file, subset it to certain rows and columns and then save the file as a csv file using [`write_csv()`](https://readr.tidyverse.org/reference/write_delim.html). Once you get that csv file to under 100 MB, you can commit that file and use it as the main data file in your main Rmd file. 

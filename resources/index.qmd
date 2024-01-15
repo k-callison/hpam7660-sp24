@@ -7,15 +7,13 @@ title: "HPAM 7660 Resources"
 ## Software Installation Guides
 
 - [Getting Software Set Up](/assignments/00-problem-set.qmd)
-- [R Tutorials Instructions](/assignments/tutorials.qmd) (for running locally in RStudio)
-- [Problem Sets and Exams Instructions](/assignments/problem-sets.qmd)
-- [R Cheatsheet](/resources/cheatsheet.qmd)
-- [Troubleshooting Guide](/assignments/troubleshooting.qmd)
+- [Troubleshooting Guide](/resources/troubleshooting.qmd)
 
 ## R Tutorials
 
 - [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
 - [R for Data Science](https://r4ds.had.co.nz/)
+- [R Programming Cheatsheet](/resources/cheatsheet.qmd)
 
 ## R Markdown
 

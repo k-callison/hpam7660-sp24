@@ -154,13 +154,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-basics-week-1" id="toc-r-basics-week-1" class="nav-link active" data-scroll-target="#r-basics-week-1">R Basics (Week 1)</a>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link active" data-scroll-target="#r-basics">R Basics</a>
   <ul class="collapse">
   <li><a href="#creating-a-vector" id="toc-creating-a-vector" class="nav-link" data-scroll-target="#creating-a-vector">Creating a vector</a></li>
   <li><a href="#installing-and-loading-a-package" id="toc-installing-and-loading-a-package" class="nav-link" data-scroll-target="#installing-and-loading-a-package">Installing and loading a package</a></li>
   <li><a href="#calling-functions-from-specific-packages" id="toc-calling-functions-from-specific-packages" class="nav-link" data-scroll-target="#calling-functions-from-specific-packages">Calling functions from specific packages</a></li>
   </ul></li>
-  <li><a href="#data-visualization-week-2" id="toc-data-visualization-week-2" class="nav-link" data-scroll-target="#data-visualization-week-2">Data Visualization (Week 2)</a>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a>
   <ul class="collapse">
   <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">Scatter plot</a></li>
   <li><a href="#smoothed-curves" id="toc-smoothed-curves" class="nav-link" data-scroll-target="#smoothed-curves">Smoothed curves</a></li>
@@ -172,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setting-the-aesthetics-for-all-observations" id="toc-setting-the-aesthetics-for-all-observations" class="nav-link" data-scroll-target="#setting-the-aesthetics-for-all-observations">Setting the aesthetics for all observations</a></li>
   <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
   </ul></li>
-  <li><a href="#data-wrangling-week-2-3" id="toc-data-wrangling-week-2-3" class="nav-link" data-scroll-target="#data-wrangling-week-2-3">Data Wrangling (week 2-3)</a>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a>
   <ul class="collapse">
   <li><a href="#subsetting-a-data-frame" id="toc-subsetting-a-data-frame" class="nav-link" data-scroll-target="#subsetting-a-data-frame">Subsetting a data frame</a></li>
   <li><a href="#filtering-to-the-largestsmallest-values-of-a-variable" id="toc-filtering-to-the-largestsmallest-values-of-a-variable" class="nav-link" data-scroll-target="#filtering-to-the-largestsmallest-values-of-a-variable">Filtering to the largest/smallest values of a variable</a></li>
@@ -224,23 +224,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading nycflights13 from CRAN ...        OK [4.3 Mb in 0.27s]
-Successfully downloaded 1 package in 1.2 seconds.
+- Downloading nycflights13 from CRAN ...        OK [4.3 Mb in 0.23s]
+Successfully downloaded 1 package in 1 second.
 
 The following package(s) will be installed:
 - nycflights13 [1.0.2]
 These packages will be installed into "~/work/hpam7660-sp24/hpam7660-sp24/renv/library/R-4.3/x86_64-pc-linux-gnu".
 
 # Installing packages --------------------------------------------------------
-- Installing nycflights13 ...                   OK [built from source and cached in 9.1s]
-Successfully installed 1 package in 9.2 seconds.</code></pre>
+- Installing nycflights13 ...                   OK [built from source and cached in 9.2s]
+Successfully installed 1 package in 9.3 seconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gapminder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading gapminder from CRAN ...           OK [2.1 Mb in 0.35s]
-Successfully downloaded 1 package in 0.6 seconds.
+- Downloading gapminder from CRAN ...           OK [2.1 Mb in 0.16s]
+Successfully downloaded 1 package in 0.4 seconds.
 
 The following package(s) will be installed:
 - gapminder [1.0.0]
@@ -252,8 +252,8 @@ Successfully installed 1 package in 2.2 seconds.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="r-basics-week-1" class="level2">
-<h2 class="anchored" data-anchor-id="r-basics-week-1">R Basics (Week 1)</h2>
+<section id="r-basics" class="level2">
+<h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
 <section id="creating-a-vector" class="level3">
 <h3 class="anchored" data-anchor-id="creating-a-vector">Creating a vector</h3>
 <p>You can create a vector using the <code>c</code> function:</p>
@@ -408,8 +408,8 @@ Successfully installed 1 package in 2.2 seconds.</code></pre>
 </div>
 </section>
 </section>
-<section id="data-visualization-week-2" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualization-week-2">Data Visualization (Week 2)</h2>
+<section id="data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
 <section id="scatter-plot" class="level3">
 <h3 class="anchored" data-anchor-id="scatter-plot">Scatter plot</h3>
 <p>You can produce a scatter plot with using the <code>x</code> and <code>y</code> aesthetics along with the <code>geom_point()</code> function.</p>
@@ -567,8 +567,8 @@ Successfully installed 1 package in 2.2 seconds.</code></pre>
 </div>
 </section>
 </section>
-<section id="data-wrangling-week-2-3" class="level2">
-<h2 class="anchored" data-anchor-id="data-wrangling-week-2-3">Data Wrangling (week 2-3)</h2>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
 <section id="subsetting-a-data-frame" class="level3">
 <h3 class="anchored" data-anchor-id="subsetting-a-data-frame">Subsetting a data frame</h3>
 <p>Use the <code>filter()</code> function from the <code>dplyr</code> package to subset a data frame. In this example, you’ll use the nycflights13 data and filter by United Airlines flights.</p>

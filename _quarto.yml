@@ -17,10 +17,6 @@ website:
         file: about.qmd
       - syllabus.qmd
       - schedule.qmd
-      - text: "Slides"
-        file: materials/index.qmd
-      - text: "Assignments"
-        file: assignments/index.qmd
       - text: "Resources"
         file: resources/index.qmd
 

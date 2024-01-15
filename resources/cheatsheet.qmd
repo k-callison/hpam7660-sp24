@@ -186,8 +186,7 @@ Use the `filter()` function from the `dplyr` package to subset a data frame. In 
 ```{r}
 library(nycflights13)
 
-news |>
-  filter(carrier == "UA")
+flights |> filter(carrier == "UA")
 ```
 
 
@@ -195,32 +194,30 @@ You can filter based on multiple conditions to subset to the rows that meet all 
 
 
 ```{r}
-news |>
-  filter(weekday == "Tue",
-         affiliation == "FOX")
+flights |> filter(carrier == "UA", origin == "JFK")
+
 ```
 
 
 You can use the `|` operator to match one of two conditions ("OR" rather than "AND"):
 
 ```{r}
-news |>
-  filter(affiliation == "FOX" | affiliation == "ABC")
+  flights |> filter(carrier == "UA" | carrier == "AA")
+
 ```
 
 To test if a variable is one of several possible values, you can also use the `%in%` command:
 
 ```{r}
-news |>
-  filter(weekday %in% c("Mon", "Fri"))
+flights |> filter(carrier %in% c("UA", "AA"))
+
 ```
 
 If you want to subset to a set of specific row numbers, you can use the `slice` function:
 
 ```{r}
 ## subset to the first 5 rows
-news |>
-  slice(1:5)
+flights |> slice(1:5)
 ```
 
 
@@ -235,15 +232,13 @@ Here the `1:5` syntax tells R to produce a vector that starts at 1 and ends at 5
 To subset to the rows that have the largest or smallest values of a given variable, use the `slice_max` and `slice_max` functions. For the largest  values, use `slice_max` and use the `n` argument to specify how many rows you want:
 
 ```{r}
-news |>
-  slice_max(ideology, n = 5)
+flights |> slice_max(dep_time, n = 5)
 ```
 
 To get lowest values, use `slice_min`:
 
 ```{r}
-news |>
-  slice_min(ideology, n = 5)
+flights |> slice_min(dep_time, n = 5)
 ```
 
 
@@ -252,15 +247,13 @@ news |>
 You can sort the rows of a data set using the `arrange()` function. By default, this will sort the rows from smallest to largest. 
 
 ```{r}
-news |>
-  arrange(ideology)
+flights |> arrange(dep_time)
 ```
 
 If you would like to sort the rows from largest to smallest (descending order), you can wrap the variable name with `desc()`:
 
 ```{r}
-news |>
-  arrange(desc(ideology))
+flights |> arrange(desc(dep_time))
 ```
 
 
@@ -270,34 +263,29 @@ You can subset the data to only certain columns using the `select()` command:
 
 ```{r}
 #| label: "select"
-news |>
-  select(callsign, date, ideology)
+flights |> select(dep_time, arr_time, dest)
 ```
 
 If you want to select a range of columns from, say, `callsign` to `ideology`, you can use the `:` operator:
 
 ```{r}
 #| label: "select-range"
-news |>
-  select(callsign:ideology)
+flights |> select(dep_time:arr_delay)
 ```
 
 You can remove a variable from the data set by using the minus sign `-` in front of it:
 
 ```{r}
 #| label: "select-minus"
-news |>
-  select(-callsign)
+flights |> select(-year)
 ```
 
 You can also drop several variables using the `c()` function or the `(a:b)` syntax:
 
 ```{r}
-news |>
-  select(-c(callsign, date, ideology))
+flights |> select(-c(year, month, day))
 
-news |>
-  select(-(callsign:ideology))
+flights |> select(-(year:day))
 ```
 
 
@@ -306,12 +294,11 @@ You can also select columns based on matching patterns in the names with functio
 ```{r}
 #| label: "ends_with"
 
-news |>
-  select(ends_with("politics"))
+flights |> select(ends_with("delay"))
 ```
 
 
-This code finds all variables with column names that end with the string "politics". See the [help page for `select()`](https://dplyr.tidyverse.org/reference/select.html) for more information on different ways to select. 
+This code finds all variables with column names that end with the string "delay". See the [help page for `select()`](https://dplyr.tidyverse.org/reference/select.html) for more information on different ways to select. 
 
 
 ### Renaming a variable 
@@ -319,8 +306,7 @@ This code finds all variables with column names that end with the string "politi
 You can rename a variable useing the function `rename(new_name = old_name)`:
 
 ```{r}
-news |>
-  rename(call_sign = callsign)
+flights |> rename(flight_number = flight)
 ```
 
 
@@ -330,10 +316,7 @@ You can create new variables that are functions of old variables using the `muta
 
 
 ```{r}
-news |> mutate(
-  national_local_diff = national_politics - local_politics) |>
-  select(callsign, date, national_politics, local_politics,
-         national_local_diff)
+flights |> mutate(flight_length = arr_time - dep_time) |> select(arr_time, dep_time, flight_length)
 ```
 
 
@@ -342,11 +325,11 @@ news |> mutate(
 If you want to create a new variable that can take on two values based on a logical conditional, you should use the `if_else()` function inside of `mutate()`. For instance, if we want to create a more nicely labeled version of the `sinclair2017` variable (which is 0/1), we could do:
 
 ```{r}
-news |>
-  mutate(Ownership = if_else(sinclair2017 == 1,
-                             "Acquired by Sinclair",
-                             "Not Acquired")) |>
-  select(callsign, affiliation, date, sinclair2017, Ownership)
+flights |>
+  mutate(late = if_else(arr_delay > 0,
+                             "Flight Delayed",
+                             "Flight On Time")) |>
+  select(arr_delay, late)
 ```
 
 
@@ -356,11 +339,11 @@ You can calculate summaries of variables in the data set using the `summarize()`
 
 
 ```{r}
-news |>
+flights |>
   summarize(
-    avg_ideology = mean(ideology),
-    sd_ideology = sd(ideology),
-    median_ideology = median(ideology)
+    avg_dep_time = mean(dep_time),
+    sd_dep_time = sd(dep_time),
+    median_dep_time = median(dep_time)
   )
 ```
 
@@ -372,16 +355,16 @@ By default, `summarize()` calculates the summaries of variables for all rows in 
 
 
 ```{r}
-news |>
-  group_by(month) |>
+flights |>
+  group_by(carrier) |>
   summarize(
-    avg_ideology = mean(ideology),
-    sd_ideology = sd(ideology),
-    median_ideology = median(ideology)
+    avg_dep_time = mean(dep_time),
+    sd_dep_time = sd(dep_time),
+    median_dep_time = median(dep_time)
   )
 ```
 
-Here, the `summarize()` function breaks apart the original data into smaller data frames for each month and applies the summary functions to those, then combines everything into one tibble. 
+Here, the `summarize()` function breaks apart the original data into smaller data frames for each carrier and applies the summary functions to those, then combines everything into one tibble. 
 
 
 ### Summarizing by multiple variables
@@ -389,21 +372,21 @@ Here, the `summarize()` function breaks apart the original data into smaller dat
 You can group by multiple variables and `summarize()` will create groups based on every combination of each variable: 
 
 ```{r}
-news |>
-  group_by(sinclair2017, post) |>
+flights |>
+  group_by(carrier, month) |>
   summarize(
-    avg_ideology = mean(ideology)
+    avg_dep_time = mean(dep_time)
   )
 ```
 
-You'll notice the message that `summarize()` sends after using to let us know that resulting tibble is grouped by `sinclair2017`. By default, `summarize()` drops the last group you provided in `group_by` (`post` in this case).  This isn't an error message, it's just letting us know some helpful information. If you want to avoid this messaging displaying, you need to specify what grouping you want after using the `.groups` argument:
+You'll notice the message that `summarize()` sends after using to let us know that resulting tibble is grouped by `carrier`. By default, `summarize()` drops the last group you provided in `group_by` (`month` in this case).  This isn't an error message, it's just letting us know some helpful information. If you want to avoid this messaging displaying, you need to specify what grouping you want after using the `.groups` argument:
 
 
 ```{r}
-news |>
-  group_by(sinclair2017, post) |>
+flights |>
+  group_by(carrier, month) |>
   summarize(
-    avg_ideology = mean(ideology),
+    avg_dep_time = mean(dep_time),
     .groups = "drop_last"
   )
 ```
@@ -415,20 +398,20 @@ news |>
 If you want to apply the same summary to multiple variables, you can use the `across(vars, fun)` function, where `vars` is a vector of variable names (specified like with `select()`) and `fun` is a summary function to apply to those variables.
 
 ```{r}
-news |>
-  group_by(sinclair2017, post) |>
+flights |>
+  group_by(carrier, month) |>
   summarize(
-    across(c(ideology, national_politics), mean)
+    across(c(dep_time, dep_delay), mean)
   )
 ```
 
 As with `select()`, you can use the `:` operator to select a range of variables 
 
 ```{r}
-news |>
-  group_by(sinclair2017, post) |>
+flights |>
+  group_by(carrier, month) |>
   summarize(
-    across(ideology:local_politics, mean)
+    across(dep_time:arr_delay, mean)
   )
 ```
 
@@ -439,8 +422,8 @@ There are two way to produce a table of counts of each category of a variable. T
 
 
 ```{r}
-news |>
-  group_by(affiliation) |>
+flights |>
+  group_by(carrier) |>
   summarize(n = n())
 ```
 
@@ -448,8 +431,7 @@ A simpler way to acheive the same outcome is to use the `count()` function, whic
 
 
 ```{r}
-news |>
-  count(affiliation)
+flights |> count(carrier)
 ```
 
 
@@ -460,11 +442,11 @@ news |>
 You can take any tibble in R and convert it into a more readable output by passing it to `knitr::kable()`. In our homework, generally, we will save the tibble as an object and then pass it to this function. 
 
 ```{r}
-month_summary <- news |>
+month_summary <- flights |>
   group_by(month) |>
   summarize(
-    avg_ideology = mean(ideology),
-    sd_ideology = sd(ideology)
+    avg_arr_delay = mean(arr_delay),
+    sd_arr_delay = sd(arr_delay)
   )
 
 knitr::kable(month_summary)
@@ -476,17 +458,17 @@ You can add informative column names to the table using the `col.names` argument
 ```{r}
 knitr::kable(
   month_summary,
-  col.names = c("Month", "Average Ideology", "SD of Ideology")
+  col.names = c("Month", "Average Delay", "SD of Delay")
 )
 ```
 
-Finally, we can round the numbers in the table to be a bit nicer using the `digits` argument. This will tell `kable()` how many significant digiits to show. 
+Finally, we can round the numbers in the table to be a bit nicer using the `digits` argument. This will tell `kable()` how many significant digits to show. 
 
 
 ```{r}
 knitr::kable(
   month_summary,
-  col.names = c("Month", "Average Ideology", "SD of Ideology"),
+  col.names = c("Month", "Average Delay", "SD of Delay"),
   digits = 3
 )
 ```
@@ -498,24 +480,25 @@ You can visualize counts of a variable using a barplot:
 
 
 ```{r}
-news |>
-  ggplot(mapping = aes(x = affiliation)) +
+flights |>
+  ggplot(mapping = aes(x = carrier)) +
   geom_bar()
 ```
 
 
 ### Barplots of other summaries 
 
-We can use barplots to visualize  other grouped summaries like means, but we need to use the `geom_col()` geom instead and specify the variable you want to be the height of the bars .
+We can use barplots to visualize other grouped summaries like means, but we need to use the `geom_col()` geom instead and specify the variable you want to be the height of the bars. We also want to filter our data so that only values of `arr_delay` that are greater than zero are considered. 
 
 
 ```{r}
-news |>
-  group_by(affiliation) |>
+flights |>
+  filter(arr_delay > 0) |>
+  group_by(carrier) |>
   summarize(
-    avg_ideology = mean(ideology)
+    avg_delay = mean(arr_delay)
   ) |>
-  ggplot(mapping = aes(x = affiliation, y = avg_ideology)) +
+  ggplot(mapping = aes(x = carrier, y = avg_delay)) +
   geom_col()
 ```
 
@@ -525,13 +508,14 @@ news |>
 Often we want to sort the barplot axes to be in the order of the variable of interest so we can quickly compare them. We can use the `fct_reorder(group_var, ordering_var)` function to do this where the `group_var` is the grouping variable that is going on the axes and the `ordering_var` is the variable that we will sort the groups on. 
 
 ```{r}
-news |>
-  group_by(affiliation) |>
+flights |>
+  filter(arr_delay > 0) |>
+  group_by(carrier) |>
   summarize(
-    avg_ideology = mean(ideology)
+    avg_delay = mean(arr_delay)
   ) |>
-  ggplot(mapping = aes(x = fct_reorder(affiliation, avg_ideology),
-                       y = avg_ideology)) +
+  ggplot(mapping = aes(x = fct_reorder(carrier, avg_delay),
+                       y = avg_delay)) +
   geom_col()
 
 ```
@@ -542,15 +526,16 @@ news |>
 You can color the barplots by a another variable using the `fill` aesthetic:
 
 ```{r}
-news |>
-  group_by(callsign, affiliation) |>
+flights |>
+  filter(arr_delay > 0) |>
+  group_by(carrier) |>
   summarize(
-    avg_ideology = mean(ideology)
+    avg_delay = mean(arr_delay)
   ) |>
-  slice_max(avg_ideology, n = 10) |>
-  ggplot(mapping = aes(y = fct_reorder(callsign, avg_ideology),
-                       x = avg_ideology)) +
-  geom_col(mapping = aes(fill = affiliation))
+  slice_max(avg_delay, n = 10) |>
+  ggplot(mapping = aes(y = fct_reorder(carrier, avg_delay),
+                       x = avg_delay)) +
+  geom_col(mapping = aes(fill = carrier))
 ```
 
 
@@ -559,10 +544,10 @@ news |>
 You can create logical variables in your tibbles using mutate:
 
 ```{r}
-news |>
+flights |>
   mutate(
-    right_leaning = ideology > 0,
-    fall = month == "Sep" | month == "Oct" | month == "Nov",
+    late = arr_delay > 0,
+    fall = month == 9  | month == 10| month == 11,
     .keep = "used"
 )
 ```
@@ -570,51 +555,51 @@ news |>
 
 The `.keep = "used"` argument here tells mutate to only return the variables created and any variables used to create them. We're using it here for display purposes. 
 
-You can filter based on these logical variables. In particular, if we want to subset to rows where both `right_leaning` and `fall` were `TRUE` we could do the following filter:
+You can filter based on these logical variables. In particular, if we want to subset to rows where both `late` and `fall` were `TRUE` we could do the following filter:
 
 ```{r}
-news |>
+flights |>
   mutate(
-    right_leaning = ideology > 0,
-    fall = month == "Sep" | month == "Oct" | month == "Nov",
+    late = arr_delay > 0,
+    fall = month == 9  | month == 10| month == 11,
     .keep = "used"
   ) |>
-  filter(right_leaning & fall)
+  filter(late & fall)
 ```
 
 ### Using `!` to negate logicals
 
-Any time you place the exclamation point in front of a logical, it will turn any `TRUE` into a `FALSE` and vice versa. For instance, if we wanted left leaning days in the fall, we could used
+Any time you place the exclamation point in front of a logical, it will turn any `TRUE` into a `FALSE` and vice versa. For instance, if we wanted on-time flights in the fall, we could used
 
 
 ```{r}
-news |>
+flights |>
   mutate(
-    right_leaning = ideology > 0,
-    fall = month == "Sep" | month == "Oct" | month == "Nov",
+    late = arr_delay > 0,
+    fall = month == 9  | month == 10| month == 11,
     .keep = "used"
   ) |>
-  filter(!right_leaning & fall)
+  filter(!late & fall)
 ```
 
-Or if we wanted to subset to any combination **except** right leaning and fall, we could negate the AND statement using parentheses:
+Or if we wanted to subset to any combination **except** late flights and fall, we could negate the AND statement using parentheses:
 
 
 ```{r}
-news |>
+flights |>
   mutate(
-    right_leaning = ideology > 0,
-    fall = month == "Sep" | month == "Oct" | month == "Nov",
+    late = arr_delay > 0,
+    fall = month == 9  | month == 10| month == 11,
     .keep = "used"
   ) |>
-  filter(!(right_leaning & fall))
+  filter(!(late & fall))
 ```
 
 This is often used in combination with `%in%` to acheive a "not in" logical:
 
 ```{r}
-news |>
-  filter(!(affiliation %in% c("FOX", "ABC")))
+flights |>
+  filter(!(carrier %in% c("AA", "UA")))
 ```
 
 
@@ -624,39 +609,13 @@ Once you group a tibble, you can summarize logicals within groups using two comm
 
 
 ```{r}
-news |>
-  group_by(callsign) |>
+flights |>
+  group_by(carrier) |>
   summarize(
-    any_liberal = any(ideology < 0),
-    all_local = all(national_politics < local_politics)
+    any_late = any(arr_delay > 0),
+    never_late = all(arr_delay <=0)
   )
 ```
 
-
-### Converting logicals
-
-
-When passed to `sum()` or `mean()`, `TRUE` is converted to 1 and `FALSE` is converted to 0. This means that `sum()` will return the number of `TRUE` values in a vector and `mean()` will return the proportion of `TRUE` values. 
-
-
-```{r}
-sum(c(TRUE, FALSE, TRUE, FALSE))
-
-mean(c(TRUE, FALSE, TRUE, FALSE))
-```
-
-### Grouped logical summaries with sums and means
-
-After grouping, you can summarize using either the `sum()` or `mean()` function on a logical. In this case, the `sum()` will give you the number of time the statement is `TRUE` within a group, and `mean()` will give you the proportion of rows that are `TRUE` within a group. 
-
-
-```{r}
-news |>
-  group_by(callsign) |>
-  summarize(
-    prop_liberal = mean(ideology < 0),
-    num_local_bigger = sum(national_politics < local_politics)
-  )
-```
 
 

@@ -25,35 +25,35 @@
     "href": "resources/index.html",
     "title": "Resources",
     "section": "",
-    "text": "Getting Software Set Up\nR Tutorials Instructions (for running locally in RStudio)\nProblem Sets and Exams Instructions\nGov 50 R Cheatsheet\nGov 50 Troubleshooting Guide"
+    "text": "Getting Software Set Up\nR Tutorials Instructions (for running locally in RStudio)\nProblem Sets and Exams Instructions\nR Cheatsheet\nTroubleshooting Guide\n\n\n\n\n\nHands On Programming with R\nR for Data Science\n\n\n\n\n\nR Markdown Tutorial\nR Markdown: The Definitive Guide\n\n\n\n\n\nHappy Git with R"
   },
   {
-    "objectID": "resources/index.html#gov-50-resources",
-    "href": "resources/index.html#gov-50-resources",
+    "objectID": "resources/index.html#software-installation-guides",
+    "href": "resources/index.html#software-installation-guides",
     "title": "Resources",
     "section": "",
-    "text": "Getting Software Set Up\nR Tutorials Instructions (for running locally in RStudio)\nProblem Sets and Exams Instructions\nGov 50 R Cheatsheet\nGov 50 Troubleshooting Guide"
+    "text": "Getting Software Set Up\nR Tutorials Instructions (for running locally in RStudio)\nProblem Sets and Exams Instructions\nR Cheatsheet\nTroubleshooting Guide"
   },
   {
     "objectID": "resources/index.html#r-tutorials",
     "href": "resources/index.html#r-tutorials",
     "title": "Resources",
-    "section": "R Tutorials",
-    "text": "R Tutorials\n\nHands On Programming with R\nR for Data Science"
+    "section": "",
+    "text": "Hands On Programming with R\nR for Data Science"
   },
   {
     "objectID": "resources/index.html#r-markdown",
     "href": "resources/index.html#r-markdown",
     "title": "Resources",
-    "section": "R Markdown",
-    "text": "R Markdown\n\nR Markdown Tutorial\nR Markdown: The Definitive Guide"
+    "section": "",
+    "text": "R Markdown Tutorial\nR Markdown: The Definitive Guide"
   },
   {
     "objectID": "resources/index.html#git-and-github-resources",
     "href": "resources/index.html#git-and-github-resources",
     "title": "Resources",
-    "section": "Git and GitHub Resources",
-    "text": "Git and GitHub Resources\n\nHappy Git with R"
+    "section": "",
+    "text": "Happy Git with R"
   },
   {
     "objectID": "materials/02_overview.html",

@@ -11,7 +11,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The detailed course schedule for the semester is below. Please note that dates and topics are subject to change and will depend on the pace of the course. Please stay apprised of any changes announced in class. You can find the materials for each course meeting under the “Content” links for that week. You should generally:\n\nwatch the lecture videos (if any) and complete the readings before the assigned class period\nsubmit any reading discussion questions, problem sets, or other assignments by 1pm on the assigned due date\n\nHere’s a guide to the schedule:\n\nMaterials (): This page contains the readings, slides, and videos (if any) for the topic. Do the readings and watch the videos before coming to class on the indicated date. Slides will typically be posted before each class.\nTutorial (): A link to the tutorial for that week (if any).\nAssignment (): This page contains the instructions for each assignment. Assignments are due by 1:00 PM on the day they’re listed.\n\n\n\n\n\n\nDate\n\n\nTopic\n\n\nMaterials\n\n\nTutorial\n\n\nAssignment\n\n\n\n\n\n\nWeek 1\n\n\n\n\nJanuary 16\n\n\nCourse Introduction (Zoom Pass=941414)\n\n\n\n\n\n\n\n\n\n\n\n\n\nJanuary 18\n\n\nU.S. Healt Policy Landscape (Zoom Pass=941414)\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nJanuary 23\n\n\nPolicy Analysis Overview (Zoom Pass=941414)\n\n\n\n\n\n\n\n\n\n\n\n\n\nJanuary 25\n\n\nPolicy Analysis Overview (Zoom Pass=941414)"
+    "text": "The detailed course schedule for the semester is below. Please note that dates and topics are subject to change and will depend on the pace of the course. Please stay apprised of any changes announced in class. You can find the materials for each course meeting under the “materials” links for that week in the schedule below. You should generally:\n\nwatch the lecture videos (if any) and complete the readings before the assigned class period\nsubmit any reading discussion questions, problem sets, or other assignments by 1pm on the assigned due date\n\nHere’s a guide to the schedule:\n\nMaterials (): This page contains the readings, slides, and videos (if any) for the topic. Do the readings and watch the videos before coming to class on the indicated date. Slides will typically be posted before each class.\nTutorial (): A link to the tutorial for that week (if any).\nAssignment (): This page contains the instructions for each assignment. Assignments are due by 1:00 PM on the day they’re listed.\n\n\n\n\n\n\nDate\n\n\nTopic\n\n\nMaterials\n\n\nTutorial\n\n\nAssignment\n\n\n\n\n\n\nWeek 1\n\n\n\n\nJanuary 16\n\n\nCourse Introduction (Zoom Pass=941414)\n\n\n\n\n\n\n\n\n\n\n\n\n\nJanuary 18\n\n\nU.S. Healt Policy Landscape (Zoom Pass=941414)\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nJanuary 23\n\n\nPolicy Analysis Overview (Zoom Pass=941414)\n\n\n\n\n\n\n\n\n\n\n\n\n\nJanuary 25\n\n\nPolicy Analysis Overview (Zoom Pass=941414)"
   },
   {
     "objectID": "resources/study-halls.html",
@@ -32,7 +32,7 @@
     "href": "resources/cheatsheet.html",
     "title": "R Programming Cheat Sheet",
     "section": "",
-    "text": "You will need to load the following libraries in RStudio before attempting some of the techniques in this tutorial.\nlibrary(tidyverse)\ninstall.packages(\"nycflights13\")\n\n# Downloading packages -------------------------------------------------------\n- Downloading nycflights13 from CRAN ...        OK [4.3 Mb in 0.14s]\nSuccessfully downloaded 1 package in 0.93 seconds.\n\nThe following package(s) will be installed:\n- nycflights13 [1.0.2]\nThese packages will be installed into \"~/work/hpam7660-sp24/hpam7660-sp24/renv/library/R-4.3/x86_64-pc-linux-gnu\".\n\n# Installing packages --------------------------------------------------------\n- Installing nycflights13 ...                   OK [built from source and cached in 9.1s]\nSuccessfully installed 1 package in 9.1 seconds.\n\nlibrary(nycflights13)\ninstall.packages(\"gapminder\")\n\n# Downloading packages -------------------------------------------------------\n- Downloading gapminder from CRAN ...           OK [2.1 Mb in 0.12s]\nSuccessfully downloaded 1 package in 0.35 seconds.\n\nThe following package(s) will be installed:\n- gapminder [1.0.0]\nThese packages will be installed into \"~/work/hpam7660-sp24/hpam7660-sp24/renv/library/R-4.3/x86_64-pc-linux-gnu\".\n\n# Installing packages --------------------------------------------------------\n- Installing gapminder ...                      OK [built from source and cached in 2.0s]\nSuccessfully installed 1 package in 2.1 seconds.\n\nlibrary(gapminder)"
+    "text": "You will need to load the following libraries in RStudio before attempting some of the techniques in this tutorial.\nlibrary(tidyverse)\ninstall.packages(\"nycflights13\")\n\n# Downloading packages -------------------------------------------------------\n- Downloading nycflights13 from CRAN ...        OK [4.3 Mb in 0.11s]\nSuccessfully downloaded 1 package in 0.91 seconds.\n\nThe following package(s) will be installed:\n- nycflights13 [1.0.2]\nThese packages will be installed into \"~/work/hpam7660-sp24/hpam7660-sp24/renv/library/R-4.3/x86_64-pc-linux-gnu\".\n\n# Installing packages --------------------------------------------------------\n- Installing nycflights13 ...                   OK [built from source and cached in 9.2s]\nSuccessfully installed 1 package in 9.2 seconds.\n\nlibrary(nycflights13)\ninstall.packages(\"gapminder\")\n\n# Downloading packages -------------------------------------------------------\n- Downloading gapminder from CRAN ...           OK [2.1 Mb]\nSuccessfully downloaded 1 package in 0.33 seconds.\n\nThe following package(s) will be installed:\n- gapminder [1.0.0]\nThese packages will be installed into \"~/work/hpam7660-sp24/hpam7660-sp24/renv/library/R-4.3/x86_64-pc-linux-gnu\".\n\n# Installing packages --------------------------------------------------------\n- Installing gapminder ...                      OK [built from source and cached in 2.1s]\nSuccessfully installed 1 package in 2.2 seconds.\n\nlibrary(gapminder)"
   },
   {
     "objectID": "resources/cheatsheet.html#r-basics",
@@ -60,21 +60,21 @@
     "href": "materials/02_overview.html",
     "title": "HPAM 7660 - Week 2 Materials",
     "section": "",
-    "text": "Reading Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking\nAssignment - Reading Discussion Questions"
+    "text": "Reading - Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking\nAssignment - Reading Discussion Questions"
   },
   {
     "objectID": "materials/02_overview.html#tuesday-january-23",
     "href": "materials/02_overview.html#tuesday-january-23",
     "title": "HPAM 7660 - Week 2 Materials",
     "section": "",
-    "text": "Reading Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking\nAssignment - Reading Discussion Questions"
+    "text": "Reading - Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking\nAssignment - Reading Discussion Questions"
   },
   {
     "objectID": "materials/02_overview.html#thursday-january-25",
     "href": "materials/02_overview.html#thursday-january-25",
     "title": "HPAM 7660 - Week 2 Materials",
     "section": "Thursday, January 25",
-    "text": "Thursday, January 25"
+    "text": "Thursday, January 25\n\nNone"
   },
   {
     "objectID": "index.html",
@@ -123,14 +123,14 @@
     "href": "materials/01_intro.html",
     "title": "HPAM 7660 - Week 1 Materials",
     "section": "",
-    "text": "Slides"
+    "text": "Slides - Course Introduction"
   },
   {
     "objectID": "materials/01_intro.html#tuesday-january-16",
     "href": "materials/01_intro.html#tuesday-january-16",
     "title": "HPAM 7660 - Week 1 Materials",
     "section": "",
-    "text": "Slides"
+    "text": "Slides - Course Introduction"
   },
   {
     "objectID": "materials/01_intro.html#thursday-january-18",

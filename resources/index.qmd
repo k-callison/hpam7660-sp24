@@ -2,14 +2,17 @@
 title: "Resources"
 ---
 
+# HPAM 7660 Resources
 
-## Gov 50 Resources
+## Internship/Fellowship Opportunites
+
+## Software Installation Guides
 
 - [Getting Software Set Up](/assignments/00-problem-set.qmd)
 - [R Tutorials Instructions](/assignments/tutorials.qmd) (for running locally in RStudio)
 - [Problem Sets and Exams Instructions](/assignments/problem-sets.qmd)
-- [Gov 50 R Cheatsheet](/resources/cheatsheet.qmd)
-- [Gov 50 Troubleshooting Guide](/assignments/troubleshooting.qmd)
+- [R Cheatsheet](/resources/cheatsheet.qmd)
+- [Troubleshooting Guide](/assignments/troubleshooting.qmd)
 
 ## R Tutorials
 

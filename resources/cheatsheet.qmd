@@ -8,7 +8,9 @@ You will need to load the following libraries in RStudio before attempting some 
 #| label: packages
 #| message: false
 library(tidyverse)
+install.packages("nycflights13")
 library(nycflights13)
+install.packages("gapminder")
 library(gapminder)
 ```
 

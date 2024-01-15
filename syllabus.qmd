@@ -61,11 +61,11 @@ The following components and weights will be used to calculate your final grade:
 
 | Category      | Percent of Final Grade |
 |:-------------------|:-------------------|
-| Class participation   | 10%                    |
-| Reading Discussion Questions & Problem Sets  | 40%                    |
-| Policy Memo         | 30%                    |
+| Policy Memo   | 30%                    |
 | Case Presentation | 20%                    |
-| Peer Assessment | 25% |
+| Reading Discussion Questions & Problem Sets       | 20%                    |
+| Class Participation | 20%                    |
+| Peer Assessment | 10% |
 
 
 *Policy Memo* - throughout the semester, you will construct a policy memo to be submitted on the final day of class. The memo should advocate for a policy position of your choice and can be targeted to local leaders (e.g., mayor, city council, etc.), or state or federal legislators. The target audience will depend on the scope of your policy. The final draft of the policy memo should be approximately 8-10 pages, excluding references.
@@ -94,7 +94,7 @@ Policy Memo Due Dates:
 
 *Case Presentation* - The case presentation will take place on May 2nd. The case presentation will coincide with a series of panel discussion during our “virtual D.C. experience”. I’ll provide more detail on the schedule and content of these panels on the course website along with a rubric for the case presentations.
 
-*Reading Discussion Questions & Problem Sets* – Reading discussion questions will be due by class time each Tuesday afternoon and should be submitted through Canvas. I will post the reading discussion questions to Canvas at least a week in advance of the due date.  
+*Reading Discussion Questions & Problem Sets* – Reading discussion questions and problem sets will be due by class time one their assigned date. These will typically be submitted through GitHub, though some of the submissions early in the semester will use Canvas.
 
 *Peer Assessment* - The peer assessment component of your grade will consist of anonymous grading of your team contribution by the other members of your team (more specific details to follow).
 

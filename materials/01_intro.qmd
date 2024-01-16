@@ -6,7 +6,7 @@ sidebar: false
 
 ## Tuesday, January 16
 
-- Slides - [Course Introduction](/slides/01_intro.pdf)
+- Slides - [Course Introduction](/slides/HPAM_7660_Introduction_Slides.pdf)
 
 ## Thursday, January 18
 

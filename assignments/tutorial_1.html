@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="installing-r-and-rstudio">Installing R and RStudio</h2>
 <p>In this tutorial, we’re going to get R, RStudio, and R Markdown set up on your computer. To get started, follow these steps:</p>
 <ol type="1">
-<li>Download and install the most recent version of <a href="https://cloud.r-project.org/">R</a>. There are versions available for the Windows, Mac, and Linux operating systems. On a Windows machine, you will want to install using the <code>R-x.y.z-win.exe</code> file where <code>x.y.z</code> is a version number. On a Mac, you will want to install using the <code>R-x.y.z.pkg</code> file that is notarized and signed.</li>
+<li>Download and install the most recent version of <a href="https://cloud.r-project.org/">R</a>. There are versions available for the Windows, Mac, and Linux operating systems. On a Windows computer, you will want to install using the <code>R-x.y.z-win.exe</code> file where <code>x.y.z</code> is a version number. On a Mac, you will want to install using the <code>R-x.y.z.pkg</code> file that is notarized and signed.</li>
 <li>With R installed, download and install <a href="https://posit.co/downloads/">RStudio</a>. RStudio is a type of “integrated development environment” or IDE designed for R. It makes working with R considerably easier and is available for most platforms. It is also free.</li>
 <li>Install the packages we will use throughout the semester. To do this, either type or copy and paste each of the following lines of code into the “Console” in RStudio (lower left panel by default). Make sure you do this separately for each line. If you are asked if you want to install any packages from source, type “no”. Note that the symbols next to <code>my_package</code> are a less than sign <code>&lt;</code> followed by a minus sign <code>-</code> with no space between them. (Don’t be worried if you see some red text here. Those are usually just messages telling you information about the packages you are installing. Unless you see the word <code>Error</code> you should be fine.)</li>
 </ol>
@@ -190,8 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"usethis"</span>, <span class="st">"devtools"</span>, <span class="st">"learnr"</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"tinytex"</span>, <span class="st">"gitcreds"</span>, <span class="st">"gapminder"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(my_packages, <span class="at">repos =</span> <span class="st">"http://cran.rstudio.com"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"kosukeimai/qss-package"</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"mattblackwell/gov50data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"kosukeimai/qss-package"</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>For some things in the course, we’ll need produce PDFs from R and that requires something called LaTeX. If you’ve never heard of that, it’s completely fine and you should just run the following two lines of R code:</li>
@@ -207,32 +206,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>my_code.R
 my_code_v1.R
 my_code_v2_FINAL.R</code></pre>
-<p>There’s a lot to git and it will be harder to use in the beginning, but in the long term there are huge benefits of it. First, when you use git, you are much less likely to encounter a devastating data failure. All of your (committed) changes to your project are preserved, even when you make new changes or you revert old changes.</p>
-<p>Git is also a very useful way for people to collaborate. There is a huge community built up around it. And once your projects are publicly available on Github (a website for hosting git repositories), there are a host of ways that folks can collaborate with you.</p>
+<p>There’s a lot to git and it will be hard to use in the beginning if you’re not familiar, but in the long term there are large benefits. First, when you use git, you are much less likely to encounter a devastating data failure. All of your (committed) changes to your project are preserved, even when you make new changes or you revert old changes.</p>
+<p>Git is also a very useful way for people to collaborate. There is a large community built up around it and, once your projects are publicly available on Github (a website for hosting git repositories), there are a host of ways that people can collaborate with you.</p>
 <section id="install-git" class="level3">
 <h3 class="anchored" data-anchor-id="install-git">Install git</h3>
-<p>You might already have git installed on your computer, especially if you have a Mac. To check, in RStudio, click on the Terminal tab in the bottom-left panel (next to the Console tab). Type <code>git --version</code> at the command prompt. If you get a response with a version number, great you are all set. If you get any kind of error message, you learn how to install git on your machine <a href="https://happygitwithr.com/install-git.html">here</a>.</p>
+<p>You might already have git installed on your computer, especially if you have a Mac. To check, in RStudio, click on the Terminal tab in the bottom-left panel (next to the Console tab). Type <code>git --version</code> at the command prompt. If you get a response with a version number, great you are all set. If you get any kind of error message, then you’ll need to install git.</p>
+<p>##Git install for Windows Download Git <a href="https://gitforwindows.org/">here</a>. Note that if you are asked about “Adjusting your PATH environment”, you should select “Git from the command line and also from 3rd-party software.” Also note that RStudio will want Git installed in the <code>"C:/Program Files"</code> path.</p>
 </section>
 <section id="setup-a-github-account" class="level3">
 <h3 class="anchored" data-anchor-id="setup-a-github-account">Setup a GitHub account</h3>
 <p>Next, you can setup a <a href="https://github.com/join">GitHub</a> account. You can think of GitHub as similar to Dropbox or Google Drive for your git projects (“repositories”) where everything is public by default. Since you might use this account to interact with potential employers in the future, you should probably pick a professional username.</p>
-<p>Once you have a GitHub account, you can configure your local git program to interact with your account gracefully. Run the following two lines of code in the Terminal replacing <code>"John Harvard"</code> with your name and <code>"john@harvard.edu"</code> with your email address used to sign up for GitHub.</p>
-<pre><code>git config --global user.name "John Harvard"
-git config --global user.email "john@harvard.edu"</code></pre>
+<p>Once you have a GitHub account, you can configure your local git program to interact with your GitHub account. Run the following two lines of code in the Terminal replacing <code>"Bruce Springsteen"</code> with your name and <code>"bruce@tulane.edu"</code> with your email address used to sign up for GitHub.</p>
+<pre><code>git config --global user.name "Bruce Springsteen"
+git config --global user.email "bruce@tulane.edu"</code></pre>
 <p>You will not see any output when you enter these commands. To check that they worked, enter the following command at the Terminal:</p>
 <pre><code>git config --list</code></pre>
 <p>You should see your name and email address listed in the output.</p>
 </section>
 <section id="set-up-rstudio-to-talk-to-github" class="level3">
 <h3 class="anchored" data-anchor-id="set-up-rstudio-to-talk-to-github">Set up RStudio to talk to GitHub</h3>
-<p>We also need to set up RStudio to be able to communicate with GitHub securely. This requires a bit of fidily configuration that we luckily only have to do once. Basically, we need to get a secret code from GitHub and store it in RStudio (kind of like a app-specific password when you’re using two-factor authentication). We can start the process from by entering the following code at the R Console (not the Terminal):</p>
+<p>We also need to set up RStudio to be able to communicate with GitHub securely. This requires a process that we luckily only have to do once. Basically, we need to get a secret code from GitHub and store it in RStudio (kind of like an app-specific password when you’re using two-factor authentication). We can start the process by entering the following code at the R Console (not the Terminal):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This will open a page on GitHub asking you to create a “Personal Access Token” or PAT (this is the secret code). You’ll have to give the PAT a note that describes what it’s for and choose an expiration date. To minimize problems throughout the semester, you should set it to a date after the semester ends such as 12/31/2023. We recommend keeping the “scope” selections as they are and clicking the “Generate Token” button at the bottom of the page.</p>
-<p><img src="../files/img/assignments/github-pat.png" class="img-fluid" alt="Create a GitHub PAT"></p>
-<p>You will then see a new screen with a long sequence of letters. This is your token or secret code. You should treat it like a password and do not share it with anyone. If you use a password manager like 1Password or LastPass, you can put it in a secure note in those programs. Copy this by hitting the button with the two boxes.</p>
-<p><img src="../files/img/assignments/github-pat-copy.png" class="img-fluid" alt="Copy the GitHub PAT"></p>
+<p>This will open a page on GitHub asking you to create a “Personal Access Token” or PAT (this is the secret code). You’ll have to give the PAT a note that describes what it’s for and choose an expiration date. To minimize problems throughout the semester, you should set it to a date after the semester ends such as 12/31/2024. Keep the “scope” selections as they are and click the “Generate Token” button at the bottom of the page.</p>
+<p><img src="../img/github-pat.png" class="img-fluid" alt="Create a GitHub PAT"></p>
+<p>You will then see a new screen with a long sequence of letters. This is your token or secret code. You should treat it like a password and do not share it with anyone. Copy this by hitting the button with the two boxes.</p>
+<p><img src="../img/github-pat-copy.png" class="img-fluid" alt="Copy the GitHub PAT"></p>
 <p>Once you have copied the PAT, call <code>gitcreds::gitcreds_set()</code> from the RStudio console and paste the PAT when prompted. You should see the following:</p>
 <pre><code>&gt; gitcreds::gitcreds_set()
 ? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -244,9 +244,9 @@ git config --global user.email "john@harvard.edu"</code></pre>
 <section id="creating-your-first-repo" class="level3">
 <h3 class="anchored" data-anchor-id="creating-your-first-repo">Creating your first repo</h3>
 <p>Once you are logged into Github and at its homepage, you can now create a new repo (shorthand for “repository”). These repositories are like folders in Dropbox except a bit more structured. Create one by clicking on the green “New” button in the top-left of the screen next to “Repositories.” It should look like this:</p>
-<p><img src="../files/img/assignments/github-create-new.png" class="img-fluid" alt="Create a new repo"></p>
-<p>Now a new screen should pop up requesting some information for the new repo. Give this new Repository the name <code>gov50-problem-set0</code> and set it to be a private repository. You can give it an informative description and check the “Initialize this repository with a README” checkbox. This latter option will add a README to the repository where you can add more information that will display nicely in the repository’s homepage. Your setup should look something like this:</p>
-<p><img src="../files/img/assignments/github-create-options.png" class="img-fluid" alt="New Repo Options"></p>
+<p><img src="../img/github-create-new.png" class="img-fluid" alt="Create a new repo"></p>
+<p>Now a new screen should pop up requesting some information for the new repo. Give this new Repository the name <code>hpam7660-tutorial_1</code> and set it to be a private repository. You can give it an informative description and check the “Initialize this repository with a README” checkbox. This latter option will add a README to the repository where you can add more information that will display nicely in the repository’s homepage. Your setup should look something like this:</p>
+<p><img src="../img/github-create-options.png" class="img-fluid" alt="New Repo Options"></p>
 <p>Once you create your repo, you are ready to connect it to RStudio on your local computer. The easiest way to do this is go to the repo homepage (you’re already there if you’ve just created it) and click on the green “Code” button toward the top right of the page. When you click that, a popup will appear and you can copy the URL (you can click the little clipboard icon to copy this automatically).</p>
 <p><img src="../files/img/assignments/github-clone.png" class="img-fluid" alt="Cloning the repo"></p>
 <p>Now, switch to RStudio. Go to the menu bar and hit “File &gt; New Project”. You can then choose what type of project to start. Since we’re importing from Github, we’ll use the “Version Control” option (it’s the bottom of the list). In the next menu, choose “Git”. Now, you can paste the URL in the “Repository URL” box. Choose a set of local directories to place this project and hit “Create Project”. And now you’ll have your project ready to go in RStudio.</p>

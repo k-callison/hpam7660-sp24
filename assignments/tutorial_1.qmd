@@ -1,15 +1,13 @@
 ---
 title: "Getting Started with R, R Studio, Git, and Github"
-author: "Gov 50"
-date: 2022-08-12
 summary: >-
   A guide to installing and setting up the software required for
-  Gov 50. 
+  HPAM 7660. 
 ---
 
 ## Installing R and RStudio
 
-In this problem set, we're going to get R, RStudio, and R Markdown set up on your computer. To get started, follow these steps: 
+In this tutorial, we're going to get R, RStudio, and R Markdown set up on your computer. To get started, follow these steps: 
 
 1. Download and install the most recent version of [R][]. There are versions available for the Windows, Mac, and Linux operating systems. On a Windows machine, you will want to install using the `R-x.y.z-win.exe` file where `x.y.z` is a version number. On a Mac, you will want to install using the `R-x.y.z.pkg` file that is notarized and signed. 
 2. With R installed, download and install [RStudio][]. RStudio is a type of "integrated development environment" or IDE designed for R. It makes working with R considerably easier and is available for most platforms. It is also free. 

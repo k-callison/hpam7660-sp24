@@ -7,8 +7,9 @@ subtitle: "Policy Analysis Overview"
 
 - [Intro Scenario Results](/img/Intro Scenario Scores.png), [Data](/data/intro_data.csv), [R Script](/data/intro_bar.R)
 - Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Evidence-Based Policymaking.pdf)
-- Assignment - [Reading Discussion Questions](/materials/week_2_reading_questions.pdf)
+- Assignment - [Reading Discussion Questions](/assignments/week_2_reading_questions.pdf)
+- Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdf)
 
 ## Thursday, January 25
 
-- None
+- Reading - [Erdman (2018) - An 8-step proces to making well-informed decisions](/materials/Bardach_brief.pdf)

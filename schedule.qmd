@@ -25,7 +25,7 @@ The detailed course schedule for the semester is below. Please note that dates a
 Here's a guide to the schedule: 
 
 - **Materials** ({{< fa book-open-reader >}}): This page contains the readings, slides, and videos (if any) for the topic. Do the readings and watch the videos before coming to class on the indicated date. Slides will typically be posted before each class.
-- **Tutorial** ({{< fa laptop-code >}}): A link to the tutorial for that week (if any). 
+- **Tutorial** ({{< fa laptop-code >}}): A link to the tutorial for that week (if any). **Note that we will complete Tutorial in class - these are NOT homework. 
 - **Assignment** ({{< fa pen-ruler >}}): This page contains the instructions for each assignment. **Assignments are due by 1:00 PM on the day they're listed.** 
 
  

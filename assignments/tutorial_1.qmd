@@ -51,6 +51,9 @@ You might already have git installed on your computer, especially if you have a 
 ##Git install for Windows
 Download Git [here](https://gitforwindows.org/). Note that if you are asked about "Adjusting your PATH environment", you should select "Git from the command line and also from 3rd-party software." Also note that RStudio will want Git installed in the `"C:/Program Files"` path.
 
+##Git install for Mac
+Open the terminal and type `git --version` to elicit an offer to install developer command line tools. Accept the offer and click on "install".
+
 ### Setup a GitHub account
 
 Next, you can setup a [GitHub][] account. You can think of GitHub as similar to Dropbox or Google Drive for your git projects ("repositories") where everything is public by default. Since you might use this account to interact with potential employers in the future, you should probably pick a professional username. 

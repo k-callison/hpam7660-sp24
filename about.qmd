@@ -63,3 +63,6 @@ library(glue)
 ::: 
 
 :::
+
+### Course Website
+The formatting of this website and much of the content is derived from Matt Blackwell's Gov 50 course at Harvard University, which he has generously made available for use.

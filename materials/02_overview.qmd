@@ -16,4 +16,4 @@ subtitle: "Policy Analysis Overview"
 - Reading - [Erdman (2018) - An 8-step proces to making well-informed decisions](/materials/Bardach_brief.pdf)
 - Memo Example - [Prescription Drug Costs](/materials/jama_califf_2019.pdf) (non-required reading, good example of Bardach Steps 1 and 4)
 - Memo Example - [California EITC](/materials/options-state-eitc-121814.pdf) (non-required reading, good example of Bardach Step 3)
-- Slides - [Policy Analysis Overview - Writing and Effective Policy Memo using the Bardach Eightfold Path](/slides/HPAM_7660_Bardach.pdf)
+- Slides - [Policy Analysis Overview - Writing and Effective Policy Memo using the Bardach Eightfold Path](/slides/HPAM_7660_Bardach_Overview.pdf)

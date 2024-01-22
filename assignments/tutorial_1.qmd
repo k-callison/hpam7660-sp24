@@ -128,17 +128,17 @@ In the next menu, choose "Git".
 
 ![](/img/R_to_Git_2.png){fig-alt="Git Project"}
 
-Now, you can paste the URL in the "Repository URL" box (the "Project director name:" field should populate automatically). Choose a set of local directories to place this project and hit "Create Project". And now you'll have your project ready to go in RStudio. 
+Now, you can paste the URL in the "Repository URL" box (the "Project directory name:" field should populate automatically). Choose a set of local directories to place this project and hit "Create Project". And now you'll have your project ready to go in RStudio. 
 
 ![](/img/R_to_Git_3.png){fig-alt="Create Project"}
 
 ## Working with a project in RStudio
 
-You'll see in the bottom right window of RStudio you'll now see the files from your Github project. 
+You'll now see the files from your Github project in the bottom right window of RStudio. 
 
 ![](/img/R_to_Git_4.png){fig-alt="Files in RStudio"}
 
-Let's edit the README file by clicking on `README.md` in that file pane and you'll be able to edit it in the top-left pane. 
+Let's edit the README file by clicking on `README.md` in that file pane. You'll be able to edit the file in the top-left pane. 
 
 ![](/img/R_to_Git_5.png){fig-alt="README edit"}
 
@@ -162,7 +162,10 @@ If you go back to your repo's homepage on Github and refresh the page, you'll se
 
 ![](/img/R_to_Git_10.png){fig-alt="Github repo after commit"}
 
-And you're done! You've just created your first repo. 
+Finally, you'll need to provide me access to this repo (and all future repos for class) so that I can grade your work. To do so, click on "Settings" on your repo homepage and then "Collaborators" at the top of the left panel. Click "Add people", search for `k-callison`, and add me as a collaborator.
+
+
+You're done! You've just created your first repo. From now on, we'll use repos for our tutorials and our assignment submissions. 
 
 
 

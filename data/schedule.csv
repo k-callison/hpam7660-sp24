@@ -4,4 +4,6 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 2,2024-01-23,,Policy Analysis Overview ([Zoom](https://tulane.zoom.us/j/98062616287?pwd=ckNoZEhHSEdGMFN5RGNkTk1pakI1dz09) Pass=941414),,"materials/02_overview",,"materials/week_2_reading_questions.pdf"
 2,2024-01-25,,Policy Analysis Overview ([Zoom](https://tulane.zoom.us/j/98062616287?pwd=ckNoZEhHSEdGMFN5RGNkTk1pakI1dz09) Pass=941414),,,,
 3,2024-01-30,,Intro to Computing Resources,,"materials/03_computing","assignments/tutorial_1.qmd",
-3,2024-02-01,,Computing Resources Lab,,,,
+3,2024-02-01,,Computing Resources Lab,,,"assignments/tutorial_2.qmd",
+4,2024-02-06,,Data Visualization,,,,
+4,2024-02-05,,Data Visualization Lab,,,,

@@ -19,6 +19,5 @@ flights
 Now let's see what that does.
 
 ```{r}
-View(flights)
 glimpse(flights)
 ```

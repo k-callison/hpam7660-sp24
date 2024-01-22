@@ -100,8 +100,5 @@ format:
 
 execute:
   freeze: auto
-  r:
-    rpath: /usr/local/bin/R
-
 
 

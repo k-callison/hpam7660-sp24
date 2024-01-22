@@ -118,39 +118,49 @@ Now a new screen should pop up requesting some information for the new repo. Giv
 
 Once you create your repo, you are ready to connect it to RStudio on your local computer (this process is called "cloning"). The easiest way to do this is go to the repo homepage (you're already there if you've just created it) and click on the green "Code" button toward the top right of the page. When you click that, a popup will appear and you can copy the URL (you can click the little clipboard icon to copy this automatically). 
 
-![](/img/assignments/github-clone.png){fig-alt="Cloning the repo"}
+![](/img/github-clone.png){fig-alt="Cloning the repo"}
 
-Now, switch to RStudio. Go to the menu bar and hit "File > New Project". You can then choose what type of project to start. Since we're importing from Github, we'll use the "Version Control" option (it's the bottom of the list). In the next menu, choose "Git". Now, you can paste the URL in the "Repository URL" box. Choose a set of local directories to place this project and hit "Create Project". And now you'll have your project ready to go in RStudio. 
+Now, switch to RStudio. Go to the menu bar and hit "File > New Project". You can then choose what type of project to start. Since we're importing from Github, we'll use the "Version Control" option (it's the bottom of the list).
+
+![](/img/R_to_Git_1.png){fig-alt="New Project"}
+
+In the next menu, choose "Git". 
+
+![](/img/R_to_Git_2.png){fig-alt="Git Project"}
+
+Now, you can paste the URL in the "Repository URL" box (the "Project director name:" field should populate automatically). Choose a set of local directories to place this project and hit "Create Project". And now you'll have your project ready to go in RStudio. 
+
+![](/img/R_to_Git_3.png){fig-alt="Create Project"}
 
 ## Working with a project in RStudio
 
 You'll see in the bottom right window of RStudio you'll now see the files from your Github project. 
 
-![](/files/img/assignments/rstudio-files.png){fig-alt="Files in RStudio"}
+![](/img/R_to_Git_4.png){fig-alt="Files in RStudio"}
 
+Let's edit the README file by clicking on `README.md` in that file pane and you'll be able to edit it in the top-left pane. 
 
-Let's edit the README file by clicking on `README.md` in that file pane and you'll be able to edit it in the top-left pane. Change the header from `# gov-50-problem-set0` to `# Introduction` and save the file (⌘+S or Ctrl+S). If you click on the "Git" tab in the top right panel, you will a list of the changes you've made to the repo since the last commit (you can think of a commit as a more permanent type of saving work to the git repo). 
+![](/img/R_to_Git_5.png){fig-alt="README edit"}
 
-![](/files/img/assignments/rstudio-git-panel.png){fig-alt="Git panel in RStudio"}
+Change the header from `# hpam7660-tutorial1` to `# Introduction` and save the file (⌘+S or Ctrl+S). If you click on the "Git" tab in the top right panel, you will a list of the changes you've made to the repo since the last commit (you can think of a commit as a more permanent type of saving work to the git repo). 
 
+![](/img/R_to_Git_6.png){fig-alt="Git panel in RStudio"}
 
-One thing you'll notice here is that git thinks that `gov50-problem-set0.Rproj` is a file that maybe should go into the repo. But this file is just for our local copy of RStudio and shouldn't really go into the repo. To prevent git from bothering us about it every time we open something, we can modify the `.gitignore` file to tell git to ignore certain files. Open `.gitignore` and add a new line with `*.Rproj` on it to tell git to ignore any file with the extension `.Rproj`. Make sure to save the file. 
+One thing you'll notice here is that git thinks that `hpam7660-tutorial1.Rproj` is a file that maybe should go into the repo. But this file is just for our local copy of RStudio and shouldn't really go into the repo. To prevent git from bothering us about it every time we open something, we can modify the `.gitignore` file to tell git to ignore certain files. Open `.gitignore` and add a new line with `*.Rproj` on it to tell git to ignore any file with the extension `.Rproj`. Make sure to save the file. 
 
-![](/files/img/assignments/rstudio-edit-gitignore.png){fig-alt="Editing .gitignore"}
+![](/img/R_to_Git_7.png){fig-alt="Editing .gitignore"}
 
+If you go back to the Git tab in the top right and refresh (little circular arrow in the top right corner), you see that `hpam7660-tutorial1.Rproj` is removed from our list. Now we are ready to commit our changes. Click the "Staged" box for `.gitignore` and `README.md` and hit the "Commit" button just above the file list. You'll see a window with the changes that you are about to commit. You can click on different files to see what exactly you are changing. Add a short but informative commit message that describes what you are committing and hit "Commit". You'll see a popup window that summarizes the changes. You can click "Close". 
 
-If you go back to the Git tab in the top right and refresh (little circular arrow in the top right corner), you see that `gov50-problem-set0.Rproj` is removed from our list. Now we are ready to commit our changes. Click the "Staged" box for `.gitignore` and `README.md` and hit the "Commit" button just above the file list. You'll see a window with the changes that you are about to commit. 
+![](/img/R_to_Git_8.png){fig-alt="Commit dialog box in RStudio"}
 
-![](/files/img/assignments/rstudio-commit.png){fig-alt="Commit dialog box in RStudio"}
+Once this completes, you can hit the "Push" button in the top right to push that commit back to Github. You'll see another popup indicating that the push was successful. You can click "Close". 
 
-
-You can click on different files to see what exactly you are changing. Add a short but informative commit message that describes what you are committing and hit "Commit". Once this completes, you can hit the "Push" button in the top right to push that commit back to Github. 
-
-![](/files/img/assignments/rstudio-push.png){fig-alt="Push to GitHub"}
+![](/img/R_to_Git_9.png){fig-alt="Push to GitHub"}
 
 If you go back to your repo's homepage on Github and refresh the page, you'll see the updates to your README file and the new `.gitignore`.
 
-![](/files/img/assignments/github-changed.png){fig-alt="Github repo after commit"}
+![](/img/R_to_Git_10.png){fig-alt="Github repo after commit"}
 
 And you're done! You've just created your first repo. 
 

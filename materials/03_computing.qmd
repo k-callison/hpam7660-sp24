@@ -9,4 +9,4 @@ subtitle: "Computing Resources"
 
 ## Thursday, February 1
 
-- None
+- Reading - [ModernDive - Ch. 1: Getting Started with Data in R](https://moderndive.com/1-getting-started.html)

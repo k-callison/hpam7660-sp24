@@ -1,0 +1,19 @@
+---
+title: "R Script and R Markdown Files, ModernDive Chapter 1"
+summary: >-
+  Getting Started with Data in R. 
+---
+
+## Using R Scripts and R Markdown Documents 
+
+In this tutorial, we'll learn how to write R code using an R Script and using an R Markdown document. You can think of an R Script as a file where you store your R commands so that you don't have to manually type each command into the Console's command line (this would get really confusing for large projects!). You can think of an R Markdown document as a combination text editor (like Microsoft Word) and R Script. We'll see that using an R Markdown document can be a good way to organize our R code and the output that code generates.  
+
+We'll work through this tutorial in class using the examples in ModernDive Chapter 1 and you'll create additional R Markdown documents for other tutorials and homework assignments throughout the semester.
+
+## Create a GitHub Repository for Tutorial 2
+
+Before we start with our coding exercises, we'll want to create a new GitHub repository for Tutorial 2. Follow the instructions listed in [Tutorial 1](/assignments/tutorial_1.qmd) to create a new GitHub repository called `hpam7660-tutorial2`.
+
+## Console Command Line
+
+Let's start by running a few commands in the RStudio Console Window command line.  

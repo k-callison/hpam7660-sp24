@@ -14,9 +14,13 @@ We'll work through this tutorial in class using the examples in ModernDive Chapt
 
 Before we start with our coding exercises, we'll want to create a new GitHub repository for Tutorial 2. Follow the instructions listed in [Tutorial 1](/assignments/tutorial_1.qmd) to create a new GitHub repository called `hpam7660-tutorial2`.
 
+## Open a new R Project
+
+Navigate to the `File -> New Project` tab in RStudio. Let's call this project "Tutorial 2". Follow the instructions from Tutorial 1 for linking the new project to your newly created GitHub repo.
+
 ## Console Command Line
 
-Let's start by running a few commands in the RStudio Console Window command line. This is the window at the bottom of RStudio (make sure the "Console" tab is selected). Throughout this tutorial, we'll be working through the examples in [Chapter 1.4 of ModernDive](https://moderndive.com/1-getting-started.html#nycflights13).
+Now that we have a new project linked to the proper GitHub repo, let's start by running a few commands in the RStudio Console Window command line. This is the window at the bottom of RStudio (make sure the "Console" tab is selected). Throughout this tutorial, we'll be working through the examples in [Chapter 1.4 of ModernDive](https://moderndive.com/1-getting-started.html#nycflights13).
 
 First we need to install and load the packages we'll need for the tutorial (you may already have some of these packages installed, but it won't hurt to reinstall them). Type each of the following commands in to the RStudio command line:
 
@@ -30,4 +34,13 @@ library(dplyr)
 library(knitr)
 ```
 
-Now that we've loaded the 
+Now that we've loaded the packages and libraries, let's take a look at the data objects contained in `nycflights13`. To do so, click on the dropdown icon next to "Global Environment" and select "package:nycflights13".
+
+![](/img/tutorial_2_1.png){fig-alt="Global Environment"}
+You should now see a series of objects in the "Environment" window. 
+
+![](/img/tutorial_2_2.png){fig-alt="nycflights13 Environment"}
+Let's take a look at each of these objects to see what information they contain.
+
+
+

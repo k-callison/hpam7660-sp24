@@ -18,9 +18,13 @@ Before we start with our coding exercises, we'll want to create a new GitHub rep
 
 Navigate to the `File -> New Project` tab in RStudio. Let's call this project "Tutorial 2". Follow the instructions from Tutorial 1 for linking the new project to your newly created GitHub repo.
 
-##RStudio Window
+## RStudio Window
 
-Let's take a minute to briefly go over the RStudio interface. When you open RStudio, you'll typically see four windows
+Let's take a minute to briefly go over the RStudio interface. When you open RStudio, you'll typically see the following three windows.
+
+![](/img/tutorial_2_0.png){fig-alt="RStudio Windows"}
+
+There's a lot more here, but we'll cover other aspects of RStudio as they come up in our tutorials and problem sets.
 
 ## Console Command Line
 
@@ -61,9 +65,37 @@ There are several other ways that we could examine the `flights` data frame incl
 
 Let's try some of these out. Use the `glimpse` function to take a look at the `flights` data frame and the `kable` function to examine the `airlines` data frame.
 
+Now let's make some manipulations to the data. Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the `carrier` variable since the code "UA" in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:
 
+```{r eval = FALSE}
+ua_flights <- filter(flights, carrier == "UA")
+```
+
+Notice the new data object in the "Environment" tab called "ua_flights". Let's take a look at it using one of the viewing methods above (use whichever you prefer).
+
+Now we need to determine which UA flights in January 2013 were delayed by 4 hours or longer. We can do another subset of the data using the `year`, `month`, and `arr_delay` variables (notice that the `arr_delay` variable is measured in minutes). Type the following into the Console command line and hit enter:
+
+```{r eval = FALSE}
+ua_delay <- filter(ua_flights, year == 2013, month == 1, arr_delay >= 240)
+```
+
+Now we have a data frame that includes all UA flights that were delayed by 4 hours or longer in January 2013. Notice that we didn't need a separate `filter` command for each argument (i.e., `year`, `month`, and `arr_delay`), we simply combined them all into a single `filter` command. 
+
+Finally, since we're really only interested in the flight numbers and delay times, we can get rid of the extraneous variables in the data frame using the `select` command. Also,  
+
+```{r eval = FALSE}
+ua_final <- select(ua_delay, flight, arr_delay)
+```
+
+Now that we have our final dataframe, let's take a look at the table of flight delays using the `kable` function:
+
+```{r eval = FALSE}
+kable(ua_final)
+```
 
 ## Using R Scripts and R Markdown Documents 
+So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they're gone for good! A better way to track our work and ensure that we can reproduce our results if necessary is to use an R script file to write our code. Let's take a look.
 
+Navigate to the `File -> New File -> R Script` tab in RStudio. This should open a new window in RStudio called the "Source" window and a document called Untitled1 where you can write and save your R code.
 
 

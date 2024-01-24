@@ -1,10 +1,10 @@
 ---
-title: "R Script and R Markdown Files, ModernDive Chapter 1"
+title: "Navigating RStudio and using R Script and R Markdown Files"
 summary: >-
   Getting Started with Data in R. 
 ---
 
-## Using R Scripts and R Markdown Documents 
+## Navigating RStudio
 
 In this tutorial, we'll learn how to write R code using an R Script and using an R Markdown document. You can think of an R Script as a file where you store your R commands so that you don't have to manually type each command into the Console's command line (this would get really confusing for large projects!). You can think of an R Markdown document as a combination text editor (like Microsoft Word) and R Script. We'll see that using an R Markdown document can be a good way to organize our R code and the output that code generates.  
 
@@ -17,6 +17,10 @@ Before we start with our coding exercises, we'll want to create a new GitHub rep
 ## Open a new R Project
 
 Navigate to the `File -> New Project` tab in RStudio. Let's call this project "Tutorial 2". Follow the instructions from Tutorial 1 for linking the new project to your newly created GitHub repo.
+
+##RStudio Window
+
+Let's take a minute to briefly go over the RStudio interface. When you open RStudio, you'll typically see four windows
 
 ## Console Command Line
 
@@ -34,13 +38,32 @@ library(dplyr)
 library(knitr)
 ```
 
+# Exploring Data Frames 
 Now that we've loaded the packages and libraries, let's take a look at the data objects contained in `nycflights13`. To do so, click on the dropdown icon next to "Global Environment" and select "package:nycflights13".
 
 ![](/img/tutorial_2_1.png){fig-alt="Global Environment"}
 You should now see a series of objects in the "Environment" window. 
 
 ![](/img/tutorial_2_2.png){fig-alt="nycflights13 Environment"}
-Let's take a look at each of these objects to see what information they contain.
+Let's take a look at each of these objects to see what information they contain. Type the following code into the Console Window command line and hit enter:
+
+```{r eval = FALSE}
+flights
+```
+
+You should now see a "tibble" that displays the first 8 columns and the first 10 rows of the `flights` data frame. The tibble also tells us that the data frame contains 336,766 more rows (beyond those displayed in the Console Window) and 11 more variables/columns (each of which is listed).
+
+There are several other ways that we could examine the `flights` data frame including:
+
+1. Using the `View()` function to open RStudio's built-in data viewer. This allows us to scroll through all columns and rows in the data frame.
+2. Using the `glimpse` function, which is part of the `dplyr` package. This is similar to the tibble that we saw by simply typing `flights` into the console, but also includes each variables data type (e.g., integer, double, character, etc.)
+3. Using the `kable()` function, which is part of the `knitr` package. This function is helpful when we want to generate formatted output in an RMarkdown document, but it's important to note that `kable` will print the *entire* data frame by default.
+
+Let's try some of these out. Use the `glimpse` function to take a look at the `flights` data frame and the `kable` function to examine the `airlines` data frame.
+
+
+
+## Using R Scripts and R Markdown Documents 
 
 
 

@@ -16,4 +16,18 @@ Before we start with our coding exercises, we'll want to create a new GitHub rep
 
 ## Console Command Line
 
-Let's start by running a few commands in the RStudio Console Window command line.  
+Let's start by running a few commands in the RStudio Console Window command line. This is the window at the bottom of RStudio (make sure the "Console" tab is selected). Throughout this tutorial, we'll be working through the examples in [Chapter 1.4 of ModernDive](https://moderndive.com/1-getting-started.html#nycflights13).
+
+First we need to install and load the packages we'll need for the tutorial (you may already have some of these packages installed, but it won't hurt to reinstall them). Type each of the following commands in to the RStudio command line:
+
+```{r, eval = FALSE}
+install.packages("nycflights13")
+install.packages("dplyr")
+install.packages("knitr")
+
+library(nycflights13)
+library(dplyr)
+library(knitr)
+```
+
+Now that we've loaded the 

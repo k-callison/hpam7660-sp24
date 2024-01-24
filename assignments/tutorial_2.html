@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - R Script and R Markdown Files, ModernDive Chapter 1</title>
+<title>HPAM 7660 - Health Policy Analysis - Navigating RStudio and using R Script and R Markdown Files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,10 +146,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#using-r-scripts-and-r-markdown-documents" id="toc-using-r-scripts-and-r-markdown-documents" class="nav-link active" data-scroll-target="#using-r-scripts-and-r-markdown-documents">Using R Scripts and R Markdown Documents</a></li>
+  <li><a href="#navigating-rstudio" id="toc-navigating-rstudio" class="nav-link active" data-scroll-target="#navigating-rstudio">Navigating RStudio</a></li>
   <li><a href="#create-a-github-repository-for-tutorial-2" id="toc-create-a-github-repository-for-tutorial-2" class="nav-link" data-scroll-target="#create-a-github-repository-for-tutorial-2">Create a GitHub Repository for Tutorial 2</a></li>
   <li><a href="#open-a-new-r-project" id="toc-open-a-new-r-project" class="nav-link" data-scroll-target="#open-a-new-r-project">Open a new R Project</a></li>
   <li><a href="#console-command-line" id="toc-console-command-line" class="nav-link" data-scroll-target="#console-command-line">Console Command Line</a></li>
+  <li><a href="#exploring-data-frames" id="toc-exploring-data-frames" class="nav-link" data-scroll-target="#exploring-data-frames">Exploring Data Frames</a>
+  <ul class="collapse">
+  <li><a href="#using-r-scripts-and-r-markdown-documents" id="toc-using-r-scripts-and-r-markdown-documents" class="nav-link" data-scroll-target="#using-r-scripts-and-r-markdown-documents">Using R Scripts and R Markdown Documents</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -158,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R Script and R Markdown Files, ModernDive Chapter 1</h1>
+<h1 class="title">Navigating RStudio and using R Script and R Markdown Files</h1>
 </div>
 
 
@@ -173,8 +177,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="using-r-scripts-and-r-markdown-documents" class="level2">
-<h2 class="anchored" data-anchor-id="using-r-scripts-and-r-markdown-documents">Using R Scripts and R Markdown Documents</h2>
+<section id="navigating-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-rstudio">Navigating RStudio</h2>
 <p>In this tutorial, we’ll learn how to write R code using an R Script and using an R Markdown document. You can think of an R Script as a file where you store your R commands so that you don’t have to manually type each command into the Console’s command line (this would get really confusing for large projects!). You can think of an R Markdown document as a combination text editor (like Microsoft Word) and R Script. We’ll see that using an R Markdown document can be a good way to organize our R code and the output that code generates.</p>
 <p>We’ll work through this tutorial in class using the examples in ModernDive Chapter 1 and you’ll create additional R Markdown documents for other tutorials and homework assignments throughout the semester.</p>
 </section>
@@ -185,6 +189,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="open-a-new-r-project" class="level2">
 <h2 class="anchored" data-anchor-id="open-a-new-r-project">Open a new R Project</h2>
 <p>Navigate to the <code>File -&gt; New Project</code> tab in RStudio. Let’s call this project “Tutorial 2”. Follow the instructions from Tutorial 1 for linking the new project to your newly created GitHub repo.</p>
+<p>##RStudio Window</p>
+<p>Let’s take a minute to briefly go over the RStudio interface. When you open RStudio, you’ll typically see four windows</p>
 </section>
 <section id="console-command-line" class="level2">
 <h2 class="anchored" data-anchor-id="console-command-line">Console Command Line</h2>
@@ -199,11 +205,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="exploring-data-frames" class="level1">
+<h1>Exploring Data Frames</h1>
 <p>Now that we’ve loaded the packages and libraries, let’s take a look at the data objects contained in <code>nycflights13</code>. To do so, click on the dropdown icon next to “Global Environment” and select “package:nycflights13”.</p>
 <p><img src="../img/tutorial_2_1.png" class="img-fluid" alt="Global Environment"> You should now see a series of objects in the “Environment” window.</p>
-<p><img src="../img/tutorial_2_2.png" class="img-fluid" alt="nycflights13 Environment"> Let’s take a look at each of these objects to see what information they contain.</p>
+<p><img src="../img/tutorial_2_2.png" class="img-fluid" alt="nycflights13 Environment"> Let’s take a look at each of these objects to see what information they contain. Type the following code into the Console Window command line and hit enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should now see a “tibble” that displays the first 8 columns and the first 10 rows of the <code>flights</code> data frame. The tibble also tells us that the data frame contains 336,766 more rows (beyond those displayed in the Console Window) and 11 more variables/columns (each of which is listed).</p>
+<p>There are several other ways that we could examine the <code>flights</code> data frame including:</p>
+<ol type="1">
+<li>Using the <code>View()</code> function to open RStudio’s built-in data viewer. This allows us to scroll through all columns and rows in the data frame.</li>
+<li>Using the <code>glimpse</code> function, which is part of the <code>dplyr</code> package. This is similar to the tibble that we saw by simply typing <code>flights</code> into the console, but also includes each variables data type (e.g., integer, double, character, etc.)</li>
+<li>Using the <code>kable()</code> function, which is part of the <code>knitr</code> package. This function is helpful when we want to generate formatted output in an RMarkdown document, but it’s important to note that <code>kable</code> will print the <em>entire</em> data frame by default.</li>
+</ol>
+<p>Let’s try some of these out. Use the <code>glimpse</code> function to take a look at the <code>flights</code> data frame and the <code>kable</code> function to examine the <code>airlines</code> data frame.</p>
+<section id="using-r-scripts-and-r-markdown-documents" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-scripts-and-r-markdown-documents">Using R Scripts and R Markdown Documents</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

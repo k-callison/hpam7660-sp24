@@ -9,6 +9,10 @@ We can type normally and this will show up when we compile the pdf.
 We can add R commands like 
 
 ```{r}
+install.packages("nycflights13")
+install.packages("dplyr")
+install.packages("knitr")
+
 library(nycflights13)
 library(dplyr)
 library(knitr)

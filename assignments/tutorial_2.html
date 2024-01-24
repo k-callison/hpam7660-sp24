@@ -150,11 +150,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#create-a-github-repository-for-tutorial-2" id="toc-create-a-github-repository-for-tutorial-2" class="nav-link" data-scroll-target="#create-a-github-repository-for-tutorial-2">Create a GitHub Repository for Tutorial 2</a></li>
   <li><a href="#open-a-new-r-project" id="toc-open-a-new-r-project" class="nav-link" data-scroll-target="#open-a-new-r-project">Open a new R Project</a></li>
   <li><a href="#rstudio-window" id="toc-rstudio-window" class="nav-link" data-scroll-target="#rstudio-window">RStudio Window</a></li>
-  <li><a href="#console-command-line" id="toc-console-command-line" class="nav-link" data-scroll-target="#console-command-line">Console Command Line</a></li>
-  <li><a href="#exploring-data-frames" id="toc-exploring-data-frames" class="nav-link" data-scroll-target="#exploring-data-frames">Exploring Data Frames</a>
+  <li><a href="#console-command-line" id="toc-console-command-line" class="nav-link" data-scroll-target="#console-command-line">Console Command Line</a>
   <ul class="collapse">
-  <li><a href="#using-r-scripts-and-r-markdown-documents" id="toc-using-r-scripts-and-r-markdown-documents" class="nav-link" data-scroll-target="#using-r-scripts-and-r-markdown-documents">Using R Scripts and R Markdown Documents</a></li>
+  <li><a href="#exploring-data-frames" id="toc-exploring-data-frames" class="nav-link" data-scroll-target="#exploring-data-frames">Exploring Data Frames</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data Manipulation</a></li>
   </ul></li>
+  <li><a href="#using-r-scripts" id="toc-using-r-scripts" class="nav-link" data-scroll-target="#using-r-scripts">Using R Scripts</a></li>
+  <li><a href="#using-r-markdown-documents" id="toc-using-r-markdown-documents" class="nav-link" data-scroll-target="#using-r-markdown-documents">Using R Markdown Documents</a></li>
   </ul>
 </nav>
     </div>
@@ -210,9 +212,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="exploring-data-frames" class="level1">
-<h1>Exploring Data Frames</h1>
+<section id="exploring-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-data-frames">Exploring Data Frames</h3>
 <p>Now that we’ve loaded the packages and libraries, let’s take a look at the data objects contained in <code>nycflights13</code>. To do so, click on the dropdown icon next to “Global Environment” and select “package:nycflights13”.</p>
 <p><img src="../img/tutorial_2_1.png" class="img-fluid" alt="Global Environment"> You should now see a series of objects in the “Environment” window.</p>
 <p><img src="../img/tutorial_2_2.png" class="img-fluid" alt="nycflights13 Environment"> Let’s take a look at each of these objects to see what information they contain. Type the following code into the Console Window command line and hit enter:</p>
@@ -227,6 +228,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Using the <code>kable()</code> function, which is part of the <code>knitr</code> package. This function is helpful when we want to generate formatted output in an RMarkdown document, but it’s important to note that <code>kable</code> will print the <em>entire</em> data frame by default.</li>
 </ol>
 <p>Let’s try some of these out. Use the <code>glimpse</code> function to take a look at the <code>flights</code> data frame and the <code>kable</code> function to examine the <code>airlines</code> data frame.</p>
+</section>
+<section id="data-manipulation" class="level3">
+<h3 class="anchored" data-anchor-id="data-manipulation">Data Manipulation</h3>
 <p>Now let’s make some manipulations to the data. Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the <code>carrier</code> variable since the code “UA” in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ua_flights <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -245,13 +249,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="using-r-scripts-and-r-markdown-documents" class="level2">
-<h2 class="anchored" data-anchor-id="using-r-scripts-and-r-markdown-documents">Using R Scripts and R Markdown Documents</h2>
-<p>So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they’re gone for good! A better way to track our work and ensure that we can reproduce our results if necessary is to use an R script file to write our code. Let’s take a look.</p>
-<p>Navigate to the <code>File -&gt; New File -&gt; R Script</code> tab in RStudio. This should open a new window in RStudio called the “Source” window and a document called Untitled1 where you can write and save your R code.</p>
-
-
 </section>
+</section>
+<section id="using-r-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-scripts">Using R Scripts</h2>
+<p>So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they’re gone for good! A better way to track our work and ensure that we can reproduce our results if necessary is to use an R script file to write our code. Let’s take a look.</p>
+<p>Navigate to the <code>File -&gt; New File -&gt; R Script</code> tab in RStudio. This should open a new window in RStudio called the “Source” window and a document called “Untitled1” where you can write and save your R code.</p>
+<p><img src="../img/tutorial_2_3.png" class="img-fluid" alt="R Script"> Let’s give this file a name and then recreate our United Airlines flight delay table by writing the code we entered directly into the command line into our R Script.</p>
+<p>To name the file you can click on the save icon in the menu bar or navigate to <code>File -&gt; Save</code>. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let’s call this file <code>Tutorial_2</code> and save it in the folder you created for your new <code>hpam7660-tutorial2</code> GitHub repo. Notice that if you click on the “Git” tab in the upper righthand window, you should see this new R script ready to be staged, committed, and pushed to the GitHub repo.</p>
+<p>Now type the code below into the R script (note that I have combined a couple of lines from the previous version):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you’ve typed this into your R Script, save it, and click on the “Run” button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you’ll have the script file that you can run at a later date and reproduce the exact same table. Further, once you push the script file to GitHub, you can share it with other collaborators who may be working with you on the project.</p>
+<p>We’ll push the R script to GitHub in a few minutes, but first let’s try using an R Markdown document to track our coding and it’s associated output.</p>
+</section>
+<section id="using-r-markdown-documents" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-markdown-documents">Using R Markdown Documents</h2>
+
+
 </section>
 
 </main> <!-- /main -->

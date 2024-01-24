@@ -42,7 +42,7 @@ library(dplyr)
 library(knitr)
 ```
 
-# Exploring Data Frames 
+### Exploring Data Frames 
 Now that we've loaded the packages and libraries, let's take a look at the data objects contained in `nycflights13`. To do so, click on the dropdown icon next to "Global Environment" and select "package:nycflights13".
 
 ![](/img/tutorial_2_1.png){fig-alt="Global Environment"}
@@ -65,6 +65,7 @@ There are several other ways that we could examine the `flights` data frame incl
 
 Let's try some of these out. Use the `glimpse` function to take a look at the `flights` data frame and the `kable` function to examine the `airlines` data frame.
 
+### Data Manipulation
 Now let's make some manipulations to the data. Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the `carrier` variable since the code "UA" in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:
 
 ```{r eval = FALSE}
@@ -93,9 +94,34 @@ Now that we have our final dataframe, let's take a look at the table of flight d
 kable(ua_final)
 ```
 
-## Using R Scripts and R Markdown Documents 
+## Using R Scripts
 So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they're gone for good! A better way to track our work and ensure that we can reproduce our results if necessary is to use an R script file to write our code. Let's take a look.
 
-Navigate to the `File -> New File -> R Script` tab in RStudio. This should open a new window in RStudio called the "Source" window and a document called Untitled1 where you can write and save your R code.
+Navigate to the `File -> New File -> R Script` tab in RStudio. This should open a new window in RStudio called the "Source" window and a document called "Untitled1" where you can write and save your R code.
 
+![](/img/tutorial_2_3.png){fig-alt="R Script"}
+Let's give this file a name and then recreate our United Airlines flight delay table by writing the code we entered directly into the command line into our R Script.
 
+To name the file you can click on the save icon in the menu bar or navigate to `File -> Save`. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let's call this file `Tutorial_2` and save it in the folder you created for your new `hpam7660-tutorial2` GitHub repo. Notice that if you click on the "Git" tab in the upper righthand window, you should see this new R script ready to be staged, committed, and pushed to the GitHub repo.
+
+Now type the code below into the R script (note that I have combined a couple of lines from the previous version):
+
+```{r eval = FALSE}
+install.packages("nycflights13")
+install.packages("dplyr")
+install.packages("knitr")
+
+library(nycflights13)
+library(dplyr)
+library(knitr)
+
+ua_delay <- filter(flights, carrier == "UA", year == 2013, month == 1, arr_delay >= 240)
+ua_final <- select(ua_delay, flight, arr_delay)
+kable(ua_final)
+```
+
+Once you've typed this into your R Script, save it, and click on the "Run" button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you'll have the script file that you can run at a later date and reproduce the exact same table. Further, once you push the script file to GitHub, you can share it with other collaborators who may be working with you on the project. 
+
+We'll push the R script to GitHub in a few minutes, but first let's try using an R Markdown document to track our coding and it's associated output.
+
+## Using R Markdown Documents

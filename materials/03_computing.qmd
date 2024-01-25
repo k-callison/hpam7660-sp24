@@ -6,9 +6,9 @@ subtitle: "Computing Resources"
 ## Tuesday, January 30
 
 - Video - [Alice Bartlett - Git for Humans](https://youtu.be/eWxxfttcMts?si=Dhys0kBhzF7hxKWA)
-- Tutorial - [Tutorial 1](/assignments/tutorial_1.qmd) (we'll do this in class together)
+- Tutorial - [Tutorial 1 - Getting Started with R, RStuido, Git, and GitHub](/assignments/tutorial_1.qmd) (we'll do this in class together)
 
 ## Thursday, February 1
 
 - Reading - [ModernDive - Ch. 1: Getting Started with Data in R](https://moderndive.com/1-getting-started.html)
-- Tutorial - [Tutorial 2](/assignments/tutorial_2.qmd) (we'll do this in class together)
+- Tutorial - [Tutorial 2 - Navigating RStudio: Using R Scripts and Markdown Files](/assignments/tutorial_2.qmd) (we'll do this in class together)

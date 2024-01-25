@@ -1,5 +1,5 @@
 ---
-title: "Navigating RStudio and using R Script and R Markdown Files"
+title: "Navigating RStudio: Using R Scripts and R Markdown Files"
 summary: >-
   Getting Started with Data in R. 
 ---

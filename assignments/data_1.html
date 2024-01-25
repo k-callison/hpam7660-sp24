@@ -115,13 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#complete-the-following-examples-from-moderndive-chapter-4---data-importing-and-tidy-data" id="toc-complete-the-following-examples-from-moderndive-chapter-4---data-importing-and-tidy-data" class="nav-link active" data-scroll-target="#complete-the-following-examples-from-moderndive-chapter-4---data-importing-and-tidy-data">Complete the following examples from ModernDive Chapter 4 - Data Importing and Tidy Data</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -145,20 +139,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="complete-the-following-examples-from-moderndive-chapter-4---data-importing-and-tidy-data" class="level2">
-<h2 class="anchored" data-anchor-id="complete-the-following-examples-from-moderndive-chapter-4---data-importing-and-tidy-data">Complete the following examples from <a href="https://moderndive.com/4-tidy.html">ModernDive Chapter 4 - Data Importing and Tidy Data</a></h2>
-<p>Before beginning the assignment, create a GitHub repo called <code>hpam7660_data1</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 1”, your name, the date, and “pdf_document” as the output format.</p>
+<p><strong>Instructions:</strong> Complete the following examples from <a href="https://moderndive.com/4-tidy.html">ModernDive Chapter 4 - Data Importing and Tidy Data</a>. Before beginning the assignment, create a GitHub repo called <code>hpam7660_data1</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 1”, your name, the date, and “pdf_document” as the output format.</p>
 <p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
-<ol type="1">
-<li>Install and load the following packages: dplyr, ggplot2, readr, tidry, nycflights13, and fivethirtyeight.</li>
-<li>Preview the <code>drinks</code> data frame from the <code>fivethirtyeight</code> package using one of the methods we covered in <a href="../assignments/tutorial_2.html">Tutorial 2</a>.</li>
-<li>Using the help file for the <code>drinks</code> data frame, define each of the variables in the data.</li>
-<li>What does it mean for a dataset in R to by “tidy” and how does this relate to the concept of “wide” vs.&nbsp;“long” data?</li>
-<li>Preview the <code>drinks_smaller</code> data frame from the <code>fivethirtyeight</code> package. Is this data in “tidy” format, why or why not?</li>
-<li>Convert the <code>drinks_smaller</code> data frame to “tidy” format. Be sure to describe the commands you’re using for this conversion.</li>
-<li>Preview the new tidy version of the <code>drinks_smaller</code> data frame.</li>
-<li>Now do the same conversion and preview for the <code>airline_safety</code> data frame from the <code>fivethirtyeight</code> package. (Hint: you want the tidy data frame to include the variable <code>fatalities_years</code> that indicates the time period and the variable <code>count</code> that measures the fatality counts).</li>
-</ol>
+<p><strong>Steps for Completing the Assignment</strong> 1. Install and load the following packages: dplyr, ggplot2, readr, tidry, nycflights13, and fivethirtyeight. 2. Preview the <code>drinks</code> data frame from the <code>fivethirtyeight</code> package using one of the methods we covered in <a href="../assignments/tutorial_2.html">Tutorial 2</a>. 3. Using the help file for the <code>drinks</code> data frame, define each of the variables in the data. 4. What does it mean for a dataset in R to by “tidy” and how does this relate to the concept of “wide” vs.&nbsp;“long” data? 5. Preview the <code>drinks_smaller</code> data frame from the <code>fivethirtyeight</code> package. Is this data in “tidy” format, why or why not? 6. Convert the <code>drinks_smaller</code> data frame to “tidy” format. Be sure to describe the commands you’re using for this conversion. 7. Preview the new tidy version of the <code>drinks_smaller</code> data frame. 8. Now do the same conversion and preview for the <code>airline_safety</code> data frame from the <code>fivethirtyeight</code> package. (Hint: you want the tidy data frame to include the variable <code>fatalities_years</code> that indicates the time period and the variable <code>count</code> that measures the fatality counts).</p>
 <p>Thus far, we’ve only loaded data frames that have come bundled in R packages. Oftentimes, you’ll want to load data from other sources (e.g., websites, surveys, etc.) and in other formats (e.g., .csv, .xlsx, etc.). Let’s work through an example of loading data from a .csv file.</p>
 <ol start="9" type="1">
 <li>Load the <code>dem_score.csv</code> file and save it in a data frame called <code>dem_score</code>. (Hint: refer to ModernDive Chapter 4.1 for code on importing a .csv file).</li>
@@ -168,7 +151,6 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -10,17 +10,27 @@ As you answer each of the following questions, be sure to include your R code an
 
 **Steps for Completing the Assignment**
 1. Install and load the following packages: dplyr, ggplot2, readr, tidry, nycflights13, and fivethirtyeight. 
+
 2. Preview the `drinks` data frame from the `fivethirtyeight` package using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).
+
 3. Using the help file for the `drinks` data frame, define each of the variables in the data.
+
 4. What does it mean for a dataset in R to by "tidy" and how does this relate to the concept of "wide" vs. "long" data?
+
 5. Preview the `drinks_smaller` data frame from the `fivethirtyeight` package. Is this data in "tidy" format, why or why not?
+
 6. Convert the `drinks_smaller` data frame to "tidy" format. Be sure to describe the commands you're using for this conversion.
+
 7. Preview the new tidy version of the `drinks_smaller` data frame.
+
 8. Now do the same conversion and preview for the `airline_safety` data frame from the `fivethirtyeight` package. (Hint: you want the tidy data frame to include the variable `fatalities_years` that indicates the time period and the variable `count` that measures the fatality counts).
 
 Thus far, we've only loaded data frames that have come bundled in R packages. Oftentimes, you'll want to load data from other sources (e.g., websites, surveys, etc.) and in other formats (e.g., .csv, .xlsx, etc.). Let's work through an example of loading data from a .csv file.
 
 9. Load the `dem_score.csv` file and save it in a data frame called `dem_score`. (Hint: refer to ModernDive Chapter 4.1 for code on importing a .csv file).
+
 10. Preview the data using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).
+
 11. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
+
 12. Once you've finished Step 11, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo and you're done!

@@ -268,23 +268,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To name the file you can click on the save icon in the menu bar or navigate to <code>File -&gt; Save</code>. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let’s call this file <code>Tutorial_2</code> and save it in the folder you created for your new <code>hpam7660-tutorial2</code> GitHub repo. Notice that if you click on the “Git” tab in the upper righthand window, you should see this new R script ready to be staged, committed, and pushed to the GitHub repo.</p>
 <p>Now type the code below into the R script (note that I have combined a couple of lines from the previous version):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once you’ve typed this into your R Script, save it, and click on the “Run” button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you’ll have the script file that you can run at a later date and reproduce the exact same table. Further, once you push the script file to GitHub, you can share it with other collaborators who may be working with you on the project.</p>
 <p>We’ll push the R script to GitHub in a few minutes, but first let’s try using an R Markdown document to track our coding and it’s associated output.</p>
 </section>
 <section id="using-r-markdown-documents" class="level2">
 <h2 class="anchored" data-anchor-id="using-r-markdown-documents">Using R Markdown Documents</h2>
+<p>To open a new Markdown document navigate to <code>File -&gt; New File -&gt; R Markdown</code>. You should see a popup box with a button in the lower left corner that says “Create Empty Document”. Click that button. We could choose another formatting option, but RStudio will include a bunch of stuff that we don’t need in the final document. You should now see an RMD tab called “Untitled1” at the top of the Source Window. Click over to that tab.</p>
+<p>Markdown documents always begin with something called a YAML header. The YAML header allows us to add things like a title, author name, date, etc. to the top of our output document. Add the following code (using your name) to the top of your Markdown document:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 2"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Kevin Callison"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"February 1, 2024"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that we also tell Markdown the type of output document we want in the YAML header. In this case, we’ll go with a PDF, but other options include an <code>html_document</code> or a <code>word_document</code>.</p>
+<p>Now let’s add the same code we used in our R Script file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To generate the output PDF file, click on the “Knit” button.</p>
+<p><img src="../img/tutorial_2_4.png" class="img-fluid" alt="Knit"> You should see now see a PDF file that includes the title, your name, the date, and the R code that you typed. Something like this:</p>
+<p><img src="../img/tutorial_2_5.png" class="img-fluid" alt="Output"> This is good, but we can do better. For one thing, Markdown doesn’t recognize the R code we included as code - it just sees it as text. But we can tell Markdown that it is R code by adding a code chunk by adding chunk delimiters at the beginning and end of the code:</p>
+<p>“```{r}</p>
+<p>Code goes here</p>
+<p>```”</p>
 
 
 </section>

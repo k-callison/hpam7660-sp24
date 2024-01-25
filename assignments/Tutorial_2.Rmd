@@ -7,7 +7,7 @@ output: pdf_document
 
 Let's run some R code in our Markdown document
 
-```{r}
+```{r eval = FALSE}
 library(nycflights13)
 library(dplyr)
 library(knitr)

@@ -6,7 +6,7 @@ title: "HPAM 7660 Resources"
 
 ## Software Installation Guides
 
-- [Getting Software Set Up](/assignments/00-problem-set.qmd)
+- [Getting Software Set Up](/assignments/tutorial_1.qmd)
 - [Troubleshooting Guide](/resources/troubleshooting.qmd)
 
 ## R Tutorials

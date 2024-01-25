@@ -107,10 +107,6 @@ To name the file you can click on the save icon in the menu bar or navigate to `
 Now type the code below into the R script (note that I have combined a couple of lines from the previous version):
 
 ```{r eval = FALSE}
-install.packages("nycflights13")
-install.packages("dplyr")
-install.packages("knitr")
-
 library(nycflights13)
 library(dplyr)
 library(knitr)
@@ -125,3 +121,44 @@ Once you've typed this into your R Script, save it, and click on the "Run" butto
 We'll push the R script to GitHub in a few minutes, but first let's try using an R Markdown document to track our coding and it's associated output.
 
 ## Using R Markdown Documents
+
+To open a new Markdown document navigate to `File -> New File -> R Markdown`. You should see a popup box with a button in the lower left corner that says "Create Empty Document". Click that button. We could choose another formatting option, but RStudio will include a bunch of stuff that we don't need in the final document. You should now see an RMD tab called "Untitled1" at the top of the Source Window. Click over to that tab.
+
+Markdown documents always begin with something called a YAML header. The YAML header allows us to add things like a title, author name, date, etc. to the top of our output document. Add the following code (using your name) to the top of your Markdown document:
+
+```{r eval = FALSE}
+---
+title: "Tutorial 2"
+author: "Kevin Callison"
+date: "February 1, 2024"
+output: pdf_document
+---
+```
+
+Note that we also tell Markdown the type of output document we want in the YAML header. In this case, we'll go with a PDF, but other options include an `html_document` or a `word_document`.
+
+Now let's add the same code we used in our R Script file:
+
+```{r eval = FALSE}
+library(nycflights13)
+library(dplyr)
+library(knitr)
+
+ua_delay <- filter(flights, carrier == "UA", year == 2013, month == 1, arr_delay >= 240)
+ua_final <- select(ua_delay, flight, arr_delay)
+kable(ua_final)
+```
+
+To generate the output PDF file, click on the "Knit" button.
+
+![](/img/tutorial_2_4.png){fig-alt="Knit"}
+You should see now see a PDF file that includes the title, your name, the date, and the R code that you typed. Something like this:
+
+![](/img/tutorial_2_5.png){fig-alt="Output"}
+This is good, but we can do better. For one thing, Markdown doesn't recognize the R code we included as code - it just sees it as text. But we can tell Markdown that it is R code by adding a code chunk by adding chunk delimiters at the beginning and end of the code:
+
+"```{r}
+
+Code goes here
+
+```"

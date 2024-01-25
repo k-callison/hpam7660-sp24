@@ -41,7 +41,7 @@ library(glue)
   
 - {{< fa user >}} &nbsp; {{< var instructor.name_title >}}
 - {{< fa university >}} &nbsp; {{< var instructor.office >}}
-- {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
+- {{< fa envelope >}} &nbsp; <a href="mailto: kcallison@tulane.edu">kcallson@tulane.edu</a>
 - {{< fa laptop >}} &nbsp; [Webpage]({{< var instructor.website_url >}})
 
 ::: 

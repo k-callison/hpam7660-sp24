@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - Data Assignment 1 - Importing Data</title>
+<title>HPAM 7660 - Health Policy Analysis - Data Importing in RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -115,14 +149,22 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#importing-louisiana-mortality-data-into-rstudio" id="toc-importing-louisiana-mortality-data-into-rstudio" class="nav-link active" data-scroll-target="#importing-louisiana-mortality-data-into-rstudio">Importing Louisiana Mortality Data into RStudio</a></li>
+  <li><a href="#cdc-wonder" id="toc-cdc-wonder" class="nav-link" data-scroll-target="#cdc-wonder">CDC WONDER</a></li>
+  <li><a href="#nvss-mortality-files" id="toc-nvss-mortality-files" class="nav-link" data-scroll-target="#nvss-mortality-files">NVSS Mortality Files</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Assignment 1 - Importing Data</h1>
+<h1 class="title">Data Importing in RStudio</h1>
 </div>
 
 
@@ -139,28 +181,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Instructions:</strong> Complete the following examples from <a href="https://moderndive.com/4-tidy.html">ModernDive Chapter 4 - Data Importing and Tidy Data</a>. Before beginning the assignment, create a GitHub repo called <code>hpam7660_data1</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 1”, your name, the date, and “pdf_document” as the output format.</p>
-<p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
-<p><strong>Steps for Completing the Assignment</strong></p>
-<ol type="1">
-<li><p>Install and load the following packages: dplyr, ggplot2, readr, tidry, nycflights13, and fivethirtyeight.</p></li>
-<li><p>Preview the <code>drinks</code> data frame from the <code>fivethirtyeight</code> package using one of the methods we covered in <a href="../assignments/tutorial_2.html">Tutorial 2</a>.</p></li>
-<li><p>Using the help file for the <code>drinks</code> data frame, define each of the variables in the data.</p></li>
-<li><p>What does it mean for a dataset in R to by “tidy” and how does this relate to the concept of “wide” vs.&nbsp;“long” data?</p></li>
-<li><p>Preview the <code>drinks_smaller</code> data frame from the <code>fivethirtyeight</code> package. Is this data in “tidy” format, why or why not?</p></li>
-<li><p>Convert the <code>drinks_smaller</code> data frame to “tidy” format. Be sure to describe the commands you’re using for this conversion.</p></li>
-<li><p>Preview the new tidy version of the <code>drinks_smaller</code> data frame.</p></li>
-<li><p>Now do the same conversion and preview for the <code>airline_safety</code> data frame from the <code>fivethirtyeight</code> package. (Hint: you want the tidy data frame to include the variable <code>fatalities_years</code> that indicates the time period and the variable <code>count</code> that measures the fatality counts).</p></li>
-</ol>
-<p>Thus far, we’ve only loaded data frames that have come bundled in R packages. Oftentimes, you’ll want to load data from other sources (e.g., websites, surveys, etc.) and in other formats (e.g., .csv, .xlsx, etc.). Let’s work through an example of loading data from a .csv file.</p>
-<ol start="9" type="1">
-<li><p>Load the <code>dem_score.csv</code> file and save it in a data frame called <code>dem_score</code>. (Hint: refer to ModernDive Chapter 4.1 for code on importing a .csv file).</p></li>
-<li><p>Preview the data using one of the methods we covered in <a href="../assignments/tutorial_2.html">Tutorial 2</a>.</p></li>
-<li><p>Is this data frame in “tidy” format? If yes, then explain why. If not, then convert the data to “tiny” format.</p></li>
-<li><p>Once you’ve finished Step 11, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo and you’re done!</p></li>
-</ol>
+<section id="importing-louisiana-mortality-data-into-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="importing-louisiana-mortality-data-into-rstudio">Importing Louisiana Mortality Data into RStudio</h2>
+<p>Let’s go back to the scenario I posed at the beginning of the semester:</p>
+<p><em>You are a legislative policy advisor working for a Congressional representative from the state of Louisiana. The representative is interested in sponsoring legislation to direct resources to people living in Cancer Alley, an 85-mile tract of land along the Mississippi River where residents have historically experienced high rates of cancer. As part of the policy development process, the representative has tasked you with collecting data on cancer incidence rates for people living in Cancer Alley over the past 20 years and creating a visualization that depicts the disproportionate cancer burden that these people face.</em></p>
+<p>Over the next few weeks, we’ll work through this scenario using mortality data from the National Vital Statistics System collected by the CDC to create a visualization of cancer mortality rates across Louisiana parishes with a focus on Cancer Alley.</p>
+</section>
+<section id="cdc-wonder" class="level2">
+<h2 class="anchored" data-anchor-id="cdc-wonder">CDC WONDER</h2>
+<p>It turns out that the CDC provides a nice tool for analyzing mortality rates over time and across different places in the U.S. We’ll take a quick look at this tool before we start working with the underlying disaggregated data.</p>
+<p>Go to the <a href="https://www.cdc.gov/nchs/nvss/deaths.htm">CDC Mortality Statistics Page</a> and scroll down to the “CDC WONDER interactive database” link at the bottom of the page. After clicking on that link, you should see something like this:</p>
+<p><img src="../img/tutorial_3_1.png" class="img-fluid" alt="CDC Wonder"></p>
+<p>Notice that there’s a link for something called “Cancer Statistics”. That sounds promising, let’s check that out.</p>
+<p>Looks like they have data on cancer mortality from 1999 to 2020. Click on “Data Request” to see more options.</p>
+<p><img src="../img/tutorial_3_2.png" class="img-fluid" alt="CDC Cancer Stats"></p>
+<p>We’ll quickly come to see that this isn’t going to work for our purposes. Take a look at the “Group Results By” dropdown menu:</p>
+<p><img src="../img/tutorial_3_3.png" class="img-fluid" alt="CDC Cancer Stats"></p>
+<p>You’ll notice a few options under “Location”, including Region, Division, State, MSA, and States and Puerto Rico. Region, Division, and State are all too aggregate to allow us to examine cancer mortality across parishes in Louisiana. MSA, on the other hand, is too disaggregate and only includes data for Baton Rouge and New Orleans.</p>
+<p>Luckily, there is another option that will allow us to examine cancer mortality at the county/parish level. Go back to the Wonder menu and click on “Underlying Cause of Death”.</p>
+<p><img src="../img/tutorial_3_4.png" class="img-fluid" alt="Cause of Death"></p>
+<p>We have a few options here that we don’t need to get into right now, so let’s just click on the first link: “2018-2021: Underlying Cause of Death by Single-Race Categories”.</p>
+<p><img src="../img/tutorial_3_5.png" class="img-fluid" alt="Cause of Death by County"></p>
+<p>Agree to the data use restrictions and you’ll see a request form with a lot of options that we can choose from. Start by clicking the “Group Results By” dropdown and you’ll notice that we can select “County” as our geographic unit. We can give our data request a title - let’s call it “Louisiana Cancer Deaths by Parish, 2018”.</p>
+<p><img src="../img/tutorial_3_6.png" class="img-fluid" alt="Menu1"></p>
+<p>Next, we’ll need to select “Louisiana” as our location. We don’t need to change the “urbanization” category.</p>
+<p><img src="../img/tutorial_3_7.png" class="img-fluid" alt="Menu2"></p>
+<p>We have the option to select specific age ranges, sexes, races, and Hispanic ethnicity, but let’s leave these as the defaults for now. We’ll select data from 2018 for illustration purposes, but we could pick multiple years if we wanted to.</p>
+<p><img src="../img/tutorial_3_8.png" class="img-fluid" alt="Menu3"></p>
+<p>Finally, we can leave the weekday, autopsy, and place of death options on their default selections. We want to choose “neoplasms” as the cause of death (we could get more detailed here with specific cancer sites, but let’s keep it general for now). We don’t need to make any changes to the “Other options” section.</p>
+<p><img src="../img/tutorial_3_9.png" class="img-fluid" alt="Menu4"> Once you click “send” you should see a table that includes parish, counts of cancer deaths, parish population, and death rates.</p>
+<p><img src="../img/tutorial_3_10.png" class="img-fluid" alt="Table 1"></p>
+<p>We can even click the “Map” tab and get a nice visual of cancer rates across Louisiana.</p>
+<p><img src="../img/tutorial_3_11.png" class="img-fluid" alt="Map 1"></p>
+</section>
+<section id="nvss-mortality-files" class="level2">
+<h2 class="anchored" data-anchor-id="nvss-mortality-files">NVSS Mortality Files</h2>
+<p>The aggregate tools that the CDC provides to track cancer mortality are great, but having access to the underlying disaggregated data provides us with a LOT of additional flexibility. To analyze the disaggregated data, we’ll need to use RStudio, but let’s first take a look at the data files on the CDC website. Navigate back to the <a href="https://www.cdc.gov/nchs/nvss/deaths.htm">CDC Mortality Statistics Page</a> and click on the “Public-Use Data Files” link at the bottom of the page. About halfway down, you’ll see a section called “Mortality Multiple Cause Files”.</p>
+<p><img src="../img/tutorial_3_12.png" class="img-fluid" alt="Mortality Files"></p>
+<p>These zip files contain the underlying data that the CDC Wonder query tool uses to construct the tables and maps we saw. You won’t need to download these files for this tutorial - I’ve created a file from this data that we’ll use in class. But take a second to click on the “User’s Guide” link. This will take you to the documentation page for the mortality files. Once we load the data in RStudio, we can come back here to see how the variables are defined.</p>
+<p>Load the mortality file into RStudio using the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>la_mort <span class="ot">&lt;-</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/scl/fi/fzsnhfd3lq80v2o3sag6c/la_mort.csv?rlkey=h1vyjm2b8ppgejgsg3e8evm7i&amp;dl=1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’re loading a .csv file that I’ve stored in a Dropbox folder into an R data frame that we’ll call <code>la_mort</code>. Note that the <code>read_csv</code> function is part of the <code>readr</code> package, so you’ll need to be sure you’ve loaded that package before using it.</p>
+<p><img src="../img/tutorial_3_13.png" class="img-fluid" alt="csv load"></p>
+<p>RStuido tells us that the data frame has 642,696 rows and 29 columns - that’s a LOT of data rows. In fact each row of data in the data frame corresponds to a Louisiana resident’s death between 2005 and 2019. RStudio also tells us that, of the 29 columns, 7 contain data stored as characters “chr” and 22 contain data stored as double precision floating point numbers “dbl” (this is just a fancy way of saying a field that allows long decimals).</p>
+<p>We can view the data frame tibble by typing <code>la_mort</code> into the Console Window command line and hitting enter.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

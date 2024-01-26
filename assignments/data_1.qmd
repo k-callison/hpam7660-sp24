@@ -9,6 +9,7 @@ summary: >-
 As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
 
 **Steps for Completing the Assignment**
+
 1. Install and load the following packages: dplyr, ggplot2, readr, tidry, nycflights13, and fivethirtyeight. 
 
 2. Preview the `drinks` data frame from the `fivethirtyeight` package using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).

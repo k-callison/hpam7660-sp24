@@ -1,0 +1,88 @@
+---
+title: "Data Importing in RStudio"
+summary: >-
+  Importing Louisiana mortality files into RStudio for later analysis. 
+---
+
+## Importing Louisiana Mortality Data into RStudio
+
+Let's go back to the scenario I posed at the beginning of the semester:
+
+*You are a legislative policy advisor working for a Congressional representative from the state of Louisiana. The representative is interested in sponsoring legislation to direct resources to people living in Cancer Alley, an 85-mile tract of land along the Mississippi River where residents have historically experienced high rates of cancer. As part of the policy development process, the representative has tasked you with collecting data on cancer incidence rates for people living in Cancer Alley over the past 20 years and creating a visualization that depicts the disproportionate cancer burden that these people face.*
+
+Over the next few weeks, we'll work through this scenario using mortality data from the National Vital Statistics System collected by the CDC to create a visualization of cancer mortality rates across Louisiana parishes with a focus on Cancer Alley.
+
+## CDC WONDER
+
+It turns out that the CDC provides a nice tool for analyzing mortality rates over time and across different places in the U.S. We'll take a quick look at this tool before we start working with the underlying disaggregated data. 
+
+Go to the [CDC Mortality Statistics Page](https://www.cdc.gov/nchs/nvss/deaths.htm) and scroll down to the "CDC WONDER interactive database" link at the bottom of the page. After clicking on that link, you should see something like this:
+
+![](/img/tutorial_3_1.png){fig-alt="CDC Wonder"}
+
+Notice that there's a link for something called "Cancer Statistics". That sounds promising, let's check that out. 
+
+Looks like they have data on cancer mortality from 1999 to 2020. Click on "Data Request" to see more options.
+
+![](/img/tutorial_3_2.png){fig-alt="CDC Cancer Stats"}
+
+We'll quickly come to see that this isn't going to work for our purposes. Take a look at the "Group Results By" dropdown menu:
+
+![](/img/tutorial_3_3.png){fig-alt="CDC Cancer Stats"}
+
+You'll notice a few options under "Location", including Region, Division, State, MSA, and States and Puerto Rico. Region, Division, and State are all too aggregate to allow us to examine cancer mortality across parishes in Louisiana. MSA, on the other hand, is too disaggregate and only includes data for Baton Rouge and New Orleans. 
+
+Luckily, there is another option that will allow us to examine cancer mortality at the county/parish level. Go back to the Wonder menu and click on "Underlying Cause of Death". 
+
+![](/img/tutorial_3_4.png){fig-alt="Cause of Death"}
+
+We have a few options here that we don't need to get into right now, so let's just click on the first link: "2018-2021: Underlying Cause of Death by Single-Race Categories".
+
+![](/img/tutorial_3_5.png){fig-alt="Cause of Death by County"}
+
+Agree to the data use restrictions and you'll see a request form with a lot of options that we can choose from. Start by clicking the "Group Results By" dropdown and you'll notice that we can select "County" as our geographic unit. We can give our data request a title - let's call it "Louisiana Cancer Deaths by Parish, 2018".
+
+![](/img/tutorial_3_6.png){fig-alt="Menu1"}
+
+Next, we'll need to select "Louisiana" as our location. We don't need to change the "urbanization" category.
+
+![](/img/tutorial_3_7.png){fig-alt="Menu2"}
+
+We have the option to select specific age ranges, sexes, races, and Hispanic ethnicity, but let's leave these as the defaults for now. We'll select data from 2018 for illustration purposes, but we could pick multiple years if we wanted to.
+
+![](/img/tutorial_3_8.png){fig-alt="Menu3"}
+
+Finally, we can leave the weekday, autopsy, and place of death options on their default selections. We want to choose "neoplasms" as the cause of death (we could get more detailed here with specific cancer sites, but let's keep it general for now). We don't need to make any changes to the "Other options" section.
+
+![](/img/tutorial_3_9.png){fig-alt="Menu4"}
+Once you click "send" you should see a table that includes parish, counts of cancer deaths, parish population, and death rates.
+
+![](/img/tutorial_3_10.png){fig-alt="Table 1"}
+
+We can even click the "Map" tab and get a nice visual of cancer rates across Louisiana.
+
+![](/img/tutorial_3_11.png){fig-alt="Map 1"}
+
+## NVSS Mortality Files
+
+The aggregate tools that the CDC provides to track cancer mortality are great, but having access to the underlying disaggregated data provides us with a LOT of additional flexibility. To analyze the disaggregated data, we'll need to use RStudio, but let's first take a look at the data files on the CDC website. Navigate back to the [CDC Mortality Statistics Page](https://www.cdc.gov/nchs/nvss/deaths.htm) and click on the "Public-Use Data Files" link at the bottom of the page. About halfway down, you'll see a section called "Mortality Multiple Cause Files".
+
+![](/img/tutorial_3_12.png){fig-alt="Mortality Files"}
+
+These zip files contain the underlying data that the CDC Wonder query tool uses to construct the tables and maps we saw. You won't need to download these files for this tutorial - I've created a file from this data that we'll use in class. But take a second to click on the "User's Guide" link. This will take you to the documentation page for the mortality files. Once we load the data in RStudio, we can come back here to see how the variables are defined.
+
+Load the mortality file into RStudio using the following command:
+
+```{r eval = FALSE}
+la_mort <- 
+  read_csv("https://www.dropbox.com/scl/fi/fzsnhfd3lq80v2o3sag6c/la_mort.csv?rlkey=h1vyjm2b8ppgejgsg3e8evm7i&dl=1")
+```
+
+We're loading a .csv file that I've stored in a Dropbox folder into an R data frame that we'll call `la_mort`. Note that the `read_csv` function is part of the `readr` package, so you'll need to be sure you've loaded that package before using it. 
+
+![](/img/tutorial_3_13.png){fig-alt="csv load"}
+
+RStuido tells us that the data frame has 642,696 rows and 29 columns - that's a LOT of data rows. In fact each row of data in the data frame corresponds to a Louisiana resident's death between 2005 and 2019. RStudio also tells us that, of the 29 columns, 7 contain data stored as characters "chr" and 22 contain data stored as double precision floating point numbers "dbl" (this is just a fancy way of saying a field that allows long decimals).
+ 
+ 
+ We can view the data frame tibble by typing `la_mort` into the Console Window command line and hitting enter.

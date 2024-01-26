@@ -5,4 +5,9 @@ subtitle: "Importing Data"
 
 ## Tuesday, February 6
 
+-Reading - [ModernDive Chapter 4 - Data Importing and Tidy Data](https://moderndive.com/4-tidy.html)
+-Assignment - [Data Assignment 1](/assignments/data_1.qmd)
+
 ## Thursday, February 8
+
+-Tutorial - [Tutorial 3 - Data Importing in RStudio]

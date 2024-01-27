@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - HPAM 7660 - Week 4 Materials</title>
+<title>HPAM 7660 - Health Policy Analysis - Data Assignment 2 - Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,8 +119,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tuesday-february-6" id="toc-tuesday-february-6" class="nav-link active" data-scroll-target="#tuesday-february-6">Tuesday, February 6</a></li>
-  <li><a href="#thursday-february-8" id="toc-thursday-february-8" class="nav-link" data-scroll-target="#thursday-february-8">Thursday, February 8</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#steps-for-completing-the-assignment" id="toc-steps-for-completing-the-assignment" class="nav-link" data-scroll-target="#steps-for-completing-the-assignment">Steps for Completing the Assignment</a></li>
   </ul>
 </nav>
     </div>
@@ -129,8 +129,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 - Week 4 Materials</h1>
-<p class="subtitle lead">Importing Data</p>
+<h1 class="title">Data Assignment 2 - Data Wrangling</h1>
 </div>
 
 
@@ -147,18 +146,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tuesday-february-6" class="level2">
-<h2 class="anchored" data-anchor-id="tuesday-february-6">Tuesday, February 6</h2>
-<ul>
-<li>Reading - <a href="https://moderndive.com/4-tidy.html">ModernDive Chapter 4 - Data Importing and Tidy Data</a></li>
-<li>Assignment - <a href="../assignments/data_1.html">Data Assignment 1</a></li>
-</ul>
+<section id="instructions" class="level3">
+<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
+<p>Complete the following examples from <a href="https://moderndive.com/3-wrangling.html">ModernDive Chapter 3 - Data</a>, Sections 3.1 through 3.4. Before beginning the assignment, create a GitHub repo called <code>hpam7660_data2</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 2”, your name, the date, and “pdf_document” as the output format.</p>
+<p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
 </section>
-<section id="thursday-february-8" class="level2">
-<h2 class="anchored" data-anchor-id="thursday-february-8">Thursday, February 8</h2>
-<ul>
-<li>Tutorial - <a href="../assignments/tutorial_3.html">Tutorial 3 - Data Importing in RStudio</a></li>
-</ul>
+<section id="steps-for-completing-the-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="steps-for-completing-the-assignment">Steps for Completing the Assignment</h3>
+<ol type="1">
+<li><p>Install and load the following packages: <code>dplyr</code> and <code>nycflights13</code>.</p></li>
+<li><p>The pipe operator <code>%&gt;%</code> included in the <code>dplyr</code> package allows us to combine multiple operations in R into a single sequential chain of actions. You can think of the pipe operator as a way to streamline and simplify your code. You might remember that you’ve encountered this pipe operator in Data Assignment 1 when transforming data into “tidy” format in Data Assignment 1. Let’s take a closer look at how the pipe operator works.</p></li>
+</ol>
+<p>We’ll start by creating a new data frame called <code>united_flights</code> that filters the <code>nycflights13</code> data so that it only contains United Airlines flights. We’ve done something similar before using the following code:</p>
+<p><code>united_flights &lt;- filter(flights, carrier == "UA")</code></p>
+<p>Write a code chunk in your Markdownn document that does the same thing as the code snippet above, but uses the pipe operator, <code>%&gt;%</code>.</p>
+<ol start="3" type="1">
+<li>Let’s add another restriction to the <code>filter</code> command. We’ll continue to focus on United Airlines flights, but now use the <code>origin</code> variable to restrict the sample to United Airlines flights that departed from LaGuardia Airport (airport code “LGA”).</li>
+</ol>
+<p>First, write a code chunk that accomplishes this by adding a second argument to your original <code>filter</code> command.</p>
+<p>Second, write a code chunk that accomplishes this by adding a second <code>filter</code> command and uses the pipe operator.</p>
+<p>Third, show that both options create identical data frames that contain the same number of rows.</p>
+<ol start="4" type="1">
+<li><p>Suppose we’re interested in United Airlines flights departing LaGuardia and arriving in either Chicago (“ORD”) or Denver (“DEN”). Write a code chunk that adds this restriction. You can combine all of this into one <code>filter</code> command or use multiple <code>filter</code> commands with the pipe operator.</p></li>
+<li><p>Now let’s expand our list of destination airports to include Houston (“IAH”) and Cleveland (“CLE”). We could add each of these individually into our <code>filter</code> command along with “ORD” and “DEN”, but it’s usually preferable to create a vector of list elements and refer to this vector in the <code>filter</code> command.</p></li>
+</ol>
+<p>Write a code chunk that uses the <code>%in%</code> operator along with the <code>c()</code> function to revise your data frame so that it includes United Airlines flights departing from LaGuardia and arriving in Chicago, Denver, Houston, or Cleveland.</p>
+<ol start="6" type="1">
+<li>We’re going to focus on summarizing data next week, but we’ll briefly cover some of the basics now. First, write a code chunk that uses the <code>summarize</code> function to generate the mean and standard deviation of the “arr_delay” variable. Be sure to account for any missing observations in your code!</li>
+</ol>
+<p>Now use the <code>kable()</code> function to add a table to the Markdown document that contains the mean and standard deviation values that you just generated.</p>
+<ol start="7" type="1">
+<li><p>Suppose we also want our flight delay summary statistics table to include the total number of observations in the data. Use the <code>n()</code> function to add the number of observations to the table.</p></li>
+<li><p>Now let’s look to see what months tend to experience the longest delays. Use the <code>group_by</code> function to generate a data frame that contains the mean, standard deviation, and number of monthly observations of flight delays. Add a table using the <code>kable()</code> function to your Markdown document that summarizes this information. Which month typically sees the longest average delay? Which month typically sees the shortest average delay?</p></li>
+<li><p>We can also group by more than one variable if we’d like. Create another version of the previous table that displays the average delay each month across all three New York airports (“origin”) using the <code>group_by</code> function.</p></li>
+<li><p>Once you’ve finished Step 9, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo and you’re done!</p></li>
+</ol>
 
 
 </section>

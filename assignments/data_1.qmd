@@ -4,13 +4,15 @@ summary: >-
   Exercises in ModernDive Ch. 4 - Data Improting and Tidy Data 
 ---
 
-**Instructions:** Complete the following examples from [ModernDive Chapter 4 - Data Importing and Tidy Data](https://moderndive.com/4-tidy.html). Before beginning the assignment, create a GitHub repo called `hpam7660_data1`. Then create a new RStudio project and link it to the new GitHub repo. Once you've done that, open a new Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Assignment 1", your name, the date, and "pdf_document" as the output format.
+### Instructions
+
+Complete the following examples from [ModernDive Chapter 4 - Data Importing and Tidy Data](https://moderndive.com/4-tidy.html). Before beginning the assignment, create a GitHub repo called `hpam7660_data1`. Then create a new RStudio project and link it to the new GitHub repo. Once you've done that, open a new Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Assignment 1", your name, the date, and "pdf_document" as the output format.
 
 As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
 
-**Steps for Completing the Assignment**
+### Steps for Completing the Assignment
 
-1. Install and load the following packages: dplyr, ggplot2, readr, tidry, nycflights13, and fivethirtyeight. 
+1. Install and load the following packages: `dplyr`, `readr`, `tidry`, `nycflights13`, and `fivethirtyeight`. 
 
 2. Preview the `drinks` data frame from the `fivethirtyeight` package using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).
 

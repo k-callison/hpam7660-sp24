@@ -1,5 +1,5 @@
 ---
-title: "Data Importing in RStudio"
+title: "Data Importing in RStudio Tutorial"
 summary: >-
   Importing Louisiana mortality files into RStudio for later analysis. 
 ---
@@ -85,4 +85,4 @@ We're loading a .csv file that I've stored in a Dropbox folder into an R data fr
 RStuido tells us that the data frame has 642,696 rows and 29 columns - that's a LOT of data rows. In fact each row of data in the data frame corresponds to a Louisiana resident's death between 2005 and 2019. RStudio also tells us that, of the 29 columns, 7 contain data stored as characters "chr" and 22 contain data stored as double precision floating point numbers "dbl" (this is just a fancy way of saying a field that allows long decimals).
  
  
- We can view the data frame tibble by typing `la_mort` into the Console Window command line and hitting enter.
+We can view the data frame tibble by typing `la_mort` into the Console Window command line and hitting enter. This will allow us to see the first 10 rows of the data frame along with a selection of the variables. We don't yet know what these variables mean, but we'll work on that in the upcoming classes.

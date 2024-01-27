@@ -1,0 +1,15 @@
+---
+title: "Data Assignment 3 - Summarizing the Data"
+summary: >-
+  Create a Markdown document with R code for importing the LA Mortality data and a description of each variable in the data.
+---
+
+**Instructions:**
+
+**Steps for Completing the Assignment**
+
+1.
+
+Summarizing data????
+
+Do we want to include any examples from the book here? We could do that first and save the mortality stuff for the end.

@@ -48,10 +48,10 @@ Git is also a very useful way for people to collaborate. There is a large commun
 
 You might already have git installed on your computer, especially if you have a Mac. To check, in RStudio, click on the Terminal tab in the bottom-left panel (next to the Console tab). Type `git --version` at the command prompt. If you get a response with a version number, great you are all set. If you get any kind of error message, then you'll need to install git.
 
-##Git install for Windows
+## Git install for Windows
 Download Git [here](https://gitforwindows.org/). Note that if you are asked about "Adjusting your PATH environment", you should select "Git from the command line and also from 3rd-party software." Also note that RStudio will want Git installed in the `"C:/Program Files"` path.
 
-##Git install for Mac
+## Git install for Mac
 Open the terminal and type `git --version` to elicit an offer to install developer command line tools. Accept the offer and click on "install".
 
 ### Setup a GitHub account

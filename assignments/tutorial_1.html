@@ -157,8 +157,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installing-and-configuring-git" id="toc-installing-and-configuring-git" class="nav-link" data-scroll-target="#installing-and-configuring-git">Installing and configuring git</a>
   <ul class="collapse">
   <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">Install git</a></li>
-  <li><a href="#git-install-for-windows" id="toc-git-install-for-windows" class="nav-link" data-scroll-target="#git-install-for-windows">Git install for Windows</a></li>
   <li><a href="#git-install-for-mac" id="toc-git-install-for-mac" class="nav-link" data-scroll-target="#git-install-for-mac">Git install for Mac</a></li>
+  <li><a href="#git-install-for-windows" id="toc-git-install-for-windows" class="nav-link" data-scroll-target="#git-install-for-windows">Git install for Windows</a></li>
   </ul></li>
   <li><a href="#setup-a-github-account" id="toc-setup-a-github-account" class="nav-link" data-scroll-target="#setup-a-github-account">Setup a GitHub account</a></li>
   <li><a href="#set-up-rstudio-to-talk-to-github" id="toc-set-up-rstudio-to-talk-to-github" class="nav-link" data-scroll-target="#set-up-rstudio-to-talk-to-github">Set up RStudio to talk to GitHub</a></li>
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="installing-r-and-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="installing-r-and-rstudio">Installing R and RStudio</h2>
-<p>In this tutorial, we’re going to get R, RStudio, and R Markdown set up on your computer. To get started, follow these steps:</p>
+<p>In this tutorial, we’re going to get R, RStudio, and R Markdown set up on your computer. <strong>It’s important that you follow these steps in order.</strong> You may experience errors if you try go out of order. To get started:</p>
 <ol type="1">
 <li>Download and install the most recent version of <a href="https://cloud.r-project.org/">R</a>. There are versions available for the Windows, Mac, and Linux operating systems. On a Windows computer, you will want to install using the <code>R-x.y.z-win.exe</code> file where <code>x.y.z</code> is a version number. On a Mac, you will want to install using the <code>R-x.y.z.pkg</code> file that is notarized and signed.</li>
 <li>With R installed, download and install <a href="https://posit.co/downloads/">RStudio</a>. RStudio is a type of “integrated development environment” or IDE designed for R. It makes working with R considerably easier and is available for most platforms. It is also free.</li>
@@ -223,13 +223,15 @@ my_code_v2_FINAL.R</code></pre>
 <h3 class="anchored" data-anchor-id="install-git">Install git</h3>
 <p>You might already have git installed on your computer, especially if you have a Mac. To check, in RStudio, click on the Terminal tab in the bottom-left panel (next to the Console tab). Type <code>git --version</code> at the command prompt. If you get a response with a version number, great you are all set. If you get any kind of error message, then you’ll need to install git.</p>
 </section>
-<section id="git-install-for-windows" class="level3">
-<h3 class="anchored" data-anchor-id="git-install-for-windows">Git install for Windows</h3>
-<p>Download Git <a href="https://gitforwindows.org/">here</a>. Note that if you are asked about “Adjusting your PATH environment”, you should select “Git from the command line and also from 3rd-party software.” Also note that RStudio will want Git installed in the <code>"C:/Program Files"</code> path.</p>
-</section>
 <section id="git-install-for-mac" class="level3">
 <h3 class="anchored" data-anchor-id="git-install-for-mac">Git install for Mac</h3>
-<p>Open the terminal and type <code>git --version</code> to elicit an offer to install developer command line tools. Accept the offer and click on “install”.</p>
+<p>Go to the terminal tab in RStudio and type <code>git --version</code> to elicit an offer to install developer command line tools. This will appear as a popup menu on your computer (it may get stuck behind other windows that you already have open, so look around for it if you don’t see it immediately). Accept the offer and click on “install”.</p>
+</section>
+<section id="git-install-for-windows" class="level3">
+<h3 class="anchored" data-anchor-id="git-install-for-windows">Git install for Windows</h3>
+<p>Download Git <a href="https://gitforwindows.org/">here</a> and click to install. Click “next” at the GNU General Public License screen. Select an installation path. Note that RStudio will look for Git in the <code>"C:/Program Files"</code> path by default, so that might be a good place to install Git. However, you can install Git using any path you’d like and we can tell RStudio where to find it.</p>
+<p>Next you’ll be confronted with a bunch of different installation options. We can go with the default for all of these options, so you can just click “next” to keep navigating through to the “install” button.</p>
+<p>Now that you’ve installed Git, you’ll want to check to see if RStudio can find it. Go to the terminal tab in RStudio and type <code>git --version</code>. If you see a version listed, then you’re all set and can move on to the next step. If you get an error message saying something along the lines of “git not found” or …then you’ll need to point RStudio to the Git installation path. You can do this by navigating to the “Tools” menu in RStudio, selecting “Global Options”, then clicking on the Git/SVN icon in the left menu bar. Enter the Git installation path in the “Git executable:” box and add “” to the end of the path (so, for example, if your installation path was “C:_Stuff” then you want to enter “C:_Stuff“.) Click”apply” then click “ok” and then <strong>you’ll need to restart RStudio</strong>. After the restart go to the terminal window in RStudio and type <code>git --version</code> and you should see something like “git version 2.43.0.windows.1” displayed. Once you see that message, you can move on to the next step.</p>
 </section>
 </section>
 <section id="setup-a-github-account" class="level2">
@@ -266,7 +268,7 @@ git config --global user.email "bruce@tulane.edu"</code></pre>
 <p><img src="../img/github-create-new.png" class="img-fluid" alt="Create a new repo"></p>
 <p>Now a new screen should pop up requesting some information for the new repo. Give this new Repository the name <code>hpam7660-tutorial1</code> and set it to be a private repository. You can give it an informative description and check the “Initialize this repository with a README” checkbox. This latter option will add a README to the repository where you can add more information that will display nicely in the repository’s homepage. Your setup should look something like this:</p>
 <p><img src="../img/github-create-options.png" class="img-fluid" alt="New Repo Options"></p>
-<p>Once you create your repo, you are ready to connect it to RStudio on your local computer (this process is called “cloning”). The easiest way to do this is go to the repo homepage (you’re already there if you’ve just created it) and click on the green “Code” button toward the top right of the page. When you click that, a popup will appear and you can copy the URL (you can click the little clipboard icon to copy this automatically).</p>
+<p>Once you create your repo, you are ready to connect it to RStudio on your local computer (this process is called “cloning”). The easiest way to do this is go to the repo homepage (you’re already there if you’ve just created it) and click on the green “Code” button toward the top right of the page. When you click that, a popup will appear and you can copy the URL (you can click the little clipboard icon to copy this automatically). I’ve noticed that the “Project Directory Name:” field and the “Create project as subdirectory of:” field are typically autofilled on a Mac, but not always on a PC. If those fields don’t autofill, add your repo name as the project directory name and a local folder path where you want to store R files as the subdirectory.</p>
 <p><img src="../img/github-clone.png" class="img-fluid" alt="Cloning the repo"></p>
 <p>Now, switch to RStudio. Go to the menu bar and hit “File &gt; New Project”. You can then choose what type of project to start. Since we’re importing from Github, we’ll use the “Version Control” option (it’s the bottom of the list).</p>
 <p><img src="../img/R_to_Git_1.png" class="img-fluid" alt="New Project"></p>

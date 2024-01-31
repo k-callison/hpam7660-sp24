@@ -51,11 +51,13 @@ You might already have git installed on your computer, especially if you have a 
 Go to the terminal tab in RStudio and type `git --version` to elicit an offer to install developer command line tools. This will appear as a popup menu on your computer (it may get stuck behind other windows that you already have open, so look around for it if you don't see it immediately). Accept the offer and click on "install".
 
 ### Git install for Windows
-Download Git [here](https://gitforwindows.org/) and click to install. Click "next" at the GNU General Public License screen. Select an installation path. Note that RStudio will look for Git in the `"C:/Program Files"` path by default, so that might be a good place to install Git. However, you can install Git using any path you'd like and we can tell RStudio where to find it.
+Download Git [here](https://gitforwindows.org/) and click to install. Click "next" at the GNU General Public License screen. Select an installation path. Note that RStudio will look for Git in the `"C:\Program Files"` path by default, so that might be a good place to install Git. However, you can install Git using any path you'd like and we can tell RStudio where to find it.
 
 Next you'll be confronted with a bunch of different installation options. We can go with the default for all of these options, so you can just click "next" to keep navigating through to the "install" button. 
 
-Now that you've installed Git, you'll want to check to see if RStudio can find it. Go to the terminal tab in RStudio and type `git --version`. If you see a version listed, then you're all set and can move on to the next step. If you get an error message saying something along the lines of "git not found" or "git is not recognized", then you'll need to point RStudio to the Git installation path. You can do this by navigating to the "Tools" menu in RStudio, selecting "Global Options", then clicking on the Git/SVN icon in the left menu bar. Enter the Git installation path in the "Git executable:" box and add "\bin\git" to the end of the path (so, for example, if your installation path was "C:\Documents\R_Stuff\Git" then you want to enter "C:\Documents\R_Stuff\Git\bin\git".) Click "apply" then click "ok" and then **you'll need to restart RStudio**. After the restart go to the terminal window in RStudio and type `git --version` and you should see something like "git version 2.43.0.windows.1" displayed. Once you see that message, you can move on to the next step.  
+Now that you've installed Git, you'll want to check to see if RStudio can find it. Go to the terminal tab in RStudio and type `git --version`. If you see a version listed, then you're all set and can move on to the next step. If you get an error message saying something along the lines of "git not found" or "git is not recognized", then you'll need to point RStudio to the Git installation path. 
+
+You can do this by navigating to the "Tools" menu in RStudio, selecting "Global Options", then clicking on the Git/SVN icon in the left menu bar. Enter the Git installation path in the "Git executable:" box and add `\bin\git` to the end of the path (so, for example, if your installation path was `C:\Documents\R_Stuff\Git` then you want to enter `C:\Documents\R_Stuff\Git\bin\git`.) Click "apply" then click "ok" and then **you'll need to restart RStudio**. After the restart go to the terminal window in RStudio and type `git --version` and you should see something like "git version 2.43.0.windows.1" displayed. Once you see that message, you can move on to the next step.  
 
 ## Setup a GitHub account
 
@@ -119,7 +121,7 @@ Now a new screen should pop up requesting some information for the new repo. Giv
 ![](/img/github-create-options.png){fig-alt="New Repo Options"}
 
 
-Once you create your repo, you are ready to connect it to RStudio on your local computer (this process is called "cloning"). The easiest way to do this is go to the repo homepage (you're already there if you've just created it) and click on the green "Code" button toward the top right of the page. When you click that, a popup will appear and you can copy the URL (you can click the little clipboard icon to copy this automatically). I've noticed that the "Project Directory Name:" field and the "Create project as subdirectory of:" field are typically autofilled on a Mac, but not always on a PC. If those fields don't autofill, add your repo name as the project directory name and a local folder path where you want to store R files as the subdirectory.
+Once you create your repo, you are ready to connect it to RStudio on your local computer (this process is called "cloning"). The easiest way to do this is go to the repo homepage (you're already there if you've just created it) and click on the green "Code" button toward the top right of the page. When you click that, a popup will appear and you can copy the URL (you can click the little clipboard icon to copy this automatically).
 
 ![](/img/github-clone.png){fig-alt="Cloning the repo"}
 
@@ -131,7 +133,7 @@ In the next menu, choose "Git".
 
 ![](/img/R_to_Git_2.png){fig-alt="Git Project"}
 
-Now, you can paste the URL in the "Repository URL" box (the "Project directory name:" field should populate automatically). Choose a set of local directories to place this project and hit "Create Project". And now you'll have your project ready to go in RStudio. 
+Now, you can paste the URL in the "Repository URL" box. I've noticed that the "Project Directory Name:" field and the "Create project as subdirectory of:" field are typically autofilled on a Mac, but not always on a PC. If those fields don't autofill, add your repo name as the project directory name and a local folder path where you want to store R files as the subdirectory. Click "Create Project" and you'll have your project ready to go in RStudio. 
 
 ![](/img/R_to_Git_3.png){fig-alt="Create Project"}
 

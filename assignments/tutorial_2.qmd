@@ -186,7 +186,7 @@ We're almost done, but we need to push our Markdown file to GitHub before we wra
 6. Click the "Push" button.
 7. Close the Git Push popup.
 
-Go to your GitHub page and make sure the file shows up in your `hpam7660-tutorial2` repo.
+Go to your GitHub page and make sure the file shows up in your `hpam7660-tutorial2` repo. Invite me to the repo.
 
 Congratulations! You made it all the way through!
 

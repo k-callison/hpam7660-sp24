@@ -36,4 +36,4 @@ Thus far, we've only loaded data frames that have come bundled in R packages. Of
 
 11. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
 
-12. Once you've finished Step 11, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo and you're done!
+12. Once you've finished Step 11, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you're done!

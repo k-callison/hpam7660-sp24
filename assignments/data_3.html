@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - Data Assignment 3 - Summarizing the Data</title>
+<title>HPAM 7660 - Health Policy Analysis - Data Assignment 3 - Data Wrangling, LA Mortality Files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,14 +115,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#steps-for-completing-the-assignment" id="toc-steps-for-completing-the-assignment" class="nav-link" data-scroll-target="#steps-for-completing-the-assignment">Steps for Completing the Assignment</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Assignment 3 - Summarizing the Data</h1>
+<h1 class="title">Data Assignment 3 - Data Wrangling, LA Mortality Files</h1>
 </div>
 
 
@@ -139,15 +146,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Instructions:</strong></p>
-<p><strong>Steps for Completing the Assignment</strong></p>
+<section id="instructions" class="level3">
+<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
+<p>In this assignment, you’ll write code to import the Louisiana Mortality Files (we already did this in <a href="../assignments/tutorial_3.html">Tutorial 3</a>) and you’ll identify each of the variables included in the data. It’s important to know what each variable is measuring before we can create an analytic file for analysis.</p>
+<p>Before beginning the assignment, create a GitHub repo called <code>hpam7660_data3</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 3”, your name, the date, and “pdf_document” as the output format.</p>
+<p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
+</section>
+<section id="steps-for-completing-the-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="steps-for-completing-the-assignment">Steps for Completing the Assignment</h3>
 <ol type="1">
-<li></li>
+<li><p>Use the <code>read_csv</code> command to load the LA Mortality Files into RStudio.</p></li>
+<li><p>Each year of the data has its own associated data documentation on the CDC site. We could go through the documentation file for each year, but it turns out that the data fields don’t change much from year to year. So, for our purposes, we can use the 2019 data documentation file to describe the data set. Open the <a href="https://www.cdc.gov/nchs/data/dvs/Multiple-Cause-Record-Layout-2019-508.pdf">documentation file</a> for the 2019 Mortality Multiple Cause-of-Death Files. Open the data documentation file by following the link above.</p></li>
+<li><p>Each variable in the LA Mortality File has a corresponding entry in the documentation file. For example, the first varable listed when you preview the data frame should be …</p></li>
 </ol>
 <p>Summarizing data????</p>
 <p>Do we want to include any examples from the book here? We could do that first and save the mortality stuff for the end.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

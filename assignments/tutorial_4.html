@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - Data Wrangling Tutorial</title>
+<title>HPAM 7660 - Health Policy Analysis - Tutorial 4 - Data Description Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analyic-sample-construction" id="toc-analyic-sample-construction" class="nav-link active" data-scroll-target="#analyic-sample-construction">Analyic Sample Construction</a></li>
+  <li><a href="#importing-and-describing-the-louisiana-mortality-files" id="toc-importing-and-describing-the-louisiana-mortality-files" class="nav-link active" data-scroll-target="#importing-and-describing-the-louisiana-mortality-files">Importing and Describing the Louisiana Mortality Files</a>
+  <ul class="collapse">
+  <li><a href="#import-the-louisiana-mortality-file" id="toc-import-the-louisiana-mortality-file" class="nav-link" data-scroll-target="#import-the-louisiana-mortality-file">Import the Louisiana Mortality File</a></li>
+  <li><a href="#describe-the-la-mortality-file-data-elements" id="toc-describe-the-la-mortality-file-data-elements" class="nav-link" data-scroll-target="#describe-the-la-mortality-file-data-elements">Describe the LA Mortality File Data Elements</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -128,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Wrangling Tutorial</h1>
+<h1 class="title">Tutorial 4 - Data Description Tutorial</h1>
 </div>
 
 
@@ -145,11 +149,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="analyic-sample-construction" class="level2">
-<h2 class="anchored" data-anchor-id="analyic-sample-construction">Analyic Sample Construction</h2>
-<p>In this tutorial, we’ll begin to construct an analytic sample from the Louisiana mortality files so that we can analyze cancer mortality rates in Cancer Alley parishes.</p>
+<section id="importing-and-describing-the-louisiana-mortality-files" class="level2">
+<h2 class="anchored" data-anchor-id="importing-and-describing-the-louisiana-mortality-files">Importing and Describing the Louisiana Mortality Files</h2>
+<p>In this tutorial, we’ll write code to import the Louisiana Mortality File (we already did this in <a href="../assignments/tutorial_3.html">Tutorial 3</a>) and identify each of the variables included in the data. It’s important to know what each variable is measuring before we can create an analytic file for analysis.</p>
+<p>Before beginning the tutorial, create a GitHub repo called <code>hpam7660_Cancer_Alley</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “Louisiana Mortality Data Description”, your name, the date, and “pdf_document” as the output format.</p>
+<section id="import-the-louisiana-mortality-file" class="level3">
+<h3 class="anchored" data-anchor-id="import-the-louisiana-mortality-file">Import the Louisiana Mortality File</h3>
+<p>Write some code that uses the <code>read_csv</code> command to load the LA Mortality File into RStudio and then create a list of each data element (variable name) in the file.</p>
+</section>
+<section id="describe-the-la-mortality-file-data-elements" class="level3">
+<h3 class="anchored" data-anchor-id="describe-the-la-mortality-file-data-elements">Describe the LA Mortality File Data Elements</h3>
+<p>Each year of the data has its own associated data documentation on the CDC site. We could go through the documentation file for each year, but it turns out that the data fields don’t change much from year to year. So, for our purposes, we can use the 2019 data documentation file to describe the data set. Open the <a href="https://www.cdc.gov/nchs/data/dvs/Multiple-Cause-Record-Layout-2019-508.pdf">documentation file</a> for the 2019 Mortality Multiple Cause-of-Death Files.</p>
+<p>Each variable in the LA Mortality File has a corresponding entry in the documentation file. For example, the first variable listed when you preview the data frame should be “restatus”. If you search through the documentation file for “restatus”, you won’t find anything. However, if you search instead for “status”, the first result should be a data item called “resident status”.</p>
+<p>Sounds like “resident status” is probably a good fit for our “restatus” variable. The definition for the “resident status” variable is included on the third page of the documentation file.</p>
+<p><img src="../img/restatus.png" class="img-fluid" alt="resident status"></p>
+<p>You can see that this variable provides some information on whether the place where a death occurred is also that person’s place of residence (note that we’re only interested in United States Occurence for our purposes). So, on your Markdown document, begin your data element list as follows:</p>
+<ul>
+<li><em>restatus</em>, Resident Status
+<ol type="1">
+<li>State and county of Occurrence and Residence are the same.</li>
+<li>State of Occurrence and Residence are the same, but County is different.</li>
+<li>State of Occurrence and Residence are different, but both are in the U.S.</li>
+<li>State of Occurrence is one of the 50 States or D.C., but Place of Residence is outside the U.S.</li>
+</ol></li>
+</ul>
+<p>Hint: to italicize a word in a Markdown document write it like this: <code>*restatus*</code></p>
+<p>Continue to build your data element list by adding each variable in the data set and its corresponding definition from the documentation file. Note that for some variables, the descriptions and code values will be lengthy, so you’ll have to abbreviate.</p>
+<p>Once you’re finished, save the Markdown document as <code>Cancer Alley Data Description</code>, push it to your <code>hpam7660_Cancer_Alley</code> repo, invite me to the repo, and you’re done!</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

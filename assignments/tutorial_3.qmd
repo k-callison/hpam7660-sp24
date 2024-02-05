@@ -1,5 +1,5 @@
 ---
-title: "Data Importing in RStudio Tutorial"
+title: "Tutorial 3 - Data Importing in RStudio Tutorial"
 summary: >-
   Importing Louisiana mortality files into RStudio for later analysis. 
 ---

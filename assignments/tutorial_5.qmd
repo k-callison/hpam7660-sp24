@@ -1,0 +1,9 @@
+---
+title: "Data Wrangling Tutorial - LA Mortality Files"
+summary: >-
+  Creating an analytic sample from the Louisiana mortality files. 
+---
+
+## Analyic Sample Construction
+In this tutorial, we'll begin to construct an analytic sample from the Louisiana mortality files so that we can analyze cancer mortality rates in Cancer Alley parishes.
+

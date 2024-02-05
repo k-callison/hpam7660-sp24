@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with R, RStudio, Git, and GitHub Tutorial"
+title: "Tutorial 1 - Getting Started with R, RStudio, Git, and GitHub Tutorial"
 summary: >-
   A guide to installing and setting up the software required for
   HPAM 7660. 

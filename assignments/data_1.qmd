@@ -12,28 +12,33 @@ As you answer each of the following questions, be sure to include your R code an
 
 ### Steps for Completing the Assignment
 
-1. Install and load the following packages: `dplyr`, `readr`, `tidry`, `nycflights13`, and `fivethirtyeight`. 
+1. Load the following packages: `dplyr`, `readr`, `tidyr`, `nycflights13`, and `fivethirtyeight`. You may need to install these packages before loading if you haven't done so already. Note, however, that it can cause problems to include `install.packages` commands in Markdown documents. So when creating your Markdown file, you're fine to add `library` commands, but you should install any needed packages from the Console command line.
 
-2. Preview the `drinks` data frame from the `fivethirtyeight` package using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).
+2. Preview the `drinks` data frame from the `fivethirtyeight` package using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd). (Hint: you should avoid using the `View()` command here because Markdown won't like it.)
 
 3. Using the help file for the `drinks` data frame, define each of the variables in the data.
 
 4. What does it mean for a dataset in R to by "tidy" and how does this relate to the concept of "wide" vs. "long" data?
 
-5. Preview the `drinks_smaller` data frame from the `fivethirtyeight` package. Is this data in "tidy" format, why or why not?
+5. Follow the example provided in [ModernDive Section 4.2](https://moderndive.com/4-tidy.html#tidy-data-ex) and create a new data frame called `drinks_smaller` that subsets the `drinks` data frame and:
+    a. Includes only data from the U.S., China, Italy, and Saudi Arabia.
+    b. Excludes the `total_litres_of_pure_alcohol` column.
+    c. Renames the variables "beer_servings", "spirit_servings", and "wine_servings" to "beer", "spirits", and "wine".
+  
+6. Is the `drinks_smaller` data frame in "tidy" format, why or why not?
 
-6. Convert the `drinks_smaller` data frame to "tidy" format. Be sure to describe the commands you're using for this conversion.
+7. Convert the `drinks_smaller` data frame to "tidy" format. Be sure to describe the commands you're using for this conversion.
 
-7. Preview the new tidy version of the `drinks_smaller` data frame.
+8. Preview the new tidy version of the `drinks_smaller` data frame.
 
-8. Now do the same conversion and preview for the `airline_safety` data frame from the `fivethirtyeight` package. (Hint: you want the tidy data frame to include the variable `fatalities_years` that indicates the time period and the variable `count` that measures the fatality counts).
+9. Now do the same conversion and preview for the `airline_safety` data frame from the `fivethirtyeight` package. (Hint: you want the tidy data frame to include the variable `fatalities_years` that indicates the time period and the variable `count` that measures the fatality counts).
 
 Thus far, we've only loaded data frames that have come bundled in R packages. Oftentimes, you'll want to load data from other sources (e.g., websites, surveys, etc.) and in other formats (e.g., .csv, .xlsx, etc.). Let's work through an example of loading data from a .csv file.
 
-9. Load the `dem_score.csv` file and save it in a data frame called `dem_score`. (Hint: refer to ModernDive Chapter 4.1 for code on importing a .csv file).
+10. Load the `dem_score.csv` file from this [link](https://moderndive.com/data/dem_score.csv) and save it in a data frame called `dem_score`. (Hint: refer to [ModernDive Chapter 4.1.1](https://moderndive.com/4-tidy.html#using-the-console) for code on importing a .csv file).
 
-10. Preview the data using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).
+11. Preview the data using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).
 
-11. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
+12. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
 
-12. Once you've finished Step 11, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you're done!
+13. Once you've finished Step 12, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you're done!

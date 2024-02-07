@@ -5,5 +5,13 @@ summary: >-
 ---
 
 ## Analyic Sample Construction
+
 In this tutorial, we'll begin to construct an analytic sample from the Louisiana mortality files so that we can analyze cancer mortality rates in Cancer Alley parishes.
 
+Before beginning the tutorial, open the RStudio project file (.Rproj) you saved for the previous tutorial (this is the project that you used when you created your "Louisiana Mortality Data Description" Markdown document). Note that this project file is already linked to your `hpam7660_Cancer_Alley` GitHub repo. From now on, we'll save all work related to the Cancer Alley scenario to this same GitHub repo.
+
+Next, open a new Markdown document and give it a YAML header that includes the title "Louisiana Mortality Analytic Sample", your name, the date, and "pdf_document" as the output format.
+
+### Louisiana Resident Deaths
+
+You may remember that the Louisiana Mortality 

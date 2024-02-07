@@ -11,6 +11,6 @@ subtitle: "Data Wrangling"
 
 - Reading - [ModernDive Chapter 3.5 through 3.9  - Data Wrangling](https://moderndive.com/3-wrangling.html#mutate)
 - Assignment - [Data Assignment 3](/assignments/multi_assignment1.qmd)
-- Assignment - [Policy Memo Problem Statement](assignments/multi_assignment1.qmd)
+- Assignment - [Policy Memo Problem Statement](/assignments/multi_assignment1.qmd)
 - Tutorial -
 

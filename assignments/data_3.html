@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - Data Assignment 3 - Data Wrangling, LA Mortality Files</title>
+<title>HPAM 7660 - Health Policy Analysis - Data Assignment 3 - Data Wrangling, Part 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Assignment 3 - Data Wrangling, LA Mortality Files</h1>
+<h1 class="title">Data Assignment 3 - Data Wrangling, Part 2</h1>
 </div>
 
 
@@ -148,19 +148,22 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="instructions" class="level3">
 <h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
-<p>In this assignment, you’ll write code to import the Louisiana Mortality Files (we already did this in <a href="../assignments/tutorial_3.html">Tutorial 3</a>) and you’ll identify each of the variables included in the data. It’s important to know what each variable is measuring before we can create an analytic file for analysis.</p>
-<p>Before beginning the assignment, create a GitHub repo called <code>hpam7660_data3</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 3”, your name, the date, and “pdf_document” as the output format.</p>
+<p>Complete the following examples from <a href="https://moderndive.com/3-wrangling.html">ModernDive Chapter 3 - Data</a>, Sections 3.5 through 3.9. Before beginning the assignment, create a GitHub repo called <code>hpam7660_data3</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 3”, your name, the date, and “pdf_document” as the output format.</p>
 <p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
 </section>
 <section id="steps-for-completing-the-assignment" class="level3">
 <h3 class="anchored" data-anchor-id="steps-for-completing-the-assignment">Steps for Completing the Assignment</h3>
 <ol type="1">
-<li><p>Use the <code>read_csv</code> command to load the LA Mortality Files into RStudio.</p></li>
-<li><p>Each year of the data has its own associated data documentation on the CDC site. We could go through the documentation file for each year, but it turns out that the data fields don’t change much from year to year. So, for our purposes, we can use the 2019 data documentation file to describe the data set. Open the <a href="https://www.cdc.gov/nchs/data/dvs/Multiple-Cause-Record-Layout-2019-508.pdf">documentation file</a> for the 2019 Mortality Multiple Cause-of-Death Files. Open the data documentation file by following the link above.</p></li>
-<li><p>Each variable in the LA Mortality File has a corresponding entry in the documentation file. For example, the first varable listed when you preview the data frame should be …</p></li>
+<li><p>Load the following packages: <code>dplyr</code>, <code>knitr</code>, and <code>nycflights13</code>.</p></li>
+<li><p>Use the <code>mutate</code> function along with the <code>air_time</code> and <code>distance</code> variables in the <code>flights</code> data frame to create a new variable called <code>avg_speed</code> that measures a flight’s average air speed in miles per hour. (Hint: You need to be careful here because <code>air_time</code> is measured in minutes and not hours.)</p></li>
+<li><p>Now suppose we want to calculate average air speeds by carrier. Use the <code>group_by</code> and <code>summarize</code> commands along with the <code>kable</code> command to create a table of carrier-specific average air speeds. (Hint: be careful of missing values when calculating averages.)</p></li>
+<li><p>We’re primarily interested in average air speeds, but it might also be helpful in some cases to include additional summary statistics in a data table. Add the standard deviation, the minimum and maximum values, and the number of carrier observations to your table.</p></li>
+<li><p>Now sort the data by average air speed and recreate your table so that the carriers are listed in descending order of average air speed.</p></li>
+<li><p>This is great, but the carrier abbreviations might be difficult for some people to understand. Use the <code>join</code> command and the carrier names found in the <code>airlines</code> data frame to replace the carrier abbreviations with carrier names in your table. Rename the column that contains carrier names “airline”.</p></li>
+<li><p>Now suppose we’re interested in the relationship between average air speed and humidity. The data frame <code>weather</code> includes a variable named <code>humid</code> that lists the humidity at the origin airport for each hour of every day. Join the <code>flights</code> and <code>weather</code> data frames and re-make your table so that it now contains a column that contains the average humidity experienced by each airline. (Hint: you will need to use multiple key variables in your join statement. See <a href="https://moderndive.com/3-wrangling.html#multiple-key-variables">ModernDive Section 3.7.3</a> for an example.)</p></li>
+<li><p>Finally, use the <code>select</code> command to reorder your table columns so that they are in the following order: airline, mean_speed, sd_speed, min_speed, max_speed, mean_humidity.</p></li>
+<li><p>Once you’ve finished Step 8, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you’re done!</p></li>
 </ol>
-<p>Summarizing data????</p>
-<p>Do we want to include any examples from the book here? We could do that first and save the mortality stuff for the end.</p>
 
 
 </section>

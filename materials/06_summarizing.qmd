@@ -1,0 +1,16 @@
+---
+title: "HPAM 7660 - Week 7 Materials"
+subtitle: "Data Wrangling"
+---
+
+## Tuesday, February 27
+
+- No Class - Capitol Trip
+
+## Thursday, February 29
+
+- Reading - [ModernDive Chapter 3.5 through 3.9  - Data Wrangling](https://moderndive.com/3-wrangling.html#mutate)
+- Assignment - [Data Assignment 3](/assignments/multi_assignment1.qmd)
+- Assignment - [Policy Memo Problem Statement](assignments/multi_assignment1.qmd)
+- Tutorial -
+

@@ -6,6 +6,6 @@ There are two assignments due on February 29th (Sorry!). One is the third data a
 
 Remember, the problem statement should be one or two sentences that defines the problem you'll address in the policy memo. See the [slides from January 25th](/slides/HPAM_7660_Bardach_Overview.pdf) for tips on constructing your problem statement.
 
--[Data Assignment 3 - Data Wrangling, Part 2](/assignments/data_3.qmd)
+- [Data Assignment 3 - Data Wrangling, Part 2](/assignments/data_3.qmd)
 
--[Policy Memo Problem Statement](https://tulane.instructure.com/courses/2275811/assignments/14488894)
+- [Policy Memo Problem Statement](https://tulane.instructure.com/courses/2275811/assignments/14488894)

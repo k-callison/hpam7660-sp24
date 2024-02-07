@@ -5,7 +5,7 @@ subtitle: "Data Wrangling"
 
 ## Tuesday, February 20
 
-- Reading - [ModernDive Chapter 3 through 3.4  - Data Wrangling](https://moderndive.com/4-tidy.html) (Note that you only need to read through section 3.4 this week.)
+- Reading - [ModernDive Chapter 3 through 3.4  - Data Wrangling](https://moderndive.com/3-wrangling.html) (Note that you only need to read through section 3.4 this week.)
 - Assignment - [Data Assignment 2](/assignments/data_2.qmd)
 - Tutorial - [Tutorial 4 - Data Description Tutorial](/assignments/tutorial_4.qmd)
 

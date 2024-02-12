@@ -1,0 +1,193 @@
+---
+title: "Making Tables with STATA"
+summary: >-
+  Guide to exporting summary statistics and regression coefficients from STATA to Word and LaTeX
+---
+
+## STATA to LaTeX
+
+This guide will cover the basics of exporting summary statistics and regression coefficients from STATA to formatted tables in LaTeX. Much of the information in this guide was drawn from Asjad Naqvi's "[The Stata-to-LaTex guide](https://medium.com/p/6e7ed5622856)" published on Medium. 
+
+### The Setup
+
+*STATA*
+
+To create LaTeX tables in STATA, you'll need to install the `estout` package.
+
+```{r eval = FALSE}
+ssc install estout, replace
+```
+
+If you already have the `estout` package installed, make sure that you're using the latest version.
+
+*LaTeX*
+
+You'll also need some way to compile LaTeX files. Overleaf is probably the most commonly used compiler, though you could also download a compiler, like TeXLive to your computer. I recommend Overleaf because it stores all of your projects online and makes for easy collaboration.
+
+You'll need to add the following packages to your LaTeX preamble in order to compile the tables in this guide. These packages need to be added *in addition* to any other packages you need to compile your document.
+
+![](/img/latex_preamble.png){fig-alt="Latex Preamble"}
+
+### Summary Statistics Tables
+
+Run the following STATA code that will load an example data set, tabulate some basic summary statistics, and stores the results in STATA's `e()` matrices.
+
+```{r eval = FALSE}
+sysuse census, clear
+  foreach i of varlist pop-popurban death-divorce {
+    replace `i' = `i' / 1000
+  }
+
+est clear
+estpost tabstat pop pop65p medage death marriage divorce, c(stat) stat(sum mean sd min max n)
+```
+
+Now we can use the `esttab` command, which is part of the `estout` package, to generate a summary statistics table. We'll start with a basic table and add additional elements as we go.
+
+```{r eval = FALSE}
+esttab using "~/table_1a.tex", replace cells("sum mean sd min max count") booktabs
+```
+
+You should replace the "~" with your desired path for file storage. You'll probably want to set this path at the beginning of your .do file using a global. 
+
+Once you've generated the `table_1a.tex` file, you can upload it into your Overleaf document and add the following code to display the table:
+
+![](/img/tab1a.png){fig-alt="table_1a"}
+
+This code tells LaTeX that we're placing a table in the document and that the table should use the `table_1a.tex` file for its input. The `!htbp` command helps with table positioning. The exclamation point overrides some LaTeX defaults and may not be appropriate to use in all cases. If you're struggling to get the table to display in a propor position in the document, try removing the exclamation point. The `\centering` command tells LaTeX to put the table in the center of the page and the `\caption` command allows us to add a title to the table. Note that you could also add a title using the options in STATA's `esttab` command, but it's better to do this in the LaTeX document. Finally, the `label` command allows us to add a label to the table that we can reference throughout our LaTeX document. It's always better to refer to something like "Table \\ref{tab:ss_basic}" instead of "Table 1a" in your LaTeX document. That way, if the table order changes, it updates automatically in your document.
+
+By default, LaTeX will include the subsection number in the table number, so you'll get something like "Table 1.1". To drop the subsection number, you can add the following command to your LaTeX preamble: `\renewcommand{\thetable}{\arabic{table}}`.
+
+You'll see that this table contains the sum, mean, standard deviation, minimum, maximum, and observation count for six variables in the census data set. This looks pretty good, but there are some elements that aren't quite right. For example, the table has only once column number for six columns and it contains the number of observations as both a column and row at the bottom. We can clean this up by adding the following options to the `esttab` command in STATA:
+
+```{r eval = FALSE}
+esttab using "/Users/kevin2/Desktop/tables/table_1b.tex", replace cells("sum mean sd min max count") /// 
+booktabs nonumber nomtitle nonote noobs label
+```
+
+Add this new table to your LaTeX document like this:
+
+![](/img/tab1b.png){fig-alt="table_1b"}
+The `vspace{0.5in}` command adds a half inch of blank space between the two tables. It's not necessary, but makes things look better in this case.
+
+Our table is looking better now. We got rid of the column numbering and the extra observation count. But there are still improvements that we could make. For example, suppose that we don't need all these decimal places in each column. We can adjust that by formatting the column output in the `esttab` command as follows. Let's also clean up some of the column names while we're at it:
+
+```{r eval = FALSE}
+esttab using "/Users/kevin2/Desktop/tables/table_1c.tex", replace /// 
+cells("sum(fmt(%7.0fc)) mean(fmt(%6.2fc)) sd(fmt(%6.2fc)) min max count") /// 
+booktabs nonumber nomtitle nonote noobs label ///
+collabels("Sum" "Mean" "SD" "Min" "Max" "Obs")
+```
+
+This looks good, but oftentimes we want summary statistics tables that compare characteristics for a treatment group and a control group. Run the following STATA code that designates certain states in the census data as "treated" states and the others as "control states".
+
+```{r eval = FALSE}
+gen treat=1 if inlist(state, "Louisiana", "Texas", "Arkansas", "Mississippi")
+replace treat=0 if treat==.
+```
+
+Now run the following `estpost` and modified `esttab` commands that will generate a treatment vs. control summary statistics LaTeX table. Note that, for this table, we'll focus on the mean and the standard deviation of the variables of interest and present the information in the more standard format of estimate over the standard deviation.
+
+```{r eval = FALSE}
+est clear
+estpost tabstat pop pop65p medage death marriage divorce, by(treat) c(stat) stat(mean sd) nototal
+
+esttab using "/Users/kevin2/Desktop/tables/table_1d.tex", replace /// 
+cells("mean(fmt(%8.2fc))" "sd(par)") /// 
+booktabs nonumber nomtitle nonote noobs label unstack compress gap ///
+collabels(none) eqlabels("Treatment" "Control")
+```
+
+One thing to note here is that we're using `eqlables` rather than `collabels` to add column labels. This is because when we use the `by()` option in the `estpost` command, the STATA output is stacked in one long column. We use the `unstack` option to split the summary statistics by treatment and control groups, and when we do this, STATA treats each column as an "equation". 
+
+Another thing to be aware of is that we're using the `sd(par)` option to put the standard errors in parentheses under the mean values. When we do this, any formatting that we use for the mean (e.g., %8.2fc) is passed on to the standard deviation unless we explicitly select a different formatting option for the standard deviation.  
+
+Now suppose we want to group our summary statistic variables into categories. In this case, we'll use two categories: *Demographics* and *Status*. To do this, we can modify the `esttab` code as follows:
+
+```{r eval = FALSE}
+esttab using "/Users/kevin2/Desktop/tables/table_1e.tex", replace ///
+refcat(pop "\emph{Demographic}" death "\vspace{0.1em} \\ \emph{Status}", nolabel) ///
+cells("mean(fmt(%8.2fc))" "sd(par)") /// 
+booktabs nonumber nomtitle nonote noobs label unstack compress gap ///
+collabels(none) eqlabels("Treatment" "Control")
+```
+
+The key to adding the group names is the `refcat` command. The syntax requires us to tell LaTeX the variable name that we want to be directly below the group name (e.g., pop for Demographic). The `\vspace` command allows us to control the space between the variable groupings in the table.
+
+This looks pretty good, but the spaces between the variables in the table are a little large. Let's see how we can manually adjust those spaces. First, it's important to recognize that we've been using the `label` option with the `esttab` command, which tells STATA to output variable labels rather than variable names. We can use this to our advantage and add some LaTeX code to the variable labels that will control the spacing between variables in the table. This will require us to relabel the variables in the data and re-run the `estpost` command as follows:
+
+```{r eval = FALSE}
+foreach i of varlist pop pop65p medage death marriage divorce {
+  local t : var label `i'
+  local t = "\hspace{0.25cm} `t'"
+  lab var `i' "`t'"
+}
+
+est clear
+estpost tabstat pop pop65p medage death marriage divorce, by(treat) c(stat) stat(mean sd) nototal
+```
+
+We can then run the `esttab` code that we used above with one important modification and should get a table where the spacing between the variables has been reduced. Be sure to drop the `gap` option or LaTeX will continue to include an `\addlinespace` command between each table row. This will overwrite any manual spacing that you included in your STATA code.
+
+```{r eval = FALSE}
+esttab using "/Users/kevin2/Desktop/tables/table_1f.tex", replace ///
+refcat(pop "\emph{Demographic}" death "\vspace{0.1em} \\ \emph{Status}", nolabel) ///
+cells("mean(fmt(%8.2fc))" "sd(par)") /// 
+booktabs nonumber nomtitle nonote noobs label unstack compress ///
+collabels(none) eqlabels("Treatment" "Control")
+```
+
+We're getting pretty close to where we want to be with this table, but it would probably be helpful to readers if we added the number of observations in the treatment and control groups to the table. To do this, we need to save the number of observations for both the treatment and control groups in locals and include those local values in the `stats` option for `esttab`:
+
+```{r eval = FALSE}
+count if treat == 1
+estadd local treat_N = r(N)
+count if treat == 0
+estadd local control_N = r(N)
+
+esttab using "/Users/kevin2/Desktop/tables/table_1g.tex", replace ///
+refcat(pop "\emph{Demographic}" death "\vspace{0.01in} \\ \emph{Status}", nolabel) ///
+cells("mean(fmt(%8.2fc))" "sd(par)") /// 
+booktabs nonumber nomtitle nonote noobs label unstack compress ///
+collabels(none) eqlabels("Treatment" "Control") /// 
+stats(treat_N control_N, layout("@ @") labels("Observations"))
+```
+
+Note that this code block should follow the `foreach` loop that re-labeled the variables to include the `\hspace` command (assuming you want manual control over the spacing) and the `estpost` command. This code counts the number of observations in the treatment group and stores that number in a local called "treat_N". It does the same thing for the control group and stores the result in a local called "control_N". We then use the `stats` option to include the observaation values, the `layout` option to tell LaTeX that we want these observation values to appear in the same row in the table (without this option, LaTeX will put each value in a different row), and the `labels` option tells LaTeX that we want to label this row "Observations".
+
+Sometimes it's helpful to know whether differences in summary statistics across treatment and control groups are statistically different. We can check this by running a series of t-tests and adding the results to the table. This is going to take some extensive modification to our current code because we'll need to use the `ttest` command instead of the `tabstat` command. This means we'll have to adjust some of our `esttab` code as a result: 
+
+```{r eval = FALSE}
+global vars pop pop65p medage death marriage divorce
+
+est clear
+estpost ttest $vars, by(treat)
+
+count if treat == 1
+estadd local treat_N = r(N)
+count if treat == 0
+estadd local control_N = r(N)
+
+esttab using "/Users/kevin2/Desktop/tables/table_1h.tex", replace ///
+refcat(pop "\emph{Demographic}" death "\vspace{0.01in} \\ \emph{Status}", nolabel) ///
+cells("mu_1 mu_2 p(star)") /// 
+star(* 0.50 ** 0.20 *** 0.10) ///
+booktabs nonumber nomtitle nonote noobs label compress ///
+collabels("Treatment" "Control" "\shortstack{p-Value of\\Difference}") /// 
+stats(treat_N control_N, layout("@ @") labels("Observations"))
+```
+
+First, we're defining a global called `vars` that includes each of the variables we'll include in our summary statistics table. We're then running a t-test on each variable across the treatment and control groups. Next, we add the observation count for the treatment and control groups just like before. We then need to modify our `esttab` code so that the arguments in our `cell` command reflect the names that `ttest` uses (which are different than the names `tabstat` uses). We tell STATA to output two columns of means (one for the treatment group and one for the control group) and the p-value of the difference. The `(star)` option tells STATA that we want stars to represent statistical significance attached to the p-values. We then need to define our significance levels or else STATA will use the default `*p<0.05, **p<0.01, ***p<0.001`. Notice that I'm defining some pretty strange significance levels in this example. The reason is that there aren't any differences in summary statistics between the treatment and control group where `p<0.10`, so I'm bumping these up so that some stars will appear in the table. The last thing to notice is that we're using `collabels` now instead of `eqlabels`. That's again due to the change from `tabstat` to `ttest`. As a result, I dropped the `unstack` option, which is no longer needed. I also wanted to label the third column "p-Value of Difference", but that was too long for the cell size. So I used the `\shortstack` command along with the double backslashes to add a line break in the column label.
+
+Finally, let's add some footnotes to explain to readers that we're using some strange values to denote statistical significance. Like table titles, table notes are best added in LaTeX and not through STATA's `esttab` command. There are a few ways to do this, but I like to use the `threeparttable` package in LaTeX. Add the following to your LaTeX preamble:
+
+```r{eval = FALSE}
+\usepackage[flushleft]{threeparttable}
+```
+
+And then include the following LaTeX code that adds a footnote to the summary statistics table:
+
+![](/img/tab_footnote.png){fig-alt="table_notes"}
+
+
+### Regression Tables

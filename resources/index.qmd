@@ -23,3 +23,7 @@ title: "HPAM 7660 Resources"
 ## Git and GitHub Resources
 
 - [Happy Git with R](https://happygitwithr.com)
+
+## Making Tables with STATA
+
+- [STATA to LaTeX Guide](/resources/Stata_tables.qmd)

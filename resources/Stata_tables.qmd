@@ -102,7 +102,7 @@ collabels("Sum" "Mean" "SD" "Min" "Max" "Obs")
 ```
 
 *Word*
-```{r eval = False}
+```{r eval = FALSE}
 esttab using "~/tables.rtf", append /// 
 cells("sum(fmt(%8.0fc)) mean(fmt(%8.2fc)) sd(fmt(%8.2fc)) min max count") /// 
 title("Table 3: Summary statistics - Basic, Formatted") ///

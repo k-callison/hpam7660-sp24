@@ -58,6 +58,7 @@ library(glue)
 ::: {.g-col-9}
 
 - {{< fa user >}} &nbsp; {{< var instructor.name2 >}}
+- {{< fa envelope >}} &nbsp; <a href="mailto: CKahn@FAH.org">CKahn@FAH.org</a>
 - {{< fa laptop >}} &nbsp; [Webpage]({{< var instructor.website_url2 >}})
 
 ::: 

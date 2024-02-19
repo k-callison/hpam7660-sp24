@@ -1,0 +1,9 @@
+---
+title: "Data Wrangling Tutorial - Louisiana Mortality File"
+summary: >-
+  Creating an analytic sample from the Louisiana mortality files. 
+---
+
+Create a table showing average rate for cancer alley vs. other louisiana parishes
+
+Weight by parish population

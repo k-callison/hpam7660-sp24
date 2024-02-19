@@ -8,7 +8,7 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 4,2024-02-06,,Importing Data,,"materials/04_import",,"assignments/data_1.qmd"
 4,2024-02-08,,Importing Data Lab,,,"assignments/tutorial_3.qmd",
 5,2024-02-13,,No Class - Mardi Gras!,,,,
-5,2024-02-15,,Perspectives on Federal Health Policy - Guest Speaker: Chip Kahn,,,,
+5,2024-02-15,,Perspectives on Federal Health Policy - Guest Speaker: Chip Kahn,,"materials/04a_chip",,
 6,2024-02-20,,Data Wrangling,,"materials/05_wrangling","assignments/tutorial_4.qmd","assignments/data_2.qmd"
 6,2024-02-22,,Data Wrangling Lab,,,"assignments/tutorial_5.qmd",
 7,2024-02-27,,No Class - Capitol Trip,,"materials/06_summarizing",,

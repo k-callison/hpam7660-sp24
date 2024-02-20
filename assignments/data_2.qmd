@@ -14,7 +14,7 @@ As you answer each of the following questions, be sure to include your R code an
 
 1. Install and load the following packages: `dplyr` and `nycflights13`. 
 
-2. The pipe operator `%>%` included in the `dplyr` package allows us to combine multiple operations in R into a single sequential chain of actions. You can think of the pipe operator as a way to streamline and simplify your code. You might remember that you've encountered this pipe operator in Data Assignment 1 when transforming data into "tidy" format in Data Assignment 1. Let's take a closer look at how the pipe operator works. 
+2. The pipe operator `%>%` included in the `dplyr` package allows us to combine multiple operations in R into a single sequential chain of actions. You can think of the pipe operator as a way to streamline and simplify your code. You might remember that you've encountered this pipe operator in Data Assignment 1 when transforming data into "tidy" format. Let's take a closer look at how the pipe operator works. 
 
 We'll start by creating a new data frame called `united_flights` that filters the `nycflights13` data so that it only contains United Airlines flights. We've done something similar before using the following code:
 
@@ -36,7 +36,7 @@ Third, show that both options create identical data frames that contain the same
 
 Write a code chunk that uses the `%in%` operator along with the `c()` function to revise your data frame so that it includes United Airlines flights departing from LaGuardia and arriving in Chicago, Denver, Houston, or Cleveland.
 
-6. We're going to focus on summarizing data next week, but we'll briefly cover some of the basics now. First, write a code chunk that uses the `summarize` function to generate the mean and standard deviation of the "arr_delay" variable. Be sure to account for any missing observations in your code!
+6. We're going to focus on summarizing data next week, but we'll briefly cover some of the basics now. First, write a code chunk that uses the `summarize` function to generate the mean and standard deviation of the "arr_delay" variable in the `flights` data frame. Be sure to account for any missing observations in your code!
 
 Now use the `kable()` function to add a table to the Markdown document that contains the mean and standard deviation values that you just generated.
 

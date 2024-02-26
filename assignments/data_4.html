@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - Data Assignment 3 - Data Wrangling, Part 2</title>
+<title>HPAM 7660 - Health Policy Analysis - Data Assignment 4 - Data Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -129,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Assignment 3 - Data Wrangling, Part 2</h1>
+<h1 class="title">Data Assignment 4 - Data Visualization</h1>
 </div>
 
 
@@ -148,21 +182,86 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="instructions" class="level3">
 <h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
-<p>Complete the following examples from <a href="https://moderndive.com/3-wrangling.html">ModernDive Chapter 3 - Data Wrangling</a>, Sections 3.5 through 3.9. Before beginning the assignment, create a GitHub repo called <code>hpam7660_data3</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 3”, your name, the date, and “pdf_document” as the output format.</p>
+<p>Complete the following assignment based on examples from <a href="https://moderndive.com/2-viz.html">ModernDive Chapter 2 - Data Visualization</a>. We’re going to do something a little different with this homework assignment than we’ve done in the past. You <strong>are not</strong> going to create a new GitHub repo for this assignment. Instead, once you’ve completed this assignment, you’ll push it to your <code>hpam7660_Cancer_Alley</code> GitHub repo.</p>
+<p>To get started, first open the .Rproj file in your <code>hpam7660_Cancer_Alley</code> folder. Then open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 4”, your name, the date, and “pdf_document” as the output format.</p>
 <p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
 </section>
 <section id="steps-for-completing-the-assignment" class="level3">
 <h3 class="anchored" data-anchor-id="steps-for-completing-the-assignment">Steps for Completing the Assignment</h3>
 <ol type="1">
-<li><p>Load the following packages: <code>dplyr</code>, <code>knitr</code>, and <code>nycflights13</code>.</p></li>
-<li><p>Use the <code>mutate</code> function along with the <code>air_time</code> and <code>distance</code> variables in the <code>flights</code> data frame to create a new variable called <code>avg_speed</code> that measures a flight’s average air speed in miles per hour. (Hint: You need to be careful here because <code>air_time</code> is measured in minutes and not hours.)</p></li>
-<li><p>Now suppose we want to calculate average air speeds by carrier. Use the <code>group_by</code> and <code>summarize</code> commands along with the <code>kable</code> command to create a table of carrier-specific average air speeds. (Hint: be careful of missing values when calculating averages.)</p></li>
-<li><p>We’re primarily interested in average air speeds, but it might also be helpful in some cases to include additional summary statistics in a data table. Add the standard deviation, the minimum and maximum values, and the number of carrier observations to your table.</p></li>
-<li><p>Now sort the data by average air speed and recreate your table so that the carriers are listed in descending order of average air speed.</p></li>
-<li><p>This is great, but the carrier abbreviations might be difficult for some people to understand. Use the <code>join</code> command and the carrier names found in the <code>airlines</code> data frame to replace the carrier abbreviations with carrier names in your table. Rename the column that contains carrier names “airline”.</p></li>
-<li><p>Now suppose we’re interested in the relationship between average air speed and humidity. The data frame <code>weather</code> includes a variable named <code>humid</code> that lists the humidity at the origin airport for each hour of every day. Join the <code>flights</code> and <code>weather</code> data frames and re-make your table so that it now contains a column that contains the average humidity experienced by each airline. (Hint: you will need to use multiple key variables in your join statement. See <a href="https://moderndive.com/3-wrangling.html#multiple-key-variables">ModernDive Section 3.7.3</a> for an example.)</p></li>
-<li><p>Finally, use the <code>select</code> command to reorder your table columns so that they are in the following order: airline, mean_speed, sd_speed, min_speed, max_speed, mean_humidity.</p></li>
-<li><p>Once you’ve finished Step 8, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you’re done!</p></li>
+<li><p>Describe the three essential components of data visualization. How are all three of these components incorporated in ModernDive Figure <a href="https://moderndive.com/2-viz.html#fig:gapminder">2.1</a>?</p></li>
+<li><p>Load the aggregate Louisiana cancer mortality data set you created at the end of the last in-class <a href="../assignments/tutorial_5.html">tutorial</a>. Note that the data set was called <code>la_joined_all</code> unless you chose a different name. If the data frame is not saved in your project file, then you can recreate it by repeating th steps in that tutorial.</p></li>
+<li><p>Use <code>ggplot</code> from the <code>ggplot2</code> package to create a scatterplot with county FIPS code on the x-axis and cancer mortality rates in 2019 on the y-axis.</p></li>
+<li><p>Now create a linegraph that displays cancer mortality rates from 2005 through 2019 for both Cancer Alley parishes and the non-Cancer Alley parishes in Louisiana. Note that there’s a good chance that you’ll run into the following error if you follow the example code in the book:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="st">`</span><span class="at">geom_line()</span><span class="st">`</span><span class="sc">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span> Problem <span class="cf">while</span> computing aesthetics.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ℹ Error occurred <span class="cf">in</span> the <span class="dv">1</span>st layer.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Caused by error <span class="cf">in</span> <span class="st">`</span><span class="at">scale_f()</span><span class="st">`</span><span class="sc">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span> A continuous variable cannot be mapped to the linetype aesthetic</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ℹ choose a different aesthetic or use <span class="st">`</span><span class="at">scale_linetype_binned()</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This error happens because R thinks that the variable <code>cancer_parish</code> is a continuous variable rather than an indicator for whether a specific parish is in Cancer Alley. We need to tell R that the <code>cancer_parish</code> variable is an indicator rather than a continuous variable and we can do so by running the following line of code where <code>df</code> represents whatever name you gave to the data frame that will be used to create the linegraph (this may be <code>la_joined_all</code> or it may be another name if you’ve already created a new data frame from <code>la_joined_all</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cancer_parish <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>cancer_parish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This code tells R that the variable <code>cancer_parish</code> in the <code>df</code> data frame should be interpreted as a factor variable. Once we run this code, we should avoid triggering the error code above.</p>
+<p>Your graph should look like the graph below:</p>
+<p><img src="../img/visual_1.png" class="img-fluid" alt="cancer linegraph"></p>
+<ol start="5" type="1">
+<li>We can use the <code>scale_y_continuous</code> option to change the y-axis values. Let’s change the y-axis scale so that it ranges from 0 to 300. The code to do so is <code>scale_y_continuous(limits = c(0, 300))</code>. This tells R that the y-axis scale is continuous and it ranges from a low of 0 to a high of 300. Remember that each time you add an option to your <code>ggplot</code> command, you’ll want to add a <code>+</code> sign before the new option. Your graph should now look like this:</li>
+</ol>
+<p><img src="../img/visual_2.png" class="img-fluid" alt="cancer linegraph scaled"></p>
+<ol start="6" type="1">
+<li>This is looking better, but let’s make a few more adjustments. First, let’s fix the values on the x-axis so that it displays all the years in our data. This is similar to the way we changed the y-axis values in the last step with one slight difference. We want to make sure R includes <em>all</em> values of year between 2005 and 2019, so we use the following <code>ggplot</code> option <code>scale_x_continuous(breaks = seq(2005, 2019, by = 1))</code>. This tells R that the x-axis scale is continuous and it contains sequential values of year from 2005 through 2019. Your modified graph should look like this:</li>
+</ol>
+<p><img src="../img/visual_3.png" class="img-fluid" alt="cancer linegraph year"></p>
+<ol start="7" type="1">
+<li>Now let’s change the legend so that it clearly indicates which line represents the Cancer Alley parishes. Here, we’ll use the <code>scale_linetype_discrete</code> option with the following arguments:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_linetype_discrete</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Rest of Louisiana"</span>,<span class="st">"Cancer Alley"</span>), <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This tells R that we want to remove the legend title, label the lines “Rest of Louisiana” and “Cancer Alley”, and then switch their ordering in the legend so that “Cancer Alley” comes first. Add this to your <code>ggplot</code> command to produce a graph that looks like this:</p>
+<p><img src="../img/visual_4.png" class="img-fluid" alt="cancer linegraph legend"></p>
+<ol start="8" type="1">
+<li>Finally, let’s title the chart “Cancer Mortality Rate Comparison”, title the y-axis “Cancer Deaths per 100,000 Residents”, and remove the x-axis title since it’s obvious the x-axis scale is in years. We can do this with the <code>labs</code> option as follows:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Cancer Mortality Rate Comparison"</span>, <span class="at">y =</span> <span class="st">"Cancer Deaths per 100,000 Residents"</span>, <span class="at">x =</span> <span class="cn">NULL</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And the output should look like this:</p>
+<p><img src="../img/visual_5.png" class="img-fluid" alt="cancer linegraph complete"></p>
+<p>Now we have a pretty good linegraph of cancer rates over time for Cancer Alley and non-Cancer Alley parishes in Louisiana. Perhaps surprisingly, cancer mortality rates are higher in non-Cancer Alley parishes. However, we want to be careful drawing any firm conclusions from this chart since we’re still dealing with crude cancer mortality rates and need to make a few more adjustments to the data.</p>
+<ol start="9" type="1">
+<li>Before we finish, let’s look at one more commonly used data visualization - the barchart. We’ll use the barchart to visualize differences in cancer mortality rates across Cancer Alley parishes. First, create a barchart that plots average cancer mortality rates for Cancer Alley parishes (and only Cancer Alley Parishes) between 2005 and 2019. To be clear, you’ll have one value for each Cancer Alley parish and that value will be the average of the annual cancer mortality rates between 2005 and 2019.</li>
+</ol>
+<p>You’ll also need to tell R that county should be treated as a factor variable and not a continuous variable (just like we did with <code>cancer_parish</code> above). Otherwise, you’ll get all values between 0 and 125 on the x-axis, which will create a bunch of empty space. To tell R that county should be treated as a factor variable, you can use this line of code <code>df$county &lt;- factor(df$county)</code> where the <code>df</code> represents whatever name you gave to the data frame that will be used to create the barchart. Your barchart should look like this:</p>
+<p><img src="../img/visual_6.png" class="img-fluid" alt="cancer barchart"></p>
+<ol start="10" type="1">
+<li>Now let’s clean up this barchart the way we did with the linegraph. Change the y-scale so that it ranges from 0 to 300, re-title the y-axis “Cancer Deaths per 100,000 Residents” and the x-axis “County”, and give the chart the title “Average Cancer Alley Mortality Rates by County, 2005-2019”. Your modified barchart should look like this:</li>
+</ol>
+<p><img src="../img/visual_7.png" class="img-fluid" alt="cancer barchart scaled"></p>
+<ol start="11" type="1">
+<li>This looks good, but it would be more helpful if the x-axis labels were the parish names instead of the parish FIPS codes. Add the following option to make this change:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Acension"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"33"</span> <span class="ot">=</span> <span class="st">"East Baton Rouge"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"47"</span> <span class="ot">=</span> <span class="st">"Iberville"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"51"</span> <span class="ot">=</span> <span class="st">"Jefferson"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"71"</span> <span class="ot">=</span> <span class="st">"Orleans"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"89"</span> <span class="ot">=</span> <span class="st">"St. Charles"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"93"</span> <span class="ot">=</span> <span class="st">"St. James"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"95"</span> <span class="ot">=</span> <span class="st">"St. John the Baptist"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"121"</span> <span class="ot">=</span> <span class="st">"West Baton Rouge"</span>)) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This code does two things. First, it tells R to replace the county FIPS code labels with parish names on the x-axis. Second it tells R to rotate these x-axis labels by 45 degrees and adjust the horizontal alignment so that the names don’t overlap. To see what I mean, you can drop the <code>theme</code> option and you’ll end up with a jumbled x-axis. Your barchart should now look like this:</p>
+<p><img src="../img/visual_8.png" class="img-fluid" alt="cancer barchart complete"></p>
+<ol start="12" type="1">
+<li>Once you’ve finished Step 11, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you’re done!</li>
 </ol>
 
 

@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#merging-population-data" id="toc-merging-population-data" class="nav-link" data-scroll-target="#merging-population-data">Merging Population Data</a></li>
   <li><a href="#calculating-age-adjusted-cancer-mortality-rates" id="toc-calculating-age-adjusted-cancer-mortality-rates" class="nav-link" data-scroll-target="#calculating-age-adjusted-cancer-mortality-rates">Calculating Age-Adjusted Cancer Mortality Rates</a></li>
   <li><a href="#weighting-by-parish-population" id="toc-weighting-by-parish-population" class="nav-link" data-scroll-target="#weighting-by-parish-population">Weighting by Parish Population</a></li>
-  <li><a href="#comparing-age-adjusted-cancer-mortality-rates-for-cancer-alley-and-non-cancer-alley-parishes" id="toc-comparing-age-adjusted-cancer-mortality-rates-for-cancer-alley-and-non-cancer-alley-parishes" class="nav-link" data-scroll-target="#comparing-age-adjusted-cancer-mortality-rates-for-cancer-alley-and-non-cancer-alley-parishes">Comparing Age-Adjusted Cancer Mortality Rates for Cancer Alley and Non-Cancer Alley Parishes</a></li>
+  <li><a href="#comparing-age-adjusted-cancer-mortality-rates" id="toc-comparing-age-adjusted-cancer-mortality-rates" class="nav-link" data-scroll-target="#comparing-age-adjusted-cancer-mortality-rates">Comparing Age-Adjusted Cancer Mortality Rates</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -410,8 +410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The first line of the code creates a new variable in the <code>parish_rates</code> data frame called <code>pop_weight</code> that is equal to the product of each parish’s age-adjusted cancer mortality rate (<code>cancer_rate_adj</code>) and that parish’s total population (<code>tot_pop</code>). The rest of the code sums up these values over Cancer Alley and non-Cancer Alley parishes and divides the weighted mortality rates by the total population in each group.</p>
 </section>
-<section id="comparing-age-adjusted-cancer-mortality-rates-for-cancer-alley-and-non-cancer-alley-parishes" class="level3">
-<h3 class="anchored" data-anchor-id="comparing-age-adjusted-cancer-mortality-rates-for-cancer-alley-and-non-cancer-alley-parishes">Comparing Age-Adjusted Cancer Mortality Rates for Cancer Alley and Non-Cancer Alley Parishes</h3>
+<section id="comparing-age-adjusted-cancer-mortality-rates" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-age-adjusted-cancer-mortality-rates">Comparing Age-Adjusted Cancer Mortality Rates</h3>
 <p>Now that we have our age-adjusted and population-weighted parish cancer mortality rates, we can create a table to compare annual cancer mortality rates for Cancer Alley and non-Cancer Alley parishes. Just like we did before, let’s use the <code>kable</code> command to create the table:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(cancer_alley_rates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

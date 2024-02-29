@@ -31,13 +31,13 @@ As you answer each of the following questions, be sure to include your R code an
 
 8. Preview the new tidy version of the `drinks_smaller` data frame.
 
-9. Now do the same conversion and preview for the `airline_safety` data frame from the `fivethirtyeight` package. (Hint: you want the tidy data frame to include the variable `fatalities_years` that indicates the time period and the variable `count` that measures the fatality counts).
+9. Now do the same conversion and preview for the `airline_safety` data frame from the `fivethirtyeight` package. (Hint: First you'll need to get rid of some columns in the data frame (there's an example in the chapter) and then you'll want the tidy data frame to include the variable `fatalities_years` that indicates the time period and the variable `count` that measures the fatality counts).
 
 Thus far, we've only loaded data frames that have come bundled in R packages. Oftentimes, you'll want to load data from other sources (e.g., websites, surveys, etc.) and in other formats (e.g., .csv, .xlsx, etc.). Let's work through an example of loading data from a .csv file.
 
 10. Load the `dem_score.csv` file from this [link](https://moderndive.com/data/dem_score.csv) and save it in a data frame called `dem_score`. (Hint: refer to [ModernDive Chapter 4.1.1](https://moderndive.com/4-tidy.html#using-the-console) for code on importing a .csv file).
 
-11. Preview the data using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd).
+11. Preview the data using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd). (Hint: you should avoid using the `View()` command here because Markdown won't like it.)
 
 12. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
 

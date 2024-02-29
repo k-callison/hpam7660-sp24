@@ -241,7 +241,7 @@ cancer_alley_rates <- parish_rates %>%
 
 The first line of the code creates a new variable in the `parish_rates` data frame called `pop_weight` that is equal to the product of each parish's age-adjusted cancer mortality rate (`cancer_rate_adj`) and that parish's total population (`tot_pop`). The rest of the code sums up these values over Cancer Alley and non-Cancer Alley parishes and divides the weighted mortality rates by the total population in each group.
 
-### Comparing Age-Adjusted Cancer Mortality Rates for Cancer Alley and Non-Cancer Alley Parishes
+### Comparing Age-Adjusted Cancer Mortality Rates
 
 Now that we have our age-adjusted and population-weighted parish cancer mortality rates, we can create a table to compare annual cancer mortality rates for Cancer Alley and non-Cancer Alley parishes. Just like we did before, let's use the `kable` command to create the table:
 

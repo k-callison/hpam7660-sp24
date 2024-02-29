@@ -218,7 +218,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>There are a few people for whom age in the <code>la_mort</code> file is missing and coded 9999. First, we’re dropping those people from the data by creating a new data frame called <code>la_mort_age</code> where anyone with an age equal to 9999 is excluded. The next line tells R to replace the <code>age</code> variable with values equal to the current value minus 1000 if the current value is less than 2000. Remember that a leading digit of 1 in this variable indicates that age is recorded in years and the remaining three digits are age in years. So by subtracting 1000, we’re left with age in years for those whose age was recorded in years (confusing I know!). Everyone with a leading digit between 2 and 9 died before they turned 1 year old and so their age is measured in months, days, etc. Here we’re telling R to change all those values to 0 since we only want age measured in years.</p>
 <p>Now that we have the ages for all individuals in our data represented as age in years, we can categorize ages based on the categories available in the denominator file, which are as follows:</p>
-<p>0 to 4 5 to 9 10 to 14 15 to 19 20 to 24 25 to 29 30 to 34 35 to 39 40 to 44 45 to 49 50 to 54 55 to 59 60 to 64 65 to 69 70 to 74 75 to 79 80 to 84 85 and above</p>
+<p>0 to 4<br>
+5 to 9<br>
+10 to 14<br>
+15 to 19<br>
+20 to 24<br>
+25 to 29<br>
+30 to 34<br>
+35 to 39<br>
+40 to 44<br>
+45 to 49<br>
+50 to 54<br>
+55 to 59<br>
+60 to 64<br>
+65 to 69<br>
+70 to 74<br>
+75 to 79<br>
+80 to 84<br>
+85 and above<br>
+</p>
 <p>Here’s the R code that will allow us to do that:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>age_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">70</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">85</span>, <span class="cn">Inf</span>)</span>

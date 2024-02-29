@@ -7,13 +7,15 @@ tbl-cap-location: bottom
 
 ## Refining our Analyic Sample
 
-In the previous tutorial, we calculated crude cancer mortality rates across Louisiana parishes from 2005 through 2019. Now we'll .... 
+In the previous tutorial, we calculated crude cancer mortality rates across Louisiana parishes from 2005 through 2019. Now we'll refine our method for calculating those rates by adjusting for different age distributions across parishes and over time. 
 
-Let's start by opening the .Rproj file in your `hpam7660_Cancer_Alley` folder. Then open the Markdown document you used in the previous tutorial to create the analytic sample. We can continue working off of this same Markdown document as we refine our sample.
+It's important to age-adjust our mortality rates because different parishes have different age profiles and that could bias our estimated rates. For example, suppose that parish A has a relatively high proportion of older people and parish B has a relatively high proportion of younger people. Crude cancer mortality rates would likely show higher rates among parish A than parish B. However, this may not actually be the case once we account for the fact that the older population in parish A is more prone to cancer.
+
+Age-adjustment is really a way to determine how cancer mortality rates would differ between parish A and parish B if both parishes had the same population age distribution. 
+
+Let's start by opening the .Rproj file in your `hpam7660_Cancer_Alley` folder. Then open the Markdown document you used in the previous tutorial to create the analytic sample. We can continue working off of this same Markdown document as we refine our sample in this tutorial.
 
 ### Age-Adjusted Cancer Mortality Rates
-
-The first step in refining our analytic sample is to calculate age-adjusted cancer mortality rates by parish. It's important to age-adjust our mortality rates because different parishes have different age profiles and that could bias our estimated rates. For example, suppose that parish A has a relatively high proportion of older people and parish B has a relatively high proportion of younger people. Crude cancer mortality rates would likely show high rates among parish A. However, this may not be the case once we account for the fact that the older population in parish A is more prone to cancer.
 
 To calculate age-adjusted cancer mortality rates, we need to generate cancer death counts by parish and year for each age group in our data. Start by reading in the raw Louisiana cancer mortality file (you may be able to skip this step if the `la_mort` data frame is still loaded in your project environment).
 

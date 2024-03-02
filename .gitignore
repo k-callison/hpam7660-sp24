@@ -3,7 +3,7 @@
 .Rapp.history
 
 # Session Data files
-.RData
+*.RData
 .RDataTmp
 
 # User-specific files
@@ -51,6 +51,3 @@ rsconnect/
 #Site Output
 /.quarto/
 /_site/
-
-# Assignment 4 data
-data_4.RData

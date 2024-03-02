@@ -4,6 +4,8 @@ summary: >-
   Exercises in ModernDive Ch. 2 - Data Visualization
 ---
 
+**I updated this assignment on March 2nd at 2pm. There is no need to redo the assignment if you completed it before the update.**
+
 ### Instructions
 
 Complete the following assignment based on examples from [ModernDive Chapter 2 - Data Visualization ](https://moderndive.com/2-viz.html). We're going to do something a little different with this homework assignment than we've done in the past. You **are not** going to create a new GitHub repo for this assignment. Instead, once you've completed this assignment, you'll push it to your `hpam7660_Cancer_Alley` GitHub repo. 
@@ -16,11 +18,24 @@ As you answer each of the following questions, be sure to include your R code an
 
 1. Describe the three essential components of data visualization. How are all three of these components incorporated in ModernDive Figure [2.1](https://moderndive.com/2-viz.html#fig:gapminder)?
 
-2. Load the aggregate Louisiana cancer mortality data set you created at the end of the last in-class [tutorial](/assignments/tutorial_5.qmd). Note that the data set was called `la_joined_all` unless you chose a different name. If the data frame is not saved in your project file, then you can recreate it by repeating th steps in that tutorial.    
+2. For this assignment, we're going to use two data frames that we created during the last in-class [tutorial](/assignments/tutorial_6.qmd). Those data frames were called `parish_rates` and `cancer_alley_rates` unless you chose different names. Whenever we use pre-created data frames in a Markdown document, we need to account for a technical issue that arises due to the Markdown knitting process. When you knit a Markdown document in R, the knit is actually executed in a new environment. Since you didn't create the `parish_rates` or `cancer_alley_rates` data frames in this new environment, you're likely to get an "object not found" error when you go to knit (this will happen even if those data frames are visible in your global environment). There are two solutions that we can use to get around this issue:
 
-3. Use `ggplot` from the `ggplot2` package to create a scatterplot with county FIPS code on the x-axis and cancer mortality rates in 2019 on the y-axis. 
+    a. We could include the code to create the `parish_rates` and `cancer_alley_rates` data frames from the [tutorial](/assignments/tutorial_6.qmd) directly into our Markdown document. This code will run in the new environment and the              document should knit properly.
 
-4. Now create a linegraph that displays cancer mortality rates from 2005 through 2019 for both Cancer Alley parishes and the non-Cancer Alley parishes in Louisiana. Note that there's a good chance that you'll run into the following error if you follow the example code in the book: 
+    b. We can use the `save.image` command in R to save the data frames in our global environment and then include R code in our Markdown document to load those saved data frames. For this solution, first make sure that the `parish_rates` and `cancer_alley_rates` data          frames are visible in your global environment. If there are other data frames in the global environment in addition to these two, you can either leave them there or you can remove them with the `rm(df)` command where you replace `df` with the name of the data frame you'd like to remove. This is only really necessary if you want to limit the size of the file you're about to save. Next, in the Console Window command line, type `save.image (file = "~/data_4.RData")` where you should replace the "~" with the path that you'd like to use to save the data. Probably best to go with the path that points to your `hpam7660_Cancer_Alley` folder to keep everything in the same place. Finally, when you write your first R code chunk for this assignment in Step 3, include the following command `load("~/data_4.RData")` at the top. This will load the necessary data frames into the new environment and the document should knit properly. As an example, here's the code I would put at the beginning of my Markdown document if I were completing this assignment:
+    
+```{r eval = FALSE}
+    load("~/Dropbox/Documents/Teaching Materials/Health Policy/GitHub Site/hpam7660-sp24/assignments/data_4.RData")
+    library(dplyr)
+    library(knitr)
+    library(ggplot2)
+```
+  
+3. Use `ggplot` from the `ggplot2` package to create a scatterplot with county FIPS code on the x-axis and cancer mortality rates in 2019 on the y-axis using the `parish_rates` data frame. Remember that in the `parish_rates` data frame, county is called `cntyrsd` and the cancer mortality rate is `cancer_rate_adj`. And since that data frame includes multiple years of data, you'll first need to restrict the year to 2019.
+
+4. Now create a linegraph that displays cancer mortality rates from 2005 through 2019 for both Cancer Alley parishes and the non-Cancer Alley parishes in Louisiana. To do so, you'll need to use the `cancer_alley_rates` data frame we created during the last in-class [tutorial](/assignments/tutorial_6.qmd) that aggregated mortality rates into two groups: Cancer Alley parishes and non-Cancer Alley parishes. Remember that in the `cancer_alley_rates` data frame, the Cancer Alley parish identifier is called `cancer_parish` and is equal to 1 for Cancer Alley parishes and is equal to 0 for non-Cancer Alley parishes. The age-adjusted, population weighted cancer mortality rate is called `cancer_rate_adj_wt`.       
+
+There's a good chance that you'll run into the following error if you follow the example code in the ModernDive chapter: 
 
 ```{r eval = FALSE}
 Error in `geom_line()`:
@@ -31,7 +46,7 @@ Caused by error in `scale_f()`:
 ℹ choose a different aesthetic or use `scale_linetype_binned()`
 ```
 
-This error happens because R thinks that the variable `cancer_parish` is a continuous variable rather than an indicator for whether a specific parish is in Cancer Alley. We need to tell R that the `cancer_parish` variable is an indicator rather than a continuous variable and we can do so by running the following line of code where `df` represents whatever name you gave to the data frame that will be used to create the linegraph (this may be `la_joined_all` or it may be another name if you've already created a new data frame from `la_joined_all`):  
+This error happens because R thinks that the variable `cancer_parish` is a continuous variable rather than an indicator for whether a specific parish is in Cancer Alley. We need to tell R that the `cancer_parish` variable is an indicator rather than a continuous variable and we can do that by running the following line of code where `df` represents whatever name you gave to the data frame that will be used to create the linegraph (this may be `cancer_alley_rates` or it may be another name if you've already created a new data frame from `cancer_alley_rates`):  
 
 ```{r eval = FALSE}
 df$cancer_parish <- factor(df$cancer_parish)
@@ -48,9 +63,22 @@ Your graph should look like the graph below:
 
 ![](/img/visual_2.png){fig-alt="cancer linegraph scaled"}
 
-6. This is looking better, but let's make a few more adjustments. First, let's fix the values on the x-axis so that it displays all the years in our data. This is similar to the way we changed the y-axis values in the last step with one slight difference. We want to make sure R includes *all* values of year between 2005 and 2019, so we use the following `ggplot` option `scale_x_continuous(breaks = seq(2005, 2019, by = 1))`. This tells R that the x-axis scale is continuous and it contains sequential values of year from 2005 through 2019. Your modified graph should look like this:
+
+6. This is looking better, but let's make a few more adjustments. First, let's fix the values on the x-axis so that it displays all the years in our data. This is similar to the way we changed the y-axis values in the last step with one slight difference. We want to make sure R includes *all* values of year between 2005 and 2019, so we use the following `ggplot` option `scale_x_continuous(breaks = seq(2005, 2019, by = 1))`. 
+
+This tells R that the x-axis scale is continuous and it contains sequential values of year from 2005 through 2019. Because we're dealing with a lot of years on the x-axis, the values are going to get crowded. To alleviate that crowding, we can use the `theme` option to tell R to rotate the year labels by 45 degrees. The full `scale_x_continuous` and `theme` code is as follows:
+
+```{r eval = FALSE}
+scale_x_continuous(breaks = seq(2005, 2019, by = 1)) +
+theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+```
+
+Here, the `theme` option is telling R to rotate the x-axis labels by 45 degrees and adjust the horizontal alignment so that the labels don't overlap. To see what I mean, you can drop the `theme` option and you'll end up with a jumbled x-axis.
+
+Your modified graph should look like this:
 
 ![](/img/visual_3.png){fig-alt="cancer linegraph year"}
+
 
 7. Now let's change the legend so that it clearly indicates which line represents the Cancer Alley parishes. Here, we'll use the `scale_linetype_discrete` option with the following arguments:
 
@@ -62,6 +90,7 @@ This tells R that we want to remove the legend title, label the lines "Rest of L
 
 ![](/img/visual_4.png){fig-alt="cancer linegraph legend"}
 
+
 8. Finally, let's title the chart "Cancer Mortality Rate Comparison", title the y-axis "Cancer Deaths per 100,000 Residents", and remove the x-axis title since it's obvious the x-axis scale is in years. We can do this with the `labs` option as follows:
 
 ```{r eval = FALSE}
@@ -72,13 +101,17 @@ And the output should look like this:
 
 ![](/img/visual_5.png){fig-alt="cancer linegraph complete"}
 
-Now we have a pretty good linegraph of cancer rates over time for Cancer Alley and non-Cancer Alley parishes in Louisiana. Perhaps surprisingly, cancer mortality rates are higher in non-Cancer Alley parishes. However, we want to be careful drawing any firm conclusions from this chart since we're still dealing with crude cancer mortality rates and need to make a few more adjustments to the data.
+
+Now we have a pretty good linegraph of cancer rates over time for Cancer Alley and non-Cancer Alley parishes in Louisiana. Perhaps surprisingly, cancer mortality rates are higher in non-Cancer Alley parishes. However, we want to be careful drawing any firm conclusions from this chart since we're still going to make a few more adjustments to the data at a later date.
+
+It turns out that the NIH and CDC have collected data on age-adjusted cancer rates over time for all states. Take a look at this [chart](https://statecancerprofiles.cancer.gov/historicaltrend/index.php?0&4322&999&7599&001&001&00&0&0&0&2&0&1&1#results) for Louisiana and, despite the fact that it's not broken out by Cancer Alley parishes, you'll see that our linegraph looks very similar to this one from 2005 through 2019. There's been a pretty clear decline in cancer mortality in Louisiana over the past 20 plus years and our linegraph indicates that this decline has occurred for both residents of Cancer Alley and non-Cancer Alley parishes. 
 
 9. Before we finish, let's look at one more commonly used data visualization - the barchart. We'll use the barchart to visualize differences in cancer mortality rates across Cancer Alley parishes. First, create a barchart that plots average cancer mortality rates for Cancer Alley parishes (and only Cancer Alley Parishes) between 2005 and 2019. To be clear, you'll have one value for each Cancer Alley parish and that value will be the average of the annual cancer mortality rates between 2005 and 2019. 
 
 You'll also need to tell R that county should be treated as a factor variable and not a continuous variable (just like we did with `cancer_parish` above). Otherwise, you'll get all values between 0 and 125 on the x-axis, which will create a bunch of empty space. To tell R that county should be treated as a factor variable, you can use this line of code `df$county <- factor(df$county)` where the `df` represents whatever name you gave to the data frame that will be used to create the barchart. Your barchart should look like this:
 
 ![](/img/visual_6.png){fig-alt="cancer barchart"}
+
 
 10. Now let's clean up this barchart the way we did with the linegraph. Change the y-scale so that it ranges from 0 to 300, re-title the y-axis "Cancer Deaths per 100,000 Residents" and the x-axis "County", and give the chart the title "Average Cancer Alley Mortality Rates by County, 2005-2019". Your modified barchart should look like this:
 
@@ -99,7 +132,7 @@ scale_x_discrete(labels = c("5" = "Acension",
 theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
 ```
 
-This code does two things. First, it tells R to replace the county FIPS code labels with parish names on the x-axis. Second it tells R to rotate these x-axis labels by 45 degrees and adjust the horizontal alignment so that the names don't overlap. To see what I mean, you can drop the `theme` option and you'll end up with a jumbled x-axis. Your barchart should now look like this: 
+This code does two things. First, it tells R to replace the county FIPS code labels with parish names on the x-axis. Second it tells R to rotate these x-axis labels by 45 degrees and adjust the horizontal alignment so that the names don't overlap. Your barchart should now look like this: 
 
 ![](/img/visual_8.png){fig-alt="cancer barchart complete"}
 

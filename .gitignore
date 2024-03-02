@@ -51,3 +51,6 @@ rsconnect/
 #Site Output
 /.quarto/
 /_site/
+
+# Assignment 4 data
+data_4.RData

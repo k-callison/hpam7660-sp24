@@ -30,6 +30,8 @@ As you answer each of the following questions, be sure to include your R code an
     library(knitr)
     library(ggplot2)
 ```
+
+    If you decide to go this route, you should add data_4.RData to your .gitignore file. The data_4.RData file will be at least 20mb depending on what all data frames were loaded in your global environment when you saved it, and so pushing it to your GitHub repo may take take a while. Since there's no reason to actually push this file to your repo, you can avoid doing so by adding it to the .gitignore file. 
   
 3. Use `ggplot` from the `ggplot2` package to create a scatterplot with county FIPS code on the x-axis and cancer mortality rates in 2019 on the y-axis using the `parish_rates` data frame. Remember that in the `parish_rates` data frame, county is called `cntyrsd` and the cancer mortality rate is `cancer_rate_adj`. And since that data frame includes multiple years of data, you'll first need to restrict the year to 2019.
 

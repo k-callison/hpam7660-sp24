@@ -7,7 +7,10 @@ subtitle: "Data Visualization"
 
 - Reading - [ModernDive Chapter 2  - Data Visualization](https://moderndive.com/2-viz.html#viz)
 - Assignment - [Data Assignment 4](/assignments/data_4.qmd)
+- Tutorial - [Tutorial 7 - Summarizing Data Tutorial - Parish Cancer Rates by Race and Cancer Site](/assignments/tutorial_7.qmd)
 
 ## Thursday, March 7
+
+- Tutorial - 
 
 

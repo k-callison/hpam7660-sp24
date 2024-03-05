@@ -112,7 +112,7 @@ Here's another tricky step. The reason this is tricky is because we needed to cr
 
 First, create a data frame called `la_joined_black` that filters or subsets your data frame from Step 8 so that it only includes Black decedents and use an `inner_join` to join this data frame to the `la_pop_black` data frame from Step 9. Do the same thing for white decedents.
 
-Once you have these two data frames, you're going to want to stack them together. In R, stacking two data frames is done using the `rbind` function (FYI...STATA calls this an `append`, SQL calls this a `union`, and R calls this a `bind`, I have no idea why we can't settle on one naming convention for stacking!).
+Once you have these two data frames, you're going to want to stack them together. In R, stacking two data frames is done using the `rbind` function (FYI...STATA calls this an `append`, SQL calls this a `union`, and R calls this a `bind`, I have no idea why we can't settle on one naming convention for stacking!). It's also important that the data frames you're trying to bind have the same column titles. This is not the case with the `la_pop_black` and `la_pop_white` data frames because one has a column called `black_pop` and the other has a column called `white_pop`. You'll want to use the `rename` function to change both of these column names to something like `population`. Be sure to do this before attempting the bind.
 
 Here's the syntax for `rbind`:
 

@@ -11,6 +11,6 @@ subtitle: "Data Visualization"
 
 ## Thursday, March 7
 
-- Tutorial - 
+- Tutorial - [Tutorial 8 - Data Visualization Code](/assignments/tutorial_8.R)
 
 

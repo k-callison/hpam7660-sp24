@@ -4,7 +4,7 @@ title: "HPAM 7660 Resources"
 
 ## Policy Memo Example
 
--[HPAM 7660 Policy Memo Example](/resources/Policy_Memo_Example.pdf)
+- [HPAM 7660 Policy Memo Example](/resources/Policy_Memo_Example.pdf)
 
 ## Software Installation Guides
 

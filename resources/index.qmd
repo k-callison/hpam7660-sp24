@@ -17,23 +17,23 @@ title: "HPAM 7660 Resources"
 - [R for Data Science](https://r4ds.had.co.nz/)
 - [R Programming Cheatsheet](/resources/cheatsheet.qmd)
 
-### R Markdown
+#### R Markdown
 
 - [R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html)
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 - [R Markdown Cheatsheet](/resources/rmarkdown-cheatsheet.pdf)
 
-### Making Tables with R
+#### Making Tables with R
 
 ## STATA Tutuorials
 
 - [STATA with VS Code]
 
-### Making Tables with STATA
+#### Making Tables with STATA
 
 - [STATA to LaTeX Guide](/resources/Stata_tables.qmd)
 
-### STATA Code Templates
+#### STATA Code Templates
 
 - [Code templates](/resources/Stata_templates.qmd)
 

@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="calculating-cancer-mortality-rates-by-race-and-cancer-site" class="level2">
 <h2 class="anchored" data-anchor-id="calculating-cancer-mortality-rates-by-race-and-cancer-site">Calculating Cancer Mortality Rates by Race and Cancer Site</h2>
-<p>In the last <a href="../materials/tutorial_6.qmd">tutorial</a>, we created a data frame that included population weighted, age-adjusted cancer mortality rates for parishes in Cancer Alley and parishes in the rest of Louisiana. Today, we’re going to continue to refine our analytic sample by revising list of parishes comprising Cancer Alley and calculating race- and site-specific cancer rates.</p>
+<p>In the last <a href="../assignments/tutorial_6.html">tutorial</a>, we created a data frame that included population weighted, age-adjusted cancer mortality rates for parishes in Cancer Alley and parishes in the rest of Louisiana. Today, we’re going to continue to refine our analytic sample by revising list of parishes comprising Cancer Alley and calculating race- and site-specific cancer rates.</p>
 <p>With a couple of small exceptions, you have all of the tools you need to make these revisions to the analytic sample. You’ve already used all the commands that you’ll need for this tutorial in previous tutorials and homework assignments. The key here will be how to put those tools to use to get the data to look the way you want it.</p>
 <p>I’m going to outline the steps you’ll need to follow to revise the analytic sample and provide a few hints along the way, but much of this will be up to you!</p>
 </section>
@@ -237,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>total, ucr39 5:15</li>
 </ul>
 <p><strong>Step 6: Adjust Age Groupings</strong></p>
-<p>Remove anyone whose age is coded as “9999”, define the age break groupings and the corresponding labels, and use the <code>cut()</code> function to create the age groupings. (Hint: we completed this exact same step in the previous <a href="../materials/tutorial_6.qmd">tutorial</a>.)</p>
+<p>Remove anyone whose age is coded as “9999”, define the age break groupings and the corresponding labels, and use the <code>cut()</code> function to create the age groupings. (Hint: we completed this exact same step in the previous <a href="../assignments/tutorial_6.html">tutorial</a>.)</p>
 <p><strong>Step 7: Define Race in the Mortality File</strong></p>
 <p>Because Louisiana’s population is 90%+ non-Hispanic Black and non-Hispanic white, these are really the only two race categories for which we’ll be able to calculate accurate cancer mortality rates at the parish level. First, filter the data frame so that you only retain Black and white decedents (Hint: you can use the <code>racer5</code> variable where values of 1 indicate a white decedent and values of 2 indicate a Black decedent.)</p>
 <p>Next create a variable called <code>black</code> that is an indicator for a Black decedent (e.g., this variable will equal 1 for a Black decedent and 0 for a white decedent). Alternately, you could define an indicator for white race instead of Black race, but we’ll end up with the same results in the end either way.</p>
@@ -264,11 +264,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>la_bind <span class="ot">&lt;-</span> <span class="fu">rbind</span>(la_joined_black, la_joined_white)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Step 11: Join the Mortality/Population Data to the Standard Population Data</strong></p>
-<p>We now need to join the standard population data so that we can age-adjust our mortality rates. Nothing too tricky here, just join on <code>agegrp</code> like you did in the last <a href="../materials/tutorial_6.qmd">tutorial</a>. Note that we’re not using race-specific standard populations, but instead using the full population distribution of the U.S. in 2000.</p>
+<p>We now need to join the standard population data so that we can age-adjust our mortality rates. Nothing too tricky here, just join on <code>agegrp</code> like you did in the last <a href="../assignments/tutorial_6.html">tutorial</a>. Note that we’re not using race-specific standard populations, but instead using the full population distribution of the U.S. in 2000.</p>
 <p><strong>Step 12: Calculate Population Weights</strong></p>
-<p>Again, this is done exactly the same way we did it in the previous <a href="../materials/tutorial_6.qmd">tutorial</a>. No changes needed here.</p>
+<p>Again, this is done exactly the same way we did it in the previous <a href="../assignments/tutorial_6.html">tutorial</a>. No changes needed here.</p>
 <p><strong>Step 13: Calculate Cancer Mortality Rates by Cancer Site and Race</strong></p>
-<p>When we calculated cancer mortality rates in the last <a href="../materials/tutorial_6.qmd">tutorial</a>, we used the following code:</p>
+<p>When we calculated cancer mortality rates in the last <a href="../assignments/tutorial_6.html">tutorial</a>, we used the following code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cancer_rate_adj <span class="ot">&lt;-</span> ((df<span class="sc">$</span>cancer39) <span class="sc">/</span> (df<span class="sc">$</span>tot_pop <span class="sc">/</span> <span class="dv">100000</span>)) <span class="sc">*</span> df<span class="sc">$</span>stnrd_pop_weight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -281,15 +281,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Step 14: Aggregate to the Parish-Year Level</strong></p>
-<p>In the last <a href="../materials/tutorial_6.qmd">tutorial</a>, we used the following code to aggregate our data to the parish-year level:</p>
+<p>In the last <a href="../assignments/tutorial_6.html">tutorial</a>, we used the following code to aggregate our data to the parish-year level:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>parish_rates <span class="ot">&lt;-</span> la_joined_stnrd <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cntyrsd, cancer_parish, year) <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cancer_rate_adj =</span> <span class="fu">sum</span>(cancer_rate_adj, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">tot_pop =</span> <span class="fu">sum</span>(tot_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Notice that this grouped by county, the indicator for a Cancer Alley parish, and year. We want to do the same thing here, but we now have an extra grouping variable, <code>black</code>. We also only calculated total cancer mortality rates in the previous <a href="../materials/tutorial_6.qmd">tutorial</a>, whereas this time, we want to calculate total rates <em>and</em> rates by site. Make the necessary adjustments to the code above.</p>
+<p>Notice that this grouped by county, the indicator for a Cancer Alley parish, and year. We want to do the same thing here, but we now have an extra grouping variable, <code>black</code>. We also only calculated total cancer mortality rates in the previous <a href="../assignments/tutorial_6.html">tutorial</a>, whereas this time, we want to calculate total rates <em>and</em> rates by site. Make the necessary adjustments to the code above.</p>
 <p><strong>Step 15: Weight by Parish Population</strong></p>
-<p>Now that we have age-adjusted cancer mortality rates, we want to weight by parish population so that more populous parishes receive more weight in the aggregate Cancer Ally vs.&nbsp;non-Cancer Alley rates. Again, we did a version of this in the last <a href="../materials/tutorial_6.qmd">tutorial</a> using the following code:</p>
+<p>Now that we have age-adjusted cancer mortality rates, we want to weight by parish population so that more populous parishes receive more weight in the aggregate Cancer Ally vs.&nbsp;non-Cancer Alley rates. Again, we did a version of this in the last <a href="../assignments/tutorial_6.html">tutorial</a> using the following code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>parish_rates<span class="sc">$</span>pop_weight <span class="ot">&lt;-</span> (parish_rates<span class="sc">$</span>cancer_rate_adj) <span class="sc">*</span> (parish_rates<span class="sc">$</span>tot_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

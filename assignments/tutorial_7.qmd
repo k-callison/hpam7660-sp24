@@ -6,7 +6,7 @@ summary: >-
 
 ## Calculating Cancer Mortality Rates by Race and Cancer Site
 
-In the last [tutorial](/materials/tutorial_6.qmd), we created a data frame that included population weighted, age-adjusted cancer mortality rates for parishes in Cancer Alley and parishes in the rest of Louisiana. Today, we're going to continue to refine our analytic sample by revising list of parishes comprising Cancer Alley and calculating race- and site-specific cancer rates.
+In the last [tutorial](/assignments/tutorial_6.qmd), we created a data frame that included population weighted, age-adjusted cancer mortality rates for parishes in Cancer Alley and parishes in the rest of Louisiana. Today, we're going to continue to refine our analytic sample by revising list of parishes comprising Cancer Alley and calculating race- and site-specific cancer rates.
 
 With a couple of small exceptions, you have all of the tools you need to make these revisions to the analytic sample. You've already used all the commands that you'll need for this tutorial in previous tutorials and homework assignments. The key here will be how to put those tools to use to get the data to look the way you want it.
 
@@ -78,7 +78,7 @@ Use the `ucr39` variable in the `la_mort` file to define deaths from the followi
 
 **Step 6: Adjust Age Groupings**
 
-Remove anyone whose age is coded as "9999", define the age break groupings and the corresponding labels, and use the `cut()` function to create the age groupings. (Hint: we completed this exact same step in the previous [tutorial](/materials/tutorial_6.qmd).)
+Remove anyone whose age is coded as "9999", define the age break groupings and the corresponding labels, and use the `cut()` function to create the age groupings. (Hint: we completed this exact same step in the previous [tutorial](/assignments/tutorial_6.qmd).)
 
 **Step 7: Define Race in the Mortality File**
 
@@ -122,15 +122,15 @@ la_bind <- rbind(la_joined_black, la_joined_white)
 
 **Step 11: Join the Mortality/Population Data to the Standard Population Data**
 
-We now need to join the standard population data so that we can age-adjust our mortality rates. Nothing too tricky here, just join on `agegrp` like you did in the last [tutorial](/materials/tutorial_6.qmd). Note that we're not using race-specific standard populations, but instead using the full population distribution of the U.S. in 2000.
+We now need to join the standard population data so that we can age-adjust our mortality rates. Nothing too tricky here, just join on `agegrp` like you did in the last [tutorial](/assignments/tutorial_6.qmd). Note that we're not using race-specific standard populations, but instead using the full population distribution of the U.S. in 2000.
 
 **Step 12: Calculate Population Weights**
 
-Again, this is done exactly the same way we did it in the previous [tutorial](/materials/tutorial_6.qmd). No changes needed here.
+Again, this is done exactly the same way we did it in the previous [tutorial](/assignments/tutorial_6.qmd). No changes needed here.
 
 **Step 13: Calculate Cancer Mortality Rates by Cancer Site and Race**
 
-When we calculated cancer mortality rates in the last [tutorial](/materials/tutorial_6.qmd), we used the following code:
+When we calculated cancer mortality rates in the last [tutorial](/assignments/tutorial_6.qmd), we used the following code:
 
 ```{r eval = FALSE}
 df$cancer_rate_adj <- ((df$cancer39) / (df$tot_pop / 100000)) * df$stnrd_pop_weight
@@ -150,7 +150,7 @@ for (col in names(df)) {
 
 **Step 14: Aggregate to the Parish-Year Level**
 
-In the last [tutorial](/materials/tutorial_6.qmd), we used the following code to aggregate our data to the parish-year level:
+In the last [tutorial](/assignments/tutorial_6.qmd), we used the following code to aggregate our data to the parish-year level:
 
 ```{r eval = FALSE}
 parish_rates <- la_joined_stnrd %>%
@@ -158,11 +158,11 @@ parish_rates <- la_joined_stnrd %>%
   summarize(cancer_rate_adj = sum(cancer_rate_adj, na.rm = TRUE), tot_pop = sum(tot_pop))
 ```
 
-Notice that this grouped by county, the indicator for a Cancer Alley parish, and year. We want to do the same thing here, but we now have an extra grouping variable, `black`. We also only calculated total cancer mortality rates in the previous [tutorial](/materials/tutorial_6.qmd), whereas this time, we want to calculate total rates *and* rates by site. Make the necessary adjustments to the code above.
+Notice that this grouped by county, the indicator for a Cancer Alley parish, and year. We want to do the same thing here, but we now have an extra grouping variable, `black`. We also only calculated total cancer mortality rates in the previous [tutorial](/assignments/tutorial_6.qmd), whereas this time, we want to calculate total rates *and* rates by site. Make the necessary adjustments to the code above.
 
 **Step 15: Weight by Parish Population**
 
-Now that we have age-adjusted cancer mortality rates, we want to weight by parish population so that more populous parishes receive more weight in the aggregate Cancer Ally vs. non-Cancer Alley rates. Again, we did a version of this in the last [tutorial](/materials/tutorial_6.qmd) using the following code:
+Now that we have age-adjusted cancer mortality rates, we want to weight by parish population so that more populous parishes receive more weight in the aggregate Cancer Ally vs. non-Cancer Alley rates. Again, we did a version of this in the last [tutorial](/assignments/tutorial_6.qmd) using the following code:
 
 ```{r eval = FALSE}
 parish_rates$pop_weight <- (parish_rates$cancer_rate_adj) * (parish_rates$tot_pop)

@@ -1,0 +1,17 @@
+---
+title: "HPAM 7660 - Week 10 Materials"
+subtitle: "Research Design - Natural Experiments"
+---
+
+## Tuesday, March 19
+
+- Reading - [Khullar and Jena (2021) - Natural Experiments in Health Care Research](/materials/Khullar_Natural_Experiments.pdf)
+- Audio - [Austin Frakt on Medicaid and the Oregon Medicaid Study](https://www.econtalk.org/frakt-on-medicaid-and-the-oregon-medicaid-study/) and [Jim Manzi on the Oregon Medicaid Study, Experimental Evidence, and Causality](https://www.econtalk.org/jim-manzi-on-the-oregon-medicaid-study-experimental-evidence-and-causality/)
+- Assignment - [Reading/Audio Discussion Questions](/assignments/week_10_reading_questions.pdf) 
+- Slides - [Natural Experiments \& The Oregon Medicaid Study](/slides/HPAM_7660_Natural_Experiments.pdf) 
+
+## Thursday, March 7
+
+- Assignment - [Policy Memo Introduction](https://tulane.instructure.com/courses/2275811/assignments/14495801) (See [here](/resources/Policy_Memo_Example.pdf) for an example. You can also find a link to this document on the Resources page.)
+
+

@@ -1,6 +1,6 @@
 ---
 title: "HPAM 7660 - Week 9 Materials"
-subtitle: "Randomization and Regression"
+subtitle: "Research Design - Randomization and Regression"
 ---
 
 ## Tuesday, March 12

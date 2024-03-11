@@ -1,0 +1,63 @@
+---
+title: "Using GitHub with VS Code"
+summary: >-
+  Guide to linking VS Code projects to a GitHub repository
+---
+
+## VS Code and GitHub
+
+This guide will cover the basics of linking a VS Code project to a GitHub repository and pushing commits. Before beginning this tutorial, you'll need to install Git on your computer (see this [guide](/assignments/tutorial_1.qmd) for instructions). You'll also need to download and install Visual Studio Code.  
+
+### The Setup
+
+After installing the software on your computer, you'll need to create a GitHub repo for your project. If this is your first time creating a GitHub repo, you can follow this [guide](https://hpam7660.com/assignments/tutorial_1.html#creating-your-first-repo). Next, open VS Code and make sure that Git is enabled in your settings as follows:
+
+![](/img/vs_git1.png){fig-alt="git1"}
+
+![](/img/vs_git2.png){fig-alt="git2"}
+
+
+### Linking VS Code Project to GitHub Repo
+
+One you've created a repo and made sure that Git is enabled in VS Code, you can clone your GitHub repo to your computer using VS Code as follows:
+
+![](/img/vs_git3.png){fig-alt="git3"}
+
+![](/img/vs_git4.png){fig-alt="git4"}
+
+![](/img/vs_git5.png){fig-alt="git5"}
+
+![](/img/vs_git6.png){fig-alt="git6"}
+
+![](/img/vs_git7.png){fig-alt="git7"}
+
+![](/img/vs_git8.png){fig-alt="git8"}
+
+![](/img/vs_git9.png){fig-alt="git9"}
+
+![](/img/vs_git10.png){fig-alt="git10"}
+
+![](/img/vs_git11.png){fig-alt="git11"}
+
+![](/img/vs_git12.png){fig-alt="git12"}
+
+![](/img/vs_git13.png){fig-alt="git13"}
+
+![](/img/vs_git14.png){fig-alt="git14"}
+
+![](/img/vs_git15.png){fig-alt="git15"}
+
+![](/img/vs_git16.png){fig-alt="git16"}
+
+![](/img/vs_git17.png){fig-alt="git17"}
+
+![](/img/vs_git18.png){fig-alt="git18"}
+
+Before selecting "Sync Changes" make sure the branch name in VS Code (here it's called "main") matches the branch name on GitHub, otherwise you'll get an error when you try and push your changes. If the names don't match, you can click on the branch name in the lower left-hand corner of VS Code and change the name.
+
+
+![](/img/vs_git19.png){fig-alt="git19"}
+
+![](/img/vs_git20.png){fig-alt="git20"}
+
+![](/img/vs_git21.png){fig-alt="git21"}

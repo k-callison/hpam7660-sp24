@@ -2,7 +2,9 @@
 title: "HPAM 7660 Resources"
 ---
 
-## Internship/Fellowship Opportunites
+## Policy Memo Example
+
+-[HPAM 7660 Policy Memo Example](/resources/Policy_Memo_Example.pdf)
 
 ## Software Installation Guides
 
@@ -15,15 +17,29 @@ title: "HPAM 7660 Resources"
 - [R for Data Science](https://r4ds.had.co.nz/)
 - [R Programming Cheatsheet](/resources/cheatsheet.qmd)
 
-## R Markdown
+### R Markdown
 
 - [R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html)
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [R Markdown Cheatsheet](/resources/rmarkdown-cheatsheet.pdf)
 
-## Git and GitHub Resources
+### Making Tables with R
 
-- [Happy Git with R](https://happygitwithr.com)
+## STATA Tutuorials
 
-## Making Tables with STATA
+- [STATA with VS Code]
+
+### Making Tables with STATA
 
 - [STATA to LaTeX Guide](/resources/Stata_tables.qmd)
+
+### STATA Code Templates
+
+- [Code templates](/resources/Stata_templates.qmd)
+
+## Git and GitHub Tutorials
+
+- [Happy Git with R](https://happygitwithr.com)
+- [VS Code and GitHub]
+- [Overleaf and GitHub]
+

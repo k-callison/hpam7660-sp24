@@ -1,0 +1,17 @@
+---
+title: "STATA Code Templates"
+summary: >-
+  Templates for commonly used STATA commands
+engine: knitr
+---
+
+This guide will...
+
+##Log File Code Template##
+
+```{stata eval = FALSE}
+capture log close
+local date : di %tdCY-N-D date(c(current_date), "DMY")
+local logfile "$logs/visit_regs_`date'.log"
+log using "`logfile'", replace text
+```

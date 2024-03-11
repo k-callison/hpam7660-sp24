@@ -1,0 +1,14 @@
+{
+  "hash": "9c6f9e16b4d0443c28504467cc9fbb33",
+  "result": {
+    "markdown": "---\ntitle: \"STATA Code Templates\"\nsummary: >-\n  Templates for commonly used STATA commands\nengine: knitr\n---\n\n\nThis guide will...\n\n##Log File Code Template##\n\n\n::: {.cell}\n\n```{.stata .cell-code}\ncapture log close\nlocal date : di %tdCY-N-D date(c(current_date), \"DMY\")\nlocal logfile \"$logs/visit_regs_`date'.log\"\nlog using \"`logfile'\", replace text\n```\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,13 @@
+---
+title: "Using GitHub with Overleaf"
+summary: >-
+  Guide to linking Overleaf projects to a GitHub repository
+---
+
+## Overleaf and GitHub
+
+This guide will cover the basics of linking an Overleaf project to a GitHub repository. Before beginning this tutorial, you'll need to install Git on your computer (see this [guide](/assignments/tutorial_1.qmd) for instructions). **You'll also need to have a premium Overleaf account**- unfortunately, free Overleaf does not support GitHub synchronization.
+
+### The Setup
+
+After installing the software on your computer, you'll need to create a GitHub repo for your project. If this is your first time creating a GitHub repo, you can follow this [guide](https://hpam7660.com/assignments/tutorial_1.html#creating-your-first-repo). Next, open VS Code and make sure that Git is enabled in your settings as follows:

@@ -123,6 +123,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#the-setup" id="toc-the-setup" class="nav-link" data-scroll-target="#the-setup">The Setup</a></li>
   <li><a href="#linking-vs-code-project-to-github-repo" id="toc-linking-vs-code-project-to-github-repo" class="nav-link" data-scroll-target="#linking-vs-code-project-to-github-repo">Linking VS Code Project to GitHub Repo</a></li>
+  <li><a href="#pushing-changes-to-github" id="toc-pushing-changes-to-github" class="nav-link" data-scroll-target="#pushing-changes-to-github">Pushing Changes to GitHub</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,15 +172,25 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="../img/vs_git10.png" class="img-fluid" alt="git10"></p>
 <p><img src="../img/vs_git11.png" class="img-fluid" alt="git11"></p>
 <p><img src="../img/vs_git12.png" class="img-fluid" alt="git12"></p>
+</section>
+<section id="pushing-changes-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="pushing-changes-to-github">Pushing Changes to GitHub</h3>
+<p>Once you’ve linked your VS Code project to your GitHub repo, you can now push file changes to GitHub. Let’s walk through an example of editing a file and pushing those edits to GitHub.</p>
 <p><img src="../img/vs_git13.png" class="img-fluid" alt="git13"></p>
 <p><img src="../img/vs_git14.png" class="img-fluid" alt="git14"></p>
+<p>Here VS Code will ask you if you want to stage all of your changes and commit them directly. You can go ahead and answer “always” to this prompt so that you don’t have to go through the extra step of staging your changes in the future.</p>
 <p><img src="../img/vs_git15.png" class="img-fluid" alt="git15"></p>
-<p><img src="../img/vs_git16.png" class="img-fluid" alt="git16"></p>
-<p><img src="../img/vs_git17.png" class="img-fluid" alt="git17"></p>
-<p><img src="../img/vs_git18.png" class="img-fluid" alt="git18"></p>
 <p>Before selecting “Sync Changes” make sure the branch name in VS Code (here it’s called “main”) matches the branch name on GitHub, otherwise you’ll get an error when you try and push your changes. If the names don’t match, you can click on the branch name in the lower left-hand corner of VS Code and change the name.</p>
+<p><img src="../img/vs_git16.png" class="img-fluid" alt="git16"></p>
+<p>The default VS Code setting is to both push and pull changes to and from GitHub simultaneously (this is in contrast to R Studio, for example, which requires separate push/pull requests).</p>
+<p><img src="../img/vs_git17.png" class="img-fluid" alt="git17"></p>
+<p>Once you’ve synced the changes, you will see that the Source Control window is empty and your changes have been pushed to GitHub (we’ll see this from the GitHub perspective shortly.)</p>
+<p><img src="../img/vs_git18.png" class="img-fluid" alt="git18"></p>
+<p>To track project changes through various commits, you can go back to the Explorer Window and click on “Timeline”.</p>
 <p><img src="../img/vs_git19.png" class="img-fluid" alt="git19"></p>
+<p>Select a commit to review and you will see the changes highlighted in the Edit Window.</p>
 <p><img src="../img/vs_git20.png" class="img-fluid" alt="git20"></p>
+<p>Finally, refresh your GitHub repo, open the edited file, and you should see the changes that you just made.</p>
 <p><img src="../img/vs_git21.png" class="img-fluid" alt="git21"></p>
 
 

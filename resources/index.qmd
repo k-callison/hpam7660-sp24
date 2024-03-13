@@ -44,6 +44,6 @@ title: "HPAM 7660 Resources"
 ## Git and GitHub Tutorials
 
 - [Happy Git with R](https://happygitwithr.com)
-- [VS Code and GitHub]
+- [VS Code and GitHub](/resources/VSCode_Git.qmd)
 - [Overleaf and GitHub]
 

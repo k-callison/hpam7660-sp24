@@ -17,6 +17,7 @@ After installing the software on your computer, you'll need to create a GitHub r
 ![](/img/vs_git2.png){fig-alt="git2"}
 
 
+
 ### Linking VS Code Project to GitHub Repo
 
 One you've created a repo and made sure that Git is enabled in VS Code, you can clone your GitHub repo to your computer using VS Code as follows:
@@ -41,23 +42,47 @@ One you've created a repo and made sure that Git is enabled in VS Code, you can 
 
 ![](/img/vs_git12.png){fig-alt="git12"}
 
+
+
+### Pushing Changes to GitHub
+
+Once you've linked your VS Code project to your GitHub repo, you can now push file changes to GitHub. Let's walk through an example of editing a file and pushing those edits to GitHub.
+
 ![](/img/vs_git13.png){fig-alt="git13"}
 
 ![](/img/vs_git14.png){fig-alt="git14"}
 
+
+Here VS Code will ask you if you want to stage all of your changes and commit them directly. You can go ahead and answer "always" to this prompt so that you don't have to go through the extra step of staging your changes in the future.
+
 ![](/img/vs_git15.png){fig-alt="git15"}
 
-![](/img/vs_git16.png){fig-alt="git16"}
-
-![](/img/vs_git17.png){fig-alt="git17"}
-
-![](/img/vs_git18.png){fig-alt="git18"}
 
 Before selecting "Sync Changes" make sure the branch name in VS Code (here it's called "main") matches the branch name on GitHub, otherwise you'll get an error when you try and push your changes. If the names don't match, you can click on the branch name in the lower left-hand corner of VS Code and change the name.
 
+![](/img/vs_git16.png){fig-alt="git16"}
+
+
+The default VS Code setting is to both push and pull changes to and from GitHub simultaneously (this is in contrast to R Studio, for example, which requires separate push/pull requests). 
+
+![](/img/vs_git17.png){fig-alt="git17"}
+
+
+Once you've synced the changes, you will see that the Source Control window is empty and your changes have been pushed to GitHub (we'll see this from the GitHub perspective shortly.)
+
+![](/img/vs_git18.png){fig-alt="git18"}
+
+
+To track project changes through various commits, you can go back to the Explorer Window and click on "Timeline".
 
 ![](/img/vs_git19.png){fig-alt="git19"}
 
+
+Select a commit to review and you will see the changes highlighted in the Edit Window.
+
 ![](/img/vs_git20.png){fig-alt="git20"}
+
+
+Finally, refresh your GitHub repo, open the edited file, and you should see the changes that you just made.
 
 ![](/img/vs_git21.png){fig-alt="git21"}

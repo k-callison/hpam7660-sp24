@@ -29,6 +29,8 @@ title: "HPAM 7660 Resources"
 
 #### Making Tables with R
 
+- [R to LaTeX Guide]
+
 ## STATA Tutuorials
 
 - [STATA with VS Code]

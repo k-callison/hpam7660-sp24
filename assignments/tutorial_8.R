@@ -163,7 +163,6 @@ cancer_alley_rates <- parish_rates %>%
     crude_rate_wt = sum((crude_weight) / sum(population, na.rm = TRUE))
             )
 
-
 #Plotting sequence
 ggplot(data = cancer_alley_rates,
        mapping = aes(x = year, y = total_rate_adj_wt))
@@ -391,6 +390,8 @@ ggplot(data = map_final_white, mapping = aes(x = long, y = lat, group = group, f
         axis.ticks = element_blank(),
         panel.grid = element_blank(),
         panel.border = element_blank())
+
+save.image(file = "assignments/tutorial_8.RData")
 
 #wesanderson
 library(wesanderson)

@@ -29,7 +29,7 @@ title: "HPAM 7660 Resources"
 
 #### Making Tables with R
 
-- [R to LaTeX Guide]
+- [R to LaTeX/Word Guide](/resources/R_tables.qmd)
 
 ## STATA Tutuorials
 
@@ -37,7 +37,7 @@ title: "HPAM 7660 Resources"
 
 #### Making Tables with STATA
 
-- [STATA to LaTeX Guide](/resources/Stata_tables.qmd)
+- [STATA to LaTeX/Word Guide](/resources/Stata_tables.qmd)
 
 #### STATA Code Templates
 
@@ -47,5 +47,5 @@ title: "HPAM 7660 Resources"
 
 - [Happy Git with R](https://happygitwithr.com)
 - [VS Code and GitHub](/resources/VSCode_Git.qmd)
-- [Overleaf and GitHub]
+- [Overleaf and GitHub](/resources/Overleaf_Git.qmd)
 

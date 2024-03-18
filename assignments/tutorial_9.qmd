@@ -1,0 +1,69 @@
+---
+title: "Regression Tutorial - Parish Cancer Rates Controlling for Educational Attainment"
+summary: >-
+  Use regression analysis to estimate cancer rates across Louisiana parishes controlling for differences in educational attainment.
+---
+
+## Re-run Code to Include Educational Attainment
+
+```{r eval = FALSE}
+# Load libraries
+library(tidyverse)
+library(maps)
+
+# Read in the data frames we already created
+load("~/Dropbox/Documents/Teaching Materials/Health Policy/GitHub Site/hpam7660-sp24//assignments/tutorial_8.RData")
+
+parish_rates <- parish_rates %>%
+  filter(black == 0) %>%
+  subset(, select = c("cntyrsd", "cancer_parish", "year", "total_rate_adj", "total_weight", "population"))
+
+la_smoke <- 
+  read_csv("https://www.dropbox.com/scl/fi/fh5gokmw3so6xfc5rthbl/la_smoke.csv?rlkey=f0vy11mvqcd37htsz8ubovtb8&dl=1")
+
+la_smoke_rates <- parish_rates %>%
+  inner_join(la_smoke, by = c("cntyrsd" = "fips", "year"))
+
+model <- lm(total_rate_adj ~ smoke_perct + as.factor(year) + as.factor(cntyrsd), data = la_smoke_rates)
+la_smoke_rates$total_rate_hat <- predict(model, newdata = la_smoke_rates)
+
+la_smoke_rates$smoke_weight <- (la_smoke_rates$total_rate_hat) * (la_smoke_rates$population)
+
+smoke_rates_map <- la_smoke_rates %>%
+  group_by(cntyrsd, year) %>%
+  summarize(
+    total_rate_adj_wt = sum((total_weight) / sum(population), na.rm = TRUE),
+    smoke_rate_adj_wt = sum((smoke_weight) / sum(population), na.rm = TRUE)
+  )
+
+smoke_rates_map <- smoke_rates_map %>%
+  filter(year == 2019)
+
+la_map_smoke <- map_data("county", region = "louisiana")
+
+fips_map <- county.fips %>%
+  filter(fips>=22000 & fips<23000) %>%
+  mutate(fips = fips - 22000) %>%
+  separate(polyname, into = c("region", "subregion"), sep = ",", remove = TRUE) %>%
+  distinct(fips, .keep_all = TRUE) %>%
+  mutate(subregion = ifelse(subregion == "st martin:north", "st martin", subregion))
+
+smoke_map_join = la_map_smoke %>%
+  inner_join(fips_map, by = c("region", "subregion"))
+
+smoke_map_final = smoke_rates_map %>%
+  inner_join(map_join, by = c("cntyrsd" = "fips"))
+
+ggplot(data = smoke_map_final, mapping = aes(x = long, y = lat, group = group, fill = total_rate_adj_wt)) +
+  geom_polygon(color = "limegreen", size = 0.1) +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  coord_map('mercator') +
+  theme_bw()
+
+ggplot(data = smoke_map_final, mapping = aes(x = long, y = lat, group = group, fill = smoke_rate_adj_wt)) +
+  geom_polygon(color = "limegreen", size = 0.1) +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  coord_map('mercator') +
+  theme_bw()
+
+```

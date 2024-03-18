@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Health Policy Analysis - HPAM 7660 Resources</title>
+<title>HPAM 7660 - Health Policy Analysis - Using STATA with Visual Studio Code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../resources/index.html" aria-current="page"> 
+    <a class="nav-link" href="../resources/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -119,13 +119,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fah-fellowship-description" id="toc-fah-fellowship-description" class="nav-link active" data-scroll-target="#fah-fellowship-description">FAH Fellowship Description</a></li>
-  <li><a href="#policy-memo-example" id="toc-policy-memo-example" class="nav-link" data-scroll-target="#policy-memo-example">Policy Memo Example</a></li>
-  <li><a href="#software-installation-guides" id="toc-software-installation-guides" class="nav-link" data-scroll-target="#software-installation-guides">Software Installation Guides</a></li>
-  <li><a href="#r-tutorials" id="toc-r-tutorials" class="nav-link" data-scroll-target="#r-tutorials">R Tutorials</a></li>
-  <li><a href="#stata-tutuorials" id="toc-stata-tutuorials" class="nav-link" data-scroll-target="#stata-tutuorials">STATA Tutuorials</a></li>
-  <li><a href="#git-and-github-tutorials" id="toc-git-and-github-tutorials" class="nav-link" data-scroll-target="#git-and-github-tutorials">Git and GitHub Tutorials</a></li>
-  <li><a href="#vs-code-tutorials" id="toc-vs-code-tutorials" class="nav-link" data-scroll-target="#vs-code-tutorials">VS Code Tutorials</a></li>
+  <li><a href="#installing-vs-code" id="toc-installing-vs-code" class="nav-link active" data-scroll-target="#installing-vs-code">Installing VS Code</a></li>
+  <li><a href="#installing-extensions" id="toc-installing-extensions" class="nav-link" data-scroll-target="#installing-extensions">Installing Extensions</a></li>
+  <li><a href="#github-copilot" id="toc-github-copilot" class="nav-link" data-scroll-target="#github-copilot">GitHub Copilot</a></li>
   </ul>
 </nav>
     </div>
@@ -134,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 Resources</h1>
+<h1 class="title">Using STATA with Visual Studio Code</h1>
 </div>
 
 
@@ -151,75 +147,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="fah-fellowship-description" class="level2">
-<h2 class="anchored" data-anchor-id="fah-fellowship-description">FAH Fellowship Description</h2>
+<section id="installing-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="installing-vs-code">Installing VS Code</h2>
+<p>In this tutorial, we’re going to install VS Code and the necessary extensions to get LaTeX, STATA, R, and GitHub Copilot up and running.</p>
+<p>First, go <a href="https://code.visualstudio.com/download">here</a> to download VS Code.</p>
+</section>
+<section id="installing-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="installing-extensions">Installing Extensions</h2>
+<p>Once you’ve downloaded and installed VS Code on your computer, you’ll need to add the necessary extensions to incorporate VS Code into your workflow.</p>
+<p>You’ll want to install the LaTeX extension if you plan to do any manuscript editing in LaTeX or create any Beamer slides.</p>
+<p><img src="../img/vs_code1.png" class="img-fluid" alt="latex extension"></p>
+<p>With the LaTeX extension installed, you can edit documents directly in VS Code and push changes to those documents to GitHub/Overleaf (see my <a href="../resources/VSCode_Git.html">VS_Code and GitHub</a> and my <a href="../resources/Overleaf_Git.html">Overleaf and GitHub</a> for further instructions).</p>
+<p><img src="../img/vs_code2.png" class="img-fluid" alt="latex edit"></p>
+<p>Next we’ll install two extensions that will allow us to use STATA with VS Code. The key extension is called “stataRun” and actually allows VS Code to run STATA commands:</p>
+<p><img src="../img/vs_code3.png" class="img-fluid" alt="stataRun"></p>
+<p>Once you install this extension you need to go to the extension settings by clicking on the gear icon:</p>
+<p><img src="../img/vs_code4.png" class="img-fluid" alt="stataRun_settings"></p>
+<p>And then make sure the path is correct if you’re using Windows and that the STATA version is correct:</p>
+<p><img src="../img/vs_code5.png" class="img-fluid" alt="stataRun_version"></p>
+<p>I also recommend installing the “Stata Enhanced” extension that adds colors to your .do file syntax:</p>
+<p><img src="../img/vs_code6.png" class="img-fluid" alt="Stata Enhanced"></p>
+<p>That will make your .do files easier to navigate. For example:</p>
+<p><img src="../img/vs_code7.png" class="img-fluid" alt="Stata do"></p>
+<p>A few helpful STATA shortcuts when using VS Code:</p>
 <ul>
-<li>Description <a href="../resources/FAH_fellowship.pdf">here</a>. If you are interested, please email me your resume by Friday, March 15th at noon.</li>
+<li>shift+command_a -&gt; runs your entire .do file</li>
+<li>shift+command+s -&gt; runs a highlighted code chunk from your .do file</li>
+<li>shift+command+c -&gt; runs the current line of code in your .do file</li>
 </ul>
 </section>
-<section id="policy-memo-example" class="level2">
-<h2 class="anchored" data-anchor-id="policy-memo-example">Policy Memo Example</h2>
-<ul>
-<li><a href="../resources/Policy_Memo_Example.pdf">HPAM 7660 Policy Memo Example</a></li>
-</ul>
-</section>
-<section id="software-installation-guides" class="level2">
-<h2 class="anchored" data-anchor-id="software-installation-guides">Software Installation Guides</h2>
-<ul>
-<li><a href="../assignments/tutorial_1.html">Getting Software Set Up</a></li>
-<li><a href="../resources/troubleshooting.html">Troubleshooting Guide</a></li>
-</ul>
-</section>
-<section id="r-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="r-tutorials">R Tutorials</h2>
-<ul>
-<li><a href="https://rstudio-education.github.io/hopr/">Hands On Programming with R</a></li>
-<li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
-<li><a href="../resources/cheatsheet.html">R Programming Cheatsheet</a></li>
-</ul>
-<section id="r-markdown" class="level4">
-<h4 class="anchored" data-anchor-id="r-markdown">R Markdown</h4>
-<ul>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown Tutorial</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></li>
-<li><a href="../resources/rmarkdown-cheatsheet.pdf">R Markdown Cheatsheet</a></li>
-</ul>
-</section>
-<section id="making-tables-with-r" class="level4">
-<h4 class="anchored" data-anchor-id="making-tables-with-r">Making Tables with R</h4>
-<ul>
-<li><a href="../resources/R_tables.html">R to LaTeX/Word Guide</a></li>
-</ul>
-</section>
-</section>
-<section id="stata-tutuorials" class="level2">
-<h2 class="anchored" data-anchor-id="stata-tutuorials">STATA Tutuorials</h2>
-<section id="making-tables-with-stata" class="level4">
-<h4 class="anchored" data-anchor-id="making-tables-with-stata">Making Tables with STATA</h4>
-<ul>
-<li><a href="../resources/Stata_tables.html">STATA to LaTeX/Word Guide</a></li>
-</ul>
-</section>
-<section id="stata-code-templates" class="level4">
-<h4 class="anchored" data-anchor-id="stata-code-templates">STATA Code Templates</h4>
-<ul>
-<li><a href="../resources/Stata_templates.html">Code templates</a></li>
-</ul>
-</section>
-</section>
-<section id="git-and-github-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="git-and-github-tutorials">Git and GitHub Tutorials</h2>
-<ul>
-<li><a href="https://happygitwithr.com">Happy Git with R</a></li>
-<li><a href="../resources/VSCode_Git.html">VS Code and GitHub</a></li>
-<li><a href="../resources/Overleaf_Git.html">Overleaf and GitHub</a></li>
-</ul>
-</section>
-<section id="vs-code-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="vs-code-tutorials">VS Code Tutorials</h2>
-<ul>
-<li><a href="../resources/VSCode.html">VS Code Installation and Extensions</a></li>
-</ul>
+<section id="github-copilot" class="level2">
+<h2 class="anchored" data-anchor-id="github-copilot">GitHub Copilot</h2>
+<p>You can find instructions for signing up for a free student GitHub Copilot subscription <a href="https://docs.github.com/en/copilot/quickstart">here</a>.</p>
 
 
 </section>

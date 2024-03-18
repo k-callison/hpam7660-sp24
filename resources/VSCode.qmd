@@ -1,0 +1,60 @@
+---
+title: "Using STATA with Visual Studio Code"
+summary: >-
+  A guide to installing and setting up VS Code to work with STATA and R. 
+---
+
+## Installing VS Code
+
+In this tutorial, we're going to install VS Code and the necessary extensions to get LaTeX, STATA, R, and GitHub Copilot up and running. 
+
+First, go [here](https://code.visualstudio.com/download) to download VS Code.
+
+## Installing Extensions
+
+Once you've downloaded and installed VS Code on your computer, you'll need to add the necessary extensions to incorporate VS Code into your workflow. 
+
+You'll want to install the LaTeX extension if you plan to do any manuscript editing in LaTeX or create any Beamer slides.
+
+![](/img/vs_code1.png){fig-alt="latex extension"}
+
+
+With the LaTeX extension installed, you can edit documents directly in VS Code and push changes to those documents to GitHub/Overleaf (see my [VS_Code and GitHub](/resources/VSCode_Git.qmd) and my [Overleaf and GitHub](/resources/Overleaf_Git.qmd) for further instructions).
+
+![](/img/vs_code2.png){fig-alt="latex edit"}
+
+
+Next we'll install two extensions that will allow us to use STATA with VS Code. The key extension is called "stataRun" and actually allows VS Code to run STATA commands:
+
+![](/img/vs_code3.png){fig-alt="stataRun"}
+
+
+Once you install this extension you need to go to the extension settings by clicking on the gear icon:
+
+![](/img/vs_code4.png){fig-alt="stataRun_settings"}
+
+
+And then make sure the path is correct if you're using Windows and that the STATA version is correct:
+
+![](/img/vs_code5.png){fig-alt="stataRun_version"}
+
+
+I also recommend installing the "Stata Enhanced" extension that adds colors to your .do file syntax:
+
+![](/img/vs_code6.png){fig-alt="Stata Enhanced"}
+
+
+That will make your .do files easier to navigate. For example:
+
+![](/img/vs_code7.png){fig-alt="Stata do"}
+
+
+A few helpful STATA shortcuts when using VS Code:
+
+- shift+command_a   ->    runs your entire .do file
+- shift+command+s   ->    runs a highlighted code chunk from your .do file
+- shift+command+c   ->    runs the current line of code in your .do file
+
+## GitHub Copilot
+
+You can find instructions for signing up for a free student GitHub Copilot subscription [here](https://docs.github.com/en/copilot/quickstart).

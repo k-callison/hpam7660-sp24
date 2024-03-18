@@ -33,8 +33,6 @@ title: "HPAM 7660 Resources"
 
 ## STATA Tutuorials
 
-- [STATA with VS Code]
-
 #### Making Tables with STATA
 
 - [STATA to LaTeX/Word Guide](/resources/Stata_tables.qmd)
@@ -48,4 +46,8 @@ title: "HPAM 7660 Resources"
 - [Happy Git with R](https://happygitwithr.com)
 - [VS Code and GitHub](/resources/VSCode_Git.qmd)
 - [Overleaf and GitHub](/resources/Overleaf_Git.qmd)
+
+## VS Code Tutorials
+
+- [VS Code Installation and Extensions](/resources/VSCode.qmd)
 

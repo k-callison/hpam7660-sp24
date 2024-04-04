@@ -11,12 +11,12 @@ subtitle: "Case Study & Case Study Teams"
 
 **Case Teams**
 
-- Team 1: Black, Clements, Zuhaira
-- Team 2: Arkfeld, English, Johnson, LaBattes
-- Team 3: Letsinger, Shoemaker, Varady, Waugh
-- Team 4: Assefa, Cohen, Shah, Shimanovsky
-- Team 5: Brennan, Lindgren, Schindel
-- Team 6: Howland, Pachpor, Shiferaw, Toole
+- Team 1, 12:00pm to 12:30pm: Black, Clements, Zuhaira
+- Team 2, 12:30pm to 1:00pm: English, Howland, Johnson, LaBattes
+- Team 3, 1:15pm to 1:45pm: Letsinger, Shoemaker, Varady, Waugh
+- Team 4, 1:45pm to 2:15pm: Assefa, Cohen, Shah, Shimanovsky
+- Team 5, 2:30pm to 3:00pm: Brennan, Lindgren, Schindel
+- Team 6, 3:00pm to 3:30pm: Arkfeld, Pachpor, Shiferaw, Toole
 
 **Case Judges**
 

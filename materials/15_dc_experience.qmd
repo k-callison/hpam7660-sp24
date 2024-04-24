@@ -10,9 +10,9 @@ subtitle: "Virtual DC Experience"
 | Time      | Panelists |
 |:-------------------|:-------------------|
 12:30pm to 1:15pm   | **Advocacy** <br> - [Lauren Crawford Shaver](https://www.fticonsulting.com/experts/lauren-crawford-shaver), Senior Managing Director, FTI Consulting |
-1:15pm to 2:00pm    | **Federal Agencies** <br> - [Jim Matthews](https://www.linkedin.com/in/james-e-mathews-5277aa239/), Principal, Health Policy Alternatives, former MedPAC Advisory Commission Executive Director |
+1:15pm to 2:00pm    | **Federal Agencies** <br> - [Jim Mathews](https://www.linkedin.com/in/james-e-mathews-5277aa239/), Principal, Health Policy Alternatives, former MedPAC Advisory Commission Executive Director |
 2:00pm to 2:30pm    | Break |
-2:30pm to 3:15pm    | **Media** <br> - [Amy Goldstein](https://www.brookings.edu/people/amy-goldstein/), Brookings Institute Visiting Fellow, Washington Post Staff Writer <br> - [Robert King](https://www.politico.com/staff/bob-king), Deputy Editor Politico <br> <ins>*Example reporting*</ins>*:* <br> Goldstein - [Medicaid](/materials/Goldstein_Medicaid.pdf) & [COVID](/materials/Goldstein_COVID.pdf) <br> King - [Medicare Advantage](/materials/King_MA.pdf) & [ACA](/materials/King_Obamacare.pdf)                   |
+2:30pm to 3:15pm    | **Media** <br> - [Amy Goldstein](https://www.brookings.edu/people/amy-goldstein/), Brookings Institute Visiting Fellow, Washington Post Staff Writer <br> - [Robert King](https://www.linkedin.com/in/robert-king-88080611/), Deputy Editor Politico <br> <ins>*Example reporting*</ins>*:* <br> Goldstein - [Medicaid](/materials/Goldstein_Medicaid.pdf) & [COVID](/materials/Goldstein_COVID.pdf) <br> King - [Medicare Advantage](/materials/King_MA.pdf) & [ACA](/materials/King_Obamacare.pdf)                   |
 3:15pm to 4:00pm    | **Think Tanks and Foundations** <br> - [Jim Capretta](https://www.aei.org/profile/james-c-capretta/), Senior Fellow, American Enterprise Institute <br> - [Tricia Neuman](https://www.kff.org/person/tricia-neuman/), Senior Vice President, Executive Director for Program and Medicare Policy and Senior Advisor to the President, Kaiser Family Foundation |
                                 
 

@@ -28,3 +28,8 @@ subtitle: "Case Study & Case Study Teams"
 **Case Rubric**
 
 - [Judges' Rubric](/materials/HPAM_7660_Case_Rubric.pdf)
+
+**Peer Assessment Form and Submission Link**
+
+-[Peer Assessment Form](/materials/Peer_Assessment_Form.docx)\
+-[Submit Here](https://tulane.instructure.com/courses/2275811/assignments/14515136)

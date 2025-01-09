@@ -19,7 +19,10 @@ jobs:
           sudo apt-get install -y libcurl4-openssl-dev
           sudo apt-get install -y libharfbuzz-dev libfribidi-dev libfreetype6-dev
           sudo apt-get install -y libfontconfig1-dev
+<<<<<<< HEAD
           sudo apt-get install -y libpng-dev libtiff5-dev libjpeg-dev
+=======
+>>>>>>> 1ea474fa8ec13dfdc105d573c9de12f8fc7fc7f4
           
       - name: Set up R
         uses: r-lib/actions/setup-r@v2

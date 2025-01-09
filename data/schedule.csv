@@ -5,8 +5,8 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 2,2025-01-23,,Policy Analysis Overview,,,,
 3,2025-01-28,,Intro to Computing Resources,,"materials/03_computing","assignments/tutorial_1.qmd",
 3,2025-01-30,,Computing Resources Lab,,,"assignments/tutorial_2.qmd",
-4,2024-02-06,,Importing Data,,"materials/04_import",,"assignments/data_1.qmd"
-4,2024-02-08,,Importing Data Lab,,,"assignments/tutorial_3.qmd",
+4,2025-02-04,,Importing Data,,"materials/04_import",,"assignments/data_1.qmd"
+4,2025-02-06,,Importing Data Lab,,,"assignments/tutorial_3.qmd",
 5,2024-02-13,,No Class - Mardi Gras!,,,,
 5,2024-02-15,,Perspectives on Federal Health Policy - Guest Speaker: Chip Kahn,,"materials/05_fah",,
 6,2024-02-20,,Data Wrangling,,"materials/06_wrangling","assignments/tutorial_4.qmd","assignments/data_2.qmd"

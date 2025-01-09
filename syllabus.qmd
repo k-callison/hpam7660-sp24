@@ -8,89 +8,125 @@ output:
       toc: TRUE
 ---
 
-
-
-
-::: {.grid .course-details .course-details-smaller}
-
-::: {.g-col-6}
+::::: {.grid .course-details .course-details-smaller}
+::: g-col-6
 ### Instructor
 
-- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
-- {{< fa university >}} &nbsp; {{< var instructor.office >}}
-- {{< fa envelope >}} &nbsp; <a href="mailto: kcallison@tulane.edu">kcallson@tulane.edu</a>
-
+-   {{< fa user >}}   [{{< var instructor.name >}}]({{< var instructor.url >}})
+-   {{< fa university >}}   {{< var instructor.office >}}
+-   {{< fa envelope >}}   <a href="mailto: kcallison@tulane.edu">kcallson\@tulane.edu</a>
 
 ### Office Hours
 
-- {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
-- {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
-- {{< fa university >}} &nbsp; {{< var instructor.office_loc >}}
-
+-   {{< fa calendar >}}   {{< var instructor.office_days >}}
+-   {{< fa clock >}}   {{< var instructor.office_time >}}
+-   {{< fa university >}}   {{< var instructor.office_loc >}}
 :::
 
-::: {.g-col-6}
+::: g-col-6
 ### Course Details
 
-- {{< fa calendar >}} &nbsp; {{< var course.days >}}
-- {{< fa clock >}} &nbsp; {{< var course.time >}}
-- {{< fa university >}} &nbsp; {{< var course.location >}}
-
+-   {{< fa calendar >}}   {{< var course.days >}}
+-   {{< fa clock >}}   {{< var course.time >}}
+-   {{< fa university >}}   {{< var course.location >}}
 :::
-
-:::
-
+:::::
 
 ### Course Descripton
 
-HPAM 7660 presents an overview of health policy in the United States – its scope, its dynamics, and its conceptual and practical dilemmas. The course is designed to acquaint students with major issues in the policymaking process, specifically in formulating, implementing, and assessing those patterns of government decision. Students will explore the history and structure of the American health care system, as well as explore a policy issue of their choosing using the Bardach analytical method.
+The primary aim of this course is to present an overview of health policy in American government, its scope, dynamics, and conceptual and practical dilemmas. It is designed to acquaint students with major issues involved in formulating, implementing, and assessing patterns of decisions established by government. Because the study of policy is essentially interdisciplinary, readings for the course have been drawn from several fields, including sociology, political science, and economics. Specific areas of consideration will be addressed during the seminar through analysis and discussion of the functions of state and local government and various stakeholder groups that attempt to influence governmental action.
+
+### Prerequisites
+
+Open to graduate students.
+
+### Learning Objectives
+
+After completing this course, students will be able to do the following:
+
+1. Exhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to     health services.\
+2. Develop a framework to critically discuss and evaluate policy issues affecting the U.S. health care system.\
+3. Compare and contrast the public policy objectives of various stakeholders with the realities of the political            process.\
+4. Critically evaluate the research literature that examines the federal and state roles in health services.\
+5. Evaluate current proposals advanced in Congress and by the private sector that impact health services delivery.\
+6. Demonstrate a working understanding of the legislative process and the related federal and state regulation              processes.\
+
+### Competency Mapping
+
+| Competency | Signature Assessment |
+|:----------------------------------------|:------------------------------|
+| 1\. Apply economic and legal concepts and theories to the analysis of healthcare policy and management issues. | Long answer exam questions requiring application of economic, statutory (EMTALA, HIPPA, tax exemption, antitrust) and regulatory concepts to practical hypothetical scenarios that take place in hospitals or other settings. |
+| 2\. Analyze the impact of health policies using fundamental research and analytical methods. | Empirical Paper Assignment: An analysis of Applied health and social policy topics such as an evaluation of the ACA, health insurance coverage, health care access, demographic trends, public program participation, public program eligibility, health surveillance, or health disparities. |
+| 3\. Illustrate how the evidence base in health policy literature supports a health policy. | Literature Review: Critical literature review assessing the existing support for policy alternatives to a student-chosen problem. |
+| 4\. Communicate health policy issues effectively orally. | Presentation that communicates the issues (stakeholders, criteria, alternatives) around a chosen health policy. |
+| 5\. Examine policy interventions that address social determinants of health, promote health equity, and reduce health disparities. | Memo that evaluates the impacts of policy interventions using a method (Bardach or other) for health policy analysis. |
 
 ### Course Materials
 
+#### Required Materials
+
 We will use the following online (and free!) textbook along with various readings that will be posted to the course website under the Assignments tab.
 
-- Ismay, Chester and Albert Y. Kim. 2022. [*Statistical Inference via Data Science: A ModernDive into R and the Tidyverse*](https://moderndive.com/index.html). 
+-   Ismay, Chester and Albert Y. Kim. 2022. [*Statistical Inference via Data Science: A ModernDive into R and the Tidyverse*](https://moderndive.com/index.html).
 
-We'll use R in this class to conduct data analysis. R is free,  open source, and available on all
-major platforms. [RStudio](http://www.rstudio.com) (also free) is a graphical interface to R that is widely used to work with the R language. R is available in all Tulane computer labs and you are encouraged to bring your laptop to class if you're able to. [Problem Set 0][ps0] will walk you through setting up with R, RStudio, and GitHub. 
+We'll use R in this class to conduct data analysis. R is free, open source, and available on all major platforms. [RStudio](http://www.rstudio.com) (also free) is a graphical interface to R that is widely used to work with the R language. R is available in all Tulane computer labs and you are encouraged to bring your laptop to class if you're able to. \[Problem Set 0\]\[ps0\] will walk you through setting up with R, RStudio, and GitHub.
 
+#### Recommended Materials
 
-### Course Evaluation
+If you're new to health care institutions in the U.S. and the mechanics of federal and state policymaking, this text may be helpful:
+
+Barr, D. *Introduction to US Health Policy: The Organization, Financing, and Delivery of Health Care in America*, 4th Edition. ISBN-13: 978-1421420721
+
+### Assessment of Learning
 
 The following components and weights will be used to calculate your final grade:
 
-| Category      | Percent of Final Grade |
-|:-------------------|:-------------------|
-| Policy Memo   | 30%                    |
-| Case Presentation | 20%                    |
-| Reading Discussion Questions & Problem Sets       | 20%                    |
-| Class Participation | 20%                    |
-| Peer Assessment | 10% |
+| Category                                    | Percent of Final Grade |
+|:--------------------------------------------|:-----------------------|
+| Policy Memo & Infographic                   | 25%                    |
+| Case Presentations                          | 25%                    |
+| Participation (contributing to class discussions, asking relevant questions, and engaging in group activities) | 25%                    |
+| Reading Discussion Questions & Problem Sets | 15%                    |
+| Peer Assessment                             | 10%                    |
+| Total                                       | 100%                   |
 
+<br>
+Your final course grade will be calculated according to the following ranges:
+
+| Letter Grade | Percentage    |
+|:-------------|:--------------|
+| A            | 94.5% and above |
+| A-           | 89.5 to 94.49%   |
+| B+           | 87.5 to 89.49%   |
+| B            | 82.5 to 87.49%   |
+| B-           | 79.5 to 82.49%   |
+| C            | 69.5 to 79.49%   |
+| F            | Below 69.5%      |
+
+### Description of Required Assignments:
 
 *Policy Memo* - throughout the semester, you will construct a policy memo to be submitted on the final day of class. The memo should advocate for a policy position of your choice and can be targeted to local leaders (e.g., mayor, city council, etc.), or state or federal legislators. The target audience will depend on the scope of your policy. The final draft of the policy memo should be approximately 8-10 pages, excluding references.
 
-The University of Southern California library provides a good [guide](https://libguides.usc.edu/writingguide/assignments/policymemo) for writing a policy memo. Note that as the guide states: “You should not approach writing a policy memo in the same way as you would an academic research paper. Yes, there are certain commonalities in how the content is presented [e.g., a well-written problem statement], but the overarching objective of a policy memo is not to discover or create new knowledge. It is focused on providing a pre-determined group of readers the rationale for choosing a particular policy alternative or specific course of action. In this sense, most policy memos possess a component of advocacy and advice intended to promote evidence-based dialog about an issue.”
-Your policy memo will consist of the following 7 sections, that will be submitted individually throughout the semester before a final version of the memo to be submitted on the last day of class:
+The University of Southern California library provides a good [guide](https://libguides.usc.edu/writingguide/assignments/policymemo) for writing a policy memo. Note that as the guide states: “You should not approach writing a policy memo in the same way as you would an academic research paper. Yes, there are certain commonalities in how the content is presented \[e.g., a well-written problem statement\], but the overarching objective of a policy memo is not to discover or create new knowledge. It is focused on providing a pre-determined group of readers the rationale for choosing a particular policy alternative or specific course of action. In this sense, most policy memos possess a component of advocacy and advice intended to promote evidence-based dialog about an issue.” Your policy memo will consist of the following 7 sections, that will be submitted individually throughout the semester before a final version of the memo to be submitted on the last day of class:
 
-1.	Executive summary\
-2.	Introduction and problem definition (Bardach Step 1)\
-3.	Issue analysis (Bardach Step 2)\
-4.	Proposed solutions (Bardach Steps 3, 4, & 5)\  
-5.	Strategic recommendations (Bardach Step 6 & Step 7)\
-6.	Conclusion (Bardach Step 8)\
-7.	References\
+1.  Executive summary\
+2.  Introduction and problem definition (Bardach Step 1)\
+3.  Issue analysis (Bardach Step 2)\
+4.  Proposed solutions (Bardach Steps 3, 4, & 5) 
+5.  Strategic recommendations (Bardach Step 6 & Step 7)\
+6.  Conclusion (Bardach Step 8)\
+7.  References\
 
 Policy Memo Due Dates:
 
-1.	Problem statement – Feb. 29th\ 
-2.	Preliminary reference list – March 14th\  
-3.	Introduction and problem definition draft – March 21st\  
-4.	Issue analysis draft – April 4th\
-5.	Proposed solutions draft – April 11th\   
-6.	Strategic recommendations draft – April 25th\ 
-7.	Executive summary and conclusions draft – May 2nd\  
-8.	Final draft – May 9th\ 
+1.  Problem statement – Feb. 29th 
+2.  Preliminary reference list – March 14th 
+3.  Introduction and problem definition draft – March 21st 
+4.  Issue analysis draft – April 4th\
+5.  Proposed solutions draft – April 11th \
+6.  Strategic recommendations draft – April 25th 
+7.  Executive summary and conclusions draft – May 2nd 
+8.  Final draft – May 9th 
 
 *Case Presentation* - The case presentation will take place on May 2nd. The case presentation will coincide with a series of panel discussion during our “virtual D.C. experience”. I’ll provide more detail on the schedule and content of these panels on the course website along with a rubric for the case presentations.
 
@@ -98,97 +134,55 @@ Policy Memo Due Dates:
 
 *Peer Assessment* - The peer assessment component of your grade will consist of anonymous grading of your team contribution by the other members of your team (more specific details to follow).
 
-Your final course grade will be calculated according to the following ranges:
 
-| Letter Grade      | Percentage |
-|:-----------|:---------------------------|
-| A  | 94% and above                    |
-| A- | 90 to 93.9%                    |
-| B+ | 85 to 89.9%                |
-| B  | 80 to 84.9%                    |
-| B- | 75 to 79.9% |
-| C  | 70 to 74.9% |
-| F  | <70% |
+### Attendance Policy
 
-### Late Policy
+Class attendance is a critical component of learning, and students are expected to attend and participate fully in all scheduled class meetings and activities. While there is no specific attendance grade in the course, class absences will reflect negatively on student participation scores. Students are responsible for notifying instructors and the Office of Student Experience about significant absences that result from serious illnesses, injuries, or critical personal problems. Students experiencing barriers to meeting attendance requirements due to disabilities are encouraged to register with the Goldman Center for Student Accessibility to discuss accommodation and to make the necessary arrangements with their instructor.
 
-Late submissions will be given half credit.
+### ADA/Accessibility Statement
 
-### SPHTM Honor Code
+Tulane University is committed to offering classes that are accessible. If you anticipate or encounter disability-related barriers in a course, please contact the [Goldman Center for Student Accessibility](https://accessibility.tulane.edu/) to establish reasonable accommodations. If approved by Goldman, make arrangements with me as soon as possible to discuss your accommodation so that they may be implemented in a timely fashion. I will never ask for medical documentation from you to support potential accommodation needs.
 
-I expect that you will abide by the school’s Honor Code and Code of Academic Conduct. Failure to do so will result in referral to the Honor Board. I encourage you to discuss the lectures and coursework with your colleagues to facilitate your understanding of the material. But I expect that you will engage in independent scholarship when completing your own work, properly citing external assistance or sources. If you have any questions about these expectations, please refer to the code or ask me in advance. 
+### Student Code of Academic Content
 
-### Americans with Disabilities Act of 1990
+Students are required to adhere to the Unified Code of Graduate Student Academic Conduct, available online [here](https://ogps.tulane.edu/sites/default/files/Unified%20Code%20of%20Graduate%20Student%20Academic%20Conduct%20-%202024%20Final%20(1).pdf).
 
-It is the policy and practice of Tulane University to comply with the Americans with Disabilities Act (Pub. L. No. 101-336), Section 504 of the Rehabilitation Act of 1973 (Pub. L. No. 93-112, §504, as amended), and state and local requirements regarding individuals with disabilities. Under these laws, no qualified individual with a disability shall be denied access to or participation in services, programs, and activities of Tulane University. Students seeking academic adjustments or accommodations must register their disabilities with the [Goldman Center for Student Accessibility](https://accessibility.tulane.edu/). 
+Each student enrolled in the School of Public Health and Tropical Medicine has the responsibility to read, understand and follow the code of academic conduct. Lack of knowledge of code or its application does not constitute an excuse for non-compliance.  Tulane University expects and requires behavior compatible with its high standards of scholarship. By accepting admission to the university, a student accepts its regulations and acknowledges the right of the university to take disciplinary action.
+
+### Artificial Intelligence Policy
+
+There are no restrictions on the use of AI in this course. Use of AI tools such as ChatGPT are encouraged for class writing assignments (e.g., policy memo sections). However, you should note that these tools are unlikely to generate high quality work on their own. The best use of these tools involves editing and refining draft materials that you have written yourself.  
+
+### Equity, Diversity, and Inclusion (EDI) Statement
+
+Equity, diversity, and inclusion (EDI) are important [Tulane values](https://president.tulane.edu/core-values) that are key drivers of academic excellence in our learning environments. In our drive for academic excellence, we seek to ensure that students, faculty, and staff across diverse social identities, cultural backgrounds, and lived experiences can thrive – especially those from underrepresented and underserved communities (e.g., race/ethnicity, gender identity and expression, sexual orientation, disability, social class, international, veterans, religious minorities, age, and any other classification protected by applicable law - see [Tulane's Nondiscrimination Policy](https://tulane.app.box.com/s/w96x9akgbfp1oq3f5po5onzmus9tkdsi)). To build a supportive culture and climate for every member of our community, we recognize that we each have unique EDI strengths to share with others and that we also have areas for EDI growth, learning, and change. This EDI commitment and cultural humility helps us collectively build a university community and culture where everyone experiences belonging.
+
+### Religious Accomodation Policy
+
+Per Tulane’s [religious accommodation policy](https://registrar.tulane.edu/academic-calendars/religious-observance-policy), I will make every reasonable effort to ensure that students are able to observe religious holidays without jeopardizing their ability to fulfill their academic obligations. Excused absences do not relieve the student from the responsibility for any course work required during the period of absence. Students should notify me within the first two weeks of the semester about their intent to observe any holidays that fall on a class day or on the day of the final exam.
+
 
 ### Title IX
 
-Tulane University recognizes the inherent dignity of all individuals and promotes respect for all people. As such, Tulane is committed to providing an environment free of all forms of discrimination including sexual and gender-based discrimination, harassment, and violence like sexual assault, intimate partner violence, and stalking. If you (or someone you know) has experienced or is experiencing these types of behaviors, know that you are not alone. Resources and support are available: you can learn more [here](https://allin.tulane.edu/content/all). Any and all of your communications on these matters will be treated as either “Confidential” or “Private” as explained in the chart below. Please know that if you choose to confide in me I am mandated by the university to report to the Title IX Coordinator, as Tulane and I want to be sure you are connected with all the support the university can offer. You do not need to respond to outreach from the university if you do not want to.
+Tulane University recognizes the inherent dignity of all individuals and promotes respect for all people. As such, Tulane is committed to providing an environment free of all forms of discrimination including sexual and gender-based discrimination, harassment, and violence like sexual assault, intimate partner violence, and stalking. If you (or someone you know) has experienced or is experiencing these types of behaviors, know that you are not alone. Resources and support are available: you can learn more [here](https://allin.tulane.edu/content/all). 
 
-| Confidential     | Private |
-|:-------------------|:-------------------|
-| Except in extreme circumstances, involving imminent danger to one’s self or others, nothing will be share without your explicit permission.  | Conversations are kept as confidential as possible, but information is shared with key staff members so the University can offer resources and accommodations and take action if necessary for safety reasons.                    |
-| Counseling & Psychological Services (CAPS):<br> (504) 314-2277 | Case Management & Victim Support Services (CMVSS): (504) 314-2160  |
-| Student Health Center<br> Downtown: (504) 988-6929<br> Uptown: (504) 865-5255 | Tulane University Police (TUPD)<br> Downtown: (504) 988-5531<br> Uptown: (504) 865-5911   |
-| Sexual Aggression Peer Hotline and Education (SAPHE): (504) 654-9543 | Title IX Coordinator: (504) 865-5611 or\ email: titleix@tulane.edu    |
+## Disclosures of gender-based discrimination 
+In order to comply with the requirements of Title IX of the Education Amendments of 1972, Tulane University requires all faculty members to report incidents of gender-based discrimination. Please know that if you choose to confide in me, I am required by the university to share your disclosure in a Care Connection to the Office of Case Management and Victim Support Services to be sure you are connected with all the support the university can offer. The Title IX Coordinator is also notified of these disclosures. You choose whether or not you want to meet with these offices. You can also make a disclosure yourself, including an anonymous report, through this [form](https://tulane.edu/concerns).
 
-### Student Learning Objectives
-
-1.	Exhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to health services.\
-2.	Develop a framework to critically discuss and evaluate policy issues affecting the U.S. health care system.\
-3.	Compare and contrast the public policy objectives of various stakeholders with the realities of the political process.\
-4.	Critically evaluate the research literature that examines the federal and state roles in health services.\
-5.	Evaluate current proposals advanced in Congress and by the private sector that impact health services delivery.\
-6.	Demonstrate a working understanding of the legislative process and the related federal and state regulation processes.\
-
-### Course Competencies
-
-The Department of Health Policy & Management has adopted a set of competencies for evaluating each of our masters-level programs, including both the MPH in Health Policy and the MHA. Our accrediting bodies ask that we demonstrate, on a course level, which program competencies are supported and developed through this particular course. Some competencies are given more attention in the course activities and materials. The subsections below indicate to what extent each competency is addressed in the course materials, activities, and evaluation process.
-
-**MPH in Health Policy Program Competencies**
-
-| Competency  | Degree Covered |  Learning Objectives |
-|:----------------|:--------|:------------|
-Analyze the influence of policy mechanisms on patient and provider behavior and health systems outcomes. | P | 1,3,5,6,7 |
-Assess health systems performance and issues of quality, access, and efficiency. | R | 1,2,3,5,6,7 |
-Critique health policy literature. | R | 4 |
-Communicate health policy issues written and orally. | P | 2,3,4 |
-
-**MHA Program Competencies**
-
-| Competency  | Degree Covered |  Learning Objectives |
-|:----------------|:--------|:------------|
-Speak and write in a clear, concise, and logical manner in formal and informal situations within health care settings to convey cogent business presentations and to facilitate a group. (Effective Communication) | R | 2,4 |
-Consider the business, demographic, ethno-cultural, political, and regulatory factors in developing strategies that continually improve the long-term success and viability of health care organizations. (Strategic Management) | R | 1,3,5 |
-Deconstruct complex problems into smaller elements and synthesize that with other data to derive recommendations. (Critical Thinking and Analysis) | P | 6,7 |
-<font size= "3"> Rating Scale for Degree of Coverage: P = primary, R = reinforcing <font size= "5"> <br> 
-
-**Competency Map**
-
-| Learning Objective  | Program Competency |  Learning Activity | Primary Assessment
-|:--------------|:------------|:-------|:-------|
-Exhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to health services. | MPH in HP – Competency 1 <br> MHA – Strategic Management | Lectures | Exams |
-Develop a framework to critically discuss and evaluate whether the “market” in health services is or is not a policy issue. | MPH in HP – Competency 1 | Lectures <br> Group Presentations | Exams |
-Compare and contrast the public policy objectives of Medicare, Medicaid, and the private insurance sector with the realities of the political process. | MPH in HP – Competency 2 <br> MHA – Critical Thinking | Lectures <br> Group Presentations | Exams <br> Policy Memo |
-Critically evaluate the research literature that examines the federal and state roles in health services. | MPH in HP – Competency 3 | Writing Workshops | Policy Memo |
-Evaluate current proposals advanced in Congress and by the private sector that impact health services delivery. | MPH in HP – Competency 1 <br> MHA – Strategic Management | Group Presentations | Exams |
-Demonstrate a working understanding of private insurance and the federal and state regulation that oversees it. | MPH in HP – Competency 1 <br> MHA – Strategic Management | Lectures | Exams |
-Examine the development and regulation of the private insurance market over the past 20 years. | MPH in HP – Competency 1 | Lectures | Exams |
+## Statement on Confidentiality and Privacy
+Tulane University is committed to protecting the privacy of all individuals involved in a disclosure of gender-based discrimination. Any and all of your communications on these matters will be treated as either “Confidential” or “Private.”
 
 
+| Confidential | Private |
+|:-----------------------------------|:-----------------------------------|
+| Certain individuals and resources (see list below) are designated as confidential. Individuals and resources designated as confidential will not share any information, except in extreme circumstances involving imminent danger to one’s self or others, with the Office of Case Management and Victim Services, the Title IX Coordinator, or local law enforcement without the express permission of the disclosing party. | Private resources means that information related to a disclosure of gender-based discrimination may be shared with key staff members of the University to assist in the review, investigation, or resolution of the disclosure or to deliver resources, accommodations, and support services. Information pertinent to the disclosure will be shared with the following Offices:  |
+| Counseling & Psychological Services (CAPS):<br> (504) 314-2277 | Case Management & Victim Support Services (CMVSS): (504) 314-2160 |
+| Student Health Center<br> Downtown: (504) 988-6929<br> Uptown: (504) 865-5255 | Tulane University Police (TUPD)<br> Downtown: (504) 988-5531<br> Uptown: (504) 865-5911 |
+| Sexual Aggression Peer Hotline and Education (SAPHE): (504) 654-9543 | Title IX Coordinator: (504) 865-5611 or email: titleix\@tulane.edu |
 
+## Title IX Safeguards for Pregnant and Parenting Students
+Title IX also provides reasonable protections and support for pregnant and parenting students. Discrimination on the basis of a student’s pregnancy, childbirth, false pregnancy, termination of pregnancy, or recovery from any of the previous conditions is prohibited by Title IX, and Tulane is committed to providing equal access to academic programs and extracurricular activities to students who might be, are, or have been pregnant.  If you need support related to a pregnancy or any of the previously listed conditions, visit pregnancy.tulane.edu for more information, including a list of resources. Student who believe that they may have experienced pregnancy discrimination can file a complaint with the Title IX Office by contacting 504-865-5611 or titleix@tulane.eduor visiting the office in Jones Hall 308, filing a report at: https://cm.maxient.com/reportingform.php?TulaneUniv=&layout_id=0
 
+### Emergency Preparedness & Response
 
-
-
-
-
-
-
-
-
-
-
-
-
+![](img/syllabus_emergency.png)

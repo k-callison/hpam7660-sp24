@@ -1,6 +1,6 @@
 week,date,date_end,title,deadline,content,tutorial,assignment
 1,2025-01-14,,Course Introduction,,"materials/Week_1",,
-1,2025-01-16,,U.S. Health Policy Landscape,,,,https://tulane.instructure.com/courses/2291178/assignments/14673851
+1,2025-01-16,,U.S. Health Policy Landscape,,materials/Week_1,,https://tulane.instructure.com/courses/2291178/assignments/14673851
 2,2025-01-21,,Data Lab - R Setup,,,"assignments/tutorial_1.qmd",
 2,2025-01-23,,No Class,,,,
 3,2025-01-28,,Policy Analysis Overview,,,,

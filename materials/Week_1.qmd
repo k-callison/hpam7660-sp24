@@ -11,4 +11,4 @@ sidebar: false
 ## Thursday, January 16
 
 - Assignment - [Introduce Yourself](https://tulane.instructure.com/courses/2275811/assignments/14466540/)
-- Slides - [U.S. Health Policy Landscape](/slides/HPAM_7660_Health_Policy_Landscape.pdf)
+<!-- - Slides - [U.S. Health Policy Landscape](/slides/HPAM_7660_Health_Policy_Landscape.pdf) -->

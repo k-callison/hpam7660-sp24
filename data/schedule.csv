@@ -1,33 +1,33 @@
 week,date,date_end,title,deadline,content,tutorial,assignment
 1,2025-01-14,,Course Introduction,,"materials/01_intro",,
-1,2025-01-16,,U.S. Health Policy Landscape,,,,https://tulane.instructure.com/courses/2275811/assignments/14466540/
-2,2025-01-21,,Policy Analysis Overview,,"materials/02_overview",,"assignments/week_2_reading_questions.pdf"
+1,2025-01-16,,U.S. Health Policy Landscape,,,,https://tulane.instructure.com/courses/2291178/assignments/14673851
+2,2025-01-21,,Data Lab - R Setup,,,"assignments/tutorial_1.qmd",
 2,2025-01-23,,No Class,,,,
-3,2025-01-28,,Intro to Computing Resources,,"materials/03_computing","assignments/tutorial_1.qmd",
-3,2025-01-30,,Computing Resources Lab,,,"assignments/tutorial_2.qmd",
-4,2025-02-04,,Importing Data,,"materials/04_import",,"assignments/data_1.qmd"
-4,2025-02-06,,Importing Data Lab,,,"assignments/tutorial_3.qmd",
-5,2025-02-11,,No Class - Mardi Gras!,,,,
-5,2025-02-13,,Perspectives on Federal Health Policy - Guest Speaker: Chip Kahn,,"materials/05_fah",,
-6,2025-02-18,,Data Wrangling,,"materials/06_wrangling","assignments/tutorial_4.qmd","assignments/data_2.qmd"
-6,2025-02-20,,Data Wrangling Lab,,,"assignments/tutorial_5.qmd",
-7,2025-02-25,,No Class - Capitol Trip,,"materials/07_summarizing",,
-7,2025-02-27,,Summarizing Data Lab (Problem Statement Due),,,"assignments/tutorial_6.qmd","assignments/multi_assignment1.qmd"
+3,2025-01-28,,Policy Analysis Overview,,"materials/02_overview",,"assignments/week_2_reading_questions.pdf"
+3,2025-01-30,,Data Lab - Introduction to BRFSS and Descriptive Statistics,,,"assignments/tutorial_2.qmd",
+4,2025-02-04,,Writing Effective Policy Memos,,,,
+4,2025-02-06,,Data Lab - Descriptive Comparisons: Medicaid and Health,,,,
+5,2025-02-11,,Medicaid Work Requirements: Stakeholder Perspectives,,,,
+5,2025-02-13,,Data Lab - Constructing Analytic Samples,,,,
+6,2025-02-18,,Research Design: Randomization and Regression,,,,
+6,2025-02-20,,Data Lab - Regression Basics: Controlling for Confounders,,,,
+7,2025-02-25,,Reimagining the Affordable Care Act,,,,
+7,2025-02-27,,Data Lab - Regression Basics: Controlling for Counfounders Pt.2,,,,
 8,2025-03-04,,No Class - Spring Break!,,,,
 8,2025-03-06,,No Class - Spring Break!,,,,
-9,2025-03-11,,Research Design - Randomization and Regression,,"materials/09_random_regress",,
-9,2025-03-13,,Research Design - Randomization and Regression (Preliminary Reference List Due),,,,https://tulane.instructure.com/courses/2275811/assignments/14494589/
-10,2025-03-18,,Research Design - Natural Experiments,,"materials/10_natural_experiment","assignments/tutorial_9.qmd","assignments/week_10_reading_questions.pdf"
-10,2025-03-20,,Research Design - Natural Experiments (Introduction Due),,,,https://tulane.instructure.com/courses/2275811/assignments/14495801
-11,2025-03-25,,No Class - Spring Break,,,,
-11,2025-03-27,,No Class - Spring Break,,,,
-12,2025-04-01,,Research Design - Quasi-Experimental Designs,,"materials/12_quasi_experiments",,
-12,2025-04-03,,Research Design - Quasi-Experimental Designs (Issue Analysis Draft Due),,,,https://tulane.instructure.com/courses/2275811/assignments/14501408
-13,2025-04-08,,No Class,,,,
-13,2025-04-10,,No Class (Proposed Solutions Draft Due),,,,https://tulane.instructure.com/courses/2275811/assignments/14503329
+9,2025-03-11,,Research Design: Natural Experiments,,,,
+9,2025-03-13,,Data Lab - Louisiana Medicaid Expansion and Medicaid Coverage,,,,
+10,2025-03-18,,Medicaid Financing: FMAP and Block Grants,,,,
+10,2025-03-20,,Data Lab - Louisiana Medicaid Expansion and Medicaid Coverage Pt.2,,,,
+11,2025-03-25,,Quasi-Experimental Reserach Designs,,,,
+11,2025-03-27,,Data Lab - Medicaid Expansion and Health,,,,
+12,2025-04-01,,Quasi-Experimental Research Designs Pt.2,,,,
+12,2025-04-03,,Data Lab - Medicaid Expansion and Health,,,,
+13,2025-04-08,,Provider Payment Reforms: Policy Trade-Offs and Stakeholder Impacts,,,,
+13,2025-04-10,,Linking Data and Decisions: The Evidence Based Fight Against Smoking,,,,
 14,2025-04-15,,No Class - Lagniappe Day,,,,
 14,2025-04-17,,No Class - Capstone Trip,,,,
-15,2025-04-22,,DC Experience,,"materials/15_dc_experience",,
-15,2025-04-24,,DC Experience (Strategic Recommendations Draft Due),,,,https://tulane.instructure.com/courses/2275811/assignments/14510679
-16,2025-04-29,,Case Presentations,,"materials/16_case_study",,
-16,2025-05-01,,No Class (Executive Summary and Conclusions Drafts Due),,,,https://tulane.instructure.com/courses/2275811/assignments/14511951
+15,2025-04-22,,Case Presentations,,,,
+15,2025-04-24,,Case Presentations,,,,
+16,2025-04-29,,Case Presentations,,,,
+16,2025-05-01,,No Class - Final Policy Memo Due,,,,

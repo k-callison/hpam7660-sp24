@@ -1,0 +1,14 @@
+---
+title: "HPAM 7660 - Week 1 Materials"
+subtitle: "Course Introduction & U.S. Health Policy Landscape"
+sidebar: false
+---
+
+## Tuesday, January 14
+
+- Slides - [Course Introduction](/slides/HPAM_7660_Introduction_Slides.pdf)
+
+## Thursday, January 16
+
+- Assignment - [Introduce Yourself](https://tulane.instructure.com/courses/2275811/assignments/14466540/)
+- Slides - [U.S. Health Policy Landscape](/slides/HPAM_7660_Health_Policy_Landscape.pdf)

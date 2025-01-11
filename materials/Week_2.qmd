@@ -1,0 +1,15 @@
+---
+title: "HPAM 7660 - Week 2 Materials"
+subtitle: "Policy Analysis Overview"
+---
+
+## Tuesday, January 21
+
+<!-- - [Intro Scenario Results](/img/Intro Scenario Scores.png), [Data](/data/intro_data.csv), [R Script](/data/intro_bar.R) -->
+- Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Evidence-Based Policymaking.pdf)
+- Assignment - [Reading Discussion Questions](/assignments/week_2_reading_questions.pdf)
+- Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdf)
+
+## Thursday, January 23
+
+- No Class

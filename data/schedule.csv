@@ -1,10 +1,10 @@
 week,date,date_end,title,deadline,content,tutorial,assignment
-1,2025-01-14,,Course Introduction,,"materials/01_intro",,
+1,2025-01-14,,Course Introduction,,"materials/Week_1",,
 1,2025-01-16,,U.S. Health Policy Landscape,,,,https://tulane.instructure.com/courses/2291178/assignments/14673851
 2,2025-01-21,,Data Lab - R Setup,,,"assignments/tutorial_1.qmd",
 2,2025-01-23,,No Class,,,,
-3,2025-01-28,,Policy Analysis Overview,,"materials/02_overview",,"assignments/week_2_reading_questions.pdf"
-3,2025-01-30,,Data Lab - Introduction to BRFSS and Descriptive Statistics,,,"assignments/tutorial_2.qmd",
+3,2025-01-28,,Policy Analysis Overview,,,,
+3,2025-01-30,,Data Lab - Introduction to BRFSS and Descriptive Statistics,,,,
 4,2025-02-04,,Writing Effective Policy Memos,,,,
 4,2025-02-06,,Data Lab - Descriptive Comparisons: Medicaid and Health,,,,
 5,2025-02-11,,Medicaid Work Requirements: Stakeholder Perspectives,,,,

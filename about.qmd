@@ -10,6 +10,7 @@ The primary aim of this course is to present an overview of health policy in Ame
 ### Student Learning Objectives
 
 After completing this course, students will be able to do the following:
+
 1.	Exhibit a conceptual understanding of the forces and factors accounting for legislation and regulation pertaining to health services.\ 
 2.	Develop a framework to critically discuss and evaluate policy issues affecting the U.S. health care system.\ 
 3.	Compare and contrast the public policy objectives of various stakeholders with the realities of the political process.\ 
@@ -18,7 +19,7 @@ After completing this course, students will be able to do the following:
 6.	Demonstrate a working understanding of the legislative process and the related federal and state regulation processes.\ 
 
 
-### Course Instructors {.staff}
+### Course Instructor {.staff}
 
 ```{r packages-data, include=FALSE} 
 library(tidyverse)
@@ -51,19 +52,6 @@ library(glue)
 :::
 
 ::: {.grid .d-flex .align-items-center}
-
-::: {.g-col-3}
-
-![](img/kahn_pic.png)
-:::
-
-::: {.g-col-9}
-
-- {{< fa user >}} &nbsp; {{< var instructor.name2 >}}
-- {{< fa envelope >}} &nbsp; <a href="mailto: CKahn@FAH.org">CKahn@FAH.org</a>
-- {{< fa laptop >}} &nbsp; [Webpage]({{< var instructor.website_url2 >}})
-
-::: 
 
 :::
 

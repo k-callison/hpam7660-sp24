@@ -2,7 +2,7 @@
 title: "Health Policy Analysis"
 subtitle: "Using data and causal inference to inform evidence-based policy"
 details: |
-  HPAM 7660 • Spring 2024<br>Tulane University
+  HPAM 7660 • Spring 2025<br>Tulane University
 sidebar: false
 toc: false
 page-layout: full

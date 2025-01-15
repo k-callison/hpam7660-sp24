@@ -289,28 +289,28 @@
   {
     "objectID": "materials/Data Labs/datalab_1.html",
     "href": "materials/Data Labs/datalab_1.html",
-    "title": "Tutorial 1 - Getting Started with R, RStudio, Git, and GitHub Tutorial",
+    "title": "Data Lab 1 - Getting Started with R and RStudio",
     "section": "",
     "text": "In this tutorial, we’re going to get R, RStudio, and R Markdown set up on your computer. It’s important that you follow these steps in order. You may experience errors if you try go out of order. To get started:\n\nDownload and install the most recent version of R. There are versions available for the Windows, Mac, and Linux operating systems. On a Windows computer, you will want to install using the R-x.y.z-win.exe file where x.y.z is a version number. On a Mac, you will want to install using the R-x.y.z.pkg file that is notarized and signed.\nWith R installed, download and install RStudio. RStudio is a type of “integrated development environment” or IDE designed for R. It makes working with R considerably easier and is available for most platforms. It is also free.\nInstall the packages we will use throughout the semester. To do this, either type or copy and paste each of the following lines of code into the “Console” in RStudio (lower left panel by default). Make sure you do this separately for each line. If you are asked if you want to install any packages from source, type “no”. Note that the symbols next to my_package are a less than sign &lt; followed by a minus sign - with no space between them. (Don’t be worried if you see some red text here. Those are usually just messages telling you information about the packages you are installing. Unless you see the word Error you should be fine.)\n\n\nmy_packages &lt;- c(\"tidyverse\", \"usethis\", \"devtools\", \"learnr\",\n                 \"tinytex\", \"gitcreds\", \"gapminder\")\ninstall.packages(my_packages, repos = \"http://cran.rstudio.com\")\nremotes::install_github(\"kosukeimai/qss-package\", build_vignettes = TRUE)\n\n\nFor some things in the course, we’ll need produce PDFs from R and that requires something called LaTeX. If you’ve never heard of that, it’s completely fine and you should just run the following two lines of R code:\n\n\ninstall.packages('tinytex')\ntinytex::install_tinytex()  # install TinyTeX"
   },
   {
     "objectID": "materials/Data Labs/datalab_1.html#installing-r-and-rstudio",
     "href": "materials/Data Labs/datalab_1.html#installing-r-and-rstudio",
-    "title": "Tutorial 1 - Getting Started with R, RStudio, Git, and GitHub Tutorial",
+    "title": "Data Lab 1 - Getting Started with R and RStudio",
     "section": "",
     "text": "In this tutorial, we’re going to get R, RStudio, and R Markdown set up on your computer. It’s important that you follow these steps in order. You may experience errors if you try go out of order. To get started:\n\nDownload and install the most recent version of R. There are versions available for the Windows, Mac, and Linux operating systems. On a Windows computer, you will want to install using the R-x.y.z-win.exe file where x.y.z is a version number. On a Mac, you will want to install using the R-x.y.z.pkg file that is notarized and signed.\nWith R installed, download and install RStudio. RStudio is a type of “integrated development environment” or IDE designed for R. It makes working with R considerably easier and is available for most platforms. It is also free.\nInstall the packages we will use throughout the semester. To do this, either type or copy and paste each of the following lines of code into the “Console” in RStudio (lower left panel by default). Make sure you do this separately for each line. If you are asked if you want to install any packages from source, type “no”. Note that the symbols next to my_package are a less than sign &lt; followed by a minus sign - with no space between them. (Don’t be worried if you see some red text here. Those are usually just messages telling you information about the packages you are installing. Unless you see the word Error you should be fine.)\n\n\nmy_packages &lt;- c(\"tidyverse\", \"usethis\", \"devtools\", \"learnr\",\n                 \"tinytex\", \"gitcreds\", \"gapminder\")\ninstall.packages(my_packages, repos = \"http://cran.rstudio.com\")\nremotes::install_github(\"kosukeimai/qss-package\", build_vignettes = TRUE)\n\n\nFor some things in the course, we’ll need produce PDFs from R and that requires something called LaTeX. If you’ve never heard of that, it’s completely fine and you should just run the following two lines of R code:\n\n\ninstall.packages('tinytex')\ntinytex::install_tinytex()  # install TinyTeX"
   },
   {
     "objectID": "materials/Data Labs/datalab_1.html#testing-your-setup",
     "href": "materials/Data Labs/datalab_1.html#testing-your-setup",
-    "title": "Tutorial 1 - Getting Started with R, RStudio, Git, and GitHub Tutorial",
+    "title": "Data Lab 1 - Getting Started with R and RStudio",
     "section": "Testing Your Setup",
     "text": "Testing Your Setup\nTo verify that everything is working correctly, try running this code RStudio’s “Console” window:\n\nlibrary(tidyverse)\n\nIf you don’t see an error message, then your setup is complete!"
   },
   {
     "objectID": "materials/Data Labs/datalab_1.html#next-steps",
     "href": "materials/Data Labs/datalab_1.html#next-steps",
-    "title": "Tutorial 1 - Getting Started with R, RStudio, Git, and GitHub Tutorial",
+    "title": "Data Lab 1 - Getting Started with R and RStudio",
     "section": "Next Steps",
     "text": "Next Steps\nIn the next tutorial, we’ll start working with the Behavioral Risk Factor Surveillance System (BRFSS) data. Before then:\n\nMake sure all R packages are installed successfully.\nTry opening and closing RStudio to ensure it loads properly.\nFamiliarize yourself with the RStudio interface. Here’s a quick guide that can help."
   },

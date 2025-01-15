@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 1 - Getting Started with R, RStudio, Git, and GitHub Tutorial"
+title: "Data Lab 1 - Getting Started with R and RStudio"
 summary: >-
   A guide to installing and setting up the software required for
   HPAM 7660. 

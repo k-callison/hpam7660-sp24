@@ -1,0 +1,97 @@
+---
+title: "Regression Tutorial - Parish Cancer Rates Controlling for Educational Attainment"
+summary: >-
+  Use regression analysis to estimate cancer rates across Louisiana parishes controlling for differences in smoking rates.
+---
+
+This mini-tutorial provides an example of controlling for potential confounders using regression analysis. In this case, we'll add parish-level smoking rates to our Cancer Alley data and generate estimates of parish cancer mortality rates that control for differences in smoking rates.
+
+## Load Cancer Alley Data
+
+First, we'll need to load the data frames we created in previous Cancer Alley tutorials. If you've saved these data frames to an image, you can load that image as follows
+
+```{r eval = FALSE}
+library(tidyverse)
+library(knitr)
+load("~/Dropbox/Documents/Teaching Materials/Health Policy/GitHub Site/hpam7660-sp24//assignments/tutorial_8.RData")
+```
+
+Otherwise, you'll need to re-run your code that creates the `parish_rates` data frame. Once you have that data frame loaded in your environment, you can do some data cleaning as follows:
+
+## Join Smoking Rate Data
+
+```{r eval = FALSE}
+parish_rates <- parish_rates %>%
+  filter(black == 0) %>%
+  subset(, select = c("cntyrsd", "cancer_parish", "year", "total_rate_adj", "total_weight", "population"))
+```
+
+Here, I'm modifying the `parish_rates` data so that it only includes the columns that I want to use for this mini-tutorial and so that it restricts the sample to parish cancer mortality rates for white people. The reason that I'm restricting the sample to white people is that I don't have smoking rates by race and ethnicity (if this were a real research project, that's something I'd want to obtain). And since whites have higher smoking rates and comprise a greater share of the population in Louisiana than other races and ethnicities, it makes sense to restrict this example to the confounding effects of smoking on cancer mortality for whites. 
+
+Next, we'll read in the smoking rate data:
+
+```{r eval = FALSE}
+la_smoke <- 
+  read_csv("https://www.dropbox.com/scl/fi/fh5gokmw3so6xfc5rthbl/la_smoke.csv?rlkey=f0vy11mvqcd37htsz8ubovtb8&dl=1")
+```
+
+And then join that data to our `parish_rates` data using the key variables of `cntyrsd` (called `fips` in the smoking rate data) and `year`:
+
+```{r eval = FALSE}
+la_smoke_rates <- parish_rates %>%
+  inner_join(la_smoke, by = c("cntyrsd" = "fips", "year"))
+```
+
+## Regress Parish Cancer Rates on Parish Smoking Rates
+
+Now we'll run a regression that estimates the relationship between the share of people who smoke in a parish in a given year and the total cancer mortality rate in that year (there are some other terms included in the regression that aren't that important for the purposes of this tutorial.)
+
+```{r eval = FALSE}
+model <- lm(total_rate_adj ~ smoke_perct + as.factor(year) + as.factor(cntyrsd), data = la_smoke_rates)
+```
+
+The `lm()` command tells R that I want to run a linear regression model. You can visualize this as drawing a straight line (i.e., linear) through a plot of points where smoking rate is on the x-axis and cancer mortality rate is on the y-axis.
+
+Next, I want to predict parish-level cancer mortality rates holding smoking rates constant (i.e., controlling for smoking rates):
+
+```{r eval = FALSE}
+la_smoke_rates$total_rate_hat <- predict(model, newdata = la_smoke_rates)
+```
+
+This code creates a new variable called `total_rate_hat` that represents cancer mortality rates holding smoking rates constant.
+
+## Create Population Weighted Measures
+
+Next, I want to weight this rate by population just like we did for the cancer mortality rates we created previously:
+
+```{r eval = FALSE}
+la_smoke_rates$smoke_weight <- (la_smoke_rates$total_rate_hat) * (la_smoke_rates$population)
+la_smoke_final <- la_smoke_rates %>%
+  group_by(cntyrsd, year) %>%
+  summarize(
+    total_rate_adj_wt = sum((total_weight) / sum(population), na.rm = TRUE),
+    smoke_rate_adj_wt = sum((smoke_weight) / sum(population), na.rm = TRUE)
+  )
+```
+
+That's it. We're done. Now we can compare the parish-level cancer mortality rates to the cancer mortality rates that control for the share of the population that smokes to see the difference. Here's an example for one parish:
+
+## Output Results
+
+```{r eval = FALSE}
+la_smoke_filtered <- subset(la_smoke_final, cntyrsd == 1)
+kable(la_smoke_filtered)
+```
+
+| cntyrsd| year| total_rate_adj_wt| smoke_rate_adj_wt|
+|-------:|----:|-----------------:|-----------------:|
+|       1| 2010|          233.1905|          208.5036|
+|       1| 2011|          239.2326|          205.4408|
+|       1| 2012|          212.9739|          205.9210|
+|       1| 2013|          203.9621|          202.7800|
+|       1| 2014|          171.4920|          201.0846|
+|       1| 2015|          199.0707|          192.4747|
+|       1| 2016|          175.8754|          199.2939|
+|       1| 2017|          202.7927|          192.2017|
+|       1| 2018|          182.7003|          191.0731|
+|       1| 2019|          163.6795|          186.1962|

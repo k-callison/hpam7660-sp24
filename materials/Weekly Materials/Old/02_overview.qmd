@@ -1,0 +1,19 @@
+---
+title: "HPAM 7660 - Week 2 Materials"
+subtitle: "Policy Analysis Overview"
+---
+
+## Tuesday, January 21
+
+- [Intro Scenario Results](/img/Intro Scenario Scores.png), [Data](/data/intro_data.csv), [R Script](/data/intro_bar.R)
+- Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Evidence-Based Policymaking.pdf)
+- Reading - [NYT Opinion Piece on Chevron](https://www.nytimes.com/2024/01/21/opinion/supreme-court-chevron.html) (non-required reading for those interested)
+- Assignment - [Reading Discussion Questions](/assignments/week_2_reading_questions.pdf)
+- Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdf)
+
+## Thursday, January 23
+
+- Reading - [Erdman (2018) - An 8-step proces to making well-informed decisions](/materials/Bardach_brief.pdf)
+- Memo Example - [Prescription Drug Costs](/materials/jama_califf_2019.pdf) (non-required reading, good example of Bardach Steps 1 and 4)
+- Memo Example - [California EITC](/materials/options-state-eitc-121814.pdf) (non-required reading, good example of Bardach Step 3)
+- Slides - [Policy Analysis Overview - Writing and Effective Policy Memo using the Bardach Eightfold Path](/slides/HPAM_7660_Bardach_Overview.pdf)

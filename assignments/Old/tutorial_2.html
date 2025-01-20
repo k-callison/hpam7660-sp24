@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Tutorial 2 - Navigating RStudio Tutorial: Using R Scripts and R Markdown Files – HPAM 7660 - Health Policy Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/site_icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-76f62414ac3b9a923bd65cbefbe841aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HPAM 7660 - Health Policy Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources/index.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#navigating-rstudio" id="toc-navigating-rstudio" class="nav-link active" data-scroll-target="#navigating-rstudio">Navigating RStudio</a></li>
+  <li><a href="#create-a-github-repository-for-tutorial-2" id="toc-create-a-github-repository-for-tutorial-2" class="nav-link" data-scroll-target="#create-a-github-repository-for-tutorial-2">Create a GitHub Repository for Tutorial 2</a></li>
+  <li><a href="#open-a-new-r-project" id="toc-open-a-new-r-project" class="nav-link" data-scroll-target="#open-a-new-r-project">Open a new R Project</a></li>
+  <li><a href="#rstudio-window" id="toc-rstudio-window" class="nav-link" data-scroll-target="#rstudio-window">RStudio Window</a></li>
+  <li><a href="#console-command-line" id="toc-console-command-line" class="nav-link" data-scroll-target="#console-command-line">Console Command Line</a>
+  <ul class="collapse">
+  <li><a href="#exploring-data-frames" id="toc-exploring-data-frames" class="nav-link" data-scroll-target="#exploring-data-frames">Exploring Data Frames</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data Manipulation</a></li>
+  </ul></li>
+  <li><a href="#using-r-scripts" id="toc-using-r-scripts" class="nav-link" data-scroll-target="#using-r-scripts">Using R Scripts</a></li>
+  <li><a href="#using-r-markdown-documents" id="toc-using-r-markdown-documents" class="nav-link" data-scroll-target="#using-r-markdown-documents">Using R Markdown Documents</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tutorial 2 - Navigating RStudio Tutorial: Using R Scripts and R Markdown Files</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="navigating-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-rstudio">Navigating RStudio</h2>
+<p>In this tutorial, we’ll learn how to write R code using an R Script and using an R Markdown document. You can think of an R Script as a file where you store your R commands so that you don’t have to manually type each command into the Console’s command line (this would get really confusing for large projects!). You can think of an R Markdown document as a combination text editor (like Microsoft Word) and R Script. We’ll see that using an R Markdown document can be a good way to organize our R code and the output that code generates.</p>
+<p>We’ll work through this tutorial in class using the examples in ModernDive Chapter 1 and you’ll create additional R Markdown documents for other tutorials and homework assignments throughout the semester.</p>
+</section>
+<section id="create-a-github-repository-for-tutorial-2" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-github-repository-for-tutorial-2">Create a GitHub Repository for Tutorial 2</h2>
+<p>Before we start with our coding exercises, we’ll want to create a new GitHub repository for Tutorial 2. Follow the instructions listed in <a href="../../assignments/tutorial_1.html">Tutorial 1</a> to create a new GitHub repository called <code>hpam7660-tutorial2</code>.</p>
+</section>
+<section id="open-a-new-r-project" class="level2">
+<h2 class="anchored" data-anchor-id="open-a-new-r-project">Open a new R Project</h2>
+<p>Navigate to the <code>File -&gt; New Project</code> tab in RStudio. Let’s call this project “Tutorial 2”. Follow the instructions from Tutorial 1 for linking the new project to your newly created GitHub repo.</p>
+</section>
+<section id="rstudio-window" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-window">RStudio Window</h2>
+<p>Let’s take a minute to briefly go over the RStudio interface. When you open RStudio, you’ll typically see the following three windows.</p>
+<p><img src="../../img/tutorial_2_0.png" class="img-fluid" alt="RStudio Windows"></p>
+<p>There’s a lot more here, but we’ll cover other aspects of RStudio as they come up in our tutorials and problem sets.</p>
+</section>
+<section id="console-command-line" class="level2">
+<h2 class="anchored" data-anchor-id="console-command-line">Console Command Line</h2>
+<p>Now that we have a new project linked to the proper GitHub repo, let’s start by running a few commands in the RStudio Console Window command line. This is the window at the bottom of RStudio (make sure the “Console” tab is selected). Throughout this tutorial, we’ll be working through the examples in <a href="https://moderndive.com/1-getting-started.html#nycflights13">Chapter 1.4 of ModernDive</a>.</p>
+<p>First we need to install and load the packages we’ll need for the tutorial (you may already have some of these packages installed, but it won’t hurt to reinstall them). Type each of the following commands in to the RStudio command line:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="exploring-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-data-frames">Exploring Data Frames</h3>
+<p>Now that we’ve loaded the packages and libraries, let’s take a look at the data objects contained in <code>nycflights13</code>. To do so, click on the dropdown icon next to “Global Environment” and select “package:nycflights13”.</p>
+<p><img src="../../img/tutorial_2_1.png" class="img-fluid" alt="Global Environment"></p>
+<p>You should now see a series of objects in the “Environment” window.</p>
+<p><img src="../../img/tutorial_2_2.png" class="img-fluid" alt="nycflights13 Environment"></p>
+<p>Let’s take a look at each of these objects to see what information they contain. Type the following code into the Console Window command line and hit enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should now see a “tibble” that displays the first 8 columns and the first 10 rows of the <code>flights</code> data frame. The tibble also tells us that the data frame contains 336,766 more rows (beyond those displayed in the Console Window) and 11 more variables/columns (each of which is listed).</p>
+<p>There are several other ways that we could examine the <code>flights</code> data frame including:</p>
+<ol type="1">
+<li>Using the <code>View()</code> function to open RStudio’s built-in data viewer. This allows us to scroll through all columns and rows in the data frame.</li>
+<li>Using the <code>glimpse</code> function, which is part of the <code>dplyr</code> package. This is similar to the tibble that we saw by simply typing <code>flights</code> into the console, but also includes each variables data type (e.g., integer, double, character, etc.)</li>
+<li>Using the <code>kable()</code> function, which is part of the <code>knitr</code> package. This function is helpful when we want to generate formatted output in an RMarkdown document, but it’s important to note that <code>kable</code> will print the <em>entire</em> data frame by default.</li>
+</ol>
+<p>Let’s try some of these out. Use the <code>glimpse</code> function to take a look at the <code>flights</code> data frame and the <code>kable</code> function to examine the <code>airlines</code> data frame.</p>
+</section>
+<section id="data-manipulation" class="level3">
+<h3 class="anchored" data-anchor-id="data-manipulation">Data Manipulation</h3>
+<p>Now let’s make some manipulations to the data. Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the <code>carrier</code> variable since the code “UA” in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ua_flights <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice the new data object in the “Environment” tab called “ua_flights”. Let’s take a look at it using one of the viewing methods above (use whichever you prefer).</p>
+<p>Now we need to determine which UA flights in January 2013 were delayed by 4 hours or longer. We can do another subset of the data using the <code>year</code>, <code>month</code>, and <code>arr_delay</code> variables (notice that the <code>arr_delay</code> variable is measured in minutes). Type the following into the Console command line and hit enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(ua_flights, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we have a data frame that includes all UA flights that were delayed by 4 hours or longer in January 2013. Notice that we didn’t need a separate <code>filter</code> command for each argument (i.e., <code>year</code>, <code>month</code>, and <code>arr_delay</code>), we simply combined them all into a single <code>filter</code> command.</p>
+<p>Finally, since we’re really only interested in the flight numbers and delay times, we can get rid of the extraneous variables in the data frame using the <code>select</code> command. Also,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that we have our final dataframe, let’s take a look at the table of flight delays using the <code>kable</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="using-r-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-scripts">Using R Scripts</h2>
+<p>So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they’re gone for good! A better way to track our work and ensure that we can reproduce our results if necessary is to use an R script file to write our code. Let’s take a look.</p>
+<p>Navigate to the <code>File -&gt; New File -&gt; R Script</code> tab in RStudio. This should open a new window in RStudio called the “Source” window and a document called “Untitled1” where you can write and save your R code.</p>
+<p><img src="../../img/tutorial_2_3.png" class="img-fluid" alt="R Script"></p>
+<p>Let’s give this file a name and then recreate our United Airlines flight delay table by writing the code we entered directly into the command line into our R Script.</p>
+<p>To name the file you can click on the save icon in the menu bar or navigate to <code>File -&gt; Save</code>. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let’s call this file <code>Tutorial_2</code> and save it in the folder you created for your new <code>hpam7660-tutorial2</code> GitHub repo. Notice that if you click on the “Git” tab in the upper righthand window, you should see this new R script ready to be staged, committed, and pushed to the GitHub repo.</p>
+<p>Now type the code below into the R script (note that I have combined a couple of lines from the previous version):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you’ve typed this into your R Script, save it, and click on the “Run” button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you’ll have the script file that you can run at a later date and reproduce the exact same table. Further, once you push the script file to GitHub, you can share it with other collaborators who may be working with you on the project.</p>
+<p>We’ll push the R script to GitHub in a few minutes, but first let’s try using an R Markdown document to track our coding and it’s associated output.</p>
+</section>
+<section id="using-r-markdown-documents" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-markdown-documents">Using R Markdown Documents</h2>
+<p>To open a new Markdown document navigate to <code>File -&gt; New File -&gt; R Markdown</code>. You should see a popup box with a button in the lower left corner that says “Create Empty Document”. Click that button. We could choose another formatting option, but RStudio will include a bunch of stuff that we don’t need in the final document. You should now see an RMD tab called “Untitled1” at the top of the Source Window. Click over to that tab.</p>
+<p>Markdown documents always begin with something called a YAML header. The YAML header allows us to add things like a title, author name, date, etc. to the top of our output document. Add the following code (using your name) to the top of your Markdown document:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 2"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Kevin Callison"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"February 1, 2024"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that we also tell Markdown the type of output document we want in the YAML header. In this case, we’ll go with a PDF, but other options include an <code>html_document</code> or a <code>word_document</code>.</p>
+<p>Now let’s add the same code we used in our R Script file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To generate the output PDF file, click on the “Knit” button.</p>
+<p><img src="../../img/tutorial_2_4.png" class="img-fluid" alt="Knit"></p>
+<p>You should see a message in the “Render” tab telling you that the output has been created and now see a PDF file that includes the title, your name, the date, and the R code that you typed. Something like this:</p>
+<p><img src="../../img/tutorial_2_5.png" class="img-fluid" alt="Output"></p>
+<p>This is good, but we can do better. For one thing, Markdown doesn’t recognize the R code we included as code - it just sees it as text. But we can tell Markdown that it is R code by adding a code chunk by adding chunk delimiters at the beginning and end of the code:</p>
+<p><img src="../../img/tutorial_2_6.png" class="img-fluid" alt="Chunk"></p>
+<p>Now the PDF file contains our R code in nice grey blocks, along with any messages that R generates. More importantly, the PDF file also includes the output generated by the R commands.</p>
+<p><img src="../../img/tutorial_2_7.png" class="img-fluid" alt="Output_Results"></p>
+<p>It’s always good practice to annotate our code so that others know what we’re doing and why we’re doing it. Add some text to your Markdown files like I’ve done below:</p>
+<p><img src="../../img/tutorial_2_8.png" class="img-fluid" alt="Output_Results"></p>
+<p>Your final result should look something like this:</p>
+<p><img src="../../img/tutorial_2_9.png" class="img-fluid" alt="Output_Final"></p>
+<p>We’re almost done, but we need to push our Markdown file to GitHub before we wrap up. If you click the “Git” tab in the upper right window, you should see the Markdown file listed. Now follow the same process we used to push our project files in Tutorial 1:</p>
+<ol type="1">
+<li>Check the “Staged” box.</li>
+<li>Click the “Commit” button.</li>
+<li>Add a commit message. Maybe something like “Add Tutorial 2 Markdown File”.</li>
+<li>Click the “Commit” button.</li>
+<li>Close the Git Commit text box popup.</li>
+<li>Click the “Push” button.</li>
+<li>Close the Git Push popup.</li>
+</ol>
+<p>Go to your GitHub page and make sure the file shows up in your <code>hpam7660-tutorial2</code> repo. Invite me to the repo.</p>
+<p>Congratulations! You made it all the way through!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/hpam7660\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

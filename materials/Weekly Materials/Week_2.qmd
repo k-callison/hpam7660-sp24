@@ -5,7 +5,7 @@ subtitle: "Introduction to R and RStudio"
 
 ## Tuesday, January 21
 
-- [Data Lab 1](materials/Data Labs/datalab_1.qmd)
+- [Data Lab 1](/materials/Data Labs/datalab_1.qmd)
 
 ## Thursday, January 23
 

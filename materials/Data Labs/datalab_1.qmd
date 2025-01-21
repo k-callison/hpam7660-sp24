@@ -44,7 +44,7 @@ Note that you might see a message that describes conflicts like the one below. T
 
 ## Next Steps
 
-In the next tutorial, we'll start working with the Behavioral Risk Factor Surveillance System (BRFSS) data. Before then:
+In the next tutorial, we'll go over how to navigate RStudio and introduce R Scripts and Markdown files. Before then:
 
 1. Make sure all R packages are installed successfully.
 2. Try opening and closing RStudio to ensure it loads properly.

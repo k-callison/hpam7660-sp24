@@ -73,7 +73,7 @@ We will use the following online (and free!) textbook along with various reading
 
 -   Ismay, Chester and Albert Y. Kim. 2022. [*Statistical Inference via Data Science: A ModernDive into R and the Tidyverse*](https://moderndive.com/index.html).
 
-We'll use R in this class to conduct data analysis. R is free, open source, and available on all major platforms. [RStudio](http://www.rstudio.com) (also free) is a user interface for R that is commonly used to work with the R language. R is available in all Tulane computer labs and you are encouraged to bring your laptop to class if you're able to. [Data Lab 1](/assignments/tutorial_1) will walk you through setting up R and RStudio on your laptop.
+We'll use R in this class to conduct data analysis. R is free, open source, and available on all major platforms. [RStudio](http://www.rstudio.com) (also free) is a user interface for R that is commonly used to work with the R language. R is available in all Tulane computer labs and you are encouraged to bring your laptop to class if you're able to. [Data Lab 1](/materials/Data Labs/datalab_1.qmd) will walk you through setting up R and RStudio on your laptop.
 
 #### Recommended Materials
 

@@ -38,6 +38,10 @@ library(tidyverse)
 
 If you don't see an error message, then your setup is complete!
 
+Note that you might see a message that describes conflicts like the one below. This is not an error message! This is just telling you that the `tidyverse` package contains certain routines that overlap with base R functions - it's normal to see this and it's not something that will cause you any problems.
+
+![](/img/tutorial_1_1.png){fig-alt="Conflicts Message"}
+
 ## Next Steps
 
 In the next tutorial, we'll start working with the Behavioral Risk Factor Surveillance System (BRFSS) data. Before then:

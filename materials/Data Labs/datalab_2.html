@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Lab 1 - Getting Started with R and RStudio – HPAM 7660 - Health Policy Analysis</title>
+<title>Data Lab 2 - Navigating RStudio Tutorial: Using R Scripts and R Markdown Files – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -153,9 +153,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installing-r-and-rstudio" id="toc-installing-r-and-rstudio" class="nav-link active" data-scroll-target="#installing-r-and-rstudio">Installing R and RStudio</a></li>
-  <li><a href="#testing-your-setup" id="toc-testing-your-setup" class="nav-link" data-scroll-target="#testing-your-setup">Testing Your Setup</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#navigating-rstudio" id="toc-navigating-rstudio" class="nav-link active" data-scroll-target="#navigating-rstudio">Navigating RStudio</a></li>
+  <li><a href="#open-a-new-r-project" id="toc-open-a-new-r-project" class="nav-link" data-scroll-target="#open-a-new-r-project">Open a new R Project</a></li>
+  <li><a href="#rstudio-window" id="toc-rstudio-window" class="nav-link" data-scroll-target="#rstudio-window">RStudio Window</a></li>
+  <li><a href="#console-command-line" id="toc-console-command-line" class="nav-link" data-scroll-target="#console-command-line">Console Command Line</a>
+  <ul class="collapse">
+  <li><a href="#exploring-data-frames" id="toc-exploring-data-frames" class="nav-link" data-scroll-target="#exploring-data-frames">Exploring Data Frames</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data Manipulation</a></li>
+  </ul></li>
+  <li><a href="#using-r-scripts" id="toc-using-r-scripts" class="nav-link" data-scroll-target="#using-r-scripts">Using R Scripts</a></li>
+  <li><a href="#using-r-markdown-documents" id="toc-using-r-markdown-documents" class="nav-link" data-scroll-target="#using-r-markdown-documents">Using R Markdown Documents</a></li>
   </ul>
 </nav>
     </div>
@@ -164,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Lab 1 - Getting Started with R and RStudio</h1>
+<h1 class="title">Data Lab 2 - Navigating RStudio Tutorial: Using R Scripts and R Markdown Files</h1>
 </div>
 
 
@@ -181,46 +188,142 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="installing-r-and-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="installing-r-and-rstudio">Installing R and RStudio</h2>
-<p>In this tutorial, we’re going to get R, RStudio, and R Markdown set up on your computer. <strong>It’s important that you follow these steps in order.</strong> You may experience errors if you try go out of order. To get started:</p>
-<ol type="1">
-<li>Download and install the most recent version of <a href="https://cloud.r-project.org/">R</a>. There are versions available for the Windows, Mac, and Linux operating systems. On a Windows computer, you will want to install using the <code>R-x.y.z-win.exe</code> file where <code>x.y.z</code> is a version number. On a Mac, you will want to install using the <code>R-x.y.z.pkg</code> file that is notarized and signed.</li>
-<li>With R installed, download and install <a href="https://posit.co/downloads/">RStudio</a>. RStudio is a type of “integrated development environment” or IDE designed for R. It makes working with R considerably easier and is available for most platforms. It is also free.</li>
-<li>Install the packages we will use throughout the semester. To do this, either type or copy and paste each of the following lines of code into the “Console” in RStudio (lower left panel by default). Make sure you do this separately for each line. If you are asked if you want to install any packages from source, type “no”. Note that the symbols next to <code>my_package</code> are a less than sign <code>&lt;</code> followed by a minus sign <code>-</code> with no space between them. (Don’t be worried if you see some red text here. Those are usually just messages telling you information about the packages you are installing. Unless you see the word <code>Error</code> you should be fine.)</li>
-</ol>
+<section id="navigating-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-rstudio">Navigating RStudio</h2>
+<p>In this tutorial, we’ll learn how to write R code using an R Script and using an R Markdown document. You can think of an R Script as a file where you store your R commands so that you don’t have to manually type each command into the Console’s command line (this would get really confusing for large projects!). You can think of an R Markdown document as a combination text editor (like Microsoft Word) and R Script. We’ll see that using an R Markdown document can be a good way to organize our R code and the output that code generates.</p>
+<p>We’ll work through this tutorial in class using the examples in ModernDive Chapter 1 and you’ll create additional R Markdown documents for other tutorials and homework assignments throughout the semester.</p>
+</section>
+<section id="open-a-new-r-project" class="level2">
+<h2 class="anchored" data-anchor-id="open-a-new-r-project">Open a new R Project</h2>
+<p>Navigate to the <code>File -&gt; New Project</code> tab in RStudio. Select “New Directory” to create a new folder specific to this project. Since we’re going to be working with multiple projects throughout the course, it might be helpful to create a master directory for HPAM7660 and then subfolders for individual Data Lab projects. Next choose “New Project” from the Project Type menu, select the master directory you just created, name the subfolder (let’s call it “Data Lab 2”), and press the “Create Project” button.</p>
+</section>
+<section id="rstudio-window" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-window">RStudio Window</h2>
+<p>Let’s take a minute to briefly go over the RStudio interface. When you open RStudio, you’ll typically see the following three windows.</p>
+<p><img src="../../img/tutorial_2_0.png" class="img-fluid" alt="RStudio Windows"></p>
+<p>There’s a lot more here, but we’ll cover other aspects of RStudio as they come up in our tutorials and problem sets.</p>
+</section>
+<section id="console-command-line" class="level2">
+<h2 class="anchored" data-anchor-id="console-command-line">Console Command Line</h2>
+<p>Now that we have created a new R project , let’s start by running a few commands in the RStudio Console Window command line. This is the window at the bottom of RStudio (make sure the “Console” tab is selected). Throughout this tutorial, we’ll be working through the examples in <a href="https://moderndive.com/1-getting-started.html#nycflights13">Chapter 1.4 of ModernDive</a>.</p>
+<p>First we need to install and load the packages we’ll need for the tutorial (you may already have some of these packages installed, but it won’t hurt to reinstall them). Type each of the following commands in to the RStudio command line:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"usethis"</span>, <span class="st">"devtools"</span>, <span class="st">"learnr"</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"tinytex"</span>, <span class="st">"gitcreds"</span>, <span class="st">"gapminder"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(my_packages, <span class="at">repos =</span> <span class="st">"http://cran.rstudio.com"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"kosukeimai/qss-package"</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="4" type="1">
-<li>For some things in the course, we’ll need produce PDFs from R and that requires something called LaTeX. If you’ve never heard of that, it’s completely fine and you should just run the following two lines of R code:</li>
-</ol>
+<section id="exploring-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-data-frames">Exploring Data Frames</h3>
+<p>Now that we’ve loaded the packages and libraries, let’s take a look at the data objects contained in <code>nycflights13</code>. To do so, click on the drop down icon next to “Global Environment” and select “package:nycflights13”.</p>
+<p><img src="../../img/tutorial_2_1.png" class="img-fluid" alt="Global Environment"></p>
+<p>You should now see a series of objects in the “Environment” window.</p>
+<p><img src="../../img/tutorial_2_2.png" class="img-fluid" alt="nycflights13 Environment"></p>
+<p>Let’s take a look at each of these objects to see what information they contain. Type the following code into the Console Window command line and hit enter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()  <span class="co"># install TinyTeX</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should now see a “tibble” that displays the first 8 columns and the first 10 rows of the <code>flights</code> data frame. The tibble also tells us that the data frame contains 336,766 more rows (beyond those displayed in the Console Window) and 11 more variables/columns (each of which is listed).</p>
+<p>There are several other ways that we could examine the <code>flights</code> data frame including:</p>
+<ol type="1">
+<li>Using the <code>View()</code> function to open RStudio’s built-in data viewer. This allows us to scroll through all columns and rows in the data frame.</li>
+<li>Using the <code>glimpse</code> function, which is part of the <code>dplyr</code> package. This is similar to the tibble that we saw by simply typing <code>flights</code> into the console, but also includes each variables data type (e.g., integer, double, character, etc.)</li>
+<li>Using the <code>kable()</code> function, which is part of the <code>knitr</code> package. This function is helpful when we want to generate formatted output in an RMarkdown document, but it’s important to note that <code>kable</code> will print the <em>entire</em> data frame by default.</li>
+</ol>
+<p>Let’s try some of these out. Use the <code>glimpse</code> function to take a look at the <code>flights</code> data frame and the <code>kable</code> function to examine the <code>airlines</code> data frame.</p>
+</section>
+<section id="data-manipulation" class="level3">
+<h3 class="anchored" data-anchor-id="data-manipulation">Data Manipulation</h3>
+<p>Now let’s make some manipulations to the data. Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the <code>carrier</code> variable since the code “UA” in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ua_flights <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice the new data object in the “Environment” tab called “ua_flights”. Let’s take a look at it using one of the viewing methods above (use whichever you prefer).</p>
+<p>Now we need to determine which UA flights in January 2013 were delayed by 4 hours or longer. We can do another subset of the data using the <code>year</code>, <code>month</code>, and <code>arr_delay</code> variables (notice that the <code>arr_delay</code> variable is measured in minutes). Type the following into the Console command line and hit enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(ua_flights, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we have a data frame that includes all UA flights that were delayed by 4 hours or longer in January 2013. Notice that we didn’t need a separate <code>filter</code> command for each argument (i.e., <code>year</code>, <code>month</code>, and <code>arr_delay</code>), we simply combined them all into a single <code>filter</code> command.</p>
+<p>Finally, since we’re really only interested in the flight numbers and delay times, we can get rid of the extraneous variables in the data frame using the <code>select</code> command. Also,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that we have our final dataframe, let’s take a look at the table of flight delays using the <code>kable</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="testing-your-setup" class="level2">
-<h2 class="anchored" data-anchor-id="testing-your-setup">Testing Your Setup</h2>
-<p>To verify that everything is working correctly, try running this code RStudio’s “Console” window:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you don’t see an error message, then your setup is complete!</p>
-<p>Note that you might see a message that describes conflicts like the one below. This is not an error message! This is just telling you that the <code>tidyverse</code> package contains certain routines that overlap with base R functions - it’s normal to see this and it’s not something that will cause you any problems.</p>
-<p><img src="../../img/tutorial_1_1.png" class="img-fluid" alt="Conflicts Message"></p>
 </section>
-<section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
-<p>In the next tutorial, we’ll start working with the Behavioral Risk Factor Surveillance System (BRFSS) data. Before then:</p>
+<section id="using-r-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-scripts">Using R Scripts</h2>
+<p>So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they’re gone for good! A better way to track our work and ensure that we can reproduce our results if necessary is to use an R script file to write our code. Let’s take a look.</p>
+<p>Navigate to the <code>File -&gt; New File -&gt; R Script</code> tab in RStudio. This should open a new window in RStudio called the “Source” window and a document called “Untitled1” where you can write and save your R code.</p>
+<p><img src="../../img/tutorial_2_3.png" class="img-fluid" alt="R Script"></p>
+<p>Let’s give this file a name and then recreate our United Airlines flight delay table by writing the code we entered directly into the command line into our R Script.</p>
+<p>To name the file you can click on the save icon in the menu bar or navigate to <code>File -&gt; Save</code>. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let’s call this file <code>DataLab_2</code> and save it in the folder you created for your new <code>hpam7660-tutorial2</code> GitHub repo. Notice that if you click on the “Git” tab in the upper righthand window, you should see this new R script ready to be staged, committed, and pushed to the GitHub repo.</p>
+<p>Now type the code below into the R script (note that I have combined a couple of lines from the previous version):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you’ve typed this into your R Script, save it, and click on the “Run” button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you’ll have the script file that you can run at a later date and reproduce the exact same table. Further, once you push the script file to GitHub, you can share it with other collaborators who may be working with you on the project.</p>
+<p>We’ll push the R script to GitHub in a few minutes, but first let’s try using an R Markdown document to track our coding and it’s associated output.</p>
+</section>
+<section id="using-r-markdown-documents" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-markdown-documents">Using R Markdown Documents</h2>
+<p>To open a new Markdown document navigate to <code>File -&gt; New File -&gt; R Markdown</code>. You should see a popup box with a button in the lower left corner that says “Create Empty Document”. Click that button. We could choose another formatting option, but RStudio will include a bunch of stuff that we don’t need in the final document. You should now see an RMD tab called “Untitled1” at the top of the Source Window. Click over to that tab.</p>
+<p>Markdown documents always begin with something called a YAML header. The YAML header allows us to add things like a title, author name, date, etc. to the top of our output document. Add the following code (using your name) to the top of your Markdown document:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 2"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Kevin Callison"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"February 1, 2024"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that we also tell Markdown the type of output document we want in the YAML header. In this case, we’ll go with a PDF, but other options include an <code>html_document</code> or a <code>word_document</code>.</p>
+<p>Now let’s add the same code we used in our R Script file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To generate the output PDF file, click on the “Knit” button.</p>
+<p><img src="../../img/tutorial_2_4.png" class="img-fluid" alt="Knit"></p>
+<p>You should see a message in the “Render” tab telling you that the output has been created and now see a PDF file that includes the title, your name, the date, and the R code that you typed. Something like this:</p>
+<p><img src="../../img/tutorial_2_5.png" class="img-fluid" alt="Output"></p>
+<p>This is good, but we can do better. For one thing, Markdown doesn’t recognize the R code we included as code - it just sees it as text. But we can tell Markdown that it is R code by adding a code chunk by adding chunk delimiters at the beginning and end of the code:</p>
+<p><img src="../../img/tutorial_2_6.png" class="img-fluid" alt="Chunk"></p>
+<p>Now the PDF file contains our R code in nice grey blocks, along with any messages that R generates. More importantly, the PDF file also includes the output generated by the R commands.</p>
+<p><img src="../../img/tutorial_2_7.png" class="img-fluid" alt="Output_Results"></p>
+<p>It’s always good practice to annotate our code so that others know what we’re doing and why we’re doing it. Add some text to your Markdown files like I’ve done below:</p>
+<p><img src="../../img/tutorial_2_8.png" class="img-fluid" alt="Output_Results"></p>
+<p>Your final result should look something like this:</p>
+<p><img src="../../img/tutorial_2_9.png" class="img-fluid" alt="Output_Final"></p>
+<p>We’re almost done, but we need to push our Markdown file to GitHub before we wrap up. If you click the “Git” tab in the upper right window, you should see the Markdown file listed. Now follow the same process we used to push our project files in Tutorial 1:</p>
 <ol type="1">
-<li>Make sure all R packages are installed successfully.</li>
-<li>Try opening and closing RStudio to ensure it loads properly.</li>
-<li>Familiarize yourself with the RStudio interface. Here’s a quick <a href="https://www.dataquest.io/blog/tutorial-getting-started-with-r-and-rstudio/#tve-jump-173bb2584fe">guide</a> that can help.</li>
+<li>Check the “Staged” box.</li>
+<li>Click the “Commit” button.</li>
+<li>Add a commit message. Maybe something like “Add Tutorial 2 Markdown File”.</li>
+<li>Click the “Commit” button.</li>
+<li>Close the Git Commit text box popup.</li>
+<li>Click the “Push” button.</li>
+<li>Close the Git Push popup.</li>
 </ol>
+<p>Go to your GitHub page and make sure the file shows up in your <code>hpam7660-tutorial2</code> repo. Invite me to the repo.</p>
+<p>Congratulations! You made it all the way through!</p>
 
 
 </section>

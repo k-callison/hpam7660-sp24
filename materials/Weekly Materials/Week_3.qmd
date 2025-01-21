@@ -12,4 +12,5 @@ subtitle: "Policy Analysis Overview"
 
 ## Thursday, January 30
 
-- [Data Lab 2]
+- [Data Lab 2](/materials/Data Labs/datalab_2.qmd)
+- Reading - [Chapter 1.4 of ModernDive](https://moderndive.com/1-getting-started.html#nycflights13). Please note that you are not required to read this before class, but it might be helpful to look it over as we'll use examples from this chapter in our Data Lab.

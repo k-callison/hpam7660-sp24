@@ -29,3 +29,4 @@ for (i in seq_along(avg_values)) {
 #I wanted the labels to be slightly above each bar, so I placed them at the level of `avg_values[i]` and then added 0.1
 #The `sprintf()` command creates the string value for the label, which is SD=, and the std_dev[i] fills in the standard deviation value
 #The `pos`, `col`, and `cex` commands adjust the position, color, and size of the labels
+

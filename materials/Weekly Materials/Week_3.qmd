@@ -5,7 +5,7 @@ subtitle: "Policy Analysis Overview"
 
 ## Tuesday, January 28
 
-<!-- - [Intro Scenario Results](/img/Intro Scenario Scores.png), [Data](/data/intro_data.csv), [R Script](/data/intro_bar.R) -->
+[Intro Scenario Results](/img/Intro Scenario Scores.png), [Data](/data/intro_data.csv), [R Script](/data/intro_bar.R) -->
 - Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Readings/Evidence-Based Policymaking.pdf)
 - Assignment - [Reading Discussion Questions](/assignments/Week 3 Reading Discussion Questions.pdf)
 <!-- - Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdf) -->

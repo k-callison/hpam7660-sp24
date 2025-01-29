@@ -7,3 +7,5 @@ subtitle: "Effective Policy Memos and Case Presentations"
 
 
 ## Thursday, February 6
+
+- Assignment - [Problem Set 1](/assignments/Problem Sets/problem_set_1.qmd)

@@ -1,0 +1,21 @@
+---
+title: "Data Lab 3 - Descriptive Comparisons: Medicaid and Health"
+summary: >-
+  Exploring Medicaid Coverage and Health Using BRFSS Data.
+---
+
+In this tutorial, we’ll analyze the 2013 Behavioral Risk Factor Surveillance System (BRFSS) data to explore Medicaid coverage and its relationship with self-reported health. By summarizing Medicaid coverage and comparing health outcomes across Medicaid recipients and the uninsured, we’ll lay the foundation for more advanced analysis in future tutorials.
+
+## Step 1: Create a New R Project
+
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Project. You can call this new project/folder "BRFSS Medicaid Health" or whatever you'd like to call it (as long as you remember the name!).
+
+## Step 2: Downloading BRFSS Data for 2013
+
+Start by downloading the 2013 BRFSS data from the [CDC BRFSS Annual Survey Data page](https://www.cdc.gov/brfss/annual_data/annual_data.htm). Follow these steps:
+
+1. Navigate to the 2006-2015 Data Section and click on the link that says "2013 Annual Survey Data".
+2. Download the codebook by clicking on "2013 BRFSS Codebook" link. We'll reference this later when we're looking at values for specific variables in the data.
+3. Scroll down the page to the "Data Files" section and download the file called "2013 BRFSS Data (SAS Transport Format). Save the file to your project folder.
+
+## Step 3: Importing the Data into R

@@ -172,17 +172,5 @@ Your final result should look something like this:
 
 ![](/img/tutorial_2_9.png){fig-alt="Output_Final"}
 
-We're almost done, but we need to push our Markdown file to GitHub before we wrap up. If you click the "Git" tab in the upper right window, you should see the Markdown file listed. Now follow the same process we used to push our project files in Tutorial 1:
-
-1. Check the "Staged" box.
-2. Click the "Commit" button.
-3. Add a commit message. Maybe something like "Add Tutorial 2 Markdown File".
-4. Click the "Commit" button.
-5. Close the Git Commit text box popup.
-6. Click the "Push" button.
-7. Close the Git Push popup.
-
-Go to your GitHub page and make sure the file shows up in your `hpam7660-tutorial2` repo. Invite me to the repo.
-
 Congratulations! You made it all the way through!
 

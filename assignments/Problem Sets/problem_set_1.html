@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Week 4 Materials – HPAM 7660 - Health Policy Analysis</title>
+<title>Problem Set 1 - Importing Data – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,8 +119,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tuesday-februray-4" id="toc-tuesday-februray-4" class="nav-link active" data-scroll-target="#tuesday-februray-4">Tuesday, Februray 4</a></li>
-  <li><a href="#thursday-february-6" id="toc-thursday-february-6" class="nav-link" data-scroll-target="#thursday-february-6">Thursday, February 6</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#steps-for-completing-the-assignment" id="toc-steps-for-completing-the-assignment" class="nav-link" data-scroll-target="#steps-for-completing-the-assignment">Steps for Completing the Assignment</a></li>
   </ul>
 </nav>
     </div>
@@ -129,8 +129,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 - Week 4 Materials</h1>
-<p class="subtitle lead">Effective Policy Memos and Case Presentations</p>
+<h1 class="title">Problem Set 1 - Importing Data</h1>
 </div>
 
 
@@ -147,14 +146,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tuesday-februray-4" class="level2">
-<h2 class="anchored" data-anchor-id="tuesday-februray-4">Tuesday, Februray 4</h2>
+<section id="instructions" class="level3">
+<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
+<p>Complete the following examples from <a href="https://moderndive.com/4-tidy.html">ModernDive Chapter 4 - Data Importing and Tidy Data</a>. Before beginning the assignment, create a new RStudio project (see the instructions in <a href="../../materials/Data Labs/datalab_2.html">Data Lab 2</a> if you don’t remember how. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 1”, your name, the date, and “pdf_document” as the output format.</p>
+<p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
 </section>
-<section id="thursday-february-6" class="level2">
-<h2 class="anchored" data-anchor-id="thursday-february-6">Thursday, February 6</h2>
-<ul>
-<li>Assignment - <a href="../../assignments/Problem Sets/problem_set_1.html">Problem Set 1</a></li>
-</ul>
+<section id="steps-for-completing-the-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="steps-for-completing-the-assignment">Steps for Completing the Assignment</h3>
+<ol type="1">
+<li><p>Load the following packages: <code>dplyr</code>, <code>readr</code>, <code>tidyr</code>, <code>nycflights13</code>, and <code>fivethirtyeight</code>. You may need to install these packages before loading if you haven’t done so already. Note, however, that it can cause problems to include <code>install.packages</code> commands in Markdown documents. So when creating your Markdown file, you’re fine to add <code>library</code> commands, but you should install any needed packages from the Console command line.</p></li>
+<li><p>Preview the <code>drinks</code> data frame from the <code>fivethirtyeight</code> package using one of the methods we covered in <a href="../../assignments/tutorial_2.qmd">Tutorial 2</a>. (Hint: you should avoid using the <code>View()</code> command here because Markdown won’t like it.)</p></li>
+<li><p>Using the help file for the <code>drinks</code> data frame, define each of the variables in the data.</p></li>
+<li><p>What does it mean for a dataset in R to by “tidy” and how does this relate to the concept of “wide” vs.&nbsp;“long” data?</p></li>
+<li><p>Follow the example provided in <a href="https://moderndive.com/4-tidy.html#tidy-data-ex">ModernDive Section 4.2</a> and create a new data frame called <code>drinks_smaller</code> that subsets the <code>drinks</code> data frame and:</p>
+<ol type="a">
+<li>Includes only data from the U.S., China, Italy, and Saudi Arabia.</li>
+<li>Excludes the <code>total_litres_of_pure_alcohol</code> column.</li>
+<li>Renames the variables “beer_servings”, “spirit_servings”, and “wine_servings” to “beer”, “spirits”, and “wine”.</li>
+</ol></li>
+<li><p>Is the <code>drinks_smaller</code> data frame in “tidy” format, why or why not?</p></li>
+<li><p>Convert the <code>drinks_smaller</code> data frame to “tidy” format. Be sure to describe the commands you’re using for this conversion.</p></li>
+<li><p>Preview the new tidy version of the <code>drinks_smaller</code> data frame.</p></li>
+<li><p>Now do the same conversion and preview for the <code>airline_safety</code> data frame from the <code>fivethirtyeight</code> package. (Hint: First you’ll need to get rid of some columns in the data frame (there’s an example in the chapter) and then you’ll want the tidy data frame to include the variable <code>fatalities_years</code> that indicates the time period and the variable <code>count</code> that measures the fatality counts).</p></li>
+</ol>
+<p>Thus far, we’ve only loaded data frames that have come bundled in R packages. Oftentimes, you’ll want to load data from other sources (e.g., websites, surveys, etc.) and in other formats (e.g., .csv, .xlsx, etc.). Let’s work through an example of loading data from a .csv file.</p>
+<ol start="10" type="1">
+<li><p>Load the <code>dem_score.csv</code> file from this <a href="https://moderndive.com/data/dem_score.csv">link</a> and save it in a data frame called <code>dem_score</code>. (Hint: refer to <a href="https://moderndive.com/4-tidy.html#using-the-console">ModernDive Chapter 4.1.1</a> for code on importing a .csv file).</p></li>
+<li><p>Preview the data using one of the methods we covered in <a href="../../assignments/tutorial_2.qmd">Tutorial 2</a>. (Hint: you should avoid using the <code>View()</code> command here because Markdown won’t like it.)</p></li>
+<li><p>Is this data frame in “tidy” format? If yes, then explain why. If not, then convert the data to “tiny” format.</p></li>
+<li><p>Once you’ve finished Step 12, knit your PDF document, upload it to the assignment link on Canvas you’re done!</p></li>
+</ol>
 
 
 </section>

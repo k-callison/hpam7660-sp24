@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Week 4 Materials – HPAM 7660 - Health Policy Analysis</title>
+<title>Data Lab 3 - Descriptive Comparisons: Medicaid and Health – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,8 +119,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tuesday-februray-4" id="toc-tuesday-februray-4" class="nav-link active" data-scroll-target="#tuesday-februray-4">Tuesday, Februray 4</a></li>
-  <li><a href="#thursday-february-6" id="toc-thursday-february-6" class="nav-link" data-scroll-target="#thursday-february-6">Thursday, February 6</a></li>
+  <li><a href="#step-1-create-a-new-r-project" id="toc-step-1-create-a-new-r-project" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-project">Step 1: Create a New R Project</a></li>
+  <li><a href="#step-2-downloading-brfss-data-for-2013" id="toc-step-2-downloading-brfss-data-for-2013" class="nav-link" data-scroll-target="#step-2-downloading-brfss-data-for-2013">Step 2: Downloading BRFSS Data for 2013</a></li>
+  <li><a href="#step-3-importing-the-data-into-r" id="toc-step-3-importing-the-data-into-r" class="nav-link" data-scroll-target="#step-3-importing-the-data-into-r">Step 3: Importing the Data into R</a></li>
   </ul>
 </nav>
     </div>
@@ -129,8 +130,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 - Week 4 Materials</h1>
-<p class="subtitle lead">Effective Policy Memos and Case Presentations</p>
+<h1 class="title">Data Lab 3 - Descriptive Comparisons: Medicaid and Health</h1>
 </div>
 
 
@@ -147,14 +147,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tuesday-februray-4" class="level2">
-<h2 class="anchored" data-anchor-id="tuesday-februray-4">Tuesday, Februray 4</h2>
+<p>In this tutorial, we’ll analyze the 2013 Behavioral Risk Factor Surveillance System (BRFSS) data to explore Medicaid coverage and its relationship with self-reported health. By summarizing Medicaid coverage and comparing health outcomes across Medicaid recipients and the uninsured, we’ll lay the foundation for more advanced analysis in future tutorials.</p>
+<section id="step-1-create-a-new-r-project" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-project">Step 1: Create a New R Project</h2>
+<p>See the instructions from <a href="../../materials/Data Labs/datalab_2.html">Data Lab 2</a> to create a new R Project. You can call this new project/folder “BRFSS Medicaid Health” or whatever you’d like to call it (as long as you remember the name!).</p>
 </section>
-<section id="thursday-february-6" class="level2">
-<h2 class="anchored" data-anchor-id="thursday-february-6">Thursday, February 6</h2>
-<ul>
-<li>Assignment - <a href="../../assignments/Problem Sets/problem_set_1.html">Problem Set 1</a></li>
-</ul>
+<section id="step-2-downloading-brfss-data-for-2013" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-downloading-brfss-data-for-2013">Step 2: Downloading BRFSS Data for 2013</h2>
+<p>Start by downloading the 2013 BRFSS data from the <a href="https://www.cdc.gov/brfss/annual_data/annual_data.htm">CDC BRFSS Annual Survey Data page</a>. Follow these steps:</p>
+<ol type="1">
+<li>Navigate to the 2006-2015 Data Section and click on the link that says “2013 Annual Survey Data”.</li>
+<li>Download the codebook by clicking on “2013 BRFSS Codebook” link. We’ll reference this later when we’re looking at values for specific variables in the data.</li>
+<li>Scroll down the page to the “Data Files” section and download the file called “2013 BRFSS Data (SAS Transport Format). Save the file to your project folder.</li>
+</ol>
+</section>
+<section id="step-3-importing-the-data-into-r" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-importing-the-data-into-r">Step 3: Importing the Data into R</h2>
 
 
 </section>

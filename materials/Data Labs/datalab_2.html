@@ -249,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(ua_flights, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we have a data frame that includes all UA flights that were delayed by 4 hours or longer in January 2013. Notice that we didn’t need a separate <code>filter</code> command for each argument (i.e., <code>year</code>, <code>month</code>, and <code>arr_delay</code>), we simply combined them all into a single <code>filter</code> command.</p>
-<p>Finally, since we’re really only interested in the flight numbers and delay times, we can get rid of the extraneous variables in the data frame using the <code>select</code> command. Also,</p>
+<p>Finally, since we’re really only interested in the flight numbers and delay times, we can get rid of the extraneous variables in the data frame using the <code>select</code> command.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -257,6 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>You should see a list of flight numbers and arrival delays (recorded in minutes). It looks like there were 12 flights in January 2003 that were delayed by 4 hours or longer.</p>
 </section>
 </section>
 <section id="using-r-scripts" class="level2">
@@ -265,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Navigate to the <code>File -&gt; New File -&gt; R Script</code> tab in RStudio. This should open a new window in RStudio called the “Source” window and a document called “Untitled1” where you can write and save your R code.</p>
 <p><img src="../../img/tutorial_2_3.png" class="img-fluid" alt="R Script"></p>
 <p>Let’s give this file a name and then recreate our United Airlines flight delay table by writing the code we entered directly into the command line into our R Script.</p>
-<p>To name the file you can click on the save icon in the menu bar or navigate to <code>File -&gt; Save</code>. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let’s call this file <code>DataLab_2</code> and save it in the folder you created for your new <code>hpam7660-tutorial2</code> GitHub repo. Notice that if you click on the “Git” tab in the upper righthand window, you should see this new R script ready to be staged, committed, and pushed to the GitHub repo.</p>
+<p>To name the file you can click on the save icon in the menu bar or navigate to <code>File -&gt; Save</code>. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let’s call this file <code>DataLab_2</code> and save it in the folder you created for this R project.</p>
 <p>Now type the code below into the R script (note that I have combined a couple of lines from the previous version):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
@@ -276,8 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once you’ve typed this into your R Script, save it, and click on the “Run” button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you’ll have the script file that you can run at a later date and reproduce the exact same table. Further, once you push the script file to GitHub, you can share it with other collaborators who may be working with you on the project.</p>
-<p>We’ll push the R script to GitHub in a few minutes, but first let’s try using an R Markdown document to track our coding and it’s associated output.</p>
+<p>Once you’ve typed this into your R Script, save it, and click on the “Run” button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you’ll have the script file that you can run at a later date and reproduce the exact same table.</p>
+<p>Also note that I included the <code>library()</code> commands in the R script, but not the <code>install.packages()</code> commands. You only need to install an R package one time. Once you’ve installed a package it stays installed. However, R does not automatically load those packages each session. So in order to use the packages you’ve installed, you need to tell R to load them each time you start a new session by using the <code>library()</code> command. It wouldn’t hurt anything to include the <code>install.packages()</code> commands in this R script (and you would want to include them if you were running the script on a different computer where they might not already be installed), but since we know they’re installed on our system, we can leave them out here.</p>
 </section>
 <section id="using-r-markdown-documents" class="level2">
 <h2 class="anchored" data-anchor-id="using-r-markdown-documents">Using R Markdown Documents</h2>
@@ -287,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 2"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Kevin Callison"</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"February 1, 2024"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"January 30, 2025"</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -302,11 +303,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To generate the output PDF file, click on the “Knit” button.</p>
+<p>Once you’ve added the code, name and save your .RMD file by clicking on the save icon in the menu bar or by navigating to <code>File -&gt; Save</code>. Then, to generate the output PDF file, click on the “Knit” button.</p>
 <p><img src="../../img/tutorial_2_4.png" class="img-fluid" alt="Knit"></p>
 <p>You should see a message in the “Render” tab telling you that the output has been created and now see a PDF file that includes the title, your name, the date, and the R code that you typed. Something like this:</p>
 <p><img src="../../img/tutorial_2_5.png" class="img-fluid" alt="Output"></p>
-<p>This is good, but we can do better. For one thing, Markdown doesn’t recognize the R code we included as code - it just sees it as text. But we can tell Markdown that it is R code by adding a code chunk by adding chunk delimiters at the beginning and end of the code:</p>
+<p>This is good, but we can do better. For one thing, Markdown doesn’t recognize the R code we included as code - it just sees it as text. But we can tell Markdown that it is R code by adding “chunk delimiters” at the beginning and end of the code. The chunk delimiters tell Markdown that this is code and not text, and knowing that, Markdown will actually run the code.</p>
 <p><img src="../../img/tutorial_2_6.png" class="img-fluid" alt="Chunk"></p>
 <p>Now the PDF file contains our R code in nice grey blocks, along with any messages that R generates. More importantly, the PDF file also includes the output generated by the R commands.</p>
 <p><img src="../../img/tutorial_2_7.png" class="img-fluid" alt="Output_Results"></p>
@@ -314,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="../../img/tutorial_2_8.png" class="img-fluid" alt="Output_Results"></p>
 <p>Your final result should look something like this:</p>
 <p><img src="../../img/tutorial_2_9.png" class="img-fluid" alt="Output_Final"></p>
-<p>Congratulations! You made it all the way through!</p>
+<p>Congratulations! You made it all the way through Data Lab 2!</p>
 
 
 </section>

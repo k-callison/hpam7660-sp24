@@ -41,4 +41,4 @@ Thus far, we've only loaded data frames that have come bundled in R packages. Of
 
 12. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
 
-13. Once you've finished Step 12, knit your PDF document, upload it to the assignment link on Canvas you're done!
+13. Once you've finished Step 12, knit your PDF document, upload it to the Problem Set 1 assignment [link](https://tulane.instructure.com/courses/2291178/assignments/14673846) on Canvas you're done!

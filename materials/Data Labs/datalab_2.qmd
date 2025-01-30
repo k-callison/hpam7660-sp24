@@ -58,13 +58,18 @@ You should now see a "tibble" that displays the first 8 columns and the first 10
 There are several other ways that we could examine the `flights` data frame including:
 
 1. Using the `View()` function to open RStudio's built-in data viewer. This allows us to scroll through all columns and rows in the data frame.
-2. Using the `glimpse` function, which is part of the `dplyr` package. This is similar to the tibble that we saw by simply typing `flights` into the console, but also includes each variables data type (e.g., integer, double, character, etc.)
+2. Using the `glimpse()` function, which is part of the `dplyr` package. This is similar to the tibble that we saw by simply typing `flights` into the console, but also includes each variables data type (e.g., integer, double, character, etc.)
 3. Using the `kable()` function, which is part of the `knitr` package. This function is helpful when we want to generate formatted output in an RMarkdown document, but it's important to note that `kable` will print the *entire* data frame by default.
 
-Let's try some of these out. Use the `glimpse` function to take a look at the `flights` data frame and the `kable` function to examine the `airlines` data frame.
+Let's try some of these out. Use the `glimpse` function to take a look at the `flights` data frame by typing `glimpse(flights)` into the console command line. Next, use the `kable` function to examine the `airlines` data frame by typing `kable(airlines)` into the console command line.
+
+Sometimes it's nice to take a look at the dataset as you might see it in a .csv or Excel file layout. To do this, click on `flights` in the Data window:
+
+![](/img/tutorial_2_2b.png){fig-alt="data tab"}
+Once you've had a chance to look through the data, close out the data preview window and we'll start making some changes to the data.
 
 ### Data Manipulation
-Now let's make some manipulations to the data. Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the `carrier` variable since the code "UA" in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:
+Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the `carrier` variable since the code "UA" in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:
 
 ```{r eval = FALSE}
 ua_flights <- filter(flights, carrier == "UA")

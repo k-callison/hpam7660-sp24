@@ -53,7 +53,7 @@ Let's take a look at each of these objects to see what information they contain.
 flights
 ```
 
-You should now see a "tibble" that displays the first 8 columns and the first 10 rows of the `flights` data frame. The tibble also tells us that the data frame contains 336,766 more rows (beyond those displayed in the Console Window) and 11 more variables/columns (each of which is listed).
+You should now see a "tibble" that displays the first 8 columns and the first 10 rows of the `flights` data frame. The tibble also tells us that the data frame contains 336,766 more rows (beyond those displayed in the Console Window) and 5 more variables/columns (each of which is listed).
 
 There are several other ways that we could examine the `flights` data frame including:
 

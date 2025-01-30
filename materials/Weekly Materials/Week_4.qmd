@@ -5,7 +5,10 @@ subtitle: "Effective Policy Memos and Case Presentations"
 
 ## Tuesday, Februray 4
 
+- Reading - [Bardach Overview](/materials/Readings/Bardach_Reference.pdf)
+- Optional Reading - [Eugene Bardach - A Practical Guide for Policy Analysis](https://justicepolicynetwork.com/wp-content/uploads/2021/03/Bardachs-Eightfold-Path-1.pdf)
 
 ## Thursday, February 6
 
 - Assignment - [Problem Set 1](/assignments/Problem Sets/problem_set_1.qmd)
+- Data Lab 3

@@ -13,4 +13,4 @@ subtitle: "Effective Policy Memos and Case Presentations"
 ## Thursday, February 6
 
 - Assignment - [Problem Set 1](/assignments/Problem Sets/problem_set_1.qmd)
-- Data Lab 3
+- [Data Lab 3](/materials/Data Labs/datalab_3.qmd)

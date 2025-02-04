@@ -7,6 +7,8 @@ subtitle: "Effective Policy Memos and Case Presentations"
 
 - Reading - [Bardach Overview](/materials/Readings/Bardach_Reference.pdf)
 - Optional Reading - [Eugene Bardach - A Practical Guide for Policy Analysis](https://justicepolicynetwork.com/wp-content/uploads/2021/03/Bardachs-Eightfold-Path-1.pdf)
+- Slides - [Policy Memos](/slides/HPAM_7660_Policy_Memos.pdf)
+- Slides - [Case Presentations](/slides/HPAM_7660_Case_Studies.pdf)
 
 ## Thursday, February 6
 

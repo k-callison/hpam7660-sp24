@@ -3,7 +3,16 @@ title: "HPAM 7660 - Week 9 Materials"
 subtitle: "Case Presentations"
 ---
 
-## Tuesday, March 11
+## Case Teams
 
+Team 1: Wasim, Mun, Moukoury, Sharma
 
-## Thursday, March 13
+Team 2: Romness, Nsibande, Ardoin, Moss
+
+Team 3: Harling, Nawab, Frank, Adkins
+
+Team 4: Benson, Shah, Ahlawat, Pecchia
+
+Team 5: Golan, Lalani, Rong, Pickard
+
+- [R Script for randomization](/assignments/Case/team_assignment.R) 

@@ -1,5 +1,5 @@
 ---
-title: "Data Lab 2 - Navigating RStudio Tutorial: Using R Scripts and R Markdown Files"
+title: "Data Lab 2 - Navigating RStudio: Using R Scripts and R Markdown Files"
 summary: >-
   Getting Started with Data in R. 
 ---

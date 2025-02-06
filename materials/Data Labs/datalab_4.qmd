@@ -1,0 +1,7 @@
+---
+title: "Data Lab 4 - Expanding Descriptive Comparisons: Medicaid and Health"
+summary: >-
+  Exploring Medicaid Coverage and Health Using BRFSS Data.
+---
+
+Building on our previous analyisis of the 

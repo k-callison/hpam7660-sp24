@@ -1,0 +1,49 @@
+---
+title: "Data Assignment 2 - Data Wrangling"
+summary: >-
+  Exercises in ModernDive Ch. 3 - Data Wrangling
+---
+
+### Instructions
+
+Complete the following examples from [ModernDive Chapter 3 - Data ](https://moderndive.com/3-wrangling.html), Sections 3.1 through 3.4. Before beginning the assignment, create a new R project and call it `hpam7660_data2` or something that you'll remember. Once you've done that, open a new Markdown document and give it a YAML header that includes the title "HPAM 7660 Problem Set 2", your name, the date, and "pdf_document" as the output format.
+
+As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
+
+### Steps for Completing the Assignment
+
+1. Install and load the following packages: `dplyr` and `nycflights13`. 
+
+2. The pipe operator `%>%` included in the `dplyr` package allows us to combine multiple operations in R into a single sequential chain of actions. You can think of the pipe operator as a way to streamline and simplify your code. You might remember that you've encountered this pipe operator in Problem Set 1 when transforming data into "tidy" format and in last week's Data Lab. Let's take a closer look at how the pipe operator works. 
+
+We'll start by creating a new data frame called `united_flights` that filters the `nycflights13` data so that it only contains United Airlines flights. We've done something similar before using the following code:
+
+`united_flights <- filter(flights, carrier == "UA")`
+
+Write a code chunk in your Markdown document that does the same thing as the code snippet above, but uses the pipe operator, `%>%`.
+
+3. Let's add another restriction to the `filter` command. We'll continue to focus on United Airlines flights, but now use the `origin` variable to restrict the sample to United Airlines flights that departed from LaGuardia Airport (airport code "LGA"). 
+
+First, write a code chunk that accomplishes this by adding a second argument to your original `filter` command.
+
+Second, write a code chunk that accomplishes this by adding a second `filter` command and uses the pipe operator.
+
+Third, show that both options create identical data frames that contain the same number of rows.
+
+4. Suppose we're interested in United Airlines flights departing LaGuardia and arriving in either Chicago ("ORD") or Denver ("DEN"). Write a code chunk that adds this restriction. You can combine all of this into one `filter` command or use multiple `filter` commands with the pipe operator. 
+
+5. Now let's expand our list of destination airports to include Houston ("IAH") and Cleveland ("CLE"). We could add each of these individually into our `filter` command along with "ORD" and "DEN", but it's usually preferable to create a vector of list elements and refer to this vector in the `filter` command.  
+Write a code chunk that uses the `%in%` operator along with the `c()` function to revise your data frame so that it includes United Airlines flights departing from LaGuardia and arriving in Chicago, Denver, Houston, or Cleveland. You encountered both the `%in` operator and the `c()` function in last week's Data Lab, so refer to that example if you need a refresher.
+
+6. We're going to focus on summarizing data in this week's Data Lab, but we'll briefly cover some of the basics now. First, write a code chunk that uses the `summarize` function to generate the mean and standard deviation of the "arr_delay" variable in the `flights` data frame. Be sure to account for any missing observations in your code!
+
+Now use the `kable()` function to add a table to the Markdown document that contains the mean and standard deviation values that you just generated.
+
+7. Suppose we also want our flight delay summary statistics table to include the total number of observations in the data. Use the `n()` function to add the number of observations to the table.
+
+8. Now let's look to see what months tend to experience the longest delays. Use the `group_by` function to generate a data frame that contains the mean, standard deviation, and number of monthly observations of flight delays. Add a table using the `kable()` function to your Markdown document that summarizes this information. Which month typically sees the longest average delay? Which month typically sees the shortest average delay?
+
+9. We can also group by more than one variable if we'd like. Create another version of the previous table that displays the average delay each month across all three New York airports ("origin") using the `group_by` function.
+
+10. Once you’ve finished Step 9, knit your PDF document and upload it to Canvas. You're all done!
+

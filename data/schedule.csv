@@ -1,14 +1,14 @@
 week,date,date_end,title,deadline,content,tutorial,assignment
 1,2025-01-14,,Course Introduction,,"materials/Weekly Materials/Week_1",,
 1,2025-01-16,,U.S. Health Policy Landscape,,"materials/Weekly Materials/Week_1",,https://tulane.instructure.com/courses/2291178/assignments/14673851
-2,2025-01-21,,Data Lab - R Setup,,"materials/Weekly Materials/Week_2","materials/Data Labs/datalab_1.qmd",
+2,2025-01-21,,Data Lab - Getting Started with R and RStudio,,"materials/Weekly Materials/Week_2","materials/Data Labs/datalab_1.qmd",
 2,2025-01-23,,No Class,,,,
 3,2025-01-28,,Policy Analysis Overview,,"materials/Weekly Materials/Week_3",,"assignments/Week 3 Reading Discussion Questions.pdf"
-3,2025-01-30,,Data Lab - Introduction to BRFSS and Descriptive Statistics,,"materials/Weekly Materials/Week_3","materials/Data Labs/datalab_2.qmd",
+3,2025-01-30,,Data Lab - Navigating RStudio,,"materials/Weekly Materials/Week_3","materials/Data Labs/datalab_2.qmd",
 4,2025-02-04,,Effective Policy Memos and Case Presentations,,"materials/Weekly Materials/Week_4",,
 4,2025-02-06,,Data Lab - Descriptive Comparisons: Medicaid and Health,,"materials/Weekly Materials/Week_4","materials/Data Labs/datalab_3.qmd","assignments/Problem Sets/problem_set_1.qmd"
 5,2025-02-11,,Medicaid Work Requirements: Stakeholder Perspectives,,"materials/Weekly Materials/Week_5",,
-5,2025-02-13,,Data Lab - Constructing Analytic Samples,,"materials/Weekly Materials/Week_5",,
+5,2025-02-13,,Data Lab - Expanding Descriptive Comparisons: Medicaid and Health,,"materials/Weekly Materials/Week_5",,
 6,2025-02-18,,Research Design: Randomization and Regression,,"materials/Weekly Materials/Week_6",,
 6,2025-02-20,,Data Lab - Regression Basics: Controlling for Confounders,,"materials/Weekly Materials/Week_6",,
 7,2025-02-25,,Reimagining the Affordable Care Act,,"materials/Weekly Materials/Week_7",,

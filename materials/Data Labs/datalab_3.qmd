@@ -6,9 +6,9 @@ summary: >-
 
 In this tutorial, we’ll analyze the 2023 Behavioral Risk Factor Surveillance System (BRFSS) data to explore Medicaid coverage and its relationship with self-reported health. By summarizing Medicaid coverage and comparing health outcomes across Medicaid recipients and the uninsured, we’ll lay the foundation for more advanced analysis in future tutorials.
 
-## Step 1: Create a New R Project
+## Step 1: Create a New R Project & R Script File
 
-See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Project. You can call this new project/folder "BRFSS Medicaid Health" or whatever you'd like to call it (as long as you remember the name!).
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Project and R Script File. You can call this new project/folder "BRFSS Medicaid Health" or whatever you'd like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Script file and save that file when you're finished. That way, if you need to use that code again (and you will), you'll have it saved and won't have to retype everything.
 
 ## Step 2: Downloading BRFSS Data for 2023
 
@@ -31,7 +31,13 @@ library(dplyr)
 brfss_data <- read_xpt("path_to_file/LLCP2023.XPT")
 ```
 
-Note that you'll need to replace "path_to_file" in the code chunk above with the actual path to the .xpt file that you saved on your computer.
+Note that you'll need to replace "path_to_file" in the code chunk above with the actual path to the .xpt file that you saved on your computer. 
+
+*Special note for Windows users*: Windows uses backslashes (\\) instead of forward slashes (/) for file paths, but R doesn't like backslashes. If you're a Windows user, you can try and replace the backslashes with forward slashes. In some cases that will work, but if it doesn't, you can use two backslashes instead of one to appease R. So, for example:
+
+```{r, eval=FALSE}
+brfss_data <- read_xpt("C:\\Users\\kevin\\data\\LLCP2023.XPT")
+```
 
 ## Step 4: Subsetting the Data
 
@@ -176,4 +182,6 @@ In this Data Lab, we downloaded data from the 2023 BRFSS Survey and compared dif
 While we might be tempted to draw conclusions about the value of Medicaid coverage from this analysis, we should be very hesitant to do so. As we'll see in the upcoming class discussions and our future data work, there are likely to be very good explanations for this finding that don't involve Medicaid coverage worsening health. 
 
 In our next Data Lab, we'll work on creating additional descriptive statistics and refining our anlaytical dataset for future analyses. Once we've done that, we can start improving the rigor of the methods we're using to compare the health of those with Medicaid coverage and those who are uninsured.
+
+Be sure to save your R Script file before exiting RStudio!
 

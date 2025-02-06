@@ -1,5 +1,5 @@
 ---
-title: "Data Assignment 2 - Data Wrangling"
+title: "Problem Set 2 - Data Wrangling"
 summary: >-
   Exercises in ModernDive Ch. 3 - Data Wrangling
 ---
@@ -45,5 +45,5 @@ Now use the `kable()` function to add a table to the Markdown document that cont
 
 9. We can also group by more than one variable if we'd like. Create another version of the previous table that displays the average delay each month across all three New York airports ("origin") using the `group_by` function.
 
-10. Once you’ve finished Step 9, knit your PDF document and upload it to Canvas. You're all done!
+10. Once you've finished Step 9, knit your PDF document, upload it to the Problem Set 2 assignment [link](https://tulane.instructure.com/courses/2291178/assignments/14673847) on Canvas you're done!
 

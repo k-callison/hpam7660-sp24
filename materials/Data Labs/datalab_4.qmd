@@ -4,4 +4,10 @@ summary: >-
   Exploring Medicaid Coverage and Health Using BRFSS Data.
 ---
 
-Building on our previous analyisis of the 
+Building on our previous analysis of the 2023 BRFSS data, we're going to expand some of our descriptive comparisons between those with Medicaid coverage and the uninsured in this Data Lab. By incorporating additional demographic and health-related variables, we'll explore systematic differences between these two groups, motivating the need to explore adjusted comparisons in future analyses.
+
+## Step 1: Loading the Data
+
+Open the R Project file that you created for Data Lab 3
+
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Project and R Script File. You can call this new project/folder "BRFSS Medicaid Health" or whatever you'd like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Script file and save that file when you're finished. That way, if you need to use that code again (and you will), you'll have it saved and won't have to retype everything.

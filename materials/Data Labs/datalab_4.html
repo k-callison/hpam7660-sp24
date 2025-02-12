@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -38,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a3210a1056c353f8c335b29fa7e057a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-51f0dbfe01d49ae4f43d6e7546b7011b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -119,7 +153,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-1-loading-the-data" id="toc-step-1-loading-the-data" class="nav-link active" data-scroll-target="#step-1-loading-the-data">Step 1: Loading the Data</a></li>
+  <li><a href="#step-1-importing-and-subsetting-the-data" id="toc-step-1-importing-and-subsetting-the-data" class="nav-link active" data-scroll-target="#step-1-importing-and-subsetting-the-data">Step 1: Importing and Subsetting the Data</a></li>
+  <li><a href="#step-2-cleaning-the-data" id="toc-step-2-cleaning-the-data" class="nav-link" data-scroll-target="#step-2-cleaning-the-data">Step 2: Cleaning the Data</a></li>
+  <li><a href="#step-3-revisiting-the-relationship-between-medicaid-and-self-reported-health" id="toc-step-3-revisiting-the-relationship-between-medicaid-and-self-reported-health" class="nav-link" data-scroll-target="#step-3-revisiting-the-relationship-between-medicaid-and-self-reported-health">Step 3: Revisiting the Relationship between Medicaid and Self-Reported Health</a>
+  <ul class="collapse">
+  <li><a href="#education-differences" id="toc-education-differences" class="nav-link" data-scroll-target="#education-differences">Education Differences</a></li>
+  <li><a href="#income-differences" id="toc-income-differences" class="nav-link" data-scroll-target="#income-differences">Income Differences</a></li>
+  <li><a href="#behavioral-differences" id="toc-behavioral-differences" class="nav-link" data-scroll-target="#behavioral-differences">Behavioral Differences</a></li>
+  </ul></li>
+  <li><a href="#summary-and-key-takeaways" id="toc-summary-and-key-takeaways" class="nav-link" data-scroll-target="#summary-and-key-takeaways">Summary and Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -146,10 +188,137 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Building on our previous analysis of the 2023 BRFSS data, we’re going to expand some of our descriptive comparisons between those with Medicaid coverage and the uninsured in this Data Lab. By incorporating additional demographic and health-related variables, we’ll explore systematic differences between these two groups, motivating the need to explore adjusted comparisons in future analyses.</p>
-<section id="step-1-loading-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-loading-the-data">Step 1: Loading the Data</h2>
-<p>Open the R Project file that you created for Data Lab 3</p>
-<p>See the instructions from <a href="../../materials/Data Labs/datalab_2.html">Data Lab 2</a> to create a new R Project and R Script File. You can call this new project/folder “BRFSS Medicaid Health” or whatever you’d like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Script file and save that file when you’re finished. That way, if you need to use that code again (and you will), you’ll have it saved and won’t have to retype everything.</p>
+<section id="step-1-importing-and-subsetting-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-importing-and-subsetting-the-data">Step 1: Importing and Subsetting the Data</h2>
+<p>Open the R Project file that you created for Data Lab 3. If you saved an R Script file after completing Data Lab 3, you can open that now. Otherwise, you can open a new R script file for this Data Lab.</p>
+<p>Like we did last time, we’ll need to load the 2023 BRFSS survey data. If you have the code for this in your R Script file, that’s great. If not, you can grab the code from <a href="../../materials/Data Labs/datalab_3.html">Data Lab 3</a>. Regardless, we’ll need to make a slight modification to the code that will allow us to load a few additional variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>brfss_data <span class="ot">&lt;-</span> <span class="fu">read_xpt</span>(<span class="st">"path_to_file/LLCP2023.XPT"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>brfss_smaller <span class="ot">&lt;-</span> <span class="fu">select</span>(brfss_data, PRIMINS1, GENHLTH, <span class="st">`</span><span class="at">_AGE80</span><span class="st">`</span>, SEXVAR, INCOME3, EDUCA, SMOKE100, SMOKDAY2, ALCDAY4, DRNK3GE5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice that we’ve added two new variables when constructing the <code>brfss_smaller</code> data frame - SMOKDAY2 and DRNK3GE5. Take a look at the codebook to review the survey questions that correspond to these variables and the values the variables can take on.</p>
+</section>
+<section id="step-2-cleaning-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-cleaning-the-data">Step 2: Cleaning the Data</h2>
+<p>Just like in Data Lab 3, we’ll need to do some cleaning of the data to keep only those who have Medicaid coverage or are uninsured and recode sex as female.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>brfss_clean <span class="ot">&lt;-</span> brfss_smaller <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(PRIMINS1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">88</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">_AGE80</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">FEMALE =</span> <span class="fu">ifelse</span>(SEXVAR <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">MEDICAID =</span> <span class="fu">ifelse</span>(PRIMINS1 <span class="sc">==</span> <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’re using the <code>filter</code> command to restrict the sample to those with Medicaid coverage (PRIMINS1=5) or those with no insurance coverage (PRIMINS1=88) and those under age 65. The <code>mutate</code> command allows us to create two new variables: an indicator for female sex and an indicator for Medicaid coverage.</p>
+<p>Next we need to define smoking status. This is tricky because of the way the BRFSS collects information on cigarette smoking. Take a look at the dataset to see what I mean by typing <code>brfss_smaller</code> into the Console command line. Notice that the “SMOKE100” variable is coded as either 1 or 2, while the “SMOKDAY2” variable contains a bunch of “NA” values. The reason for this is that the BRFSS first asks respondents whether they’ve smoked at least 100 cigarettes in their lifetime. If they respond “yes”, they then ask whether the respondent is currently an every day smoker, a some day smoker, or a nonsmoker. But if they responded “no” to the “SMOKE100” question (SMOKE100=2), then they’re not asked about their current smoking status. Hence the “NA” values for “SMOKDAY2” when “SMOKE100” is equal to 2.</p>
+<p>For our purposes, we want to know whether someone currently smokes or not. We’ll count both everyday smokers and some day smokers as smokers and nonsmokers and never smokers as nonsmokers. Here’s how we can do that:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>brfss_clean <span class="ot">&lt;-</span> brfss_clean <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SMOKER =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    SMOKDAY2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    SMOKE100 <span class="sc">==</span> <span class="dv">2</span> <span class="sc">|</span> SMOKDAY2 <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    SMOKDAY2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">9</span>) <span class="sc">|</span> SMOKE100 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">9</span>) <span class="sc">~</span> <span class="cn">NA_real_</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this code, we’re creating a new variable called “SMOKER” that is equal to 1 if someone is a current everyday or some day smoker (SMOKDAY2=1 or 2) and is equal to 0 if someone used to smoke but doesn’t any longer or never smoked (SMOKE100=2 or SMOKDAY2=3). Note that the <code>|</code> character means “or” and the <code>~</code> character assigns the value to the new “SMOKER” variable. Also note that we’re taking any cases where either “SMOKE100” or “SMOKDAY2” is equal to 7 (“Don’t Know/Not Sure) or 9 (”Refused”) and setting those to “NA” (missing).</p>
+<p>We can check to make sure that our SMOKER variable is coded correctly by typing <code>table(brfss_clean$SMOKER)</code> into the Console command line. You should see that 10,062 respondents are current smokers and 33,586 are nonsmokers. But what about those people we coded as “NA” (missing)? To see the number of respondents we coded as “NA” you can type <code>table(brfss_clean$SMOKER, useNA = "ifany")</code> into the Console command line. You should see that there are 2,991 respondents for whom we weren’t able to assign smoking status.</p>
+<p>Now let’s create an indicator called “BINGE” that is equal to 1 if a respondent reports at least one incidence of binge drinking in past 30 days and is equal to 0 otherwise. The codebook tells us that binge drinking is defined as having 5 or more drinks for men or 4 or more drinks for women on a single occasion. Like the question on current smoking status, the question on binge drinking is only asked of respondents who reported drinking at least one alcoholic beverage during the past 30 days (ALCDAY4&gt;=101 &amp; ALCDAY4&lt;=299). So to create an indicator for binge drinking, we’ll need to use the “ALCDAY4” variable along with the “DRNK3GE5” variable. See if you can figure out how to properly code “BINGE” (remember to account for those who haven’t had an alcoholic beverage in the past 30 days, ALCDAY4=888, those who answered “don’t know/not sure”, ALCDAY4=777 &amp; DRNK3GE5=77, and those who refused to answer the question, ALCDAY4=999 &amp; DRNK3GE5=99).</p>
+<p>Once you’ve created the “BINGE” variable, use the <code>table</code> command to make sure it’s coded correctly. You should see that 7,473 respondents reported at least one instance of binge drinking over the past 30 days, 35,019 reported no instances of bing drinking over the past 30 days, and 4,147 respondents have missing values for “BINGE”.</p>
+</section>
+<section id="step-3-revisiting-the-relationship-between-medicaid-and-self-reported-health" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-revisiting-the-relationship-between-medicaid-and-self-reported-health">Step 3: Revisiting the Relationship between Medicaid and Self-Reported Health</h2>
+<p>Before exploring other differences between Medicaid recipients and the uninsured, let’s revisit what we found in Data Lab 3. In Data Lab 3, we compared self-reported health between those with Medicaid coverage and the uninsured. We found that the uninsured appeared to report better health:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(brfss_clean<span class="sc">$</span>GENHLTH, brfss_clean<span class="sc">$</span>MEDICAID), <span class="at">margin =</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>11.26% of Medicaid recipients reported excellent health, compared to 15.89% of the uninsured and 9.79% of Medicaid recipients reported poor health, compared to only 4.70% of the uninsured.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>brfss_clean <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(MEDICAID) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_health =</span> <span class="fu">mean</span>(GENHLTH[<span class="sc">!</span>GENHLTH <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">9</span>)], <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The mean self-reported health score (where higher scores indicate worse health) was 3.01 for Medicaid recipients and 2.76 for the uninsured. At first glance, these results might suggest that being uninsured is better for your health than having Medicaid! In fact, as we’ll see in class next week, people have used similar comparisons to make that exact claim!</p>
+<p>But let’s take a closer look. One explanation for what we’re seeing is that Medicaid is worse for your health than being uninsured, but another explanation could be that Medicaid recipients and the uninsured differ in important ways that affect health. Let’s examine education, income, smoking, and binge drinking to determine whether these factors could confound the relationship between Medicaid and self-reported health.</p>
+<section id="education-differences" class="level3">
+<h3 class="anchored" data-anchor-id="education-differences">Education Differences</h3>
+<p>Since higher education is linked to better health outcomes, let’s see if Medicaid recipients and the uninsured differ in education levels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(brfss_clean<span class="sc">$</span>EDUCA, brfss_clean<span class="sc">$</span>MEDICAID), <span class="at">margin =</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice that 76.42% of the uninsured are high school graduates compared to 86.54% of Medicaid enrollees. Similarly, Medicaid enrollees are more likely to have a college degree compared to the uninsured (18.99% vs.&nbsp;17.93%). So there do seem to be differences in educational attainment between those with Medicaid and the uninsured, but the differences favor Medicaid enrollees and so probably don’t explain the results we’re seeing for self-reported health.</p>
+</section>
+<section id="income-differences" class="level3">
+<h3 class="anchored" data-anchor-id="income-differences">Income Differences</h3>
+<p>Like education, higher income is associated with better health. Let’s look to see whether income differs between Medicaid enrollees and the uninsured.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(brfss_clean<span class="sc">$</span>INCOME3, brfss_clean<span class="sc">$</span>MEDICAID), <span class="at">margin =</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You’ll have to go back to the codebook to see how the BRFSS categorizes household income to interpret these results, but once you do, you’ll see something interesting. Those with Medicaid coverage tend to have lower incomes, on average, than the uninsured. For example, nearly 56% of Medicaid enrollees in the data have household incomes less than $35,000 compared to only 39% of those who are uninsured.</p>
+<p>So maybe it’s not Medicaid coverage itself that is responsible for the lower self-rated health of Medicaid enrollees. Maybe it’s the fact that Medicaid enrollees tend to have lower household incomes than the uninsured. Let’s keep going.</p>
+</section>
+<section id="behavioral-differences" class="level3">
+<h3 class="anchored" data-anchor-id="behavioral-differences">Behavioral Differences</h3>
+<p>Next, let’s take a look at potential behavioral differences between Medicaid enrollees and the uninsured and see whether any of these differences might help explain the differences we’re seeing in self-reported health. This time, let’s include a visualization so it’s easy to see how Medicaid and hte uninsured differ in their smoking and drinking behaviors.</p>
+<p>First, we’ll need to calculate the mean smoking and binge drinking rates for each group using the <code>summarize</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>brfss_summary <span class="ot">&lt;-</span> brfss_clean <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MEDICAID =</span> <span class="fu">factor</span>(MEDICAID, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Uninsured"</span>, <span class="st">"Medicaid"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(MEDICAID) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Smoking_Rate =</span> <span class="fu">mean</span>(SMOKER, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Binge_Drinking_Rate =</span> <span class="fu">mean</span>(BINGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here we’re creating new data frame called “brfss_summary” that contains the mean smoking and binge drinking rates for each group. We’re also explicitly telling R that “MEDICAID” is a factor variable (this will be important for our visualization below), and labeling the values of “MEDICAID” as either “Uninsured” (MEDICAID=0) or “Medicaid” (MEDICAID=1).</p>
+<p>This is great, but the <code>brfss_summary</code> data frame that we just created is not in tidy format (type <code>brfss_summary</code> into the Console command line to see this). We’ll want to convert it to tidy format for creating our visualization. So let’s do this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>brfss_summary <span class="ot">&lt;-</span> brfss_summary <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Smoking_Rate, Binge_Drinking_Rate), </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Behavior"</span>, <span class="at">values_to =</span> <span class="st">"Rate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we have a data frame with three variables: MEDICAID (an indicator for Medicaid coverage), Behavior (either smoking or binge drinking), and Rate (the mean value for each group and behavior). We can create a chart that shows the differences in smoking and binge drinking rates by group using R’s <code>ggplot</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(brfss_summary, <span class="fu">aes</span>(<span class="at">x =</span> Behavior, <span class="at">y =</span> Rate, <span class="at">fill =</span> MEDICAID)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Smoking and Binge Drinking Rates by Insurance Status"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Behavior"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Percentage of Respondents"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Insurance Status"</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>ggplot</code> is one of the most common ways to create visualizations in R. Let’s go through this code line by line. The first line:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(brfss_summary, <span class="fu">aes</span>(<span class="at">x =</span> Behavior, <span class="at">y =</span> Rate, <span class="at">fill =</span> Medicaid)) <span class="sc">+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>says that we’re going to create a plot using the <code>brfss_summary</code> data frame. The <code>aes</code> option allows us to tell R what data elements we want on the x-axis, the y-axis, and that we want to color the bars based on Medicaid status. The term <code>aes</code> stands for “aesthetic”.</p>
+<p>The next line:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>tells R to create a bar chart (<code>geom_col</code>) and to put the bars next to each other instead of stacking them (<code>position = "dodge"</code>). To see why adding the <code>position = "dodge"</code> option is important, you can re-run the code above removing <code>position = "dodge"</code> from the parentheses.</p>
+<p>Next we have:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>tells R that we want to manually choose which colors to use to fill the bars in the plot and that we want those colors to be red and blue (you can experiment with other colors if you’d like).</p>
+<p>The next few lines:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Smoking and Binge Drinking Rates by Insurance Status"</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Behavior"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Percentage of Respondents"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Insurance Status"</span>) <span class="sc">+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>are just adding labels to the visualization so that it’s easier to understand what the graph is showing.</p>
+<p>Finally, the <code>theme(minimal)</code> is just a stylistic touch to make things look a little nicer. Try running the code without that and you’ll see the difference.</p>
+<p>So let’s take a second to evaluate the data in the visualization. It looks like Medicaid enrollees smoke more than those who are uninsured (24.7% vs.&nbsp;21.1%), but are far less likely to engage in instances of binge drinking (14.4% vs.&nbsp;21.4%). Again, it’s not entirely clear how differences in these behaviors might relate to differences in self-reported health. But these results, combined with the differences in education and income that we noted earlier, suggest that there could be factors other than insurance coverage that could be confounding simple comparisons of Medicaid coverage and self-reported health.</p>
+</section>
+</section>
+<section id="summary-and-key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>In Data Lab 3, we observed that the uninsured reported better self-reported health than those with Medicaid coverage. In this lab, we’ve taken a closer look at other key differences between these groups that might explain this pattern.</p>
 
 
 </section>

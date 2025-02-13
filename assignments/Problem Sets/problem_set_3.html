@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Health Policy Analysis – HPAM 7660 - Health Policy Analysis</title>
+<title>Data Assignment 3 - Data Wrangling, Part 2 – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/site_icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-51f0dbfe01d49ae4f43d6e7546b7011b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/site_icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-51f0dbfe01d49ae4f43d6e7546b7011b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">HPAM 7660 - Health Policy Analysis</span>
     </a>
   </div>
@@ -90,19 +88,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resources/index.html"> 
+    <a class="nav-link" href="../../resources/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -113,93 +111,62 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#steps-for-completing-the-assignment" id="toc-steps-for-completing-the-assignment" class="nav-link" data-scroll-target="#steps-for-completing-the-assignment">Steps for Completing the Assignment</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="course-title title display-7">
-            Health Policy Analysis
-        </h1></header>
+<main class="content" id="quarto-document-content">
 
-<div class="grid title-block">
-    <div class="g-col-12 g-col-sm-8 order-2 order-sm-1">
-        
-        <div class="course-subtitle">
-            <p>Using data and causal inference to inform evidence-based policy</p>
-        </div>
-        <div class="course-meta">
-            <p></p><p>HPAM 7660 • Spring 2025<br>Tulane University</p><p></p>
-        </div>
-    </div>
-    <div class="g-col-12 g-col-sm-4 order-1 order-sm-2">
-      <div class="grid" style="--bs-columns: 5;">
-        <div class="g-col-1 g-col-sm-0"></div>
-        <div class="g-col-3 g-col-sm-5"><img src="./img/site_image_alt.png" class="img-fluid"></div>
-        <div class="g-col-1 g-col-sm-0"></div>
-      </div>
-    </div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Assignment 3 - Data Wrangling, Part 2</h1>
 </div>
 
 
-<div class="grid course-details">
-<section id="course-details" class="level3 g-col-12 g-col-sm-6 g-col-md-4">
-<h3 class="anchored" data-anchor-id="course-details">Course Details</h3>
-<ul>
-<li><i class="fa-solid fa-calendar" aria-label="calendar"></i> &nbsp; Tuesday/Thursday</li>
-<li><i class="fa-solid fa-clock" aria-label="clock"></i> &nbsp; 10:30–11:45 AM</li>
-<li><i class="fa-solid fa-location-dot" aria-label="location-dot"></i> &nbsp; Tidewater 1903</li>
-</ul>
-</section>
-<!-- Wrap Instructor and TA columns inside their own grid row -->
-<div class="g-col-12 g-col-md-8">
-<div class="grid">
-<section id="instructor" class="level3 g-col-6">
-<h3 class="anchored" data-anchor-id="instructor">Instructor</h3>
-<ul>
-<li><i class="fa-solid fa-user" aria-label="user"></i> &nbsp; Kevin Callison</li>
-<li><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp; <a href="mailto: kcallison@tulane.edu">kcallison@tulane.edu</a>
-<div style="margin-top: 20px;">
 
-</div></li>
-</ul>
-<section id="office-hours" class="level5">
-<h5 class="anchored" data-anchor-id="office-hours">Office Hours</h5>
-<ul>
-<li><i class="fa-solid fa-calendar" aria-label="calendar"></i> &nbsp; Tuesday/Thursday</li>
-<li><i class="fa-solid fa-clock" aria-label="clock"></i> &nbsp; 9:30-10:30 AM</li>
-<li><i class="fa-solid fa-university" aria-label="university"></i> &nbsp; Tidewater 1929</li>
-</ul>
-</section>
-</section>
-<section id="teaching-assistant" class="level3 g-col-6">
-<h3 class="anchored" data-anchor-id="teaching-assistant">Teaching Assistant</h3>
-<ul>
-<li><i class="fa-solid fa-user" aria-label="user"></i> &nbsp; Philip Sanusi</li>
-<li><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp; <a href="mailto: psanusi@tulane.edu">psanusi@tulane.edu</a>
-<div style="margin-top: 20px;">
+<div class="quarto-title-meta">
 
-</div></li>
-</ul>
-<section id="office-hours-1" class="level5">
-<h5 class="anchored" data-anchor-id="office-hours-1">Office Hours</h5>
-<ul>
-<li><i class="fa-solid fa-calendar" aria-label="calendar"></i> &nbsp; Wednesday</li>
-<li><i class="fa-solid fa-clock" aria-label="clock"></i> &nbsp; 10:00-11:00 AM</li>
-<li><i class="fa-solid fa-university" aria-label="university"></i> &nbsp; Tidewater 1926</li>
-</ul>
-</section>
-</section>
-<!-- Full-width row ONLY within Instructor/TA area -->
-<div class="g-col-12 contact-policy">
-<p>*If the office hour times don’t work for you, please email me and we can find a time that does. I’m also in my office most days from 9 to 5, so please feel free to stop by.</p>
-</div>
-</div>
-<p><!-- End nested grid --></p>
-</div>
-</div>
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="instructions" class="level3">
+<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
+<p>Complete the following examples from <a href="https://moderndive.com/3-wrangling.html">ModernDive Chapter 3 - Data Wrangling</a>, Sections 3.5 through 3.9. Before beginning the assignment, create a GitHub repo called <code>hpam7660_data3</code>. Then create a new RStudio project and link it to the new GitHub repo. Once you’ve done that, open a new Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Assignment 3”, your name, the date, and “pdf_document” as the output format.</p>
+<p>As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
+</section>
+<section id="steps-for-completing-the-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="steps-for-completing-the-assignment">Steps for Completing the Assignment</h3>
+<ol type="1">
+<li><p>Load the following packages: <code>dplyr</code>, <code>knitr</code>, and <code>nycflights13</code>.</p></li>
+<li><p>Use the <code>mutate</code> function along with the <code>air_time</code> and <code>distance</code> variables in the <code>flights</code> data frame to create a new variable called <code>avg_speed</code> that measures a flight’s average air speed in miles per hour. (Hint: You need to be careful here because <code>air_time</code> is measured in minutes and not hours.)</p></li>
+<li><p>Now suppose we want to calculate average air speeds by carrier. Use the <code>group_by</code> and <code>summarize</code> commands along with the <code>kable</code> command to create a table of carrier-specific average air speeds. (Hint: be careful of missing values when calculating averages.)</p></li>
+<li><p>We’re primarily interested in average air speeds, but it might also be helpful in some cases to include additional summary statistics in a data table. Add the standard deviation, the minimum and maximum values, and the number of carrier observations to your table.</p></li>
+<li><p>Now sort the data by average air speed and recreate your table so that the carriers are listed in descending order of average air speed.</p></li>
+<li><p>This is great, but the carrier abbreviations might be difficult for some people to understand. Use the <code>join</code> command and the carrier names found in the <code>airlines</code> data frame to replace the carrier abbreviations with carrier names in your table. Rename the column that contains carrier names “airline”.</p></li>
+<li><p>Now suppose we’re interested in the relationship between average air speed and humidity. The data frame <code>weather</code> includes a variable named <code>humid</code> that lists the humidity at the origin airport for each hour of every day. Join the <code>flights</code> and <code>weather</code> data frames and re-make your table so that it now contains a column that contains the average humidity experienced by each airline. (Hint: you will need to use multiple key variables in your join statement. See <a href="https://moderndive.com/3-wrangling.html#multiple-key-variables">ModernDive Section 3.7.3</a> for an example.)</p></li>
+<li><p>Finally, use the <code>select</code> command to reorder your table columns so that they are in the following order: airline, mean_speed, sd_speed, min_speed, max_speed, mean_humidity.</p></li>
+<li><p>Once you’ve finished Step 8, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you’re done!</p></li>
+</ol>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

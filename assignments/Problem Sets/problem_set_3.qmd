@@ -1,5 +1,5 @@
 ---
-title: "Data Assignment 3 - Data Wrangling, Part 2"
+title: "Problem Set 3 - Data Wrangling, Part 2"
 summary: >-
   Exercises in ModernDive Ch. 3 - Data Wrangling
 ---
@@ -28,4 +28,4 @@ As you answer each of the following questions, be sure to include your R code an
 
 8. Finally, use the `select` command to reorder your table columns so that they are in the following order: airline, mean_speed, sd_speed, min_speed, max_speed, mean_humidity.
 
-9. Once you’ve finished Step 8, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you’re done!
+9. Once you've finished Step 8, knit your PDF document, upload it to the Problem Set 3 assignment [link](https://tulane.instructure.com/courses/2291178/assignments/14673848) on Canvas you're done!

@@ -16,7 +16,6 @@ library(glue)
 
 schedule <- read_csv("data/schedule.csv", show_col_types = FALSE) 
 ```
-
 The detailed course schedule for the semester is below.  Please note that dates and topics are subject to change and will depend on the pace of the course. Please stay apprised of any changes announced in class. You can find the materials for each course meeting under the “materials” links for that week in the schedule below. You should generally: 
    
 - watch the lecture videos (if any) and complete the readings before the assigned class period

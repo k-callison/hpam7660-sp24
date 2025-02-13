@@ -198,7 +198,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>brfss_data <span class="ot">&lt;-</span> <span class="fu">read_xpt</span>(<span class="st">"path_to_file/LLCP2023.XPT"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>brfss_smaller <span class="ot">&lt;-</span> <span class="fu">select</span>(brfss_data, PRIMINS1, GENHLTH, <span class="st">`</span><span class="at">_AGE80</span><span class="st">`</span>, SEXVAR, INCOME3, EDUCA, SMOKE100, SMOKDAY2, ALCDAY4, DRNK3GE5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Notice that we’ve added two new variables when constructing the <code>brfss_smaller</code> data frame - SMOKDAY2 and DRNK3GE5. Take a look at the codebook to review the survey questions that correspond to these variables and the values the variables can take on.</p>
+<p>Remember to change the “path_to_file” line above to the actual path to the saved “LLCP2023.XPT” file on your computer. If you receive an error message telling you that the file does not exist, first double check that you typed the correct path, second check to be sure that there’s not an extra space after after the .XPT file extension - something like “path_to_file/LLCP2023.XTP”. If you do have that extra space, you’ll either need to delete it or add a space after .XPT in the <code>read_xpt</code> command.</p>
+<p>Notice that we’ve added two new variables when constructing the <code>brfss_smaller</code> data frame since the last Data Lab - SMOKDAY2 and DRNK3GE5. Take a look at the codebook to review the survey questions that correspond to these variables and the values the variables can take on.</p>
 </section>
 <section id="step-2-cleaning-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-cleaning-the-data">Step 2: Cleaning the Data</h2>

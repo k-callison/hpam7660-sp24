@@ -180,4 +180,4 @@ So let's take a second to evaluate the data in the visualization. It looks like 
 
 ## Summary and Key Takeaways
 
-In Data Lab 3, we observed that the uninsured reported better self-reported health than those with Medicaid coverage. In this lab, we've taken a closer look at other key differences between these groups that might explain this pattern.
+In Data Lab 3, we observed that the uninsured reported better self-reported health than those with Medicaid coverage. In this lab, we've taken a closer look at other key differences between these groups that might explain this pattern. We'll continue to explore this dynamic in future Data Labs and problem sets to try and get a better sense of the relationship between Medicaid coverage and health.

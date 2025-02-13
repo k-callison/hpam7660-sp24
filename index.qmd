@@ -13,32 +13,59 @@ format:
 course-logo: /img/site_image_alt.png
 ---
 
-
 ::: {.grid .course-details}
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
-
-### Instructor
-
-- {{< fa user >}} &nbsp; {{< var instructor.name >}}
-- {{< fa university >}} &nbsp; {{< var instructor.office >}}
-- {{< fa envelope >}} &nbsp; <a href="mailto: kcallison@tulane.edu">kcallson@tulane.edu</a>
-
-::: 
-
-::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
-### Course details
+### Course Details
 
 - {{< fa calendar >}} &nbsp; {{< var course.days >}}
 - {{< fa clock >}} &nbsp; {{< var course.time >}}
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
 
+::: 
+
+<!-- Wrap Instructor and TA columns inside their own grid row -->
+::: {.g-col-12 .g-col-md-8} 
+
+<div class="grid">
+
+::: {.g-col-6}
+### Instructor
+
+- {{< fa user >}} &nbsp; {{< var instructor.name >}}
+- {{< fa envelope >}} &nbsp; <a href="mailto: kcallison@tulane.edu">kcallison@tulane.edu</a>
+<div style="margin-top: 20px;"></div>
+
+##### Office Hours
+
+- {{< fa calendar >}} &nbsp; {{< var instructor.office_days >}}
+- {{< fa clock >}} &nbsp; {{< var instructor.office_time >}}
+- {{< fa university >}} &nbsp; {{< var instructor.office >}}
+
 :::
 
-::: {.g-col-12 .g-col-md-4 .contact-policy}
-### Contacting me
+::: {.g-col-6}
+### Teaching Assistant
 
+- {{< fa user >}} &nbsp; {{< var instructor.ta_name >}}
+- {{< fa envelope >}} &nbsp; <a href="mailto: psanusi@tulane.edu">psanusi@tulane.edu</a>
+<div style="margin-top: 20px;"></div>
+
+##### Office Hours
+
+- {{< fa calendar >}} &nbsp; {{< var instructor.ta_days >}}
+- {{< fa clock >}} &nbsp; {{< var instructor.ta_time >}}
+- {{< fa university >}} &nbsp; {{< var instructor.ta_office >}}
+
+:::
+
+<!-- Full-width row ONLY within Instructor/TA area -->
+::: {.g-col-12 .contact-policy}
 {{< var instructor.contact_policy >}}
+:::
+
+</div> <!-- End nested grid -->
+
 :::
 
 :::

@@ -1,0 +1,31 @@
+---
+title: "Data Assignment 3 - Data Wrangling, Part 2"
+summary: >-
+  Exercises in ModernDive Ch. 3 - Data Wrangling
+---
+
+### Instructions
+
+Complete the following examples from [ModernDive Chapter 3 - Data Wrangling](https://moderndive.com/3-wrangling.html), Sections 3.5 through 3.9. Before beginning the assignment, create a GitHub repo called `hpam7660_data3`. Then create a new RStudio project and link it to the new GitHub repo. Once you've done that, open a new Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Assignment 3", your name, the date, and "pdf_document" as the output format.
+
+As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
+
+### Steps for Completing the Assignment
+
+1. Load the following packages: `dplyr`, `knitr`, and `nycflights13`. 
+
+2. Use the `mutate` function along with the `air_time` and `distance` variables in the `flights` data frame to create a new variable called `avg_speed` that measures a flight's average air speed in miles per hour. (Hint: You need to be careful here because `air_time` is measured in minutes and not hours.) 
+
+3. Now suppose we want to calculate average air speeds by carrier. Use the `group_by` and `summarize` commands along with the `kable` command to create a table of carrier-specific average air speeds. (Hint: be careful of missing values when calculating averages.)
+
+4. We're primarily interested in average air speeds, but it might also be helpful in some cases to include additional summary statistics in a data table. Add the standard deviation, the minimum and maximum values, and the number of carrier observations to your table. 
+
+5. Now sort the data by average air speed and recreate your table so that the carriers are listed in descending order of average air speed.
+
+6. This is great, but the carrier abbreviations might be difficult for some people to understand. Use the `join` command and the carrier names found in the `airlines` data frame to replace the carrier abbreviations with carrier names in your table. Rename the column that contains carrier names "airline".
+
+7. Now suppose we're interested in the relationship between average air speed and humidity. The data frame `weather` includes a variable named `humid` that lists the humidity at the origin airport for each hour of every day. Join the `flights` and `weather` data frames and re-make your table so that it now contains a column that contains the average humidity experienced by each airline. (Hint: you will need to use multiple key variables in your join statement. See [ModernDive Section 3.7.3](https://moderndive.com/3-wrangling.html#multiple-key-variables) for an example.)
+
+8. Finally, use the `select` command to reorder your table columns so that they are in the following order: airline, mean_speed, sd_speed, min_speed, max_speed, mean_humidity.
+
+9. Once you’ve finished Step 8, knit your PDF document and push it to your GitHub repo. Make sure the document shows up in the repo, invite me to the repo, and you’re done!

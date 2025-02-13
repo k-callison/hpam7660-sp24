@@ -19,7 +19,9 @@ brfss_data <- read_xpt("path_to_file/LLCP2023.XPT")
 brfss_smaller <- select(brfss_data, PRIMINS1, GENHLTH, `_AGE80`, SEXVAR, INCOME3, EDUCA, SMOKE100, SMOKDAY2, ALCDAY4, DRNK3GE5)
 ```
 
-Notice that we've added two new variables when constructing the `brfss_smaller` data frame - SMOKDAY2 and DRNK3GE5. Take a look at the codebook to review the survey questions that correspond to these variables and the values the variables can take on.
+Remember to change the "path_to_file" line above to the actual path to the saved "LLCP2023.XPT" file on your computer. If you receive an error message telling you that the file does not exist, first double check that you typed the correct path, second check to be sure that there's not an extra space after after the .XPT file extension - something like "path_to_file/LLCP2023.XTP ". If you do have that extra space, you'll either need to delete it or add a space after .XPT in the `read_xpt` command.    
+
+Notice that we've added two new variables when constructing the `brfss_smaller` data frame since the last Data Lab - SMOKDAY2 and DRNK3GE5. Take a look at the codebook to review the survey questions that correspond to these variables and the values the variables can take on.
 
 ## Step 2: Cleaning the Data
 

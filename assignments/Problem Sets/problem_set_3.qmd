@@ -6,9 +6,9 @@ summary: >-
 
 ### Instructions
 
-Complete the following examples from [ModernDive Chapter 3 - Data Wrangling](https://moderndive.com/3-wrangling.html), Sections 3.5 through 3.9. Before beginning the assignment, create a GitHub repo called `hpam7660_data3`. Then create a new RStudio project and link it to the new GitHub repo. Once you've done that, open a new Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Assignment 3", your name, the date, and "pdf_document" as the output format.
+Complete the following examples from [ModernDive Chapter 3 - Data Wrangling](https://moderndive.com/3-wrangling.html), Sections 3.5 through 3.9. Before beginning the assignment, create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Problem Set 3", your name, the date, and "pdf_document" as the output format.
 
-As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
+As you answer each of the following questions, be sure to include your R code and associated output in your R Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
 
 ### Steps for Completing the Assignment
 

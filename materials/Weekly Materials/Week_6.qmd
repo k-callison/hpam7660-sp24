@@ -5,5 +5,10 @@ subtitle: "Research Design: Randomization and Regression"
 
 ## Tuesday, Februray 18
 
+- Slides - [Randomization and Regression](/slides/XXXX.pdf)
 
 ## Thursday, February 20
+
+- Assignment - [Problem Set 3](/assignments/Problem Sets/problem_set_3.qmd)
+- [Data Lab 5](/materials/Data Labs/datalab_5.qmd)
+

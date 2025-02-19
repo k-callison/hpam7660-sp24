@@ -1,0 +1,213 @@
+---
+title: "Data Lab 5 - Confounders and Treatment Effects: Medicaid and Health"
+summary: >-
+  Exploring Medicaid Coverage and Health Using BRFSS Data.
+---
+
+In our previous analysis of the 2023 BRFSS data, we observed that self-reported health differed between those with Medicaid coverage and the uninsured. However, this raw comparison does not necessarily tell us the **true effect** of Medicaid on health outcomes. In this Data Lab, we will expand our descriptive analysis by incorporating additional demographic and health-related variables to explore systematic differences between these two groups. 
+
+These systematic differences, can distort our ability to interpret Medicaid’s impact on self-reported health. If Medicaid enrollment were **randomly assigned**, we would expect no significant baseline differences between Medicaid recipients and the uninsured. However, because Medicaid enrollment is based on various socioeconomic and health factors, it is important to assess these potential confounders before moving toward adjusted comparisons in future analyses. This will help us better understand why raw comparisons may not reflect causal relationships and will set the stage for regression-based adjustments in our next Data Lab.
+
+## Step 1: Create a New R Markdown Document for this Data Lab
+
+Create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Lab 5", your name, the date, and "pdf_document" as the output format. You'll submit a pdf of this R Markdown document once you've finished the Data Lab today.
+
+## Step 2: Load and Prepare the Data
+
+In this step, we'll load the dataset we created in [Data Lab 4](/materials/Data Labs/datalab_4.qmd) and ensure it contains the necessary variables. We'll also recode categorical variables to improve readability in our visualizations.
+
+First, let's load the necessary libraries:
+
+```{r, eval = FALSE}
+library(tidyverse)
+library(dplyr)
+library(haven)
+```
+
+We'll also need to use the `gt` package in this Data Lab. That's one we haven't installed yet, so type `install.packages("gt")` into the Console Command line and then load that library as well. Remember that Markdown doesn't like install commands, so don't add the install.packages line to your Markdown file!
+
+```{r, eval = FALSE}
+library(gt)
+```
+
+If you saved the dataset from Data Lab 4, you should be able to load it using the following code:
+
+```{r, eval = FALSE}
+brfss <- readRDS("path_to_file/brfss_clean.rds")
+```
+
+Remember that you'll need to replace "path_to_file" with the actual file path on your computer and use whatever name you gave to your saved .rds file (I called mine "brfss_clean.rds" in the last Data Lab).
+
+Alternatively, if you didn't save the data set last time, run the following code to recreate the brfss_clean dataset from Data Lab 4:
+
+```{r, eval = FALSE}
+brfss_data <- read_xpt("path_to_file/LLCP2023.XPT")
+brfss_smaller <- select(brfss_data, PRIMINS1, GENHLTH, `_AGE80`, SEXVAR, INCOME3, EDUCA, SMOKE100, SMOKDAY2, ALCDAY4, DRNK3GE5)
+brfss_clean <- brfss_smaller %>%
+  filter(PRIMINS1 %in% c(5, 88), `_AGE80` < 65) %>%
+  mutate(
+    FEMALE = ifelse(SEXVAR == 2, 1, 0), 
+    MEDICAID = ifelse(PRIMINS1 == 5, 1, 0),
+    SMOKER = case_when(
+      SMOKDAY2 %in% c(1,2) ~ 1,
+      SMOKE100 == 2 | SMOKDAY2 == 3 ~ 0,
+      SMOKDAY2 %in% c(7,9) | SMOKE100 %in% c(7,9) ~ NA_real_
+    ),
+    BINGE = case_when(
+      DRNK3GE5>=1 & DRNK3GE5<=76 ~ 1,
+      DRNK3GE5==88 | ALCDAY4==888 ~0,
+      DRNK3GE5 %in% c(77,99) | ALCDAY4 %in% c(777,999) ~ NA_real_
+    )
+  )
+```
+
+Once you've loaded the data, run the following code to rename some of the categorical variables and label them for clarity:
+
+```{r, eval = FALSE}
+brfss_clean <- brfss_clean %>%
+  mutate(
+    MEDICAID = factor(MEDICAID, labels = c("Uninsured", "Medicaid")),
+    EDUCATION = factor(EDUCA, levels = c(1,2,3,4),
+                       labels = c("Less than HS", "HS Grad", "Some College", "College Grad")),
+    EDUCATION = ifelse(EDUCA %in% c(7,9), NA, EDUCATION),
+    GENHLTH = factor(GENHLTH, levels = c(1,2,3,4,5),
+                     labels = c("Excellent", "Very Good", "Good", "Fair", "Poor")),
+    GENHLTH = ifelse(GENHLTH %in% c(7,9), NA, GENHLTH)
+  )
+```
+
+## Step 3: Comparing Self-Rated Health for Medicaid Beneficiaries and the Uninsured
+
+Like we've done previously, let's compare self-reported health status for Medicaid enrollees and the uninsured. This will provide us with a "raw" comparison before adjusting for potential confounders. First, let's create a table that displays the average self-rated health score for each group.
+
+```{r, eval = FALSE}
+health_summary <- brfss_clean %>%
+  group_by(MEDICAID) %>%
+  summarize(
+    Mean_Health = round(mean(GENHLTH, na.rm = TRUE), 2),
+    N = n()
+  )
+
+health_summary %>%
+  gt() %>%
+  tab_header(title = "Comparison of Self-Reported Health") %>%
+  cols_label(MEDICAID = "Insurance Status",
+             Mean_Health = "Health Score",
+             N = "Sample Size") %>%
+  cols_align(align = "left", columns = c(MEDICAID)) %>%
+  cols_align(align = "center", columns = c(Mean_Health, N))
+```
+
+This code should look familiar. We did pretty much the same thing back in Data Lab 3. But now, we've added some additional commands using the `gt` package that make the table look a little more professional. 
+
+Next, let's use the `ggplot` package to create a visual that helps to reinforce this idea that Medicaid enrollees are in worse health than the uninsured.
+
+```{r eval = FALSE}
+brfss_clean %>%
+  filter(!is.na(GENHLTH)) %>%  
+  count(MEDICAID, GENHLTH) %>%
+  group_by(MEDICAID) %>%
+  mutate(Percentage = n / sum(n) * 100) %>%
+  ggplot(aes(x = MEDICAID, y = Percentage, fill = factor(GENHLTH, 
+            levels = c(1,2,3,4,5), 
+            labels = c("Excellent", "Very Good", "Good", "Fair", "Poor")))) +
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(title = "Proportion of Self-Rated Health by Insurance Status",
+       x = "Insurance Status",
+       y = "Percentage",
+       fill = "Self-Rated Health") +
+  theme_minimal()
+```
+
+Again, this should look familiar. We used ggplot to create a bar chart in Data Lab 4. We're doing the same thing here, but using a stacked bar chart instead. Let's go line by line so that you understand exactly what this code is doing.
+
+```{r eval = FALSE}
+brfss_clean %>%
+  filter(!is.na(GENHLTH)) %>% 
+```
+
+These first couple of lines is telling R that we want to use the `brfss_clean` data frame that we've created and we want to filter out any missing (NA) values of GENHLTH.
+
+```{r eval = FALSE}
+count(MEDICAID, GENHLTH) %>%
+```
+
+This line counts the number of respondents in each insurance category and each self-rated health category and stores that information in a column called "n". We'll need these counts to create percentages in a couple of steps.
+
+```{r eval = FALSE}
+group_by(MEDICAID) %>%
+```
+
+This statement groups the data by insurance status (using the MEDICAID variable) since we're going to compare self-rated health status by insurance status in the visualization.
+
+```{r eval = FALSE}
+mutate(Percentage = n / sum(n) * 100) %>%
+```
+
+This command calculates the percentage of respondents in each self-rated health status category and does it separately for Medicaid enrollees and the uninsured (since we previously used the `group_by` statement).
+
+Finally, the `ggplot` language is basically the same that we used in the last Data Lab.
+
+Before moving on to the next step, I'd like you to answer a few questions about the self-rate health status comparison you just completed. Please include your answers in your R Markdown document.
+
+#### Questions: Interpreting Raw Comparisons
+
+1. Looking at the raw differences in self-rated health between Medicaid enrollees and the uninsured, does it appear that Medicaid improves health, worsens health, or has no effect at all on health?
+
+2. Can we conclude that Medicaid is the cause of these differences in self-rated health? Why or why not?
+
+## Step 4: Understanding Selection Bias in Medicaid Enrollment
+
+If Medicaid coverage was randomly assigned and our sample was large enough, we could directly compare health outcomes between those with and without Medicaid without concern for confounders. However, Medicaid eligibility is determined by income, which is also closely linked to health. This introduces selection bias, meaning that observed differences in health may not be due to Medicaid itself, but instead reflect underlying differences between groups. 
+
+Let's create a table that nicely summarizes the potential confounders that we identified in Data Lab 4. First, we need to calculate percentages of each of the variables that we're interested in examining by insruance status:
+
+```{r eval = FALSE}
+characteristics_summary <- brfss_clean %>%
+  group_by(MEDICAID) %>%
+  summarise(
+    Mean_Age = round(mean(`_AGE80`, na.rm = TRUE), 1),
+    Percent_Female = mean(FEMALE, na.rm = TRUE),  
+    Percent_Smoker = mean(SMOKER, na.rm = TRUE),  
+    Percent_Binge_Drinker = mean(BINGE, na.rm = TRUE),  
+    Share_Below_50K = mean(INCOME3 %in% c(1,2,3,4,5,6), na.rm = TRUE)
+```
+
+Now that we have those percentages, we can use the `gt()` function to create a formatted table:
+
+```{r eval = FALSE}
+characteristics_summary %>%
+  gt() %>%
+  tab_header(title = "Comparison of Key Characteristics by Insurance Status") %>%
+  cols_label(
+    MEDICAID = "Insurance Status",
+    Mean_Age = "Mean Age",
+    Percent_Female = "% Female",
+    Percent_Smoker = "% Smoker",
+    Percent_Binge_Drinker = "% Binge Drinker",
+    Share_Below_50K = "% Earning Below $50K"
+  ) %>%
+  fmt_number(columns = c(Mean_Age), decimals = 1) %>%
+  fmt_percent(columns = c(Percent_Female, Percent_Smoker, Percent_Binge_Drinker, Share_Below_50K), decimals = 1)  
+```
+
+As you can see from the table (and as we've seen before) there are some pretty large differences in these characteristics between Medicaid enrollees and the uninsured. Since each of these characteristics is also related to health, it's likely that there is some confounding happening here.
+
+#### Questions: Interpreting Raw Comparisons
+
+1. If Medicaid were randomly assigned and our sample size was sufficiently large, what would expect to see in this comparison of key characteristics by insurance status?
+
+2. Define the concepts of Average Treatment Effect (ATE), Average Treatment Effect on the Treated (ATT), and Average Treatment Effect on the Untreated (ATU) as they relate to the effect of Medicaid coverage in our sample. 
+
+3. If we were able to calculate the true ATE of Medicaid on health do you expect that it would differ from the ATT? Why or why not?
+
+## Step 5: Knitting to PDF
+
+Once you've finished answering the questions, knit your R Markdown document to a PDF and upload the PDF [here](https://tulane.instructure.com/courses/2291178/assignments/14673852). Your document should include all of the tables and figures you created in this Data Lab along with your answers to the questions.
+
+## Key Takeaways
+
+- Medicaid enrollment is not random, leading to selection bias in comparisons of self-reported health.
+- Demographic and behavioral factors differ between Medicaid recipients and the uninsured, which may explain differences in health outcomes.
+- We need to move beyond raw comparisons by using statistical adjustments in future analyses.

@@ -8,4 +8,4 @@ subtitle: "Reimagining the Affordable Care Act"
 
 ## Thursday, February 27
 
--[Week 7 Assignments](/assignments/Week_7_assignments.qmd)
+- [Week 7 Assignments](/assignments/Week_7_assignments.qmd)

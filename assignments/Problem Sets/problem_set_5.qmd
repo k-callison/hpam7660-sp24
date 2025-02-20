@@ -1,0 +1,127 @@
+---
+title: "Problem Set 4 - Regression Basics"
+summary: >-
+  Exercises in ModernDive Ch. 5 - Basic Regression
+---
+
+### Instructions
+
+Problem Set: Basic Regression
+
+Instructions
+
+This problem set covers concepts from ModernDive Chapter 5: Basic Regression.
+
+Submit your solutions as an R Markdown (.qmd) file with both code and written explanations.
+
+Be sure to interpret your results in context.
+
+Show all relevant output and visualizations where applicable.
+
+If a question requires you to use specific R packages, ensure they are loaded in your script.
+
+Question 1: Exploratory Data Analysis
+
+We will use the evals_ch5 dataset from the moderndive package, which contains teaching evaluation scores and instructor characteristics.
+
+a. Load the Data
+
+Load the required packages: tidyverse, moderndive, skimr.
+
+Load the evals_ch5 dataset.
+
+Use glimpse() to inspect the structure of the dataset.
+
+b. Summary Statistics
+
+Compute the mean, median, and standard deviation for score (teaching evaluation scores) and bty_avg (beauty score).
+
+Use skim() to generate a summary of all numerical variables.
+
+c. Data Visualization
+
+Create a histogram of score with appropriate bin width and labels.
+
+Create a scatterplot of score (y-axis) against bty_avg (x-axis) to visualize the relationship.
+
+Add a best-fitting regression line to the scatterplot using geom_smooth(method = "lm", se = FALSE).
+
+Question 2: Correlation
+
+a. Compute the Correlation Coefficient
+
+Compute the correlation between score and bty_avg.
+
+Interpret the strength and direction of this relationship.
+
+Question 3: Simple Linear Regression
+
+a. Fit a Simple Linear Regression Model
+
+Fit a linear regression model predicting score using bty_avg as the explanatory variable.
+
+Display the regression table using get_regression_table().
+
+b. Interpret the Coefficients
+
+Interpret the intercept in the context of the data.
+
+Interpret the slope coefficient for bty_avg.
+
+Question 4: Fitted Values and Residuals
+
+a. Compute Regression Points
+
+Use get_regression_points() to compute fitted values and residuals.
+
+Extract and display the first 10 rows of the output.
+
+b. Interpret Residuals
+
+Explain what it means when a residual is positive or negative.
+
+Identify an observation where the residual is large in magnitude and interpret its meaning.
+
+Question 5: Regression with a Categorical Explanatory Variable
+
+a. Fit a Model Using gender as an Explanatory Variable
+
+Fit a linear regression model predicting score using gender.
+
+Display the regression table.
+
+b. Interpret the Results
+
+What does the intercept represent?
+
+What does the coefficient for gender tell us about differences in teaching scores?
+
+Question 6: Comparing Models
+
+a. Fit a Multiple Regression Model
+
+Fit a model predicting score using both bty_avg and gender.
+
+Compare the new regression results to the simple linear regression models.
+
+b. Discuss Model Improvement
+
+How does including gender impact the coefficient for bty_avg?
+
+Which model (simple or multiple regression) appears to provide a better explanation of score?
+
+Submission
+
+Ensure that your .qmd file runs without errors.
+
+Provide clear interpretations of your findings.
+
+Submit your completed problem set via the designated platform.
+
+Bonus Question (Optional)
+
+Explore whether age (age) is a significant predictor of score.
+
+Fit a model including bty_avg, gender, and age.
+
+Interpret the results and discuss any notable findings.

@@ -5,7 +5,9 @@ subtitle: "Reimagining the Affordable Care Act"
 
 ## Tuesday, Februray 25
 
+- Slides - [Research Design - Regression](/slides/HPAM_7660_Regression.pdf)
 
 ## Thursday, February 27
 
 - [Week 7 Assignments](/assignments/Week_7_assignments.qmd)
+- [Data Lab 6](/materials/Data Labs/datalab_6.qmd)

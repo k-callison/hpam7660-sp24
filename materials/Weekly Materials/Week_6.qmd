@@ -5,7 +5,7 @@ subtitle: "Research Design: Randomization and Regression"
 
 ## Tuesday, Februray 18
 
-- Slides - [Estimating Treatment Effects - Randomization](/slides/HPAM_7660_Randomization.pdf)
+- Slides - [Research Design - Randomization](/slides/HPAM_7660_Randomization.pdf)
 
 ## Thursday, February 20
 

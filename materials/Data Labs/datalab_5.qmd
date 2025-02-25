@@ -196,11 +196,11 @@ As you can see from the table (and as we've seen before) there are some pretty l
 
 #### Questions: Interpreting Raw Comparisons
 
-1. If Medicaid were randomly assigned and our sample size was sufficiently large, what would expect to see in this comparison of key characteristics by insurance status?
+1. If Medicaid were randomly assigned and our sample size was sufficiently large, what would we expect to see in this comparison of key characteristics by insurance status?
 
 2. Define the concepts of Average Treatment Effect (ATE), Average Treatment Effect on the Treated (ATT), and Average Treatment Effect on the Untreated (ATU) as they relate to the effect of Medicaid coverage in our sample. 
 
-3. If we were able to calculate the true ATE of Medicaid on health do you expect that it would differ from the ATT? Why or why not?
+3. If we were able to calculate the true ATE of Medicaid coverage on health, do you expect that it would differ from the ATT? Why or why not?
 
 ## Step 5: Knitting to PDF
 

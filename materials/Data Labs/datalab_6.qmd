@@ -6,7 +6,9 @@ summary: >-
 
 In this Data Lab, you will use a basic regression model to explore the relationship between Medicaid coverage and health while controlling for potential confounders. The focus for this Data Lab is on illustrating the concept of a best‐fit line and understanding how regression begins to address confounding, which will set the stage for more advanced multivariate regression models in Data Lab 7.
 
-In Data Lab 5, we examined differences in self‐reported health between Medicaid recipients and the uninsured using descriptive comparisons. However, those raw comparisons may be biased if confounders, such as age or education, affect health outcomes. Today, we will build an intuitive understanding of regression by focusing on how age mediates the relationship between Medicaid coverage and health. By fitting a simple linear model, you will see how regression “draws” a best‐fit line through the data by minimizing the sum of the squared residuals. Although a univariate regression cannot control for multiple confounders at once, it provides a clear demonstration of the core idea behind using regression as a tool to adjust for confounding factors.
+In [Data Lab 5](/materials/Data Labs/datalab_5.qmd), we examined differences in self‐reported health between Medicaid recipients and the uninsured using descriptive comparisons. However, those raw comparisons may be biased if confounders, such as age or education, affect health outcomes. 
+
+Today, we will build an intuitive understanding of regression by focusing on how age mediates the relationship between Medicaid coverage and health. By fitting a simple linear model, you will see how regression draws a best‐fit line through the data by minimizing the sum of the squared residuals. Although a univariate regression cannot control for multiple confounders at once, it demonstrates the core idea behind using regression as a tool to adjust for confounding factors.
 
 ## Step 1: Create a New R Markdown Document for this Data Lab
 
@@ -85,7 +87,9 @@ Now let's estimate a very simple regression model that will highlight the associ
 model_1 <- lm(HEALTH_SCORE ~ MEDICAID, data = brfss_clean)
 ```
 
-Notice that when you run this code, no output shows up in the Console window! We'll get to that in a minute. First, let's go through what this code is doing. We're creating a new regression model that I've called `model_1`, but you could call this whatever you want. The `lm` tells R that we want to estimate a linear model (as opposed to a non-linear model like a Logit or Probit model). We then need to tell R what we want to use for our **dependent variable**, in this case `HEALTH_SCORE`, and our **independent variable(s)**, in this case `MEDICAID`. Finally, we need to tell R the name of the dataset where it can find the `HEALTH_SCORE` and `MEDICAID` variables - `brfss_clean`.
+Notice that when you run this code, no output shows up in the Console window! We'll get to that in a minute. First, let's go through what this code is doing. 
+
+We're creating a new regression model that I've called `model_1`, but you could call this whatever you want. The `lm` tells R that we want to estimate a linear model (as opposed to a non-linear model like a Logit or Probit model). We then need to tell R what we want to use for our *dependent variable*, in this case `HEALTH_SCORE`, and our *independent variable(s)*, in this case `MEDICAID`. Finally, we need to tell R the name of the dataset where it can find the `HEALTH_SCORE` and `MEDICAID` variables: `brfss_clean`.
 
 To see the output from this regression in the Console window, run the following code:
 
@@ -98,27 +102,45 @@ You should get something that looks like this:
 ![](/img/regression_1.png){fig-alt="Model Output"}
 We see that R repeats the regression formula that we ran. Then we get some information about the distribution of the residuals - we won't do much with that, but it can be useful in certain situations. Next, we get the information that we're really interested in: the coefficient estimates. 
 
-First, we get the coefficient, standard error, t-value, and p-value for the "Intercept" coefficient. You should see a value of 2.73 for this coefficient, which in this case, means that the average `HEALTH_SCORE` for the **uninsured** is 2.73. (If you go back and look at the "Comparison of Self-Reported Health" table that you created in Data Lab 5, you'll see the same value for the health score of the uninsured!).   
+First, we get the coefficient, standard error, t-value, and p-value for the "Intercept" coefficient. You should see a value of 2.73 for this coefficient, which in this case, means that the average `HEALTH_SCORE` for the *uninsured* is 2.73. (If you go back and look at the "Comparison of Self-Reported Health" table that you created in [Data Lab 5](/materials/Data Labs/datalab_5.qmd), you'll see the same value for the health score of the uninsured!).   
 
-Next, we have the coefficient for the `MEDICAID` variable. Remember that `MEDICAID` is what's called an "indicator" variable. Meaning that it takes on a value of 1 for those with Medicaid coverage and a value of 0 for those who are uninsured. The coefficient estimate of 0.275 tells us that the `HEALTH_SCORE` for Medicaid enrollees is 0.275 larger than the score for the uninsured. In other words, if the average `HEALTH_SCORE` for the uninsured is 2.73, then the average score for Medicaid enrollees is 2.73+0.275=3.005. Again, this is the same value we had in the table from Data Lab 5 and, since a higher value of `HEALTH_SCORE` indicates worse health, tells us that Medicaid coverage is associated with worse self-reported health.
+Next, we have the coefficient for the `MEDICAID` variable. Remember that `MEDICAID` is what's called an "indicator" variable, meaning that it takes on a value of 1 for those with Medicaid coverage and a value of 0 for those who are uninsured. The coefficient estimate of 0.275 tells us that the `HEALTH_SCORE` for Medicaid enrollees is 0.275 larger than the score for the uninsured. In other words, if the average `HEALTH_SCORE` for the uninsured is 2.73, then the average score for Medicaid enrollees is 2.73+0.275=3.005. Again, this is the same value we had in the table from Data Lab 5 and, since a higher value of `HEALTH_SCORE` indicates worse health, it tells us that Medicaid coverage is associated with worse self-reported health.
 
 ## Step 4: Estimating the Relationship between Medicaid Coverage and Health Controlling for Age
 
 In Data Lab 5, we created the following table that compared values of different characteristics between Medicaid enrollees and the uninsured:
 
 ![](/img/regression_2.png){fig-alt="Comparison"}
-Note that Medicaid enrollees tend to be slightly older than the uninsured. Since we know that age and health are closely related, this age difference might be confounding our estimate of the relationship between Medicaid coverage and health. Let's estimate a new regression model of the association between Medicaid coverage and health that controls for age differences between Medicaid enrollees and the uninsured.
+Notice that Medicaid enrollees tend to be slightly older than the uninsured. Since we know that age and health are closely related, this age difference might be confounding our estimate of the relationship between Medicaid coverage and health. Let's estimate a new regression model of the association between Medicaid coverage and health that controls for age differences between Medicaid enrollees and the uninsured.
 
 First, it would be helpful to visualize the relationship between age and health so that we can get an intuitive understanding of how regression actually works. Let's plot the relationship between age and health score from the data:
 
 ```{r, eval = FALSE}
-ggplot(brfss_clean, aes(x = `_AGE80`, y = HEALTH_SCORE)) +
+age_health <- brfss_clean %>%
+  group_by(`_AGE80`) %>%
+  summarize(MEAN_HEALTH = mean(HEALTH_SCORE, na.rm = TRUE))
+
+ggplot(age_health, aes(x = `_AGE80`, y = MEAN_HEALTH)) +
   geom_point() +
   labs(title = "Scatterplot of Age vs. Health Score",
        x = "Age",
        y = "Health Score") +
   theme_minimal()
 ```
+
+To get a better sense of what regression is actually doing, let's plot a regression line through the data points in the figure. We can do this by adding a line to the code above:
+
+```{r, eval = FALSE}
+ggplot(age_health, aes(x = `_AGE80`, y = MEAN_HEALTH)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE, color = "blue")
+  labs(title = "Scatterplot of Age vs. Health Score",
+       x = "Age",
+       y = "Health Score") +
+  theme_minimal()
+```
+
+The line we added `geom_smooth(method = "lm", se = TRUE, color = "blue")` tells R that we want to add a regression line from a liner model ("lm") to the plot, we want to include a confidence interval (se = TRUE), and we want the line color to be blue (color = "blue").
 
 #### Questions: Interpreting the Age/Health Relationship
 

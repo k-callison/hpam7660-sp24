@@ -158,7 +158,7 @@
     "href": "materials/Weekly Materials/Week_6.html#thursday-february-20",
     "title": "HPAM 7660 - Week 6 Materials",
     "section": "Thursday, February 20",
-    "text": "Thursday, February 20\n\nAssignment - Problem Set 3\nData Lab 5"
+    "text": "Thursday, February 20\n\nAssignment - Problem Set 3 - Data Wrangling, Part 2\nData Lab 5 - Confounders and Treatment Effects: Medicaid and Health"
   },
   {
     "objectID": "materials/Weekly Materials/Week_4.html",
@@ -179,21 +179,21 @@
     "href": "materials/Weekly Materials/Week_4.html#thursday-february-6",
     "title": "HPAM 7660 - Week 4 Materials",
     "section": "Thursday, February 6",
-    "text": "Thursday, February 6\n\nAssignment - Problem Set 1\nData Lab 3"
+    "text": "Thursday, February 6\n\nAssignment - Problem Set 1 - Importing Data\nData Lab 3 - Descriptive Comparisons: Medicaid and Health"
   },
   {
     "objectID": "materials/Weekly Materials/Week_2.html",
     "href": "materials/Weekly Materials/Week_2.html",
     "title": "HPAM 7660 - Week 2 Materials",
     "section": "",
-    "text": "Data Lab 1"
+    "text": "Data Lab 1 - Getting Started with R and RStudio"
   },
   {
     "objectID": "materials/Weekly Materials/Week_2.html#tuesday-january-21",
     "href": "materials/Weekly Materials/Week_2.html#tuesday-january-21",
     "title": "HPAM 7660 - Week 2 Materials",
     "section": "",
-    "text": "Data Lab 1"
+    "text": "Data Lab 1 - Getting Started with R and RStudio"
   },
   {
     "objectID": "materials/Weekly Materials/Week_2.html#thursday-january-23",
@@ -627,7 +627,7 @@
     "href": "assignments/Week_7_assignments.html#thursday-february-27",
     "title": "HPAM 7660 - Week 7 Assignments",
     "section": "Thursday, February 27",
-    "text": "Thursday, February 27\n\nAssignment - Policy Memo Problem Statement - Click here for assignment instructions and Canvas submission link.\nAssignment - Problem Set 4"
+    "text": "Thursday, February 27\n\nAssignment - Policy Memo Problem Statement - Click here for assignment instructions and Canvas submission link.\nAssignment - Problem Set 4 - Data Visualization"
   },
   {
     "objectID": "assignments/Week_15_assignments.html#thursday-april-24",
@@ -653,7 +653,7 @@
   {
     "objectID": "assignments/Problem Sets/problem_set_4.html",
     "href": "assignments/Problem Sets/problem_set_4.html",
-    "title": "Problem Set 4 - Regression Basics",
+    "title": "Problem Set 4 - Data Visualization",
     "section": "",
     "text": "Instructions\nComplete the following examples from ModernDive Chapter 2 - Data Visualization. Before beginning the assignment, create a new R Markdown document and give it a YAML header that includes the title “HPAM 7660 Problem Set 4”, your name, the date, and “pdf_document” as the output format.\nAs you answer each of the following questions, be sure to include your R code and associated output in your R Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.\n\n\nSteps for Completing the Assignment\n\nBriefly explain the three essential components of the grammar of graphics: data, geom, aes.\nUsing the data from the gapminder package, create a scatterplot of gdpPercap on the x-axis and lifeExp on the y-axis. (Remember that you will need to install any packages that you haven’t yet used and load the relevant libraries before creating the scatterplot). Describe the relationship between per capita GDP and life expectancy depicted in the scatterplot.\nModify the scatterplot by adding appropriate axis labels and a title. (Hint: axis labels and titles are not covered in ModernDive Chapter 2, but we’ve done this before in Data Lab 5).\nWhen looking at this scatterplot, you’ll notice a bunch of dots that overlap. That can make it tough to see how many individual countries are represented in the visualization. Modify the scatterplot to make the overalpping points more transparent.\nCreate an alternative version of the scatterplot using geom_jitter() to add small random noise to the points. Try using a width and height equal to 5 and describe which method you find to be more effective at revealing the pattern between GDP and life expectancy.\nNotice that there are some extreme values of per capita GDP that obscure the GDP/life expectency relationship in the scatterplot. Drop values of per capita GDP that are greater than 55,000 and recreate the scatterplot.\nUse the weather dataset from the nycflights13 package to create a histogram of temp.\nNote that when using geom_histogram(), R will choose the bin sizes automatically. Choose a bin size of 10 instead and add white borders to the bars to help distinguish between the bins.\nFinally use the flights dataset to create a barplot of the number of flights by carrier. Add a title to the barplot and change the y-axis label to “Number of Flights”. Which carrier had the most flights in the data? Which carrier had the fewest flights?\nOnce you’ve finished Step 9, knit your PDF document, upload it to the Problem Set 4 assignment link on Canvas you’re done!"
   },
@@ -1509,7 +1509,7 @@
     "href": "materials/Weekly Materials/Week_3.html#thursday-january-30",
     "title": "HPAM 7660 - Week 3 Materials",
     "section": "Thursday, January 30",
-    "text": "Thursday, January 30\n\nData Lab 2\nReading - Chapter 1.4 of ModernDive. Please note that you are not required to read this before class, but it might be helpful to look it over as we’ll use examples from this chapter in our Data Lab."
+    "text": "Thursday, January 30\n\nData Lab 2 - Navigating RStudio: Using R Scripts and R Markdown Files\nReading - Chapter 1.4 of ModernDive. Please note that you are not required to read this before class, but it might be helpful to look it over as we’ll use examples from this chapter in our Data Lab."
   },
   {
     "objectID": "materials/Weekly Materials/Week_5.html",
@@ -1530,7 +1530,7 @@
     "href": "materials/Weekly Materials/Week_5.html#thursday-february-13",
     "title": "HPAM 7660 - Week 5 Materials",
     "section": "Thursday, February 13",
-    "text": "Thursday, February 13\n\nAssignment - Problem Set 2\nData Lab 4"
+    "text": "Thursday, February 13\n\nAssignment - Problem Set 2 - Data Wrangling\nData Lab 4 - Expanding Descriptive Comparisons: Medicaid and Health"
   },
   {
     "objectID": "materials/Weekly Materials/Week_7.html",
@@ -1551,7 +1551,7 @@
     "href": "materials/Weekly Materials/Week_7.html#thursday-february-27",
     "title": "HPAM 7660 - Week 7 Materials",
     "section": "Thursday, February 27",
-    "text": "Thursday, February 27\n\nWeek 7 Assignments\nData Lab 6"
+    "text": "Thursday, February 27\n\nWeek 7 Assignments\nData Lab 6 - Regression Basics: Controlling for Counfounders"
   },
   {
     "objectID": "materials/index.html",

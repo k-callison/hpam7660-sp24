@@ -9,5 +9,5 @@ subtitle: "Medicaid Work Requirements: Stakeholder Perspectives"
 
 ## Thursday, February 13
 
-- Assignment - [Problem Set 2](/assignments/Problem Sets/problem_set_2.qmd)
-- [Data Lab 4](/materials/Data Labs/datalab_4.qmd)
+- Assignment - [Problem Set 2 - Data Wrangling](/assignments/Problem Sets/problem_set_2.qmd)
+- [Data Lab 4 - Expanding Descriptive Comparisons: Medicaid and Health](/materials/Data Labs/datalab_4.qmd)

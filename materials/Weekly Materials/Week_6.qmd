@@ -9,6 +9,6 @@ subtitle: "Research Design: Randomization and Regression"
 
 ## Thursday, February 20
 
-- Assignment - [Problem Set 3](/assignments/Problem Sets/problem_set_3.qmd)
-- [Data Lab 5](/materials/Data Labs/datalab_5.qmd)
+- Assignment - [Problem Set 3 - Data Wrangling, Part 2](/assignments/Problem Sets/problem_set_3.qmd)
+- [Data Lab 5 - Confounders and Treatment Effects: Medicaid and Health](/materials/Data Labs/datalab_5.qmd)
 

@@ -10,4 +10,4 @@ subtitle: "Reimagining the Affordable Care Act"
 ## Thursday, February 27
 
 - [Week 7 Assignments](/assignments/Week_7_assignments.qmd)
-- [Data Lab 6](/materials/Data Labs/datalab_6.qmd)
+- [Data Lab 6 - Regression Basics: Controlling for Counfounders](/materials/Data Labs/datalab_6.qmd)

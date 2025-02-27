@@ -1,7 +1,7 @@
 ---
-title: "Problem Set 4 - Regression Basics"
+title: "Problem Set 4 - Data Visualization"
 summary: >-
-  Exercises in ModernDive Ch. 5 - Basic Regression
+  Exercises in ModernDive Ch. 2 - Data Visualization
 ---
 
 ### Instructions

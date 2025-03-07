@@ -16,7 +16,7 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 8,2025-03-04,,No Class - Spring Break!,,,,
 8,2025-03-06,,No Class - Spring Break!,,,,
 9,2025-03-11,,Reimagining the Affordable Care Act,,"materials/Weekly Materials/Week_9",,
-9,2025-03-13,,Data Lab - Controlling for Confounders Pt.2,,"materials/Weekly Materials/Week_9",,"assignments/Week_9_assignments.qmd"
+9,2025-03-13,,Data Lab - Controlling for Confounders Pt.2,,"materials/Weekly Materials/Week_9","materials/Data Labs/datalab_7.qmd","assignments/Week_9_assignments.qmd"
 10,2025-03-18,,Research Design: Natural Experiments,,"materials/Weekly Materials/Week_10",,
 10,2025-03-20,,Data Lab - Louisiana Medicaid Expansion and Medicaid Coverage,,"materials/Weekly Materials/Week_10",,
 11,2025-03-25,,Medicaid Financing: FMAP and Block Grants,,"materials/Weekly Materials/Week_11",,

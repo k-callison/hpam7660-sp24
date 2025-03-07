@@ -5,5 +5,9 @@ subtitle: "Reimagining the Affordable Care Act"
 
 ## Tuesday, March 11
 
+- Slides - [Reimagining the ACA]()
 
 ## Thursday, March 13
+
+- Assignment - [Policy Memo Preliminary Reference List](https://tulane.instructure.com/courses/2291178/assignments/14673858)
+- [Data Lab 7 - Regression Basics: Controlling for Counfounders Pt.2](/materials/Data Labs/datalab_7.qmd)

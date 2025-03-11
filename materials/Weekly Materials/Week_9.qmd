@@ -5,7 +5,7 @@ subtitle: "Reimagining the Affordable Care Act"
 
 ## Tuesday, March 11
 
-- Slides - [Reimagining the ACA]()
+- Slides - [Reimagining the ACA](/slides/HPAM_7660_Reimagining_the_ACA.pdf)
 
 ## Thursday, March 13
 

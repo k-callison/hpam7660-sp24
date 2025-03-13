@@ -139,7 +139,7 @@ Now, re-run the regression model 2 above and see how the output changes.
 Finally, one other characteristic that differed substantially between Medicaid enrollees and the uninsured was the share female. To refresh your memory, you can run the following code to display the share of Medicaid enrollees and the uninsured by sex:
 
 ```{r, eval = FALSE}
-round(prop.table(table(brfss_clean$FEMALE, brfss_clean$MEDICAID), margin = 2) * 100, 2
+round(prop.table(table(brfss_clean$FEMALE, brfss_clean$MEDICAID), margin = 2) * 100, 2)
 ```
 
 So let's add share female as a control to our regression model:

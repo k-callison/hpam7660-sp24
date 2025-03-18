@@ -12,7 +12,7 @@ Today, we'll increase the complexity of our regression model by adding additiona
 
 ## Step 1: Create a New R Markdown Document for this Data Lab
 
-Create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Lab 6", your name, the date, and "pdf_document" as the output format. You'll submit a pdf of this R Markdown document once you've finished the Data Lab today.
+Create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Lab 7", your name, the date, and "pdf_document" as the output format. You'll submit a pdf of this R Markdown document once you've finished the Data Lab today.
 
 ## Step 2: Load and Prepare the Data
 

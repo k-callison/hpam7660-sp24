@@ -1,0 +1,85 @@
+---
+title: "Data Lab 8 - Louisiana Medicaid Expansion and Medicaid Coverage"
+summary: >-
+  Exploring Health Insurance Coverage in Louisiana and the South.
+---
+
+In the last Data Lab, we saw how using regression to adjust for potential confounders could change our estimates of the association between Medicaid coverage and self-rated health. However, it's very unlikely that we addressed all potential confounders and so our estimated relationship between Medicaid coverage and health still likely suffered from selection bias.
+
+Throughout the remaining Data Labs this semester, we're going to examine a recent natural experiment and employ a quasi-experimental research design to further assess the Medicaid/health relationship. We'll see how estimates from this more rigorous research design differ from our basic regression estimates.
+
+More specifically, we're going to use Louisiana's 2016 Medicaid eligibility expansion as a natural experiment that generated an *exogenous* change in Medicaid coverage throughout the state. This will help mitigate selection bias and get us closer to an unbiased ATE of Medicaid coverage on health.
+
+**Note: We can do everything we want to do in this Data Lab with code we've used in previous Data Labs. I don't want you to use ChatGPT while working through the following exercises. Instead, I'd like you to think about what you've done in the previous Data Labs and how to apply those techniques to what we're about to do here. If you ask ChatGPT for help, it will suggest commands that we haven't used in this class and if those commands end up in your submission, you won't receive the participation credit for this class.**
+
+## Step 1: Create a New R Markdown Document for this Data Lab
+
+Create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Lab 8", your name, the date, and "pdf_document" as the output format. You'll submit a pdf of this R Markdown document once you've finished the Data Lab today.
+
+## Step 2: Load and Prepare the Data
+
+Before estimating the effects of Medicaid coverage on health, it would be good for us to show that Louisiana's Medicaid expansion actually increased Medicaid coverage (and insurance coverage in general). Unfortunately, the BRFSS didn't start including specific questions on Medicaid coverage until 2016. That's going to be a problem for the research design we're going to want to use.
+
+However, there's another data source called the American Community Survey (ACS) that is an annual survey conducted by the U.S. Census Bureau. The ACS has the insurance information we'll need for analysis, so we'll start there before returning to the BRFSS data to examine self-rated health.
+
+The ACS is a very large dataset and we'll want data for multiple years (you'll see why soon). So instead of downloading the data directly from the ACS site, you can download a file that I've created for us to use in this data lab from the following link. The data file is called `acs_data.rds`.
+
+https://www.dropbox.com/scl/fi/z2of38yo1s6mfdb80kb6t/acs_data.rds?rlkey=ln5wmmxonnp1v32shzuz16brl&st=3qb37i84&dl=1
+
+*Hint: We've used the `read_xpt` command to load .xpt files in previous Data Labs. This is a .rds file, so you'll want to use `read_rds` instead.
+
+## Step 3: Explore the Data
+
+We've seen several different ways to examine the contents of a dataset this semester. Choose one of those methods to display the variables included in the `acs_data.rds`. Remember that you will probably need to load the relevant library before you can use a specific command. 
+
+The variable `HCOVANY` is an indicator for whether a respondent has health insurance coverage or not. `HCOVANY` takes on the value of 2 if the respondent *has* insurance coverage and the value of 1 if the respondent is uninsured. Similarly, `HINSCAID` is an indicator for whether a respondent has Medicaid coverage. `HINSCAID` takes on the value of 2 if the respondent *has* Medicaid and the value of 1 if they don't.
+
+Using `HCOVANY` and `HINSCAID`, create a variable called `UNINSURED` that is equal to 1 if the respondent has health insurance coverage and 0 if not. Then, create a variable called `MEDICIAD` that is equal to 1 if the respondent has Medicaid coverage and 0 if not.
+
+Use the `table` command to make sure that you have coded `UNINSURED` and `MEDICAID` correctly. You should have 2,382,617 respondents who are uninsured and 22,943,442 respondents with insurance coverage. You should also see 4,718,425 respondents with Medicaid coverage and 20,607,634 without Medicaid coverage.
+
+## Step 4: Subsetting the Data
+
+Notice that the data contain a variable called `STATEFIP`. This is a number called a FIPS code that identifies a respondent's state of residence. 
+
+For this analysis, we're only going to use Louisiana (FIPS = 22) and other Gulf South states including: Alabama (FIPS = 1), Florida (FIPS = 12), Georgia (FIPS = 13), Mississippi (FIPS = 28), and Texas (FIPS = 48). 
+
+I'd like you to create two separate datasets: one that only includes data from respondents living in Louisiana and another that only includes data from respondents living in one of the other Gulf South states. Please note that you do not need to create separate datasets for each Gulf South state. You want one dataset for Louisiana and one dataset for Alabama, Florida, Georgia, Mississippi, and Texas.
+
+## Step 5: Plotting Rates of Uninsured and Medicaid Coverage
+
+Remember that Louisiana expanded Medicaid coverage in 2016. The ACS data file includes the years 2012 through 2019 in the `YEAR` variable. 
+
+1. Plot uninsured rates and Medicaid coverage rates in Louisiana from 2012 through 2019. We've created data plots in previous Data Labs, but this one is a little more complicated. Instead of plotting a single variable on the y-axis (e.g., self-rated health), here we need to plot two variables (i.e., Uninsured and Medicaid).
+
+You can use the following code to create this plot that is slightly modified from the code we've used previously, but a couple of things to note:
+
+a. You will first need to calculate mean Medicaid and Uninsured rates by year (we did this same thing when plotting the education/health relationship in [Data Lab 7](/materials/Data Labs/datalab_7.qmd)).
+
+b. You'll need to replace "data" in the ggplot command below with whatever name you gave to the dataset you want to use here.
+
+```{r, eval = FALSE}
+ggplot(data, aes(x = YEAR)) +
+  geom_line(aes(y = MEAN_MEDICAID, color = "medicaid")) +
+  geom_point(aes(y = MEAN_MEDICAID, color = "medicaid")) +
+  geom_line(aes(y = MEAN_UNINSURED, color = "uninsured")) +
+  geom_point(aes(y = MEAN_UNINSURED, color = "uninsured")) +
+  geom_vline(xintercept = 2016, linetype = "dotted") +
+  labs(title = "Insurance Coverage in Louisiana, 2012 - 2019",
+       x = "Year",
+       y = "Share Covered") +
+  ylim(0, 0.4) +
+  theme_minimal()
+```
+
+2. Plot uninsured rates and Medicaid coverage rates in Gulf South States other than Louisiana from 2012 through 2019.
+
+3. Describe the patterns you see in the plots. 
+
+4. Notice that the uninsured rate declines from 2014 through 2016 in both Louisiana and the other Gulf South states. Louisiana did not expand Medicaid eligiblity until 2016 and the other Gulf South states have not yet expanded Medicaid eligiblity. So what might explain this reduction in the uninsurance rate from 2014 through 2016?
+
+## Step 6: Knitting to PDF
+
+Once you've finished answering the questions, knit your R Markdown document to a PDF and upload the PDF [here](XXXX). Your document should include all of the tables and figures you created in this Data Lab along with your answers to the questions.
+
+## Key Takeaways

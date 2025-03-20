@@ -8,8 +8,8 @@ subtitle: "Research Design: Natural Experiments"
 - Readings - [Allen et al. (2013) - The Oregon Health Insurance Experiment: When Limited Resources Provide Research Opportunities](/materials/Readings/Allen_OHIE.pdf)
 - Audio - [Austin Frakt on Medicaid and the Oregon Medicaid Study](https://www.econtalk.org/frakt-on-medicaid-and-the-oregon-medicaid-study/) and [Jim Manzi on the Oregon Medicaid Study, Experimental Evidence, and Causality](https://www.econtalk.org/jim-manzi-on-the-oregon-medicaid-study-experimental-evidence-and-causality/)
 - Assignment - [Reading/Audio Discussion Questions](/assignments/Week 10 Reading Discussion Questions.pdf) 
-- Slides - [Natural Experiments \& The Oregon Medicaid Study]() 
+- Slides - [Natural Experiments \& The Oregon Medicaid Study](/slides/HPAM_7660_Natural_Experiments_Pt1.pdf) 
 
 ## Thursday, March 20
 
-- [Data Lab 8 - Louisiana Medicaid Expansion and Medicaid Coverage]()
+- [Data Lab 8 - Louisiana Medicaid Expansion and Medicaid Coverage](/materials/Data Labs/datalab_8.qmd)

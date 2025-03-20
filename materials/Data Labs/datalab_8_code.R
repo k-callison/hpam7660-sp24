@@ -1,6 +1,7 @@
 #Data Lab 8 Code
 
 library(dplyr)
+library(ggplot2)
 
 #Step 2
 acs_data <- readRDS("/Users/kcallison/Dropbox/Documents/Data/HPAM7660/acs_data.rds")

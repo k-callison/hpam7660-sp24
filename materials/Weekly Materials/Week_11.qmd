@@ -5,5 +5,10 @@ subtitle: "Medicaid Financing: FMAP and Block Grants"
 
 ## Tuesday, March 25
 
+- Slides - [Natural Experiments \& The Oregon Medicaid Study Pt.2](/slides/HPAM_7660_Natural_Experiments_Pt2.pdf) 
+
 
 ## Thursday, March 27
+
+- Assignment - [Policy Memo Introduction](https://tulane.instructure.com/courses/2291178/assignments/14673856)
+- Data Lab 9 - [Louisiana Medicaid Expansion and Medicaid Coverage Pt.2](XXXX)

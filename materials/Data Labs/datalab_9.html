@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Week 11 Materials – HPAM 7660 - Health Policy Analysis</title>
+<title>Data Lab 9 - Heterogeneous Effects of Louisiana’s Medicaid Expansion on Insurance Coverage – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -119,8 +153,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tuesday-march-25" id="toc-tuesday-march-25" class="nav-link active" data-scroll-target="#tuesday-march-25">Tuesday, March 25</a></li>
-  <li><a href="#thursday-march-27" id="toc-thursday-march-27" class="nav-link" data-scroll-target="#thursday-march-27">Thursday, March 27</a></li>
+  <li><a href="#step-1-create-a-new-r-markdown-document-for-this-data-lab" id="toc-step-1-create-a-new-r-markdown-document-for-this-data-lab" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-markdown-document-for-this-data-lab">Step 1: Create a New R Markdown Document for this Data Lab</a></li>
+  <li><a href="#step-2-load-and-prepare-the-data" id="toc-step-2-load-and-prepare-the-data" class="nav-link" data-scroll-target="#step-2-load-and-prepare-the-data">Step 2: Load and Prepare the Data</a></li>
+  <li><a href="#step-3-data-restrictions" id="toc-step-3-data-restrictions" class="nav-link" data-scroll-target="#step-3-data-restrictions">Step 3: Data Restrictions</a></li>
+  <li><a href="#step-4-creating-demographic-subgroups" id="toc-step-4-creating-demographic-subgroups" class="nav-link" data-scroll-target="#step-4-creating-demographic-subgroups">Step 4: Creating Demographic Subgroups</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -129,8 +166,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 - Week 11 Materials</h1>
-<p class="subtitle lead">Medicaid Financing: FMAP and Block Grants</p>
+<h1 class="title">Data Lab 9 - Heterogeneous Effects of Louisiana’s Medicaid Expansion on Insurance Coverage</h1>
 </div>
 
 
@@ -147,17 +183,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tuesday-march-25" class="level2">
-<h2 class="anchored" data-anchor-id="tuesday-march-25">Tuesday, March 25</h2>
+<p>In Data Lab 8, we examined general changes in Medicaid coverage and the uninsured rate following Louisiana’s Medicaid eligibility expansion in July 2016. However, the impact of Medicaid expansion may differ across demographic subgroups (e.g., race, age, sex, etc.). These differences can have important implications for health equity and policy targeting.</p>
+<p>In this Data Lab, we’ll explore how the Medicaid expansion affected insurance coverage disparities across key demographic and geographic subgroups.</p>
+<p><strong>Note: We can do everything we want to do in this Data Lab with code we’ve used in previous Data Labs. I don’t want you to use ChatGPT while working through the following exercises. Instead, I’d like you to think about what you’ve done in the previous Data Labs and how to apply those techniques to what we’re about to do here. If you ask ChatGPT for help, it will suggest commands that we haven’t used in this class and if those commands end up in your submission, you won’t receive the participation credit for this class.</strong></p>
+<p><strong>Another Note: We’re going to be creating a lot of datasets in this Data Lab, so it’s important you keep track of the different names you’ll be using for each of these.</strong></p>
+<section id="step-1-create-a-new-r-markdown-document-for-this-data-lab" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-markdown-document-for-this-data-lab">Step 1: Create a New R Markdown Document for this Data Lab</h2>
+<p>Create a new R Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Lab 9”, your name, the date, and “pdf_document” as the output format. You’ll submit a pdf of this R Markdown document once you’ve finished the Data Lab today.</p>
+</section>
+<section id="step-2-load-and-prepare-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-load-and-prepare-the-data">Step 2: Load and Prepare the Data</h2>
+<p>I’ve created for us to use in this data lab from the following link. The data file is called <code>acs_datalab9.rds</code> and you can download it <a href="https://www.dropbox.com/scl/fi/l3md7xzgaft86izwetles/acs_datalab8.rds?rlkey=lzhurhg4ij55xrtssyw0t1umw&amp;st=ed9mddlt&amp;dl=1">here</a>.</p>
+<p>This data comes from the American Community Survey and adds a few more variables to the dataset we used in the last Data Lab. To be clear, here are variables included in the <code>acs_datalab9.rds</code> file and their values:</p>
 <ul>
-<li>Slides - <a href="../../slides/HPAM_7660_Natural_Experiments_Pt2.pdf">Natural Experiments &amp; The Oregon Medicaid Study Pt.2</a></li>
+<li>YEAR: year of survey (2012 through 2019)</li>
+<li>STATEFIP: state FIPS code. Alabama = 1, Florida = 12, Georgia = 13, Louisiana = 22, Mississippi = 28, and Texas = 48.</li>
+<li>SEX: 1 = male, 2 = female</li>
+<li>AGE: age in years</li>
+<li>RACE: 1 = white, 2 = Black/African American, 3 = Asian or Pacific Islander, 4 = Other or multiple races</li>
+<li>HISPAN: 1 = Hispanic ethnicity, 0 = non-Hispanic</li>
+<li>HCOVANY: 2 = insured, 1 = uninsured</li>
+<li>HINSCAID: 2 = Medicaid, 1 = no Medicaid</li>
+<li>POVERTY: Family income as a percentage of the federal poverty level</li>
+</ul>
+<p>Using this file, recreate your analytic datasets from <a href="../../materials/Data Labs/datalab_8.html">Data Lab 8</a> that included separate files for Louisiana residents and residents of other Gulf South states.</p>
+<p>Be sure to code Medicaid coverage and uninsurance the same way you did in Data Lab 8:</p>
+<ul>
+<li>MEDICAID: 1 = Medicaid coverage, 0 = no Medicaid coverage</li>
+<li>UNINSURED: 1 = uninsured, 0 = has insurance coverage</li>
 </ul>
 </section>
-<section id="thursday-march-27" class="level2">
-<h2 class="anchored" data-anchor-id="thursday-march-27">Thursday, March 27</h2>
+<section id="step-3-data-restrictions" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-data-restrictions">Step 3: Data Restrictions</h2>
+<p>Before we start creating demographic subgroup-specific data files, let’s make a couple of changes to our Louisiana and Gulf South state datasets. First, run a <code>table</code> command to check the ages of the respondents in your datasets. Notice that we have a bunch of kids and old people in the data. Insurance coverage for these groups would’ve been largely unaffected by the Medicaid expansion, so let’s drop anyone under the age of 26 (the age at which you can no longer be on your parents’ insurance) and anyone over the age of 64 (the age at which you qualify for Medicare).</p>
+<p>Ok, now let’s make one more restriction to our datasets. Run a <code>summary</code> command to check the range for the POVERTY variable (you wouldn’t want to run a <code>table</code> command here because there are too many values of POVERTY). See how we have respondents with family incomes all the way up to 500% of the federal poverty level? Again, these high income respondents shouldn’t have experienced much of a change in insurance coverage due to Medicaid expansion. So let’s restrict our sample to those earning at or below 138% FPL - the target group for Medicaid expansion.</p>
+<p><strong>Note that you can do Steps 2 and 3 separately or you can run them them together to generate your restricted datasets. Either way will work.</strong></p>
+<p>Now let’s plot mean Medicaid rates and mean uninsured rates using these restricted datasets and compare the results to the figures you created in Data Lab 8.</p>
+<p><em>Hint: you may need to adjust your <code>ylim</code> value from last time to get these to plot correctly.</em></p>
+<ol type="1">
+<li>What do you notice about the patterns in Medicaid coverage and uninsured rates in Louisiana and the Gulf South states for the restricted samples compared to the unrestricted samples?</li>
+</ol>
+</section>
+<section id="step-4-creating-demographic-subgroups" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-creating-demographic-subgroups">Step 4: Creating Demographic Subgroups</h2>
+<p>Now let’s look at how Medicaid expansion in Louisiana differentially affected various policy-relevant subgroups.</p>
+<p>First we’ll plot changes in the uninsurance rate over time in Louisiana by race and ethnicity using your restricted datasets. Below I’ll give you some code to help get you started. Before we begin plotting, we’ll need to create a single race/ethnicity variable. I’m going to generate a new variable called <code>RACE2</code> that will maintain the same values as the <code>RACE</code> variable, but assign anyone who reports Hispanic ethnicity to a value of 5 (be sure to replace “new data” and “old data” with your own dataset names in the following code):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RACE2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    HISPAN <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    HISPAN <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> RACE</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now use the following code to plot uninsurance rates in Louisiana by race and ethnicity. Note that I’ve only included uninsurance rates for Black/African American and white respondents in the code below, but you can add other races or Hispanic ethnicity by making a few small adjustments. At a minimum, you should add Hispanic ethnicity to the graph and plot changes in the uninsurance rate for Black/African American, Hispanic, and white respondents in Louisiana.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>acs_LA_race <span class="ot">&lt;-</span> acs_LA <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(RACE2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>acs_LA_race_graph <span class="ot">&lt;-</span> acs_LA_race <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(RACE2, YEAR) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">MEAN_MEDICAID =</span> <span class="fu">mean</span>(MEDICAID, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">MEAN_UNINSURED =</span> <span class="fu">mean</span>(UNINSURED, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(acs_LA_race_graph, <span class="fu">aes</span>(<span class="at">x =</span> YEAR)) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> MEAN_UNINSURED, <span class="at">color =</span> <span class="fu">paste</span>(<span class="st">"uninsured"</span>, RACE2))) <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> MEAN_UNINSURED, <span class="at">color =</span> <span class="fu">paste</span>(<span class="st">"uninsured"</span>, RACE2))) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Uninsured Rate in Louisiana by Race, 2012 - 2019"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Share Covered"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Race"</span>) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"Black/African American"</span>)) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><p>Describe the patterns you see in your plot of uninsurance rates by race/ethnicity in Louisiana. Did any groups experience larger or smaller changes than others?</p></li>
+<li><p>As a health policy expert, are there any specific recommendations you might make to legislators based on the plots in this figure?</p></li>
+</ol>
+<p>Lastly, let’s plot changes in the uninsured rate by sex to see if Medicaid expansion affected women and men differently. You can modify the code above for race and ethnicity to plot changes in the uninsurance rate by sex.</p>
+<ol start="4" type="1">
+<li>Describe the patterns you see in your plot of uninsurance rates by sex in Louisiana. Do you see any differential patterns for women and men? How might you explain these differential patterns?</li>
+</ol>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Assignment - <a href="https://tulane.instructure.com/courses/2291178/assignments/14673856">Policy Memo Introduction</a></li>
-<li>Data Lab 9 - <a href="../../materials/Data Labs/datalab_9.html">Heterogeneous Effects of Louisiana’s Medicaid Expansion on Insurance Coverage</a></li>
+<li><p>Louisiana’s Medicaid eligibility expansion appears to have increased Medicaid coverage and reduced the uninsured rate. These effects were especially pronounced among the policy’s target population - non-elderly adults earning less than 138% FPL.</p></li>
+<li><p>We also saw evidence of heterogeneous effects by race/ethnicity and by sex. Understanding demographic heterogeneity in policy effects can help target outreach and implementation strategies, ensuring equitable take-up of expanded benefits.</p></li>
+<li><p>In the next Data Lab, we’ll start to explore how these coverage changes may have impacted the health of people in Louisiana.</p></li>
 </ul>
 
 

@@ -11,4 +11,4 @@ subtitle: "Medicaid Financing: FMAP and Block Grants"
 ## Thursday, March 27
 
 - Assignment - [Policy Memo Introduction](https://tulane.instructure.com/courses/2291178/assignments/14673856)
-- Data Lab 9 - [Louisiana Medicaid Expansion and Medicaid Coverage Pt.2](XXXX)
+- Data Lab 9 - [Heterogeneous Effects of Louisiana's Medicaid Expansion on Insurance Coverage](/materials/Data Labs/datalab_9.qmd)

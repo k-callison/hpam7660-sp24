@@ -1,0 +1,116 @@
+---
+title: "Data Lab 9 - Heterogeneous Effects of Louisiana's Medicaid Expansion on Insurance Coverage"
+summary: >-
+  Exploring the heterogeneous effects of Louisiana's Medicaid eligibility expansion on insurance coverage among different demographic groups.
+---
+
+In Data Lab 8, we examined general changes in Medicaid coverage and the uninsured rate following Louisiana's Medicaid eligibility expansion in July 2016. However, the impact of Medicaid expansion may differ across demographic subgroups (e.g., race, age, sex, etc.). These differences can have important implications for health equity and policy targeting.
+
+In this Data Lab, we'll explore how the Medicaid expansion affected insurance coverage disparities across key demographic and geographic subgroups.
+
+**Note: We can do everything we want to do in this Data Lab with code we've used in previous Data Labs. I don't want you to use ChatGPT while working through the following exercises. Instead, I'd like you to think about what you've done in the previous Data Labs and how to apply those techniques to what we're about to do here. If you ask ChatGPT for help, it will suggest commands that we haven't used in this class and if those commands end up in your submission, you won't receive the participation credit for this class.**
+
+**Another Note: We're going to be creating a lot of datasets in this Data Lab, so it's important you keep track of the different names you'll be using for each of these.**
+
+## Step 1: Create a New R Markdown Document for this Data Lab
+
+Create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Lab 9", your name, the date, and "pdf_document" as the output format. You'll submit a pdf of this R Markdown document once you've finished the Data Lab today.
+
+## Step 2: Load and Prepare the Data
+
+I've created for us to use in this data lab from the following link. The data file is called `acs_datalab9.rds` and you can download it [here](https://www.dropbox.com/scl/fi/l3md7xzgaft86izwetles/acs_datalab8.rds?rlkey=lzhurhg4ij55xrtssyw0t1umw&st=ed9mddlt&dl=1).
+
+This data comes from the American Community Survey and adds a few more variables to the dataset we used in the last Data Lab. To be clear, here are variables included in the `acs_datalab9.rds` file and their values:
+
+- YEAR: year of survey (2012 through 2019)
+- STATEFIP: state FIPS code. Alabama = 1, Florida = 12, Georgia = 13, Louisiana = 22, Mississippi = 28, and Texas = 48.
+- SEX: 1 = male, 2 = female
+- AGE: age in years
+- RACE: 1 = white, 2 = Black/African American, 3 = Asian or Pacific Islander, 4 = Other or multiple races
+- HISPAN: 1 = Hispanic ethnicity, 0 = non-Hispanic
+- HCOVANY: 2 = insured, 1 = uninsured
+- HINSCAID: 2 = Medicaid, 1 = no Medicaid
+- POVERTY: Family income as a percentage of the federal poverty level
+
+Using this file, recreate your analytic datasets from [Data Lab 8](/materials/Data Labs/datalab_8.qmd) that included separate files for Louisiana residents and residents of other Gulf South states.
+
+Be sure to code Medicaid coverage and uninsurance the same way you did in Data Lab 8:
+
+- MEDICAID: 1 = Medicaid coverage, 0 = no Medicaid coverage
+- UNINSURED: 1 = uninsured, 0 = has insurance coverage
+
+## Step 3: Data Restrictions
+
+Before we start creating demographic subgroup-specific data files, let's make a couple of changes to our Louisiana and Gulf South state datasets. First, run a `table` command to check the ages of the respondents in your datasets. Notice that we have a bunch of kids and old people in the data. Insurance coverage for these groups would've been largely unaffected by the Medicaid expansion, so let's drop anyone under the age of 26 (the age at which you can no longer be on your parents' insurance) and anyone over the age of 64 (the age at which you qualify for Medicare).
+
+Ok, now let's make one more restriction to our datasets. Run a `summary` command to check the range for the POVERTY variable (you wouldn't want to run a `table` command here because there are too many values of POVERTY). See how we have respondents with family incomes all the way up to 500% of the federal poverty level? Again, these high income respondents shouldn't have experienced much of a change in insurance coverage due to Medicaid expansion. So let's restrict our sample to those earning at or below 138% FPL - the target group for Medicaid expansion.
+
+**Note that you can do Steps 2 and 3 separately or you can run them them together to generate your restricted datasets. Either way will work.**
+
+Now let's plot mean Medicaid rates and mean uninsured rates using these restricted datasets and compare the results to the figures you created in Data Lab 8. 
+
+*Hint: you may need to adjust your `ylim` value from last time to get these to plot correctly.*
+
+1. What do you notice about the patterns in Medicaid coverage and uninsured rates in Louisiana and the Gulf South states for the restricted samples compared to the unrestricted samples?
+
+## Step 4: Creating Demographic Subgroups
+
+Now let's look at how Medicaid expansion in Louisiana differentially affected various policy-relevant subgroups.
+
+First we'll plot changes in the uninsurance rate over time in Louisiana by race and ethnicity using your restricted datasets. Below I'll give you some code to help get you started. Before we begin plotting, we'll need to create a single race/ethnicity variable. I'm going to generate a new variable called `RACE2` that will maintain the same values as the `RACE` variable, but assign anyone who reports Hispanic ethnicity to a value of 5 (be sure to replace "new data" and "old data" with your own dataset names in the following code):
+
+```{r, eval=FALSE}
+new_data <- old_data %>%
+  mutate(RACE2 = case_when(
+    HISPAN == 1 ~ 5,
+    HISPAN == 0 ~ RACE
+  ))
+```
+
+Now use the following code to plot uninsurance rates in Louisiana by race and ethnicity. Note that I've only included uninsurance rates for Black/African American and white respondents in the code below, but you can add other races or Hispanic ethnicity by making a few small adjustments. At a minimum, you should add Hispanic ethnicity to the graph and plot changes in the uninsurance rate for Black/African American, Hispanic, and white respondents in Louisiana.
+
+```{r, eval = FALSE}
+acs_LA_race <- acs_LA %>%
+  filter(RACE2 %in% c(1,2))
+
+acs_LA_race_graph <- acs_LA_race %>%
+  group_by(RACE2, YEAR) %>%
+  summarize(
+    MEAN_MEDICAID = mean(MEDICAID, na.rm = TRUE),
+    MEAN_UNINSURED = mean(UNINSURED, na.rm = TRUE)
+  )
+
+ggplot(acs_LA_race_graph, aes(x = YEAR)) +
+  geom_line(aes(y = MEAN_UNINSURED, color = paste("uninsured", RACE2))) +
+  geom_point(aes(y = MEAN_UNINSURED, color = paste("uninsured", RACE2))) +
+  geom_vline(xintercept = 2016, linetype = "dotted") +
+  labs(title = "Uninsured Rate in Louisiana by Race, 2012 - 2019",
+       x = "Year",
+       y = "Share Covered",
+       color = "Race") +
+  scale_color_discrete(labels = c("white", "Black/African American")) +
+  ylim(0, 0.8) +
+  theme_minimal()
+```
+
+2. Describe the patterns you see in your plot of uninsurance rates by race/ethnicity in Louisiana. Did any groups experience larger or smaller changes than others?
+
+3. As a health policy expert, are there any specific recommendations you might make to legislators based on the plots in this figure? 
+
+Lastly, let's plot changes in the uninsured rate by sex to see if Medicaid expansion affected women and men differently. You can modify the code above for race and ethnicity to plot changes in the uninsurance rate by sex.
+
+4. Describe the patterns you see in your plot of uninsurance rates by sex in Louisiana. Do you see any differential patterns for women and men? How might you explain these differential patterns?
+
+## Key Takeaways
+
+- Louisiana's Medicaid eligibility expansion appears to have increased Medicaid coverage and reduced the uninsured rate. These effects were especially pronounced among the policy's target population - non-elderly adults earning less than 138% FPL.
+
+- We also saw evidence of heterogeneous effects by race/ethnicity and by sex. Understanding demographic heterogeneity in policy effects can help target outreach and implementation strategies, ensuring equitable take-up of expanded benefits.
+
+- In the next Data Lab, we'll start to explore how these coverage changes may have impacted the health of people in Louisiana.
+
+
+
+
+
+

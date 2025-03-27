@@ -6,6 +6,7 @@ subtitle: "Case Presentations"
 ## Case Study: Reforming the Medicaid Program
 
 - [Case Study: Reforming the Medicaid Program](/materials/Case/HPAM_7660_Case_Study_Sp25.pdf)
+- [Case Study Rubric](/materials/Case/HPAM_7660_Case Rubric.pdf)
 
 ## Case Teams
 

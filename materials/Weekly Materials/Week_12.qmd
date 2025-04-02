@@ -5,5 +5,9 @@ subtitle: "Research Design: Quasi-Experimental Designs"
 
 ## Tuesday, April 1
 
+Slides - [Medicaid Financing: FMAP and Block Grants](/slides/HPAM_7660_Medicaid_FMAP_Block_Grants.pdf)
 
 ## Thursday, April 3
+
+- Assignment - [Policy Memo Issue Analysis](https://tulane.instructure.com/courses/2291178/assignments/14673857)
+- Data Lab 10 - [Medicaid Expansion and Health](/materials/Data Labs/datalab_10.qmd)

@@ -2,9 +2,12 @@
 
 library(dplyr)
 library(ggplot2)
+library(haven)
 
 #Step 2
 acs_data <- readRDS("/Users/kcallison/Dropbox/Documents/Data/HPAM7660/acs_data.rds")
+acs_data <- acs_data %>% 
+  zap_labels(YEAR, STATEFIP, HCOVANY, HINSCAID)
 
 #Step 3
 glimpse(acs_data)
@@ -57,7 +60,7 @@ ggplot(acs_GS_graph, aes(x = YEAR)) +
   geom_line(aes(y = MEAN_UNINSURED, color = "uninsured")) +
   geom_point(aes(y = MEAN_UNINSURED, color = "uninsured")) +
   geom_vline(xintercept = 2016, linetype = "dotted") +
-  labs(title = "Insurance Coverage in Louisiana, 2012 - 2019",
+  labs(title = "Insurance Coverage in Gulf South, 2012 - 2019",
        x = "Year",
        y = "Share Covered") +
   ylim(0, 0.4) +

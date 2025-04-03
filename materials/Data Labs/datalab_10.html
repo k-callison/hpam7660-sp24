@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Week 12 Materials – HPAM 7660 - Health Policy Analysis</title>
+<title>Data Lab 10 - Medicaid and Health Pt.1 – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -119,8 +153,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tuesday-april-1" id="toc-tuesday-april-1" class="nav-link active" data-scroll-target="#tuesday-april-1">Tuesday, April 1</a></li>
-  <li><a href="#thursday-april-3" id="toc-thursday-april-3" class="nav-link" data-scroll-target="#thursday-april-3">Thursday, April 3</a></li>
+  <li><a href="#step-1-create-a-new-r-markdown-document-for-this-data-lab" id="toc-step-1-create-a-new-r-markdown-document-for-this-data-lab" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-markdown-document-for-this-data-lab">Step 1: Create a New R Markdown Document for this Data Lab</a></li>
+  <li><a href="#step-2-load-and-prepare-the-data" id="toc-step-2-load-and-prepare-the-data" class="nav-link" data-scroll-target="#step-2-load-and-prepare-the-data">Step 2: Load and Prepare the Data</a></li>
+  <li><a href="#step-3-plot-trends-in-insurance-coverage" id="toc-step-3-plot-trends-in-insurance-coverage" class="nav-link" data-scroll-target="#step-3-plot-trends-in-insurance-coverage">Step 3: Plot Trends in Insurance Coverage</a></li>
+  <li><a href="#step-4-plot-trends-in-usual-source-of-care" id="toc-step-4-plot-trends-in-usual-source-of-care" class="nav-link" data-scroll-target="#step-4-plot-trends-in-usual-source-of-care">Step 4: Plot Trends in Usual Source of Care</a></li>
+  <li><a href="#step-5-plot-trends-in-forgoing-care-due-to-cost" id="toc-step-5-plot-trends-in-forgoing-care-due-to-cost" class="nav-link" data-scroll-target="#step-5-plot-trends-in-forgoing-care-due-to-cost">Step 5: Plot Trends in Forgoing Care Due to Cost</a></li>
+  <li><a href="#step-6-knitting-to-pdf" id="toc-step-6-knitting-to-pdf" class="nav-link" data-scroll-target="#step-6-knitting-to-pdf">Step 6: Knitting to PDF</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -129,8 +168,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 - Week 12 Materials</h1>
-<p class="subtitle lead">Research Design: Quasi-Experimental Designs</p>
+<h1 class="title">Data Lab 10 - Medicaid and Health Pt.1</h1>
 </div>
 
 
@@ -147,15 +185,108 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tuesday-april-1" class="level2">
-<h2 class="anchored" data-anchor-id="tuesday-april-1">Tuesday, April 1</h2>
-<p>Slides - <a href="../../slides/HPAM_7660_Medicaid_FMAP_Block_Grants.pdf">Medicaid Financing: FMAP and Block Grants</a></p>
+<p>In the last Data Lab, we examined how Louisiana’s Medicaid expansion impacted insurance coverage across various demographic groups. Now, we’ll investigate whether Medicaid expansion improved healthcare access for Louisianans relative to residents in other Gulf South states.</p>
+<p>Additionally, we’ll complete the data cleaning and preparation work that we’ll need for the quasi-experimental research design we’re going to use in Data Lab 11.</p>
+<p>Ultimately, the goals of our policy analysis will be:</p>
+<ol type="1">
+<li>Estimate the effect of Louisiana’s Medicaid expansion on insurance coverage.</li>
+<li>Estimate the effect of Louisiana’s Medicaid expansion on health care access.</li>
+<li>Estimate the effect of Louisiana’s Medicaid expansion on health outcomes.</li>
+</ol>
+<p><strong>Note: We can do everything we want to do in this Data Lab with code we’ve used in previous Data Labs. I don’t want you to use ChatGPT while working through the following exercises. Instead, I’d like you to think about what you’ve done in the previous Data Labs and how to apply those techniques to what we’re about to do here. If you ask ChatGPT for help, it will suggest commands that we haven’t used in this class and if those commands end up in your submission, you won’t receive the participation credit for this class.</strong></p>
+<section id="step-1-create-a-new-r-markdown-document-for-this-data-lab" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-markdown-document-for-this-data-lab">Step 1: Create a New R Markdown Document for this Data Lab</h2>
+<p>Create a new R Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Lab 10”, your name, the date, and “pdf_document” as the output format. You’ll submit a pdf of this R Markdown document once you’ve finished the Data Lab today.</p>
 </section>
-<section id="thursday-april-3" class="level2">
-<h2 class="anchored" data-anchor-id="thursday-april-3">Thursday, April 3</h2>
+<section id="step-2-load-and-prepare-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-load-and-prepare-the-data">Step 2: Load and Prepare the Data</h2>
+<p>I’ve created a data file for us to use in this Data Lab. The data file is called <code>acs_datalab10.rds</code> and you can download it <a href="https://www.dropbox.com/scl/fi/pmqk3hiymwmwcuotly7ku/acs_datalab10.rds?rlkey=5eweee4b9eqs2rwzo5xd8y6ie&amp;st=cx5h9t62&amp;dl=1">here</a>.</p>
+<p>This data comes from the Behavioral Risk Factor Surveillance Survey (BRFSS). We’ve used this data in previous Data Labs, but I’ve added few more variables here. Here are the variables included in the <code>acs_datalab10.rds</code> file and their values:</p>
 <ul>
-<li>Assignment - <a href="https://tulane.instructure.com/courses/2291178/assignments/14673857">Policy Memo Issue Analysis</a></li>
-<li>Data Lab 10 - <a href="../../materials/Data Labs/datalab_10.html">Medicaid Expansion and Health</a></li>
+<li>YEAR: survey year; 2012 through 2019.</li>
+<li>STATEFIP: state FIPS code.</li>
+<li>GENHLTH: self-rated health; 1 = excellent, 2 = very good, 3 = good, 4 = fair, 5 = poor.</li>
+<li>PHYSHLTH: Number of days in the past month that a respondent’s physical health was “not good”.</li>
+<li>MENTHLTH: Number of days in the past month that a respondent’s mental health was “not good”.</li>
+<li>HLTHPLN1: does the respondent have health insurance coverage; 1 = yes, 2 = no.</li>
+<li>PERSDOC2: does the respondent have a usual source of care; 1 = yes, 0 = no.</li>
+<li>MEDCOST: did the respondent forgo medical care in past year due to cost; 1 = yes, 0 = no.</li>
+<li>AGE: respondent age in years.</li>
+<li>RACE: respondent race/ethnicity; 1 = non-Hispanic white, 2 = non-Hispanic Black, 3 = non-Hispanic other race, 4 = non-Hispanic multiracial, 5 = Hispanic.</li>
+<li>EDUCA: respondent educational attainment; 1 = no school, 2 = grades 1 through 8, 3 = grades 9 through 11, 4 = high school graduate, 5 = some college, 6 = college graduate.</li>
+<li>INCOME: respondent’s household income; 1 = less than $10k, 2 = $10k to $15k, 3 = $15k to $20k, 4 = $20k to $25k, 5 = $25k to $35k, 6 = $35k to $50k, 7 = $50k to $75k, 8 = $75k or more.</li>
+<li>SEX: respondent sex; 1 = male, 2 = female.</li>
+</ul>
+<p>Using this file, construct a “restricted” data set with the following characteristics:</p>
+<ul>
+<li>Include only respondents who live in the following states: Alabama, Florida, Georgia, Louisiana, Mississippi, and Texas.</li>
+<li>Include only respondents between the ages of 26 and 64.</li>
+<li>Include only respondents with household incomes below $35k.</li>
+<li>Create a new variable called “UNINSURED” that is equal to 1 if a respondent is uninsured and equal to 0 if the respondent is insured.</li>
+<li>Create a new variable called “PF_HLTH” that is equal to 1 if a respondent’s self-rated health is “poor” or “fair” and equal to 0 otherwise.</li>
+<li>Create a variable called “TREATMENT” that is equal to 1 if a respondent lives in Louisiana and is equal to 0 otherwise.</li>
+</ul>
+<p>We’re going to use this restricted dataset in our next Data Lab, so let’s go ahead and save it using the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(brfss_restrict, <span class="at">file =</span> <span class="st">"path/brfss_restrict.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Be sure to replace “path” with the path to the folder on your computer where you’d like to save the data. Also, note that I’m using a Mac, so I have a forward slash in my code. If you’re using a PC, you’ll probably need to use a double backslash.</p>
+<p><em>We’re also going to need to use our restricted ACS dataset that we created in <a href="../../materials/Data Labs/datalab_9.html">Data Lab 9</a> in our next Data Lab. So, if you haven’t done so already, you’ll want to recreate that dataset and save it to your computer. You don’t need to do this today, but you should do it before our next Data Lab.</em></p>
+</section>
+<section id="step-3-plot-trends-in-insurance-coverage" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-plot-trends-in-insurance-coverage">Step 3: Plot Trends in Insurance Coverage</h2>
+<p>Like last time, we’re going to plot trends in insurance coverage rates for Louisiana and for the other Gulf South states. However, our plot is going to look a little different this time. Instead of plotting trends for Louisiana and the Gulf South states in separate figures, let’s plot them both on the same figure. We can do this by using the “TREATMENT” variable that we defined in the previous step.</p>
+<p>First, you’ll need to calculate mean uninsurance rates by year and by treatment status. When doing so, you’ll need to account for the fact that some respondents might have missing values for “UNINSURED” (as well as for other variables). This means you’ll want to include the <code>na.rm = TRUE</code> statement when calculating mean values.</p>
+<p>Once you’ve done that, you can use the following code to plot uninsurance rates over time for Louisiana and the Gulf South States:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> YEAR)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">subset</span>(df, TREATMENT <span class="sc">==</span> <span class="dv">1</span>), </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">y =</span> MEAN_UNINSURED, <span class="at">color =</span> <span class="st">"Louisiana"</span>)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(df, TREATMENT <span class="sc">==</span> <span class="dv">1</span>), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">y =</span> MEAN_UNINSURED, <span class="at">color =</span> <span class="st">"Louisiana"</span>)) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">subset</span>(df, TREATMENT <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">y =</span> MEAN_UNINSURED, <span class="at">color =</span> <span class="st">"Gulf South"</span>)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(df, TREATMENT <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">y =</span> MEAN_UNINSURED, <span class="at">color =</span> <span class="st">"Gulf South"</span>)) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Insurance Coverage in Louisiana &amp; Gulf South States"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Share Uninsured"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that you’ll need to replace “df” in the code above with whatever you named the data frame that you’re trying to plot.</p>
+<ol type="1">
+<li>Describe the pattern you see in the figure.</li>
+<li>Is the pattern of uninsurance rates in the BRFSS data similar to the pattern you observed in the ACS data from Data Lab 9?</li>
+</ol>
+</section>
+<section id="step-4-plot-trends-in-usual-source-of-care" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-plot-trends-in-usual-source-of-care">Step 4: Plot Trends in Usual Source of Care</h2>
+<p>Now let’s look to see if changes in insurance coverage in Louisiana translated into improvements in health care access.</p>
+<p>Modify the code you used in Step 3 to plot trends in whether respondents reported having a usual source of care in Louisiana and for the other Gulf South states.</p>
+<ol start="3" type="1">
+<li>Describe the pattern you see in the figure. Does Medicaid expansion in Louisiana appear to be associated with changes in reporting a usual source of care?</li>
+</ol>
+</section>
+<section id="step-5-plot-trends-in-forgoing-care-due-to-cost" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-plot-trends-in-forgoing-care-due-to-cost">Step 5: Plot Trends in Forgoing Care Due to Cost</h2>
+<p>Lastly, plot trends in whether respondents reported forgoing care at any time over the past year due to cost in Louisiana and for the other Gulf South states.</p>
+<ol start="4" type="1">
+<li>Describe the pattern you see in the figure. Does Medicaid expansion in Louisiana appear to be associated with changes in forgoing medical care due to cost?</li>
+</ol>
+</section>
+<section id="step-6-knitting-to-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-knitting-to-pdf">Step 6: Knitting to PDF</h2>
+<p>Once you’ve finished answering the questions, knit your R Markdown document to a PDF and upload the PDF <a href="https://tulane.instructure.com/courses/2291178/assignments/14703911">here</a>. Your document should include all of the tables and figures you created in this Data Lab along with your answers to the questions.</p>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><p>We’ve now explored changes in the uninsurance rate associated with Medicaid expansion using two datasets (ACS &amp; BRFSS) and changes in Medicaid coverage rates using the ACS data. It seems pretty clear that Medicaid expansion in Louisiana increased Medicaid coverage and reduced the uninsurance rate in the state. In the next Data Lab, we’ll quantify this change.</p></li>
+<li><p>We also examined how changes in insurance coverage associated with Medicaid expansion might translate into changes in access to care. Improved access to health care services represents a logical pathway through which Medicaid expansion might improve health.</p></li>
+<li><p>In our next (and final!) Data Lab, we’ll explore the connection between Medicaid coverage and health by exploiting Louisiana’s Medicaid expansion as a “natural experiment”. To do so, we’ll use a quasi-experimental reserach design known as “difference-in-differences” that will compare changes in Louisiana to changes in the other Gulf South states that have not yet expanded Medicaid coverage.</p></li>
 </ul>
 
 

@@ -8,16 +8,20 @@ subtitle: "Case Presentations"
 - [Case Study: Reforming the Medicaid Program](/materials/Case/HPAM_7660_Case_Study_Sp25.pdf)
 - [Case Study Rubric](/materials/Case/HPAM 7660 - Case Rubric.pdf)
 
-## Case Teams
+## Case Teams & Presentation Times
 
-Team 1: Wasim, Mun, Moukoury, Sharma
+<u>Tuesday, April 8th</u>
 
-Team 2: Romness, Nsibande, Ardoin, Moss
+Team 3: Harling, Nawab, Frank, Adkins - 10:30am to 11:00am
 
-Team 3: Harling, Nawab, Frank, Adkins
+Team 1: Wasim, Mun, Moukoury, Sharma - 11:00am to 11:30am
 
-Team 4: Benson, Shah, Ahlawat, Pecchia
+Team 5: Golan, Lalani, Rong, Pickard - 11:30am to 12:00pm
 
-Team 5: Golan, Lalani, Rong, Pickard
+<u>Thursday, April 10th</u>
+
+Team 2: Romness, Nsibande, Ardoin, Moss - 10:30am to 11:00am
+
+Team 4: Benson, Shah, Ahlawat, Pecchia - 11:00am to 11:30am
 
 - [R Script for randomization](/assignments/Case/team_assignment.R) 

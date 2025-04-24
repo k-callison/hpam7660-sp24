@@ -5,7 +5,7 @@ subtitle: "Research Design: Quasi-Experimental Research Designs"
 
 ## Tuesday, April 22
 
-- Slides - [Quasi-Experimental Research Designs](xxxx)
+- Slides - [Quasi-Experimental Research Designs](/slides/HPAM_7660_Quasi-Experiments.pdf)
 
 ## Thursday, April 24
 

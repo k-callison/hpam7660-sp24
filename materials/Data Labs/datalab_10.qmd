@@ -115,5 +115,5 @@ Once you've finished answering the questions, knit your R Markdown document to a
 
 - We also examined how changes in insurance coverage associated with Medicaid expansion might translate into changes in access to care. Improved access to health care services represents a logical pathway through which Medicaid expansion might improve health.
 
-- In our next (and final!) Data Lab, we'll explore the connection between Medicaid coverage and health by exploiting Louisiana's Medicaid expansion as a "natural experiment". To do so, we'll use a quasi-experimental reserach design known as "difference-in-differences" that will compare changes in Louisiana to changes in the other Gulf South states that have not yet expanded Medicaid coverage.
+- In our next (and final!) Data Lab, we'll explore the connection between Medicaid coverage and health by exploiting Louisiana's Medicaid expansion as a "natural experiment". To do so, we'll use a quasi-experimental research design known as "difference-in-differences" that will compare changes in Louisiana to changes in the other Gulf South states that have not yet expanded Medicaid coverage.
 

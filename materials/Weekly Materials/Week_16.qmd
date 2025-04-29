@@ -5,7 +5,7 @@ subtitle: "Provider Payment Refomrs: Policy Trade-Offs and Stakeholder Impacts"
 
 ## Tuesday, April 29
 
-- Data Lab 11 - [Medicaid Expansion and Health Pt.2](xxxx)
+- Data Lab 11 - [Medicaid Expansion and Health Pt.2](/materials/Data Labs/datalab_11.qmd)
 
 ## Thursday, May 1
 

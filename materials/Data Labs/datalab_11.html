@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Week 15 Assignments – HPAM 7660 - Health Policy Analysis</title>
+<title>Data Lab 11 - Medicaid and Health Pt.2 – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../img/site_icon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9ddf7efa873d362c419e59393d87a44a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/site_icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9ddf7efa873d362c419e59393d87a44a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">HPAM 7660 - Health Policy Analysis</span>
     </a>
   </div>
@@ -89,19 +124,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../syllabus.html"> 
+    <a class="nav-link" href="../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../resources/index.html"> 
+    <a class="nav-link" href="../../resources/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -120,8 +155,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tuesday-april-22" id="toc-tuesday-april-22" class="nav-link active" data-scroll-target="#tuesday-april-22">Tuesday, April 22</a></li>
-  <li><a href="#thursday-april-24" id="toc-thursday-april-24" class="nav-link" data-scroll-target="#thursday-april-24">Thursday, April 24</a></li>
+  <li><a href="#step-1-create-a-new-r-markdown-document-for-this-data-lab" id="toc-step-1-create-a-new-r-markdown-document-for-this-data-lab" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-markdown-document-for-this-data-lab">Step 1: Create a New R Markdown Document for this Data Lab</a></li>
+  <li><a href="#step-2-load-and-prepare-the-data" id="toc-step-2-load-and-prepare-the-data" class="nav-link" data-scroll-target="#step-2-load-and-prepare-the-data">Step 2: Load and Prepare the Data</a></li>
+  <li><a href="#step-3-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-the-uninsured-rate" id="toc-step-3-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-the-uninsured-rate" class="nav-link" data-scroll-target="#step-3-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-the-uninsured-rate">Step 3: Use a Difference-in-Differences Model to Estimate the Effect of Louisiana’s Medicaid Expansion on the Uninsured Rate</a></li>
+  <li><a href="#step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-access-to-care" id="toc-step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-access-to-care" class="nav-link" data-scroll-target="#step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-access-to-care">Step 4: Use a Difference-in-Differences Model to Estimate the Effect of Louisiana’s Medicaid Expansion on Access to Care</a></li>
+  <li><a href="#step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-self-rated-health" id="toc-step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-self-rated-health" class="nav-link" data-scroll-target="#step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-self-rated-health">Step 4: Use a Difference-in-Differences Model to Estimate the Effect of Louisiana’s Medicaid Expansion on Self-Rated Health</a></li>
+  <li><a href="#step-6-knitting-to-pdf" id="toc-step-6-knitting-to-pdf" class="nav-link" data-scroll-target="#step-6-knitting-to-pdf">Step 6: Knitting to PDF</a></li>
   </ul>
 </nav>
     </div>
@@ -130,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 - Week 15 Assignments</h1>
+<h1 class="title">Data Lab 11 - Medicaid and Health Pt.2</h1>
 </div>
 
 
@@ -147,14 +186,82 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tuesday-april-22" class="level2">
-<h2 class="anchored" data-anchor-id="tuesday-april-22">Tuesday, April 22</h2>
+<p>Welcome to the last Data Lab of the semester! Today, we’ll continue our analysis of the relationship between Medicaid coverage in health. So far, we’ve seen that Medicaid coverage appears to be associated with worse health. This was true when we compared means across those with and without Medicaid coverage and even when we regressed self-reported health on Medicaid controlling for some potential confounders.</p>
+<p>However, as we know, it’s difficult (if not impossible) to control for <em>ALL</em> confounders in a standard regression analysis and so there may still be selection bias that could be contaminating our estimate of the average treatment effect of Medicaid on health. So today, we’re going to use a quasi-experimental research design called “difference-in-differences” (DD) that should help us better control for this selection bias.</p>
+<p>The three things that we’re going to do today are:</p>
+<ol type="1">
+<li>Estimate the effect of Louisiana’s Medicaid expansion on insurance coverage.</li>
+<li>Estimate the effect of Louisiana’s Medicaid expansion on health care access.</li>
+<li>Estimate the effect of Louisiana’s Medicaid expansion on health outcomes.</li>
+</ol>
+<section id="step-1-create-a-new-r-markdown-document-for-this-data-lab" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-markdown-document-for-this-data-lab">Step 1: Create a New R Markdown Document for this Data Lab</h2>
+<p>Create a new R Markdown document and give it a YAML header that includes the title “HPAM 7660 Data Lab 11”, your name, the date, and “pdf_document” as the output format. You’ll submit a pdf of this R Markdown document once you’ve finished the Data Lab today.</p>
 </section>
-<section id="thursday-april-24" class="level2">
-<h2 class="anchored" data-anchor-id="thursday-april-24">Thursday, April 24</h2>
+<section id="step-2-load-and-prepare-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-load-and-prepare-the-data">Step 2: Load and Prepare the Data</h2>
+<p>I’ve created a data file for us to use in this Data Lab. The data file is called <code>brfss_datalab11.rds</code> and you can download it <a href="https://www.dropbox.com/scl/fi/99fri9thy5fmrf09y76o7/brfss_datalab11.rds?rlkey=dkhq439llijefauxzdrkathyx&amp;st=eogzz5ji&amp;dl=1">here</a>.</p>
+<p>This data comes from the Behavioral Risk Factor Surveillance Survey (BRFSS). We’ve used this data in previous Data Labs, though in this version, I’ve already restricted the data to low-income respondents between the ages of 26 and 64. Here are the variables included in the <code>acs_datalab11.rds</code> file and their values:</p>
 <ul>
-<li>Policy Memo Executive Summary and Conclusions - Click <a href="https://tulane.instructure.com/courses/2291178/assignments/14673854">here</a> for assignment instructions and Canvas submission link.</li>
+<li>YEAR: survey year; 2012 through 2019.</li>
+<li>STATEFIP: state FIPS code (already restricted to Louisiana and southern non-expansion states).</li>
+<li>GENHLTH: self-rated health; 1 = excellent, 2 = very good, 3 = good, 4 = fair, 5 = poor.</li>
+<li>PHYSHLTH: Number of days in the past month that a respondent’s physical health was ‘not good’.</li>
+<li>MENTHLTH: Number of days in the past month that a respondent’s mental health was ‘not good’.</li>
+<li>UNINSURED: does the respondent lack health insurance coverage; 1 = yes, 2 = no.</li>
+<li>PERSDOC2: does the respondent have a usual source of care; 1 = yes, 0 = no.</li>
+<li>MEDCOST: did the respondent forgo medical care in past year due to cost; 1 = yes, 0 = no.</li>
 </ul>
+<p>Using this file, generate the following variables that we’ll need for the DD analyses:</p>
+<ul>
+<li>TREAT: a variable that is equal to 1 if a respondent lives in Louisiana and is equal to 0 if they live in another southern non-expansion state.</li>
+<li>POST: a variable that is equal to 1 if the survey year is 2016 through 2019 and is equal to 0 if the survey year is prior to 2016.</li>
+</ul>
+<p>Also, let’s tweak a few of the self-rated health measures to make them easier to interpret for our analyses. Generate the following outcome variables using the existing BRFSS measures of self-rated health:</p>
+<ul>
+<li>FP_HEALTH: a variable that equals 1 if the respondent reported their health as ‘Fair’ or ‘Poor’ (i.e., GENHLTH = 4 or 5) and equals 0 if the respondent reported their health as ‘Excellent’, ‘Very Good’, or ‘Good’ (i.e., GENHLTH = 1, 2, or 3).</li>
+<li>ANY_MENTHLTH: a variable that equals 1 if the respondent reported between 1 and 30 days in the past month that their mental health was ‘not good’ and equals 0 if they reported 0 days in the past month that their mental health was ‘not good’.</li>
+<li>ANY_PHYSHLTH: a variable that equals 1 if the respondent reported between 1 and 30 days in the past month that their physical health was ‘not good’ and equals 0 if they reported 0 days in the past month that their physical health was ‘not good’.</li>
+</ul>
+</section>
+<section id="step-3-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-the-uninsured-rate" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-the-uninsured-rate">Step 3: Use a Difference-in-Differences Model to Estimate the Effect of Louisiana’s Medicaid Expansion on the Uninsured Rate</h2>
+<p>Remember that in a DD framework, we’re calculating: [(Treat_post - Treat_pre) - (Control_post - Control_pre)]. Typically, we do this in a regression framework because it allows us to add additional control variables if we’d like (we won’t do that today) and it makes it easy to calculate p-values and confidence intervals. The regression equivalent of the DD calculation above is ’Outcome = Treat + Post + Treat*Post’. Let’s run this regression and see what we get. You can use the following code replacing ‘df’ with whatever you name you used for your data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uninsured_dd <span class="ot">&lt;-</span> <span class="fu">lm</span>(UNINSURED <span class="sc">~</span> TREAT <span class="sc">*</span> POST, <span class="at">data =</span> df)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(uninsured_dd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The coefficient estimate on the interaction term <code>TREAT*POST</code> is our DD estimate of the effect of Louisiana’s Medicaid expansion on the share of our sample that is uninsured. If you multiply this coefficient by 100, you’ll get the <em>percentage point</em> change in the uninsured rate resulting from Medicaid expansion in Louisiana.</p>
+<p>This percentage point change is the <em>absolute effect</em> of the policy, but it’s also helpful to provide the <em>relative effect</em> (i.e, the percentage change from baseline). To convert the absolute effect to the relative effect, we need to know what share of Louisianans lacked insurance coverage in the pre-policy period. We can get that value using the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATEFIP <span class="sc">==</span> <span class="dv">22</span>, POST <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">MEAN_UNINSURED =</span>  <span class="fu">mean</span>(UNINSURED, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here we’re using the <code>summarize</code> command to calculate the mean value of <code>UNINSURED</code> for Louisiana (STATEFIP == 22) in the pre-policy period (POST ==0).</p>
+<p>To calculate the relative effect, we can divide the absolute effect by the baseline mean and multiply by 100. In this case, you should get the following: (-0.132/0.362)*100 = -36.5.</p>
+<p>In other words, Louisiana’s Medicaid expansion reduced the uninsurance rate among low-income people between the ages of 20 and 64 by 13.2 percentage points, which is a 36.5 percent reduction from the baseline mean.</p>
+</section>
+<section id="step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-access-to-care" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-access-to-care">Step 4: Use a Difference-in-Differences Model to Estimate the Effect of Louisiana’s Medicaid Expansion on Access to Care</h2>
+<p>Next, let’s look at whether Louisiana’s Medicaid expansion had an effect on whether a respondent reports a usual source of care and whether the respondent went without medical care in past year due to cost.</p>
+<ol type="1">
+<li>Estimate DD models using PERSDOC2 and MEDCOST as outcome variables.</li>
+<li>Report both the absolute and relative effects of Louisiana’s Medicaid expansion on these outcomes.</li>
+</ol>
+</section>
+<section id="step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-self-rated-health" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-self-rated-health">Step 4: Use a Difference-in-Differences Model to Estimate the Effect of Louisiana’s Medicaid Expansion on Self-Rated Health</h2>
+<p>Finally, let’s see how Louisiana’s Medicaid expansion might’ve affected the self-rated health of the state’s low-income, adult non-elderly population.</p>
+<ol start="3" type="1">
+<li>Estimate DD models using FP_HEALTH, ANY_MENTHLTH, and ANY_PHYSHLTH as outcome variables.</li>
+<li>Report both the absolute and relative effects of Louisiana’s Medicaid expansion on these outcomes.</li>
+<li>How do your results here differ from your previous estimates of the relationship between Medicaid coverage and health? What might explain these differences?</li>
+</ol>
+</section>
+<section id="step-6-knitting-to-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-knitting-to-pdf">Step 6: Knitting to PDF</h2>
+<p>Once you’ve finished answering the questions, knit your R Markdown document to a PDF and upload the PDF <a href="https://tulane.instructure.com/courses/2291178/assignments/14716655">here</a>. Your document should include all of the tables and figures you created in this Data Lab along with your answers to the questions.</p>
 
 
 </section>

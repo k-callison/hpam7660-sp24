@@ -45,7 +45,7 @@ course-logo: /img/site_image_alt.png
 :::
 
 ::: {.g-col-6}
-### Teaching Assistant
+<!--### Teaching Assistant
 
 - {{< fa user >}} &nbsp; {{< var instructor.ta_name >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto: psanusi@tulane.edu">psanusi@tulane.edu</a>
@@ -55,7 +55,7 @@ course-logo: /img/site_image_alt.png
 
 - {{< fa calendar >}} &nbsp; {{< var instructor.ta_days >}}
 - {{< fa clock >}} &nbsp; {{< var instructor.ta_time >}}
-- {{< fa university >}} &nbsp; {{< var instructor.ta_office >}}
+- {{< fa university >}} &nbsp; {{< var instructor.ta_office >}} -->
 
 :::
 

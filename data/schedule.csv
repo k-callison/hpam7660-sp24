@@ -1,33 +1,5 @@
 week,date,date_end,title,deadline,content,tutorial,assignment
 1,2026-01-13,,Course Introduction,,"materials/Weekly Materials/Week_1",,
-1,2026-01-15,,U.S. Health Policy Landscape,,"materials/Weekly Materials/Week_1",,https://tulane.instructure.com/courses/2291178/assignments/14673851
-2,2026-01-20,,Data Lab - Getting Started with R and RStudio,,"materials/Weekly Materials/Week_2","materials/Data Labs/datalab_1.qmd",
-2,2026-01-22,,No Class,,,,
-3,2026-01-27,,Policy Analysis Overview,,"materials/Weekly Materials/Week_3",,"assignments/Week 3 Reading Discussion Questions.pdf"
-3,2026-01-29,,Data Lab - Navigating RStudio,,"materials/Weekly Materials/Week_3","materials/Data Labs/datalab_2.qmd",
-4,2026-02-03,,Effective Policy Memos and Case Presentations,,"materials/Weekly Materials/Week_4",,
-4,2026-02-05,,Data Lab - Descriptive Comparisons: Medicaid and Health,,"materials/Weekly Materials/Week_4","materials/Data Labs/datalab_3.qmd","assignments/Problem Sets/problem_set_1.qmd"
-5,2026-02-10,,Medicaid Work Requirements: Stakeholder Perspectives,,"materials/Weekly Materials/Week_5",,
-5,2026-02-12,,Data Lab - Expanding Descriptive Comparisons: Medicaid and Health,,"materials/Weekly Materials/Week_5","materials/Data Labs/datalab_4.qmd","assignments/Problem Sets/problem_set_2.qmd"
-6,2026-02-17,,Research Design: Randomization,,"materials/Weekly Materials/Week_6",,
-6,2026-02-19,,Data Lab - Confounders and Treatment Effects,,"materials/Weekly Materials/Week_6","materials/Data Labs/datalab_5.qmd","assignments/Problem Sets/problem_set_3.qmd"
-7,2026-02-24,,Research Design: Regression Analysis,,"materials/Weekly Materials/Week_7",,
-7,2026-02-26,,Data Lab - Regression Basics: Controlling for Counfounders,,"materials/Weekly Materials/Week_7","materials/Data Labs/datalab_6.qmd","assignments/Week_7_assignments.qmd"
-8,2026-03-03,,No Class - Spring Break!,,,,
-8,2026-03-05,,No Class - Spring Break!,,,,
-9,2026-03-10,,Reimagining the Affordable Care Act,,"materials/Weekly Materials/Week_9",,
-9,2026-03-12,,Data Lab - Controlling for Confounders Pt.2,,"materials/Weekly Materials/Week_9","materials/Data Labs/datalab_7.qmd","assignments/Week_9_assignments.qmd"
-10,2026-03-17,,Research Design: Natural Experiments,,"materials/Weekly Materials/Week_10",,"assignments/Week_10_assignments.qmd"
-10,2026-03-19,,Data Lab - Louisiana Medicaid Expansion and Medicaid Coverage,,"materials/Weekly Materials/Week_10","materials/Data Labs/datalab_8.qmd",
-11,2026-03-24,,Research Design: Natural Experiments Pt.2,,"materials/Weekly Materials/Week_11",,
-11,2026-03-26,,Data Lab - Heterogeneous Effects of Louisiana's Medicaid Expansion on Insurance Coverage,,"materials/Weekly Materials/Week_11","materials/Data Labs/datalab_9.qmd","https://tulane.instructure.com/courses/2291178/assignments/14673856"
-12,2026-03-31,,Medicaid Financing: FMAP and Block Grants,,"materials/Weekly Materials/Week_12",,
-12,2026-04-02,,Data Lab - Medicaid Expansion and Health,,"materials/Weekly Materials/Week_12","materials/Data Labs/datalab_10.qmd","https://tulane.instructure.com/courses/2291178/assignments/14673857"
-13,2026-04-07,,Case Presentations,,"materials/Weekly Materials/Week_13",,
-13,2026-04-09,,Case Presentations,,"materials/Weekly Materials/Week_13",,"https://tulane.instructure.com/courses/2291178/assignments/14673860"
-14,2026-04-14,,No Class - Lagniappe Day,,,,
-14,2026-04-16,,No Class - Capstone Trip,,,,"https://tulane.instructure.com/courses/2291178/assignments/14673861"
-15,2026-04-21,,Research Design: Quasi-Experimental Designs,,"materials/Weekly Materials/Week_15",,
-15,2026-04-23,,Research Design: Quasi-Experimental Designs Pt.2,,"materials/Weekly Materials/Week_15",,"https://tulane.instructure.com/courses/2291178/assignments/14673854"
-16,2026-04-28,,Data Lab - Medicaid Expansion and Health Pt.2,,"materials/Weekly Materials/Week_16","materials/Data Labs/datalab_11.qmd",
-16,2026-,,No Class - Final Policy Memo Due,,"materials/Weekly Materials/Week_16",,"assignments/Week_16_assignments.qmd"
+1,2026-01-15,,Federal & State Health Policy Landscapes,,"materials/Weekly Materials/Week_1",,https://tulane.instructure.com/courses/2291178/assignments/14673851
+2,2026-01-20,,Health Policy Advocacy in Louisiana,,"materials/Weekly Materials/Week_2","materials/Data Labs/datalab_1.qmdx",
+2,2026-01-22,,Data Lab - Getting Started with R and RStudio,,,,

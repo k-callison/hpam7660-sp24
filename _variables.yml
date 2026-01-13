@@ -9,7 +9,7 @@ instructor:
   office: "Tidewater 1929"
   ta_office: "Tidewater 1926"
   office_days: "Tuesday/Thursday"
-  office_time: "9:30-10:30 AM"
+  office_time: "3:45-4:45 PM or by Appointment"
   office_loc: "Tidewater 1929"
   ta_days: "Wednesday"
   ta_time: "10:00-11:00 AM"
@@ -22,9 +22,9 @@ instructor:
 
 course:
   number: "HPAM 7660"
-  semester: "Spring 2025"
+  semester: "Spring 2026"
   days: "Tuesday/Thursday"
-  time: "10:30–11:45 AM"
+  time: "2:30–3:45 PM"
   location: "Tidewater 1903"
   github: "https://github.com/gov50/gov50-f23"
   url: "https://mattblackwell.github.io/gov50-f23"

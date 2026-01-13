@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../img/site_icon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-9ddf7efa873d362c419e59393d87a44a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-92da34cd48ce53aa8b62a62b67f4d459.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -193,21 +194,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Step 1: Create a Markdown document</strong></p>
 <p>Let’s start by opening the .Rproj file in your <code>hpam7660_Cancer_Alley</code> folder. Then open a new Markdown document. We’ll want to start fresh for this tutorial rather than continuing to work off of the previous document. We’ll also want to remove any existing data frames from our global environment so that we’re not confusing new data for old data. Run the following command to clear your environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Step 2: Load packages</strong></p>
 <p>In the past tutorials, we’ve been loading individual packages like <code>dplyr</code>, <code>reader</code>, etc. It turns out that the <code>tidyverse</code> package contains all of these individual packages and more. So, when you go to load the packages for this tutorial, you can simply load the <code>tidyverse</code> package and the <code>knitr</code> package and they will include all of the packages needed.</p>
 <p><strong>Step 3: Read in the data</strong></p>
 <p>For this tutorial, you’ll need the <code>la_mort</code> data, the <code>la_pop</code> data, and the <code>stnrd_pop</code> data. You can use the code below to load these files:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>la_mort <span class="ot">&lt;-</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>la_mort <span class="ot">&lt;-</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/scl/fi/fzsnhfd3lq80v2o3sag6c/la_mort.csv?rlkey=h1vyjm2b8ppgejgsg3e8evm7i&amp;dl=1"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>la_pop <span class="ot">&lt;-</span> </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/scl/fi/650k1obpczky6bwa19ex6/la_county_pop.csv?rlkey=0aokd9m76q7mxwus97uslsx7g&amp;dl=1"</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>stnrd_pop <span class="ot">&lt;-</span> </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/scl/fi/xzd2o5lza237so6vamqwb/stnrd_pop.csv?rlkey=zp90au2tuq6eptvi1yiyjfzua&amp;dl=1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/scl/fi/xzd2o5lza237so6vamqwb/stnrd_pop.csv?rlkey=zp90au2tuq6eptvi1yiyjfzua&amp;dl=1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Step 4: Define Cancer Alley Parishes</strong></p>
 <p>We’ve done this previously using the traditional definition of Cancer Alley parishes, but a recent mapping of air toxicity shows that high levels of airborne carcinogens are concentrated among a subset of the Cancer Alley parishes:</p>
@@ -248,13 +249,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Step 9: Define Race in the Population File</strong></p>
 <p>Now you’ll need to calculate population values by age groupings for Black and white people in Louisiana using the <code>la_pop</code> file. This get’s a little tricky, so I’m providing you with the code you’ll need to do this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>la_pop <span class="ot">&lt;-</span> la_pop <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>la_pop <span class="ot">&lt;-</span> la_pop <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">black_pop =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">c</span>(<span class="st">"ba_male"</span>, <span class="st">"ba_female"</span>))),</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">white_pop =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">c</span>(<span class="st">"wa_male"</span>, <span class="st">"wa_female"</span>))),</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>la_pop_black <span class="ot">&lt;-</span> <span class="fu">select</span>(la_pop, county, year, agegrp, black_pop)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>la_pop_white <span class="ot">&lt;-</span> <span class="fu">select</span>(la_pop, county, year, agegrp, white_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>la_pop_white <span class="ot">&lt;-</span> <span class="fu">select</span>(la_pop, county, year, agegrp, white_pop)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>One important thing to note about this code chunk is that it creates two separate data frames: one called <code>la_pop_black</code> that contains population data for Black people in Louisiana and one called <code>la_pop_white</code> that contains population data for white people in Louisiana.</p>
 <p><strong>Step 10: Join the Mortality and Population Data Frames</strong></p>
@@ -263,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Once you have these two data frames, you’re going to want to stack them together. In R, stacking two data frames is done using the <code>rbind</code> function (FYI…STATA calls this an <code>append</code>, SQL calls this a <code>union</code>, and R calls this a <code>bind</code>, I have no idea why we can’t settle on one naming convention for stacking!). It’s also important that the data frames you’re trying to bind have the same column titles. This is not the case with the <code>la_pop_black</code> and <code>la_pop_white</code> data frames because one has a column called <code>black_pop</code> and the other has a column called <code>white_pop</code>. You’ll want to use the <code>rename</code> function to change both of these column names to something like <code>population</code>. Be sure to do this before attempting the bind.</p>
 <p>Here’s the syntax for <code>rbind</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>la_bind <span class="ot">&lt;-</span> <span class="fu">rbind</span>(la_joined_black, la_joined_white)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>la_bind <span class="ot">&lt;-</span> <span class="fu">rbind</span>(la_joined_black, la_joined_white)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Step 11: Join the Mortality/Population Data to the Standard Population Data</strong></p>
 <p>We now need to join the standard population data so that we can age-adjust our mortality rates. Nothing too tricky here, just join on <code>agegrp</code> like you did in the last <a href="../../../assignments/tutorial_6.qmd">tutorial</a>. Note that we’re not using race-specific standard populations, but instead using the full population distribution of the U.S. in 2000.</p>
@@ -272,36 +273,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Step 13: Calculate Cancer Mortality Rates by Cancer Site and Race</strong></p>
 <p>When we calculated cancer mortality rates in the last <a href="../../../assignments/tutorial_6.qmd">tutorial</a>, we used the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cancer_rate_adj <span class="ot">&lt;-</span> ((df<span class="sc">$</span>cancer39) <span class="sc">/</span> (df<span class="sc">$</span>tot_pop <span class="sc">/</span> <span class="dv">100000</span>)) <span class="sc">*</span> df<span class="sc">$</span>stnrd_pop_weight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cancer_rate_adj <span class="ot">&lt;-</span> ((df<span class="sc">$</span>cancer39) <span class="sc">/</span> (df<span class="sc">$</span>tot_pop <span class="sc">/</span> <span class="dv">100000</span>)) <span class="sc">*</span> df<span class="sc">$</span>stnrd_pop_weight</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Where we calculated a variable called <code>cancer_rate_adj</code> that was equal to the sum of cancer deaths (from all sites and all race/ethnicities) divided by the total population (which was scaled by 100,000) and then we multiplied this by the standard population weight. We want to do the same thing here, but we want the cancer mortality rates we calculate to be specific to cancer site and race. (Hint: the data frame already contains separate rows for Black and white decedents, so we don’t need to make any additional accommodation to calculate race-specific rates. You can simply alter the line of code above so that it reflects a particular cancer site and then include a line for each cancer site - DON’T FORGET TO CALCULATE THE TOTAL RATE.)</p>
 <p>Once you get this far in Step 13 you might see something strange if you look at the data. A couple of cells will contain a value that says “inf”. This happens when the number of cancer deaths is greater than 0, but the age-race population is 0. You have to remember that the population numbers are <em>estimates</em>. So in sparsely populated parishes, the Census might estimate 0 Black people between the ages of 80 and 84 (for example), but the mortality data (which are <em>not</em> estimates) tell us that at least 1 Black person in that age range did in fact die of cancer in that parish.</p>
 <p>Since this only happens a couple of times and we’re weighting by population anyway, you can run the following code that will essentially drop any cases where a cell value is “inf”. Remember to replace <code>df</code> with the actual name of your data frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col <span class="cf">in</span> <span class="fu">names</span>(df)) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col <span class="cf">in</span> <span class="fu">names</span>(df)) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  df[[col]][<span class="fu">is.infinite</span>(df[[col]])] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Step 14: Aggregate to the Parish-Year Level</strong></p>
 <p>In the last <a href="../../../assignments/tutorial_6.qmd">tutorial</a>, we used the following code to aggregate our data to the parish-year level:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>parish_rates <span class="ot">&lt;-</span> la_joined_stnrd <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>parish_rates <span class="ot">&lt;-</span> la_joined_stnrd <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cntyrsd, cancer_parish, year) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cancer_rate_adj =</span> <span class="fu">sum</span>(cancer_rate_adj, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">tot_pop =</span> <span class="fu">sum</span>(tot_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cancer_rate_adj =</span> <span class="fu">sum</span>(cancer_rate_adj, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">tot_pop =</span> <span class="fu">sum</span>(tot_pop))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Notice that this grouped by county, the indicator for a Cancer Alley parish, and year. We want to do the same thing here, but we now have an extra grouping variable, <code>black</code>. We also only calculated total cancer mortality rates in the previous <a href="../../../assignments/tutorial_6.qmd">tutorial</a>, whereas this time, we want to calculate total rates <em>and</em> rates by site. Make the necessary adjustments to the code above.</p>
 <p><strong>Step 15: Weight by Parish Population</strong></p>
 <p>Now that we have age-adjusted cancer mortality rates, we want to weight by parish population so that more populous parishes receive more weight in the aggregate Cancer Ally vs.&nbsp;non-Cancer Alley rates. Again, we did a version of this in the last <a href="../../../assignments/tutorial_6.qmd">tutorial</a> using the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>parish_rates<span class="sc">$</span>pop_weight <span class="ot">&lt;-</span> (parish_rates<span class="sc">$</span>cancer_rate_adj) <span class="sc">*</span> (parish_rates<span class="sc">$</span>tot_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>parish_rates<span class="sc">$</span>pop_weight <span class="ot">&lt;-</span> (parish_rates<span class="sc">$</span>cancer_rate_adj) <span class="sc">*</span> (parish_rates<span class="sc">$</span>tot_pop)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You can do the same thing here, but make sure you calculate site-specific measures.</p>
 <p><strong>Step 16: Aggregate to Cancer Alley and non-Cancer Alley Parishes</strong></p>
 <p>If you’ve made it this far, you’re almost done. This is the last step! Here we’re taking our parish-year level measures of cancer mortality rates and aggregating them into two groups: rates for Cancer Alley parishes (for Black and white people) and rates for non-Cancer Alley parishes (for Black and white people). In the previous tutorial, we used this code for the aggregation:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cancer_alley_rates <span class="ot">&lt;-</span> parish_rates <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cancer_alley_rates <span class="ot">&lt;-</span> parish_rates <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cancer_parish, year) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cancer_rate_adj_wt =</span> <span class="fu">sum</span>(pop_weight) <span class="sc">/</span> <span class="fu">sum</span>(tot_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cancer_rate_adj_wt =</span> <span class="fu">sum</span>(pop_weight) <span class="sc">/</span> <span class="fu">sum</span>(tot_pop))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You need to modify this code so that you’re aggregating by the <code>black</code> indicator and across all cancer sites. Once you’ve done that you’re finished. Next time, we’ll (mostly) wrap up the Cancer Alley work by exploring visualizations that attempt to tell a descriptive story of differences in cancer mortality between Cancer Alley parishes and the rest of Louisiana.</p>
 <p>Be sure to save your Markdown file and push the file to your <code>hpam7660_Cancer_Alley</code> GitHub repo.</p>
@@ -361,13 +362,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

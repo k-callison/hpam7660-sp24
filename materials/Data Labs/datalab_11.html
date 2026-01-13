@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../img/site_icon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9ddf7efa873d362c419e59393d87a44a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-92da34cd48ce53aa8b62a62b67f4d459.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -228,15 +229,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="step-3-use-a-difference-in-differences-model-to-estimate-the-effect-of-louisianas-medicaid-expansion-on-the-uninsured-rate">Step 3: Use a Difference-in-Differences Model to Estimate the Effect of Louisiana’s Medicaid Expansion on the Uninsured Rate</h2>
 <p>Remember that in a DD framework, we’re calculating: [(Treat_post - Treat_pre) - (Control_post - Control_pre)]. Typically, we do this in a regression framework because it allows us to add additional control variables if we’d like (we won’t do that today) and it makes it easy to calculate p-values and confidence intervals. The regression equivalent of the DD calculation above is ’Outcome = Treat + Post + Treat*Post’. Let’s run this regression and see what we get. You can use the following code replacing ‘df’ with whatever you name you used for your data set:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uninsured_dd <span class="ot">&lt;-</span> <span class="fu">lm</span>(UNINSURED <span class="sc">~</span> TREAT <span class="sc">*</span> POST, <span class="at">data =</span> df)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(uninsured_dd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uninsured_dd <span class="ot">&lt;-</span> <span class="fu">lm</span>(UNINSURED <span class="sc">~</span> TREAT <span class="sc">*</span> POST, <span class="at">data =</span> df)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(uninsured_dd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The coefficient estimate on the interaction term <code>TREAT*POST</code> is our DD estimate of the effect of Louisiana’s Medicaid expansion on the share of our sample that is uninsured. If you multiply this coefficient by 100, you’ll get the <em>percentage point</em> change in the uninsured rate resulting from Medicaid expansion in Louisiana.</p>
 <p>This percentage point change is the <em>absolute effect</em> of the policy, but it’s also helpful to provide the <em>relative effect</em> (i.e, the percentage change from baseline). To convert the absolute effect to the relative effect, we need to know what share of Louisianans lacked insurance coverage in the pre-policy period. We can get that value using the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATEFIP <span class="sc">==</span> <span class="dv">22</span>, POST <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">MEAN_UNINSURED =</span>  <span class="fu">mean</span>(UNINSURED, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">MEAN_UNINSURED =</span>  <span class="fu">mean</span>(UNINSURED, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Here we’re using the <code>summarize</code> command to calculate the mean value of <code>UNINSURED</code> for Louisiana (STATEFIP == 22) in the pre-policy period (POST ==0).</p>
 <p>To calculate the relative effect, we can divide the absolute effect by the baseline mean and multiply by 100. In this case, you should get the following: (-0.132/0.362)*100 = -36.5.</p>
@@ -318,13 +319,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

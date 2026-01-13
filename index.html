@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./img/site_icon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9ddf7efa873d362c419e59393d87a44a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-92da34cd48ce53aa8b62a62b67f4d459.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -173,24 +174,19 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="teaching-assistant" class="level3 g-col-6">
-<h3 class="anchored" data-anchor-id="teaching-assistant">Teaching Assistant</h3>
-<ul>
-<li><i class="fa-solid fa-user" aria-label="user"></i> &nbsp; Philip Sanusi</li>
-<li><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp; <a href="mailto: psanusi@tulane.edu">psanusi@tulane.edu</a>
-<div style="margin-top: 20px;">
+<div class="g-col-6">
+<!--### Teaching Assistant
 
-</div></li>
-</ul>
-<section id="office-hours-1" class="level5">
-<h5 class="anchored" data-anchor-id="office-hours-1">Office Hours</h5>
-<ul>
-<li><i class="fa-solid fa-calendar" aria-label="calendar"></i> &nbsp; Wednesday</li>
-<li><i class="fa-solid fa-clock" aria-label="clock"></i> &nbsp; 10:00-11:00 AM</li>
-<li><i class="fa-solid fa-university" aria-label="university"></i> &nbsp; Tidewater 1926</li>
-</ul>
-</section>
-</section>
+-  &nbsp; Philip Sanusi
+-  &nbsp; <a href="mailto: psanusi@tulane.edu">psanusi@tulane.edu</a>
+<div style="margin-top: 20px;"></div>
+
+##### Office Hours
+
+-  &nbsp; Wednesday
+-  &nbsp; 10:00-11:00 AM
+-  &nbsp; Tidewater 1926 -->
+</div>
 <!-- Full-width row ONLY within Instructor/TA area -->
 <div class="g-col-12 contact-policy">
 <p>*If the office hour times don’t work for you, please email me and we can find a time that does. I’m also in my office most days from 9 to 5, so please feel free to stop by.</p>
@@ -254,13 +250,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

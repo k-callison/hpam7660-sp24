@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../img/site_icon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-9ddf7efa873d362c419e59393d87a44a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-92da34cd48ce53aa8b62a62b67f4d459.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -190,41 +191,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="load-cancer-alley-data">Load Cancer Alley Data</h2>
 <p>First, we’ll need to load the data frames we created in previous Cancer Alley tutorials. If you’ve saved these data frames to an image, you can load that image as follows</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"~/Dropbox/Documents/Teaching Materials/Health Policy/GitHub Site/hpam7660-sp24//assignments/tutorial_8.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"~/Dropbox/Documents/Teaching Materials/Health Policy/GitHub Site/hpam7660-sp24//assignments/tutorial_8.RData"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Otherwise, you’ll need to re-run your code that creates the <code>parish_rates</code> data frame. Once you have that data frame loaded in your environment, you can do some data cleaning as follows:</p>
 </section>
 <section id="join-smoking-rate-data" class="level2">
 <h2 class="anchored" data-anchor-id="join-smoking-rate-data">Join Smoking Rate Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>parish_rates <span class="ot">&lt;-</span> parish_rates <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>parish_rates <span class="ot">&lt;-</span> parish_rates <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(black <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"cntyrsd"</span>, <span class="st">"cancer_parish"</span>, <span class="st">"year"</span>, <span class="st">"total_rate_adj"</span>, <span class="st">"total_weight"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"cntyrsd"</span>, <span class="st">"cancer_parish"</span>, <span class="st">"year"</span>, <span class="st">"total_rate_adj"</span>, <span class="st">"total_weight"</span>, <span class="st">"population"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Here, I’m modifying the <code>parish_rates</code> data so that it only includes the columns that I want to use for this mini-tutorial and so that it restricts the sample to parish cancer mortality rates for white people. The reason that I’m restricting the sample to white people is that I don’t have smoking rates by race and ethnicity (if this were a real research project, that’s something I’d want to obtain). And since whites have higher smoking rates and comprise a greater share of the population in Louisiana than other races and ethnicities, it makes sense to restrict this example to the confounding effects of smoking on cancer mortality for whites.</p>
 <p>Next, we’ll read in the smoking rate data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>la_smoke <span class="ot">&lt;-</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/scl/fi/fh5gokmw3so6xfc5rthbl/la_smoke.csv?rlkey=f0vy11mvqcd37htsz8ubovtb8&amp;dl=1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>la_smoke <span class="ot">&lt;-</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/scl/fi/fh5gokmw3so6xfc5rthbl/la_smoke.csv?rlkey=f0vy11mvqcd37htsz8ubovtb8&amp;dl=1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>And then join that data to our <code>parish_rates</code> data using the key variables of <code>cntyrsd</code> (called <code>fips</code> in the smoking rate data) and <code>year</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>la_smoke_rates <span class="ot">&lt;-</span> parish_rates <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(la_smoke, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"cntyrsd"</span> <span class="ot">=</span> <span class="st">"fips"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>la_smoke_rates <span class="ot">&lt;-</span> parish_rates <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(la_smoke, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"cntyrsd"</span> <span class="ot">=</span> <span class="st">"fips"</span>, <span class="st">"year"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="regress-parish-cancer-rates-on-parish-smoking-rates" class="level2">
 <h2 class="anchored" data-anchor-id="regress-parish-cancer-rates-on-parish-smoking-rates">Regress Parish Cancer Rates on Parish Smoking Rates</h2>
 <p>Now we’ll run a regression that estimates the relationship between the share of people who smoke in a parish in a given year and the total cancer mortality rate in that year (there are some other terms included in the regression that aren’t that important for the purposes of this tutorial.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(total_rate_adj <span class="sc">~</span> smoke_perct <span class="sc">+</span> <span class="fu">as.factor</span>(year) <span class="sc">+</span> <span class="fu">as.factor</span>(cntyrsd), <span class="at">data =</span> la_smoke_rates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(total_rate_adj <span class="sc">~</span> smoke_perct <span class="sc">+</span> <span class="fu">as.factor</span>(year) <span class="sc">+</span> <span class="fu">as.factor</span>(cntyrsd), <span class="at">data =</span> la_smoke_rates)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The <code>lm()</code> command tells R that I want to run a linear regression model. You can visualize this as drawing a straight line (i.e., linear) through a plot of points where smoking rate is on the x-axis and cancer mortality rate is on the y-axis.</p>
 <p>Next, I want to predict parish-level cancer mortality rates holding smoking rates constant (i.e., controlling for smoking rates):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>la_smoke_rates<span class="sc">$</span>total_rate_hat <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> la_smoke_rates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>la_smoke_rates<span class="sc">$</span>total_rate_hat <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> la_smoke_rates)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This code creates a new variable called <code>total_rate_hat</code> that represents cancer mortality rates holding smoking rates constant.</p>
 </section>
@@ -232,21 +233,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="create-population-weighted-measures">Create Population Weighted Measures</h2>
 <p>Next, I want to weight this rate by population just like we did for the cancer mortality rates we created previously:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>la_smoke_rates<span class="sc">$</span>smoke_weight <span class="ot">&lt;-</span> (la_smoke_rates<span class="sc">$</span>total_rate_hat) <span class="sc">*</span> (la_smoke_rates<span class="sc">$</span>population)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>la_smoke_rates<span class="sc">$</span>smoke_weight <span class="ot">&lt;-</span> (la_smoke_rates<span class="sc">$</span>total_rate_hat) <span class="sc">*</span> (la_smoke_rates<span class="sc">$</span>population)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>la_smoke_final <span class="ot">&lt;-</span> la_smoke_rates <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cntyrsd, year) <span class="sc">%&gt;%</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_rate_adj_wt =</span> <span class="fu">sum</span>((total_weight) <span class="sc">/</span> <span class="fu">sum</span>(population), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">smoke_rate_adj_wt =</span> <span class="fu">sum</span>((smoke_weight) <span class="sc">/</span> <span class="fu">sum</span>(population), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>That’s it. We’re done. Now we can compare the parish-level cancer mortality rates to the cancer mortality rates that control for the share of the population that smokes to see the difference. Here’s an example for one parish:</p>
 </section>
 <section id="output-results" class="level2">
 <h2 class="anchored" data-anchor-id="output-results">Output Results</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>la_smoke_filtered <span class="ot">&lt;-</span> <span class="fu">subset</span>(la_smoke_final, cntyrsd <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(la_smoke_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>la_smoke_filtered <span class="ot">&lt;-</span> <span class="fu">subset</span>(la_smoke_final, cntyrsd <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(la_smoke_filtered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <table class="caption-top table">
 <thead>
@@ -376,13 +377,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

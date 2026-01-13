@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../img/site_icon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9ddf7efa873d362c419e59393d87a44a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-92da34cd48ce53aa8b62a62b67f4d459.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -210,13 +211,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that we have created a new R project , let’s start by running a few commands in the RStudio Console Window command line. This is the window at the bottom of RStudio (make sure the “Console” tab is selected). Throughout this tutorial, we’ll be working through the examples in <a href="https://moderndive.com/1-getting-started.html#nycflights13">Chapter 1.4 of ModernDive</a>.</p>
 <p>First we need to install and load the packages we’ll need for the tutorial (you may already have some of these packages installed, but it won’t hurt to reinstall them). Type each of the following commands in to the RStudio command line:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="exploring-data-frames" class="level3">
 <h3 class="anchored" data-anchor-id="exploring-data-frames">Exploring Data Frames</h3>
@@ -226,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="../../img/tutorial_2_2.png" class="img-fluid" alt="nycflights13 Environment"></p>
 <p>Let’s take a look at each of these objects to see what information they contain. Type the following code into the Console Window command line and hit enter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You should now see a “tibble” that displays the first 8 columns and the first 10 rows of the <code>flights</code> data frame. The tibble also tells us that the data frame contains 336,766 more rows (beyond those displayed in the Console Window) and 5 more variables/columns (each of which is listed).</p>
 <p>There are several other ways that we could examine the <code>flights</code> data frame including:</p>
@@ -243,21 +244,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="data-manipulation">Data Manipulation</h3>
 <p>Suppose we want a list of flight numbers and delay times for each United Airlines flight that was delayed by 4 hours or longer in January 2013. First, we can subset the data so that we only retain United Airlines flights. We can do this using the <code>carrier</code> variable since the code “UA” in this field identifies United Airlines flights. Go ahead and type the following into the Console command line and hit enter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ua_flights <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ua_flights <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Click the drop down arrow in the Environment tab to go back to “Global Environment” and you should see new data object called “ua_flights”. Let’s take a look at it using one of the viewing methods above (use whichever you prefer).</p>
 <p>Now we need to determine which UA flights in January 2013 were delayed by 4 hours or longer. We can do another subset of the data using the <code>year</code>, <code>month</code>, and <code>arr_delay</code> variables (notice that the <code>arr_delay</code> variable is measured in minutes). Type the following into the Console command line and hit enter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(ua_flights, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(ua_flights, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now we have a data frame that includes all UA flights that were delayed by 4 hours or longer in January 2013. Notice that we didn’t need a separate <code>filter</code> command for each argument (i.e., <code>year</code>, <code>month</code>, and <code>arr_delay</code>), we simply combined them all into a single <code>filter</code> command.</p>
 <p>Finally, since we’re really only interested in the flight numbers and delay times, we can get rid of the extraneous variables in the data frame using the <code>select</code> command.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now that we have our final dataframe, let’s take a look at the table of flight delays using the <code>kable</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You should see a list of flight numbers and arrival delays (recorded in minutes). It looks like there were 12 flights in January 2003 that were delayed by 4 hours or longer.</p>
 </section>
@@ -271,13 +272,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To name the file you can click on the save icon in the menu bar or navigate to <code>File -&gt; Save</code>. Either way, you should be prompted to name the file (which will have a .R extension) and choose a location for saving. Let’s call this file <code>DataLab_2</code> and save it in the folder you created for this R project.</p>
 <p>Now type the code below into the R script (note that I have combined a couple of lines from the previous version):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once you’ve typed this into your R Script, save it, and click on the “Run” button in the menu bar. You should see the code run and the output table displayed in the Console window. Now if you exit RStudio, you’ll have the script file that you can run at a later date and reproduce the exact same table.</p>
 <p>Also note that I included the <code>library()</code> commands in the R script, but not the <code>install.packages()</code> commands. You only need to install an R package one time. Once you’ve installed a package it stays installed. However, R does not automatically load those packages each session. So in order to use the packages you’ve installed, you need to tell R to load them each time you start a new session by using the <code>library()</code> command. It wouldn’t hurt anything to include the <code>install.packages()</code> commands in this R script (and you would want to include them if you were running the script on a different computer where they might not already be installed), but since we know they’re installed on our system, we can leave them out here.</p>
@@ -287,23 +288,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To open a new Markdown document navigate to <code>File -&gt; New File -&gt; R Markdown</code>. You should see a popup box with a button in the lower left corner that says “Create Empty Document”. Click that button. We could choose another formatting option, but RStudio will include a bunch of stuff that we don’t need in the final document. You should now see an RMD tab called “Untitled1” at the top of the Source Window. Click over to that tab.</p>
 <p>Markdown documents always begin with something called a YAML header. The YAML header allows us to add things like a title, author name, date, etc. to the top of our output document. Add the following code (using your name) to the top of your Markdown document:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 2"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Kevin Callison"</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"January 30, 2025"</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Note that we also tell Markdown the type of output document we want in the YAML header. In this case, we’ll go with a PDF, but other options include an <code>html_document</code> or a <code>word_document</code>.</p>
 <p>Now let’s add the same code we used in our R Script file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ua_delay <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, carrier <span class="sc">==</span> <span class="st">"UA"</span>, year <span class="sc">==</span> <span class="dv">2013</span>, month <span class="sc">==</span> <span class="dv">1</span>, arr_delay <span class="sc">&gt;=</span> <span class="dv">240</span>)</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ua_final <span class="ot">&lt;-</span> <span class="fu">select</span>(ua_delay, flight, arr_delay)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ua_final)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once you’ve added the code, name and save your .RMD file by clicking on the save icon in the menu bar or by navigating to <code>File -&gt; Save</code>. Then, to generate the output PDF file, click on the “Knit” button.</p>
 <p><img src="../../img/tutorial_2_4.png" class="img-fluid" alt="Knit"></p>
@@ -374,13 +375,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

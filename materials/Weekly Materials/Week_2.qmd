@@ -3,10 +3,10 @@ title: "HPAM 7660 - Week 2 Materials"
 subtitle: "Introduction to R and RStudio"
 ---
 
-## Tuesday, January 21
+## Tuesday, January 20
+
+- Guest Speaker: Peter Robins-Brown, Executive Director for [Louisiana Progress](https://www.louisianaprogress.org/)
+
+## Thursday, January 22
 
 - [Data Lab 1 - Getting Started with R and RStudio](/materials/Data Labs/datalab_1.qmdx)
-
-## Thursday, January 23
-
-- No Class

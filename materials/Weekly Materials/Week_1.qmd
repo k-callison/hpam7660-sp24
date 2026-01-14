@@ -4,11 +4,11 @@ subtitle: "Course Introduction & U.S. Health Policy Landscape"
 sidebar: false
 ---
 
-## Tuesday, January 14
+## Tuesday, January 13
 
 - Slides - [Course Introduction](/slides/HPAM_7660_Introduction_Slides.pdf)
 
-## Thursday, January 16
+## Thursday, January 15
 
 - Assignment - [Introduce Yourself](https://tulane.instructure.com/courses/2306287/assignments/14883559)
 - Slides - [Federal & State Health Policy Landscapes](/slides/HPAM_7660_US_Health_Policy_Landscape.pdfx)

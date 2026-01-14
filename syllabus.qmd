@@ -109,7 +109,7 @@ Your final course grade will be calculated according to the following ranges:
 
 ### Description of Required Assignments:
 
-*Policy Advocacy Materials* - throughout the semester, as part of a team, you will construct materials for a policy advocacy campaign focused on a state-level policy issue that aligns with [Louisiana Progress'](https://www.louisianaprogress.org/) legislative priorities. Teams will be assigned a policy issue at the beginning of the semester and will work to generate the following materials:   
+**Policy Advocacy Materials** - throughout the semester, as part of a team, you will construct materials for a policy advocacy campaign focused on a state-level policy issue that aligns with [Louisiana Progress'](https://www.louisianaprogress.org/) legislative priorities. Teams will be assigned a policy issue at the beginning of the semester and will work to generate the following materials:   
 
 1. Landscape analysis - Feb. 24th\
 2. Proposed solution - Mar. 31st\
@@ -117,16 +117,28 @@ Your final course grade will be calculated according to the following ranges:
 3. Infographic - Apr. 14th\
 4. Committee Testimony - TBD\
 
-*Data Analysis Proposal* - throughout the semester, as part of a team, you will develop a policy evaluation proposal related to the work we'll do in the Data Labs throughout the semester. The proposal will consist of the following sections:
+*Landscape Analysis* - Students will construct a landscape analysis focused on a specific bill or advocacy issue identified as a priority of Louisiana Progress. A landscape analysis is a structured assessment of the policy environment surrounding a specific health policy issue or bill. In this assignment, students will conduct a comprehensive analysis of a selected state-level policy or piece of legislation, examining its historical context, political feasibility, stakeholder perspectives, and potential impact. This analysis will help students develop a nuanced understanding of how health policy is shaped and implemented at the state level, considering the interplay between political, economic, and social forces. The landscape analysis should be approximately 5 single-spaced pages, excluding references.
+
+*Proposed Solution* - Students will identify a specific solution to the policy they evaluated in the landscape analysis. This may include proposing a bill to implement a specific solution, modifying an existing state law to incorporate the policy solution, or opposing a current bill and offering the policy solution as an alternative. The Proposed Solution document should identify the stakeholders impacted by the proposed solution and describe the ways they will benefit or be harmed from the proposed solution. Students will typically focus on identifying a solution that has been proposed or tested elsewhere and so it will be critical to assess the quality of the evidence (and the source) when settling on a proposed solution. Note that you can propose solutions that may be considered radical or unorthodox, but they must be realistic and feasible given the current political environment in the state. The Proposed Solution document should be approximately 2 single-spaced pages, excluding references.
+
+*Issue One-Pager* - the one-pager (or leave-behind document) concisely communicates the key aspects of the policy issue and proposed solution that students have evaluated. This document is designed to inform and persuade a legislator or policymaker, providing a clear, evidence-based case for a specific action.
+
+A well-crafted one-pager should be clear, visually engaging, and to the point, ensuring that a busy policymaker can quickly grasp the issue, understand its importance, and recognize the proposed solution. It should be crafted with the intent of being left behind after a meeting with a legislator, ensuring they have a clear, memorable takeaway about why this issue matters and how they can take action. The one-pager document should be one page, single-sided. You can see example of a one-pager template [here](https://everylifefoundation.org/wp-content/uploads/2020/11/RDLA-Tip-Sheet-One-Pagers.pdf) and find instructions for creating an effective one-pager [here](https://publichealth.jhu.edu/lerner-center/resources/how-to-create-a-one-pager).
+
+*Infographic* - As part of their policy advocacy work, students will develop an infographic that visually communicates the key aspects of their chosen policy issue and proposed solution. This infographic should be designed to inform and persuade a broad audience—including legislators, stakeholders, and the general public—by presenting complex policy information in a clear, engaging, and visually compelling manner. The goal of the infographic is to create an easily digestible representation of the issue that highlights its significance, explains the policy solution, and reinforces the need for legislative action. See [here]( https://doi.org/10.1002/aet2.10793) for tips on creating an effective infographic.
+
+*Committee Testimony* - Students will prepare a five-minute oral testimony in support of their proposed solution (or in opposition of a proposed bill). This testimony will serve as a culmination of the landscape analysis, proposed solution document, and advocacy materials, distilling their research into a concise and persuasive statement. Unlike the one-pager, which is designed as a written advocacy tool, the testimony should be structured as a compelling oral argument tailored to a legislative committee setting. It should introduce the issue, summarize the policy context, articulate a clear stance, and provide supporting evidence while anticipating and addressing counterarguments. The testimony should not repeat the one-pager verbatim but instead complement it by offering a narrative-driven case for or against the policy. Students should focus on clarity, persuasion, and engagement, ensuring their argument is accessible and impactful for lawmakers. PowerPoint slides and other visual aids are not allowed, and speeches should be well-rehearsed and memorized, with students permitted the use of note cards as a reference but not as a script. Students must submit a typed copy of their full testimony along with any note cards used during delivery.
+
+**Data Analysis Proposal** - throughout the semester, as part of a team, you will develop a policy evaluation proposal related to the work we'll do in the Data Labs throughout the semester. The proposal will consist of the following sections:
 
 1. Specific Aims (1 page) - Mar. 3rd\
 2. Significance (1 page) - Mar. 19th\
 3. Methods (1 page) - Apr. 21st\
 4. Conclusion (0.5 pages) - Apr. 28th\
 
-*Data Labs & Problem Sets* – Data labs will be completed in class and should be submitted through the Canvas link on the course web site. Problem sets will be due by the beginning of class and should be submitted through the Canvas link on the course web site. I will post the problem sets to the web site at least a week in advance of the due date. 
+**Data Labs & Problem Sets** – Data labs will be completed in class and should be submitted through the Canvas link on the course web site. Problem sets will be due by the beginning of class and should be submitted through the Canvas link on the course web site. I will post the problem sets to the web site at least a week in advance of the due date. 
 
-*Peer Assessment* - The peer assessment component of your grade will consist of anonymous grading of your team contribution by the other members of your team (more specific details to follow).
+**Peer Assessment** - The peer assessment component of your grade will consist of anonymous grading of your team contribution by the other members of your team (more specific details to follow).
 
 
 ### Attendance Policy

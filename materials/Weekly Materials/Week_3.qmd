@@ -3,14 +3,14 @@ title: "HPAM 7660 - Week 3 Materials"
 subtitle: "Policy Analysis Overview"
 ---
 
-## Tuesday, January 28
+## Tuesday, January 27
 
 - [Intro Scenario Results](/img/Intro Scenario Scores.png), [Data](/data/intro_data.csv), [R Script](/data/intro_bar.R)
 - Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Readings/Evidence-Based Policymaking.pdf)
 - Assignment - [Reading Discussion Questions](/assignments/Week 3 Reading Discussion Questions.pdf)
-- Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdf)
+- Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdfx)
 
-## Thursday, January 30
+## Thursday, January 29
 
-- [Data Lab 2 - Navigating RStudio: Using R Scripts and R Markdown Files](/materials/Data Labs/datalab_2.qmd)
+- [Data Lab 2 - Navigating RStudio: Using R Scripts and R Markdown Files](/materials/Data Labs/datalab_2.qmdx)
 - Reading - [Chapter 1.4 of ModernDive](https://moderndive.com/1-getting-started.html#nycflights13). Please note that you are not required to read this before class, but it might be helpful to look it over as we'll use examples from this chapter in our Data Lab.

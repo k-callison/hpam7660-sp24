@@ -10,4 +10,4 @@ subtitle: "Introduction to R and RStudio"
 ## Thursday, January 22
 
 - Assignment - [Rank your policy preferences](https://tulane.instructure.com/courses/2306287/assignments/14887091)
-- [Data Lab 1 - Getting Started with R and RStudio](/materials/Data Labs/datalab_1.qmdx)
+- [Data Lab 1 - Getting Started with R and RStudio](/materials/Data Labs/datalab_1.qmd)

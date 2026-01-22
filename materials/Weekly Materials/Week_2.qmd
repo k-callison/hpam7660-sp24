@@ -11,3 +11,4 @@ subtitle: "Introduction to R and RStudio"
 
 - Assignment - [Rank your policy preferences](https://tulane.instructure.com/courses/2306287/assignments/14887091)
 - [Data Lab 1 - Getting Started with R and RStudio](/materials/Data Labs/datalab_1.qmd)
+- [Intro Scenario Results](/img/Intro Scenario Scores.png), [Data](/data/intro_data.csv), [R Script](/data/intro_bar.R)

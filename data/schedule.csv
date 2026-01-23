@@ -5,4 +5,6 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 2,2026-01-22,,Data Lab - Getting Started with R and RStudio,,"materials/Weekly Materials/Week_2","materials/Data Labs/datalab_1.qmd",https://tulane.instructure.com/courses/2306287/assignments/14887091
 3,2026-01-27,,Policy Analysis Overview,,"materials/Weekly Materials/Week_3",,"https://tulane.instructure.com/courses/2306287/assignments/14888488"
 3,2026-01-29,,Data Lab - Navigating RStudio and Using R Markdown,,"materials/Weekly Materials/Week_3","materials/Data Labs/datalab_2.qmdx",
+4,2026-02-03,,Effective Policy Communication,,"materials/Weekly Materials/Week_4",,
+4,2026-02-05,,Data Lab - Importing Data,,"materials/Weekly Materials/Week_4","materials/Data Labs/datalab_3.qmdx","materials/Data Labs/datalab_3.qmd","assignments/Problem Sets/problem_set_1.qmdx"
 

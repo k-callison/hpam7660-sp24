@@ -1,16 +1,15 @@
 ---
 title: "HPAM 7660 - Week 4 Materials"
-subtitle: "Effective Policy Memos and Case Presentations"
+subtitle: "Effective Policy Communication"
 ---
 
-## Tuesday, Februray 4
+## Tuesday, Februray 3
 
 - Reading - [Bardach Overview](/materials/Readings/Bardach_Reference.pdf)
 - Optional Reading - [Eugene Bardach - A Practical Guide for Policy Analysis](https://justicepolicynetwork.com/wp-content/uploads/2021/03/Bardachs-Eightfold-Path-1.pdf)
-- Slides - [Policy Memos](/slides/HPAM_7660_Policy_Memos.pdf)
-- Slides - [Case Presentations](/slides/HPAM_7660_Case_Studies.pdf)
+- Slides - [Effective Policy Communication](/slides/HPAM_7660_Policy_Memos.pdf)
 
-## Thursday, February 6
+## Thursday, February 5
 
-- Assignment - [Problem Set 1 - Importing Data](/assignments/Problem Sets/problem_set_1.qmd)
-- [Data Lab 3 - Descriptive Comparisons: Medicaid and Health](/materials/Data Labs/datalab_3.qmd)
+- Assignment - [Problem Set 1 - Importing Data](/assignments/Problem Sets/problem_set_1.qmdx)
+- [Data Lab 3 - Importing Data](/materials/Data Labs/datalab_3.qmdx)

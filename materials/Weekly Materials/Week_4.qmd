@@ -7,7 +7,7 @@ subtitle: "Effective Policy Communication"
 
 - Reading - [Bardach Overview](/materials/Readings/Bardach_Reference.pdf)
 - Optional Reading - [Eugene Bardach - A Practical Guide for Policy Analysis](https://justicepolicynetwork.com/wp-content/uploads/2021/03/Bardachs-Eightfold-Path-1.pdf)
-- Slides - [Effective Policy Communication](/slides/HPAM_7660_Policy_Memos.pdf)
+- Slides - [Effective Policy Communication](/slides/HPAM_7660_Policy_Memos.pdfx)
 
 ## Thursday, February 5
 

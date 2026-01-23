@@ -1,13 +1,17 @@
 ---
 title: "HPAM 7660 - Week 5 Materials"
-subtitle: "Medicaid Work Requirements: Stakeholder Perspectives"
+subtitle: "The Federal Policymaking Process"
 ---
 
-## Tuesday, Februray 11
+## Tuesday, Februray 10
 
-- Slides - [Medicaid Work Requirements](/slides/HPAM_7660_Medicaid_Work_Requirements.pdf)
+- Reading - [An Overview of Federal Regulations and the Rulemaking Process](/materials/Readings/rulemaking.pdf)
+- Reading - [Introduction to the Legislative Process in the U.S. Congress](/materials/Readings/legislative_process.pdf)
+- Video - [The Weird Rule That Broke American Politics](https://www.youtube.com/watch?v=Gt4jHLteXag)
+- Assignment - [Reading Discussion Questions]
+- Slides - [The Federal Policymaking Process](/slides/HPAM_7660_Medicaid_Work_Requirements.pdfx)
 
-## Thursday, February 13
+## Thursday, February 12
 
-- Assignment - [Problem Set 2 - Data Wrangling](/assignments/Problem Sets/problem_set_2.qmd)
-- [Data Lab 4 - Expanding Descriptive Comparisons: Medicaid and Health](/materials/Data Labs/datalab_4.qmd)
+- Assignment - [Problem Set 2 - Data Wrangling](/assignments/Problem Sets/problem_set_2.qmdx)
+- [Data Lab 4 - Family Connects New Orleans](/materials/Data Labs/datalab_4.qmdx)

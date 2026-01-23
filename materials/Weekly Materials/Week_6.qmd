@@ -1,14 +1,14 @@
 ---
 title: "HPAM 7660 - Week 6 Materials"
-subtitle: "Research Design: Randomization and Regression"
+subtitle: "Descriptive Comparisons in Family Connects New Orleans"
 ---
 
-## Tuesday, Februray 18
+## Tuesday, Februray 17
 
-- Slides - [Research Design - Randomization](/slides/HPAM_7660_Randomization.pdf)
+- No class, Happy Mardi Gras!
 
-## Thursday, February 20
+## Thursday, February 19
 
-- Assignment - [Problem Set 3 - Data Wrangling, Part 2](/assignments/Problem Sets/problem_set_3.qmd)
-- [Data Lab 5 - Confounders and Treatment Effects: Medicaid and Health](/materials/Data Labs/datalab_5.qmd)
+- Assignment - [Problem Set 3 - Data Wrangling, Part 2](/assignments/Problem Sets/problem_set_3.qmdx)
+- [Data Lab 5 - Descriptive Comparisons](/materials/Data Labs/datalab_5.qmdx)
 

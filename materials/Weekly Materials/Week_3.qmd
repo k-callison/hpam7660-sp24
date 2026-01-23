@@ -7,9 +7,9 @@ subtitle: "Policy Analysis Overview"
 
 - Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Readings/Evidence-Based Policymaking.pdf)
 - Assignment - [Reading Discussion Questions](https://tulane.instructure.com/courses/2306287/assignments/14888488)
-- Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdfx)
+- Slides - <u> Policy Analysis Overview </u>
 
 ## Thursday, January 29
 
-- [Data Lab 2 - Navigating RStudio: Using R Scripts and R Markdown Files](/materials/Data Labs/datalab_2.qmdx)
+- Data Lab 2 <u> Navigating RStudio: Using R Scripts and R Markdown Files </u>
 - Reading - [Chapter 1.4 of ModernDive](https://moderndive.com/1-getting-started.html#nycflights13). Please note that you are not required to read this before class, but it might be helpful to look it over as we'll use examples from this chapter in our Data Lab.

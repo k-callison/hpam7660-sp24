@@ -9,6 +9,6 @@ subtitle: "Descriptive Comparisons in Family Connects New Orleans"
 
 ## Thursday, February 19
 
-- Assignment - [Problem Set 3 - Data Wrangling, Part 2](/assignments/Problem Sets/problem_set_3.qmdx)
-- [Data Lab 5 - Descriptive Comparisons](/materials/Data Labs/datalab_5.qmdx)
+- Assignment - <u> Problem Set 3 - Data Wrangling, Part 2 </u>
+- Data Lab 5 - <u> Descriptive Comparisons </u>
 

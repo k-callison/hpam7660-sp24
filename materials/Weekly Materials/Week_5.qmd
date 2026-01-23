@@ -8,10 +8,10 @@ subtitle: "The Federal Policymaking Process"
 - Reading - [An Overview of Federal Regulations and the Rulemaking Process](/materials/Readings/rulemaking.pdf)
 - Reading - [Introduction to the Legislative Process in the U.S. Congress](/materials/Readings/legislative_process.pdf)
 - Video - [The Weird Rule That Broke American Politics](https://www.youtube.com/watch?v=Gt4jHLteXag)
-- Assignment - [Reading Discussion Questions]
-- Slides - [The Federal Policymaking Process](/slides/HPAM_7660_Medicaid_Work_Requirements.pdfx)
+- Assignment - <u> Reading Discussion Questions </u>
+- Slides - <u> The Federal Policymaking Process </u>
 
 ## Thursday, February 12
 
-- Assignment - [Problem Set 2 - Data Wrangling](/assignments/Problem Sets/problem_set_2.qmdx)
-- [Data Lab 4 - Family Connects New Orleans](/materials/Data Labs/datalab_4.qmdx)
+- Assignment - <u> Problem Set 2 - Data Wrangling </u>
+- Data Lab 4 - <u> Family Connects New Orleans </u>

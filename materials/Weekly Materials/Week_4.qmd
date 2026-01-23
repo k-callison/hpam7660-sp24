@@ -7,9 +7,9 @@ subtitle: "Effective Policy Communication"
 
 - Reading - [Bardach Overview](/materials/Readings/Bardach_Reference.pdf)
 - Optional Reading - [Eugene Bardach - A Practical Guide for Policy Analysis](https://justicepolicynetwork.com/wp-content/uploads/2021/03/Bardachs-Eightfold-Path-1.pdf)
-- Slides - [Effective Policy Communication](/slides/HPAM_7660_Policy_Memos.pdfx)
+- Slides - <u> Effective Policy Communication </u>
 
 ## Thursday, February 5
 
-- Assignment - [Problem Set 1 - Importing Data](/assignments/Problem Sets/problem_set_1.qmdx)
-- [Data Lab 3 - Importing Data](/materials/Data Labs/datalab_3.qmdx)
+- Assignment - <u> Problem Set 1 - Importing Data </u>
+- Data Lab 3 - <u> Importing Data </u>

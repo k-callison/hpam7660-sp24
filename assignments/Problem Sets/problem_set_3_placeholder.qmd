@@ -1,0 +1,8 @@
+---
+title: "Problem Set 3 - Data Wrangling, Part 2"
+summary: >-
+  Exercises in ModernDive Ch. 3 - Data Wrangling
+---
+
+### Problem Set 3 will be posted here at least 1 week before the due date. 
+

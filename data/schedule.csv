@@ -6,9 +6,9 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 3,2026-01-27,,Policy Analysis Overview,,"materials/Weekly Materials/Week_3",,"https://tulane.instructure.com/courses/2306287/assignments/14888488"
 3,2026-01-29,,Data Lab - Navigating RStudio and Using R Markdown,,"materials/Weekly Materials/Week_3","materials/Data Labs/datalab_2.qmdx",
 4,2026-02-03,,Effective Policy Communication,,"materials/Weekly Materials/Week_4",,
-4,2026-02-05,,Data Lab - Importing Data,,"materials/Weekly Materials/Week_4","materials/Data Labs/datalab_3.qmdx","materials/Data Labs/datalab_3.qmd","https://hpam7660.com/assignments/Problem%20Sets/problem_set_1.qmd"
+4,2026-02-05,,Data Lab - Importing Data,,"materials/Weekly Materials/Week_4","materials/Data Labs/datalab_3.qmdx","materials/Data Labs/datalab_3.qmd","/assignments/Problem Sets/problem_set_1.qmd"
 5,2026-02-10,,The Federal Policymaking Process,,"materials/Weekly Materials/Week_5",,https://tulane.instructure.com/courses/2306287/assignments/14888498
-5,2026-02-12,,Data Lab - Family Connects New Orleans,,"materials/Weekly Materials/Week_5","materials/Data Labs/datalab_4.qmdx","https://hpam7660.com/assignments/Problem%20Sets/problem_set_2.qmd"
+5,2026-02-12,,Data Lab - Family Connects New Orleans,,"materials/Weekly Materials/Week_5","materials/Data Labs/datalab_4.qmdx","/assignments/Problem Sets/problem_set_2.qmd"
 6,2026-02-17,,No Class - Happy Mardi Gras!,,,,
 6,2026-02-19,,Data Lab - Descriptive Comparisons,,"materials/Weekly Materials/Week_6"
 

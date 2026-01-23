@@ -6,7 +6,7 @@ subtitle: "Policy Analysis Overview"
 ## Tuesday, January 27
 
 - Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Readings/Evidence-Based Policymaking.pdf)
-- Assignment - [Reading Discussion Questions](/assignments/Week 3 Reading Discussion Questions.pdf)
+- Assignment - [Reading Discussion Questions](https://tulane.instructure.com/courses/2306287/assignments/14888488)
 - Slides - [Policy Analysis Overview](/slides/HPAM_7660_Policy_Analysis_Overview.pdfx)
 
 ## Thursday, January 29

@@ -1,13 +1,35 @@
 ---
 title: "HPAM 7660 - Week 7 Materials"
-subtitle: "Reimagining the Affordable Care Act"
+subtitle: "TBD & Mock Committee Hearing"
 ---
 
-## Tuesday, Februray 25
+## Tuesday, Februray 24
 
-- Slides - [Research Design - Regression](/slides/HPAM_7660_Regression.pdf)
+- TBD
 
 ## Thursday, February 27
 
-- [Week 7 Assignments](/assignments/Week_7_assignments.qmd)
-- [Data Lab 6 - Regression Basics: Controlling for Counfounders](/materials/Data Labs/datalab_6.qmd)
+- Mock Committee Hearing\
+- Team Assignments and Topics:
+
+<u>Private Equity</u>\
+Victoria\
+Amelia\
+
+<u>Medical Debt</u>\
+Haley\
+Alexis\
+
+<u>AI Claim Review</u>\
+Whitney\
+Sanjana\
+Julia\
+
+<u>Drug Pricing Advisory Board</u>\
+Max\
+Rahimot\
+
+<u>Hospital Pricing Transparency</u>\
+Isabel\
+Anna\
+Martha\

@@ -1,13 +1,13 @@
 ---
 title: "HPAM 7660 - Week 3 Materials"
-subtitle: "Policy Analysis Overview"
+subtitle: "Evidence-Based Policymaking"
 ---
 
 ## Tuesday, January 27
 
 - Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Readings/Evidence-Based Policymaking.pdf)
 - Assignment - [Reading Discussion Questions](https://tulane.instructure.com/courses/2306287/assignments/14888488)
-- Slides - <u> Policy Analysis Overview </u>
+- Slides - <u> Evidence-Based Policymaking </u>
 
 ## Thursday, January 29
 

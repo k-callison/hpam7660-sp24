@@ -7,7 +7,7 @@ subtitle: "Evidence-Based Policymaking"
 
 - Reading - [Fedorowicz and Aron (2021) – Improving Evidence-Based Policymaking](/materials/Readings/Evidence-Based Policymaking.pdf)
 - Assignment - [Reading Discussion Questions](https://tulane.instructure.com/courses/2306287/assignments/14888488)
-- Slides - <u> Evidence-Based Policymaking </u>
+- Slides - [Evidence-Based Policymaking](/slides/HPAM_7660_Evidence_Based_Policymaking.pdf)
 
 ## Thursday, January 29
 

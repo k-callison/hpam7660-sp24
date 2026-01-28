@@ -198,7 +198,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="open-a-new-r-project" class="level2">
 <h2 class="anchored" data-anchor-id="open-a-new-r-project">Open a new R Project</h2>
-<p>Navigate to the <code>File -&gt; New Project</code> tab in RStudio. Select “New Directory” to create a new folder specific to this project. Since we’re going to be working with multiple projects throughout the course, it might be helpful to create a master directory for HPAM7660 and then subfolders for individual Data Lab projects. Next choose “New Project” from the Project Type menu, select the master directory you just created, name the subfolder (let’s call it “Data Lab 2”), and press the “Create Project” button.</p>
+<p>Navigate to the <code>File -&gt; New Project</code> tab in RStudio. Select “New Directory” to create a new folder specific to this project. Since we’re going to be working with multiple projects throughout the course, it might be helpful to create a master directory for HPAM7660 and then subfolders for individual Data Lab projects.</p>
+<p>Next choose “New Project” from the Project Type menu, select the master directory you just created, name the subfolder (let’s call it “Data Lab 2”), and press the “Create Project” button.</p>
 </section>
 <section id="rstudio-window" class="level2">
 <h2 class="anchored" data-anchor-id="rstudio-window">RStudio Window</h2>
@@ -209,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="console-command-line" class="level2">
 <h2 class="anchored" data-anchor-id="console-command-line">Console Command Line</h2>
 <p>Now that we have created a new R project , let’s start by running a few commands in the RStudio Console Window command line. This is the window at the bottom of RStudio (make sure the “Console” tab is selected). Throughout this tutorial, we’ll be working through the examples in <a href="https://moderndive.com/1-getting-started.html#nycflights13">Chapter 1.4 of ModernDive</a>.</p>
-<p>First we need to install and load the packages we’ll need for the tutorial (you may already have some of these packages installed, but it won’t hurt to reinstall them). Type each of the following commands in to the RStudio command line:</p>
+<p>First we need to install and load the packages we’ll use for the tutorial (you may already have some of these packages installed, but it won’t hurt to reinstall them). Type each of the following commands in to the RStudio command line:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
@@ -233,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There are several other ways that we could examine the <code>flights</code> data frame including:</p>
 <ol type="1">
 <li>Using the <code>View()</code> function to open RStudio’s built-in data viewer. This allows us to scroll through all columns and rows in the data frame.</li>
-<li>Using the <code>glimpse()</code> function, which is part of the <code>dplyr</code> package. This is similar to the tibble that we saw by simply typing <code>flights</code> into the console, but also includes each variables data type (e.g., integer, double, character, etc.)</li>
+<li>Using the <code>glimpse()</code> function, which is part of the <code>dplyr</code> package. This is similar to the tibble that we saw by simply typing <code>flights</code> into the console, but also includes each variable’s data type (e.g., integer, double, character, etc.)</li>
 <li>Using the <code>kable()</code> function, which is part of the <code>knitr</code> package. This function is helpful when we want to generate formatted output in an RMarkdown document, but it’s important to note that <code>kable</code> will print the <em>entire</em> data frame by default.</li>
 </ol>
 <p>Let’s try some of these out. Use the <code>glimpse</code> function to take a look at the <code>flights</code> data frame by typing <code>glimpse(flights)</code> into the console command line. Next, use the <code>kable</code> function to examine the <code>airlines</code> data frame by typing <code>kable(airlines)</code> into the console command line.</p>
@@ -265,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="using-r-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="using-r-scripts">Using R Scripts</h2>
-<p>So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they’re gone for good! A better way to track our work and ensure that we can reproduce our results if necessary is to use an R script file to write our code. Let’s take a look.</p>
+<p>So far so good, but what happens if we were to close out of RStudio? Or, say 6 months from now, we decide we want to re-generate the table we just made? Entering commands directly into the Console Window command line is not a very good way to structure our workflow because once those comments are gone, they’re gone for good! A better way to track our work and ensure that we can reproduce our results is to use an R script file to write our code. Let’s take a look.</p>
 <p>Navigate to the <code>File -&gt; New File -&gt; R Script</code> tab in RStudio. This should open a new window in RStudio called the “Source” window and a document called “Untitled1” where you can write and save your R code.</p>
 <p><img src="../../img/tutorial_2_3.png" class="img-fluid" alt="R Script"></p>
 <p>Let’s give this file a name and then recreate our United Airlines flight delay table by writing the code we entered directly into the command line into our R Script.</p>
@@ -291,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 2"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Kevin Callison"</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"January 30, 2025"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"January 29, 2026"</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -318,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="../../img/tutorial_2_8.png" class="img-fluid" alt="Output_Results"></p>
 <p>Your final result should look something like this:</p>
 <p><img src="../../img/tutorial_2_9.png" class="img-fluid" alt="Output_Final"></p>
-<p>Congratulations! You made it all the way through Data Lab 2!</p>
+<p>Congratulations! You made it all the way through Data Lab 2! Now upload your PDF document to Canvas using this <a href="https://tulane.instructure.com/courses/2306287/assignments/14890125">link</a> and you’re all done.</p>
 
 
 </section>

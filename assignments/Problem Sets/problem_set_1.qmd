@@ -6,7 +6,7 @@ summary: >-
 
 ### Instructions
 
-Complete the following examples from [ModernDive Chapter 4 - Data Importing and Tidy Data](https://moderndive.com/4-tidy.html). Before beginning the assignment, create a new RStudio project (see the instructions in [Data Lab 2](/materials/Data Labs/datalab_2.qmd) if you don't remember how). Once you've done that, open a new Markdown document and give it a YAML header that includes the title "HPAM 7660 Data Assignment 1", your name, the date, and "pdf_document" as the output format.
+Complete the following examples from [ModernDive Chapter 4 - Data Importing and Tidy Data](https://moderndive.com/4-tidy.html). Before beginning the assignment, create a new RStudio project (see the instructions in [Data Lab 2](/materials/Data Labs/datalab_2.qmd) if you don't remember how). Once you've done that, open a new Markdown document and give it a YAML header that includes the title "HPAM 7660 Problem Set 1", your name, the date, and "pdf_document" as the output format.
 
 As you answer each of the following questions, be sure to include your R code and associated output in your Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
 
@@ -14,7 +14,7 @@ As you answer each of the following questions, be sure to include your R code an
 
 1. Load the following packages: `dplyr`, `readr`, `tidyr`, `nycflights13`, and `fivethirtyeight`. You may need to install these packages before loading if you haven't done so already. Note, however, that it can cause problems to include `install.packages` commands in Markdown documents. So when creating your Markdown file, you're fine to add `library` commands, but you should install any needed packages from the Console command line.
 
-2. Preview the `drinks` data frame from the `fivethirtyeight` package using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd). (Hint: you should avoid using the `View()` command here because Markdown won't like it.)
+2. Preview the `drinks` data frame from the `fivethirtyeight` package using one of the methods we covered in [Data Lab 2](/materials/Data Labs/datalab_2.qmd). (Hint: you should avoid using the `View()` command here because Markdown won't like it.)
 
 3. Using the help file for the `drinks` data frame, define each of the variables in the data.
 
@@ -41,4 +41,4 @@ Thus far, we've only loaded data frames that have come bundled in R packages. Of
 
 12. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
 
-13. Once you've finished Step 12, knit your PDF document, upload it to the Problem Set 1 assignment [link](https://tulane.instructure.com/courses/2291178/assignments/14673846) on Canvas you're done!
+13. Once you've finished Step 12, knit your PDF document, upload it to the Problem Set 1 assignment [link](https://tulane.instructure.com/courses/2306287/assignments/14888497) on Canvas you're done!

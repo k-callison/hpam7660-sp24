@@ -11,5 +11,5 @@ subtitle: "Effective Policy Communication"
 
 ## Thursday, February 5
 
-- Assignment - <u> Problem Set 1 - Importing Data </u>
+- Assignment - [Problem Set 1 - Importing Data](/assignments/Problem Sets/problem_set_1.qmd)
 - Data Lab 3 - <u> Importing Data </u>

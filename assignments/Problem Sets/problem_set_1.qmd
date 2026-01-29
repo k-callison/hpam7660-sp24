@@ -37,7 +37,7 @@ Thus far, we've only loaded data frames that have come bundled in R packages. Of
 
 10. Load the `dem_score.csv` file from this [link](https://moderndive.com/data/dem_score.csv) and save it in a data frame called `dem_score`. (Hint: refer to [ModernDive Chapter 4.1.1](https://moderndive.com/4-tidy.html#using-the-console) for code on importing a .csv file).
 
-11. Preview the data using one of the methods we covered in [Tutorial 2](/assignments/tutorial_2.qmd). (Hint: you should avoid using the `View()` command here because Markdown won't like it.)
+11. Preview the data using one of the methods we covered in [Data Lab 2](/materials/Data Labs/datalab_2.qmd). (Hint: you should avoid using the `View()` command here because Markdown won't like it.)
 
 12. Is this data frame in "tidy" format? If yes, then explain why. If not, then convert the data to "tiny" format.
 

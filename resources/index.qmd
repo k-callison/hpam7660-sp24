@@ -6,9 +6,17 @@ title: "HPAM 7660 Resources"
 
 <!-- - Description [here](/resources/FAH_fellowship.pdf). If you are interested, please email me your resume by Friday, March 15th at noon. -->
 
-## Policy Memo Example
+## Policy & Advocacy Resources
 
+- [Landscape Analysis Example - Problem Identification](/resources/LPHI-Barriers-Report-Final.pdf)
+- [Landscape Analysis Example - Legislative Landscape](/resources/Medicaid_Doula_Landscape.pdf)
+- [One-Pager Template](https://everylifefoundation.org/wp-content/uploads/2020/11/RDLA-Tip-Sheet-One-Pagers.pdf)
+- [Tips for Creating an Effective One-Pager](https://publichealth.jhu.edu/lerner-center/resources/how-to-create-a-one-pager) \
+- [Tips for Creating an Effectice Infographic](https://onlinelibrary.wiley.com/doi/10.1002/aet2.10793) \
 - [HPAM 7660 Policy Memo Example](/resources/Policy_Memo_Example.pdf)
+- [Tips for Providing Public Testimony](https://laddc.org/lacan/how-to-advocate/getting-started/provide-public-testimony/)
+- [Louisiana Senate Video Archive](https://senate.la.gov/Video_Archive) \
+- [Louisiana House of Representatives Video Archive](https://house.louisiana.gov/h_video/Hse_Video_OnDemand) \
 
 ## Software Installation Guides
 

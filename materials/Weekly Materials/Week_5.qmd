@@ -13,5 +13,5 @@ subtitle: "The Federal Policymaking Process"
 
 ## Thursday, February 12
 
-- Assignment - <u> Problem Set 2 - Data Wrangling </u>
+- Assignment - [Problem Set 2 - Data Wrangling](/assignments/Problem Sets/problem_set_2.qmd)
 - Data Lab 4 - <u> Family Connects New Orleans </u>

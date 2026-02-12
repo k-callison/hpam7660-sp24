@@ -118,6 +118,6 @@ Compare prenatal spending for FCNO participants and non-participants. How might 
 
 In this Data Lab, we loaded data on the medical service use of women who recently gave birth and either participated in the Family Connects Program or did not participate. We saw that we have data on the medical service use of these women up to 9 months prior to their delivery and for up to 1 year after their delivery. 
 
-In our next Data Lab, we'll learn more about the Family Connects New Orleans Program and dig deeper into the data as we work toward developing a data analysis proposal
+In our next Data Lab, we'll learn more about the Family Connects New Orleans Program and dig deeper into the data as we work toward developing a data analysis proposal.
 
 Now upload your PDF document to Canvas using this [link](https://tulane.instructure.com/courses/2306287/assignments/14892662) and you're all done.

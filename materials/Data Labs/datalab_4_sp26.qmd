@@ -1,0 +1,80 @@
+---
+title: "Data Lab 4 - Expanding Descriptive Comparisons in Family Connects"
+summary: >-
+  Exploring Characteristics Associated with Family Connects Program Participation.
+---
+
+Building on our previous analysis of the Family Connects New Orleans (FCNO) data, we're going to expand some of our descriptive comparisons between program participants and non-participants in this Data Lab. By incorporating additional demographic and health-related variables, we'll further explore systematic differences between these two groups, motivating the need to explore adjusted comparisons in future analyses.
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Markdown document. You can call this new project/folder "Family Connects" or whatever you'd like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Markdown file and save that file when you're finished. That way, if you need to use that code again (and you will), you'll have it saved and won't have to retype everything
+
+## Step 2: Importing the Data
+
+Load the Family Connects data into R using the `read.csv` command. See the instructions in [Data Lab 3](/materials/Data Labs/datalab_3_sp26.qmd) if you don't remember the exact syntax.
+
+## Step 3: Creating a Table of Descriptive Statistics
+
+In the last Data Lab, we examined prenatal spending by FCNO participation status. In this Data Lab, we're going to expand that comparison to some additional characteristics including the age of the mothers and their postnatal spending. 
+
+Typically, in a descriptive statistics table, you would include mean values of characteristics or outcomes by treatment or participation status.
+
+Remember last time that we used the `table` command to examine the age range of women in the data: 
+
+```{r, eval=FALSE}
+table(fcno_data$age)
+```
+
+This showed us that ages range from 12 to 47 and it showed us the number of rows in each age range. But remember, in our data, rows are not people! Each row represents a medical claim. So we can't calculate the average age of participants and non-participants using the `table` command on this data set (at least not without some modification).
+
+In order to get patient-level means, we'll use a combination of the `filter`, `group_by`, and `summary` commands that we used toward the end of the last Data Lab to calculate average prenatal spending. Specifically, we'll subset the data so that it only includes the variables we'll need, and then calculate average age at the time of delivery by FCNO participation status. Run the following code:
+
+```{r, eval=FALSE}
+age_data <- fcno_data %>%
+  filter(days_from_delivery==0) %>%
+  select(patient_id, age, fcno) %>%
+  group_by(patient_id)
+```
+
+This code tells R to create a new data frame called "age_data" as a subset of the "fcno_data" (`age_data <= fcno_data`). It then says to keep only rows where the "days_from_delivery" value is equal to zero (`filter(days_from_delivery)==0`). We want to to do this because we're interested in average age *at the time of delivery*. Next, the `select` command tells R that we only want the "patient_id", "age", and "fcno" variables in our new data frame. Finally, we use the `group_by` statement to tell R that we want a single value of age for each unique patient in the data. If we had multiple observations for people at different ages (which we do in the "fcno_data"), this `group_by` statement would give us the average value of age for each person. However, since we're filtering the data to only include rows where "days_from_delivery" is equal to zero, each unique person in the data should only be observed at a single age in the new "age_data" data frame.
+
+Now, you'll notice that after you run this command, nothing really happens. The new data frame should show up in your Global Environment, but otherwise R doesn't display any values for us. To see the mean age values for participants and non-participants, we can run the following:
+
+```{r, eval = FALSE}
+summary(age_data$age[age_data$fcno == 1])
+summary(age_data$age[age_data$fcno == 0])
+```
+
+Now you should see the mean age values (along with a bunch of other statistics) for those who participated in the FCNO program (fcno==1) and those who didn't (fcno==0).
+
+But this doesn't really look like a very nice descriptive statistics table. We can do better! Run the following code to make things look a little better:
+
+```{r, eval = FALSE}
+age_data %>%
+  group_by(fcno) %>%
+  summarise(
+    N = n(),
+    Mean_Age   = mean(age, na.rm = TRUE),
+  )
+```
+
+Ok, this looks good. Let's add another variable to the table. Go back to the code you ran in the last Data Lab that created the "prenatal_spend" dataset. Re-run that code to recreate the "prenatal_spend" dataset. Once you've recreated the dataset, we need to join the "age_data" and "prenatal_spend"datasets together. We can do that as follows:
+
+```{r, eval = FALSE}
+table_data <- age_data %>%
+  left_join(spend_data, by = "patient_id")
+```
+
+This code is telling R to create the new data frame called "table_data" that is the product of joining the "age_data" data frame to the "spend_data" data frame. The `left_join` part of the code says to use age_data as the base data frame and then merge the spend_data to the age_date. It helps to visualize how these `join` statements work. Take a look at the diagrams [here](https://ugoproto.github.io/ugodoc/introduction_to_sql_joins/) to see different forms of the `join` statement.
+
+Now that we've created the "table_data" data frame as a joined table of "age_data" and "spend_data", we can add mean prenatal spending for participants and non-participants to our descriptive statistics table. You have all the code you need to create a descriptive statistics table with mean values of age and prenatal spending for FCNO participants and non-participants. So give it a shot!
+
+## Summary and Key Takeaways
+
+In this Data Lab, we began the work of creating a descriptive statistics table to help describe the data we'll be using going forward. Specifically, we caluclated average age at delivery and average prenatal spending for women who participated in the Family Connects New Orleans program and those who didn't.  
+
+In our next Data Lab, we'll continue to build out our descriptive statistics table and start to take a look at differences in outcomes that may be attributable to FCNO participation.
+
+Once you've finished this Data Lab, upload your PDF document to Canvas using this [link](https://tulane.instructure.com/courses/2306287/assignments/14893943) and you're all done.
+

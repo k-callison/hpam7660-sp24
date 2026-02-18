@@ -9,7 +9,7 @@ subtitle: "The Federal Policymaking Process"
 - Reading - [Introduction to the Legislative Process in the U.S. Congress](/materials/Readings/legislative_process.pdf)
 - Video - [The Weird Rule That Broke American Politics](https://www.youtube.com/watch?v=Gt4jHLteXag)
 - Assignment - [Week 5 Reading Discussion Questions](https://tulane.instructure.com/courses/2306287/assignments/14888498) \
-- Slides - <u> The Federal Policymaking Process </u>
+- Slides - [The Federal Policymaking Process](/slides/HPAM_7660_Federal_Policy_Process.pdf)
 
 ## Thursday, February 12
 

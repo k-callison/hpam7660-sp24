@@ -9,6 +9,5 @@ subtitle: "Descriptive Comparisons in Family Connects New Orleans"
 
 ## Thursday, February 19
 
-- Assignment - <u> Problem Set 3 - Data Wrangling, Part 2 </u>
 - Data Lab 5 - <u> Descriptive Comparisons </u>
 

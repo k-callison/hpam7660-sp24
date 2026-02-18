@@ -5,6 +5,8 @@ summary: "HPAM 7660 schedule with readings, due dates, and links to materials."
 toc: false
 sidebar: false
 page-layout: full
+execute:
+  freeze: false
 ---
            
 ```{r packages-data, include=FALSE} 

@@ -1,5 +1,5 @@
 ---
-title: "Data Lab 4 - Expanding Descriptive Comparisons in Family Connects"
+title: "Data Lab 4 -Descriptive Comparisons in Family Connects"
 summary: >-
   Exploring Characteristics Associated with Family Connects Program Participation.
 ---

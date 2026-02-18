@@ -1,6 +1,6 @@
 ---
 title: "HPAM 7660 - Week 6 Materials"
-subtitle: "Descriptive Comparisons in Family Connects New Orleans"
+subtitle: "Expanding Descriptive Comparisons in Family Connects New Orleans"
 ---
 
 ## Tuesday, Februray 17
@@ -9,5 +9,5 @@ subtitle: "Descriptive Comparisons in Family Connects New Orleans"
 
 ## Thursday, February 19
 
-- Data Lab 5 - <u> Descriptive Comparisons </u>
+- Data Lab 5 - <u> Expanding Descriptive Comparisons </u>
 

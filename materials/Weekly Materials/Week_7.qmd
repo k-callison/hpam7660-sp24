@@ -1,11 +1,11 @@
 ---
 title: "HPAM 7660 - Week 7 Materials"
-subtitle: "TBD & Mock Committee Hearing"
+subtitle: "Randomization & Mock Committee Hearing"
 ---
 
 ## Tuesday, Februray 24
 
-- TBD
+- Slides - [Research Design - Randomization](/slides/HPAM_7660_Randomization.pdfx)
 
 ## Thursday, February 27
 

@@ -1,0 +1,275 @@
+---
+title: "Data Lab 5 - Expanding Descriptive Comparisons in Family Connects"
+summary: >-
+  Expanding Descriptive Comparisons by Family Connects Program Participation.
+---
+
+In the last Data Lab, we created the beginnings of a descriptive statistics table that allowed us to compare average age and prenatal spending between Family Connects New Orleans participants and non-participants. Today, we're going to pick up where we left off and add some information on health status to the table.
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Markdown document. You can call this new project/folder "Family Connects" or whatever you'd like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Markdown file and save that file when you're finished. That way, if you need to use that code again (and you will), you'll have it saved and won't have to retype everything.
+
+## Step 2: Importing the Data
+
+Load the Family Connects data into R using the `read.csv` command. See the instructions in [Data Lab 3](/materials/Data Labs/datalab_3_sp26.qmd) if you don't remember the exact syntax. There's a chance that the data is already loaded from the last time you used it in RStudio. You can look at your Environment tab to see if the data set is listed there (it should be called "fcno_data" unless you used a different name when you loaded the file. If you see the file in your Environment, then there's no need to import it again.
+
+## Step 3: Recreate the Descriptive Statistics Table
+
+Using the code you wrote for [Data Lab 4](/materials/Data Labs/datalab_4.qmd), recreate your descriptive statistics table that includes average age and prenatal spending. You can copy that code over into your new Markdown file and re-run the code.
+
+## Step 4: The Obstetric Comorbidity Score
+
+For reasons that will become clear in the next couple of Data Labs, we'll want to have some measure of the average health of FCNO participants and non-participants. We have lots of options here, but we'll use the ["Obstetric Comorbidity Score"](10.1097/AOG.0000000000004022). This scoring system, originally developed by the CDC, quantifies a woman's risk for severe maternal morbidity (SMM) based on age and the presence of various prenatal diagnoses. Each prenatal diagnosis receives a score between 1 and 27 with a higher score indicating a stronger predictor for SMM. Individual scores are summed for each patient and that sum represents the patient's Obstetric Comorbidity Score. You can find the values assigned to these prenatal conditions [here](https://www.cmqcc.org/education-research/severe-maternal-morbidity/obstetric-comorbidity-scoring-system).
+
+Using the information we have in our data file, let's calculate each woman's Obstetric Comorbidity Score (OCS) and then compare average scores for FCNO participants and non-participants. 
+
+First, note that we have two diagnosis code columns in our data, "dx10_diag_code_1" and "dx10_diag_code_2". This means that for each row (i.e., each claim) we can have two associated diagnoses codes. Diagnosis codes in our data are recorded using ICD-10 codes. That stands for International Classification of Diseases, 10th revision). These codes were developed by the World Health Organization and are the standard way of tracking diagnoses in medical claims data.
+
+Next, it helps to understand a bit about the formatting of ICD-10 codes. ICD-10 codes are typically 6 digits and grouped by disease type, though in many cases we'll only care about the first 3, 4, or 5 digits of the code (since those first digits will capture multiple 6 digit codes that we'll want to use in calculating the OCS). 
+
+## Step 5: Cleaning the Diagnosis Codes
+
+Since we'll be using the first 3, 4, or 5 digits of the ICD-10 codes, we'll want to clean the diagnosis code fields so that we remove any leading or trailing blank spaces that might be present in the data. We also want to use the `filter` command to subset the data so that it only includes prenatal claims (since only prenatal conditions should contribute to the OCS). Run the following code to clean the data and create the new variables:
+
+```{r, eval = FALSE}
+library(dplyr)
+library(stringr)
+fcno_data_clean <- fcno_data %>%
+  filter(days_from_delivery < 0) %>%
+  mutate(
+    dx1 = str_trim(dx10_diag_code_1),
+    dx2 = str_trim(dx10_diag_code_2),
+  )
+```
+
+Take a look at the new data set in your Environment window and you should see that this new data set has fewer observations than the original data set, but has 11 variables instead of 9. Those two extra variables are "dx1" and "dx2", which are the cleaned versions of "dx10_diag_code_1" and "dx10_diag_code_2". We created those variables using the `mutate` command in the code above. That's the most common way to create or manipulate variables in R. 
+
+## Step 6: Defining Comorbidities
+
+For this next step, we need to assign ICD-10 codes to comorbidity categories consistent with the categories used to calculate the OCS. This can sometimes be a painfully dull process because it usually means you have to look up each diagnosis and find its associated ICD-10 codes. Luckily, I've already done that, so all you'll need to do is run the code below that defines each comorbidity used in the OCS calculation:
+
+```{r, eval = FALSE}
+fcno_disease <- fcno_data_clean %>%
+  mutate(
+    placenta_accreta = ifelse(
+      str_starts(dx1, c("O43213","O43223","O43233")) |
+        str_starts(dx2, c("O43213","O43223","O43233")),
+      1, 0
+    ),
+    pulm_hyper = ifelse(
+      str_starts(dx1, c("I270","I272")) | str_starts(dx2, c("I270","I272")),
+      1, 0
+    ),
+    renal = ifelse(
+      str_starts(dx1, c("I12","I13","N03","N04","N05","N07","N08","N18","N25",
+                        "O102","O103","N111","N118","N119","N269","O2683")) |
+        str_starts(dx2, c("I12","I13","N03","N04","N05","N07","N08","N18","N25",
+                          "O102","O103","N111","N118","N119","N269","O2683")),
+      1, 0
+    ),
+    cardiac = ifelse(
+      str_starts(dx1, c("I05","I06","I07","I08","I09","I11","I13","I20","I25",
+                        "I31","I32","I34","I35","I36","I37","I38","I39","I44",
+                        "I45","I47","I48","I49","Q20","Q21","Q22","Q23","Q24",
+                        "I278","O101","O103","O9941","O9942")) |
+        str_starts(dx2, c("I05","I06","I07","I08","I09","I11","I13","I20","I25",
+                          "I31","I32","I34","I35","I36","I37","I38","I39","I44",
+                          "I45","I47","I48","I49","Q20","Q21","Q22","Q23","Q24",
+                          "I278","O101","O103","O9941","O9942")) |
+        str_starts(dx1, c("I15022","I15032","I15033","I15042","I15043","I150812","I150813")) |
+        str_starts(dx2, c("I15022","I15032","I15033","I15042","I15043","I150812","I150813")),
+      1, 0
+    ),
+    hiv_aids = ifelse(
+      str_starts(dx1, c("O987","B20")) | str_starts(dx2, c("O987","B20")),
+      1, 0
+    ),
+    pre_eclamp = ifelse(
+      str_starts(dx1, c("O141","O142","O11")) | str_starts(dx2, c("O141","O142","O11")),
+      1, 0
+    ),
+    plac_abrup = ifelse(
+      str_starts(dx1, "O45") | str_starts(dx2, "O45"),
+      1, 0
+    ),
+    bleeding = ifelse(
+      str_starts(dx1, c("D66","D67","D69","D680","D681","D682","D683","D684","D685","D686")) |
+        str_starts(dx2, c("D66","D67","D69","D680","D681","D682","D683","D684","D685","D686")),
+      1, 0
+    ),
+    anemia = ifelse(
+      str_starts(dx1, c("O9901","O9902","D571","D573","D649",
+                        "D50","D51","D52","D53","D55","D56","D58","D59",
+                        "D5720","D5740","D5780")) |
+        str_starts(dx2, c("O9901","O9902","D571","D573","D649",
+                          "D50","D51","D52","D53","D55","D56","D58","D59",
+                          "D5720","D5740","D5780")),
+      1, 0
+    ),
+    multi_preg = ifelse(
+      str_starts(dx1, c("O30","O31","O632","Z372","Z373","Z374","Z375","Z376","Z377")) |
+        str_starts(dx2, c("O30","O31","O632","Z372","Z373","Z374","Z375","Z376","Z377")),
+      1, 0
+    ),
+    preterm = ifelse(
+      str_starts(dx1, "O60") | str_starts(dx2, "O60"),
+      1, 0
+    ),
+    plac_previa = ifelse(
+      str_starts(dx1, c("O4403","O4413","O4423","O4433")) |
+        str_starts(dx2, c("O4403","O4413","O4423","O4433")),
+      1, 0
+    ),
+    neuromusc = ifelse(
+      str_starts(dx1, c("G40","G70")) | str_starts(dx2, c("G40","G70")),
+      1, 0
+    ),
+    asthma = ifelse(
+      str_starts(dx1, c("O995","J454","J455","J4521","J4522","J4531","J4532")) |
+        str_starts(dx2, c("O995","J454","J455","J4521","J4522","J4531","J4532")) |
+        str_starts(dx1, c("J45901","J45902")) |
+        str_starts(dx2, c("J45901","J45902")),
+      1, 0
+    ),
+    eclamp_minor = ifelse(
+      str_starts(dx1, c("O13","O140","O149")) | str_starts(dx2, c("O13","O140","O149")),
+      1, 0
+    ),
+    tissue_immune = ifelse(
+      str_starts(dx1, c("M30","M31","M32","M33","M34","M35","M36")) |
+        str_starts(dx2, c("M30","M31","M32","M33","M34","M35","M36")),
+      1, 0
+    ),
+    fibroids = ifelse(
+      str_starts(dx1, c("D25","O341")) | str_starts(dx2, c("D25","O341")),
+      1, 0
+    ),
+    sud = ifelse(
+      str_starts(dx1, c("F10","F11","F12","F13","F14","F15","F16","F17","F18","F19","F55",
+                        "O9931","O9932")) |
+        str_starts(dx2, c("F10","F11","F12","F13","F14","F15","F16","F17","F18","F19","F55",
+                          "O9931","O9932")),
+      1, 0
+    ),
+    gastro = ifelse(
+      str_starts(dx1, c("K50","K51","K52","K70","K71","K72","K73","K74","K75",
+                        "K76","K77","K80","K81","K82","K83","K85","K86","K87",
+                        "K94","K95","O266")) |
+        str_starts(dx2, c("K50","K51","K52","K70","K71","K72","K73","K74","K75",
+                          "K76","K77","K80","K81","K82","K83","K85","K86","K87",
+                          "K94","K95","O266")),
+      1, 0
+    ),
+    hyper = ifelse(
+      str_starts(dx1, c("O11","I10","O100")) | str_starts(dx2, c("O11","I10","O100")),
+      1, 0
+    ),
+
+    mental = ifelse(
+      str_starts(dx1, c("F06","F20","F21","F22","F23","F24","F25","F28","F29",
+                        "F30","F31","F32","F33","F34","F39","F41","F43","F53",
+                        "F60","F400")) |
+        str_starts(dx2, c("F06","F20","F21","F22","F23","F24","F25","F28","F29",
+                          "F30","F31","F32","F33","F34","F39","F41","F43","F53",
+                          "F60","F400")),
+      1, 0
+    ),
+    diab = ifelse(
+      str_starts(dx1, c("E08","E09","E10","E11","E12","E13",
+                        "O240","O241","O243","O248","O249","Z794")) |
+        str_starts(dx2, c("E08","E09","E10","E11","E12","E13",
+                          "O240","O241","O243","O248","O249","Z794")),
+      1, 0
+    ),
+    thyrotox = ifelse(
+      str_starts(dx1, "E05") | str_starts(dx2, "E05"),
+      1, 0
+    ),
+    prev_csection = ifelse(
+      str_starts(dx1, c("O3421","O6641")) | str_starts(dx2, c("O3421","O6641")),
+      1, 0
+    ),
+    gest_diab = ifelse(
+      str_starts(dx1, "O244") | str_starts(dx2, "O244"),
+      1, 0
+    ),
+    bmi = ifelse(
+      str_starts(dx1, c("Z684","E662","E6601")) | str_starts(dx2, c("Z684","E662","E6601")),
+      1, 0
+    )
+  )
+```
+
+This is a LOT of code! But it's pretty easy to see the pattern here. We're defining a condition based on a set of ICD-10 codes and then using an `ifelse` statement to tell R, "if any of these codes are present on the claim, then this variable gets a value of 1, otherwise it gets a value of 0". Take gestational diabetes for example (it's the second to last condition we're defining). The code reads as follows: create a variable called gest_diab. If dx1 or dx2 starts with "O244", then give gest_diab a value of 1. If not, then give gest_diab a value of 0. the `str_starts` command translates to "string starts" and we use that because dx1 and dx2 are string (or character) variables.
+
+## Step 7: Aggregate from the Claim Level to the Person Level
+
+So now we have a data set called fcno_disease that has a separate variable indicating whether a diagnosis code for that OCS condition was present on the prenatal claim. But we're not really interested in which *claims* had relevant diagnosis codes attached, but rather which *people* had which diagnoses - remember we're trying to calculate the OCS for each *person* by FCNO participation status.
+
+That means we'll want to aggregate the data from the claim level to the person level. We can do that as follows: 
+
+```{r, eval = FALSE}
+fcno_disease_agg <- fcno_disease %>%
+  group_by(patient_id) %>%
+  summarise(
+    across(c(fcno, placenta_accreta, pulm_hyper, renal, cardiac, hiv_aids, pre_eclamp, plac_abrup,
+             bleeding, anemia, multi_preg, preterm, plac_previa, neuromusc, asthma, eclamp_minor,
+             tissue_immune, fibroids, sud, gastro, hyper, mental, diab, thyrotox, prev_csection,
+             gest_diab, bmi, maternal_age),
+           max)
+  )
+```
+
+Let's walk through this code step-by-step so that you can see what's happening. First, we're creating a new data frame called "fcno_disease_agg" using data that we're pulling from the "fcno_disase" data frame that we created in the previous step. We're using the `group_by(patient_id)` command to tell R that we want to aggregate the data from the claim level to the person level where "patient_id" identifies each person. We're then using the `summarise` command to calculate our disease indicators. It's important to note that this is the same command that we used to calculate mean values for age and prenatal spending in the last Data Lab. But we're NOT calculating means here! You can see that we've added the `max` argument to the end of our variable list. That tells R that we want the maximum value for each of these variables for each person in the data. Since, by construction, these variables take the value of 1 if a diagnosis is present on a claim and 0 otherwise, we know that the `max` argument will return a value of 1 if a patient EVER had a diagnosis for this condition in the prenatal period.
+
+To see why this is important, imagine the following case: a women gets diagnosed with anemia during a prenatal visit. At her next visit, the doctor doesn't order a blood draw and so there's no anemia diagnoses attached to the claim for the second visit. We still want to record that this patient had a prenatal diagnosis of anemia, even if that diagnosis isn't present on all prenatal claims. So using `summarise(, max)` allows us to create an indicator for the presence of anemia at ANY POINT during the prenatal period.
+
+## Step 8: Calculate the OCS
+
+Now that we have our data set aggregated to the person level and indicators for the presence of each OCS condition, the next step is to calculate the OCS for each person. We can do that as follows:
+
+```{r, eval = FALSE}
+fcno_ocs <- fcno_disease_agg %>%
+  mutate(
+    ocs =
+      27*placenta_accreta + 20*pulm_hyper + 17*renal + 14*cardiac +
+      13*hiv_aids + 12*pre_eclamp + 9*plac_abrup + 9*bleeding + 9*anemia + 9*multi_preg +
+      8*preterm + 8*plac_previa + 6*neuromusc + 5*asthma + 5*eclamp_minor + 4*tissue_immune +
+      4*fibroids + 4*sud + 3*gastro + 3*hyper + 3*mental + 2*diab + 3*thyrotox +
+      2*prev_csection + 1*gest_diab + 1*bmi
+  )
+```
+
+We've now created a data frame called "fcno_ocs" that contains the obstetric comorbidity score for each person in the data. Let's take a look at the distribution of the OCS variable using the `summary` command:
+
+```{r, eval = FALSE}
+summary(fcno_ocs$ocs)
+```
+
+You should see that the mean OCS value is 5.729, the median value is 3, and the maximum value is 60. Remember that a higher value is associated with a higher risk of SMM.
+
+## Step 9: Update the Descriptive Statistics Table
+
+Now that you've calculated the OCS, add the mean OCS values by participation status to your descriptive statistics table by adjusting the code you wrote in the previous Data Lab. *For this Data Lab, you should start with the prenatal spending file and use that as the basis for your joins.*
+
+I'd also like you to run the following line of code to modify the age data frame that we created back in [Data Lab 3](/materials/Data Labs/datalab_3.qmd). 
+
+```{r, eval = FALSE}
+age_data <- age_data %>% 
+  distinct(patient_id, .keep_all = TRUE)
+```
+
+Here's what this code is doing. When we created the "age_data" data frame back in Data Lab 3, we kept all claims with a "days_from_delivery" value equal to zero. This was fine for our purposes at the time, but it can cause some issues when we're attempting to join different data frames (because some people have multiple claims with a "days_from_delivery" date of zero. Running the code above keeps only a single observation per person.  
+
+### Question (type the answer to this question in your Markdown document)
+
+What do the OCS values indicate about the average risk of SMM for FCNO participants and non-participants? 
+
+## Summary and Key Takeaways
+
+In this Data Lab, we saw how to generate new variables and to populate those variables using the maximum value across individuals. This allowed us to calculate the obstetric comorbidity score for each woman who gave birth in our sample. We then compared average values of these scores across FCNO program participants and non-participants.
+
+In our next Data Lab, we'll examine the role of confounders and how those confounders might bias estimates of the program treatment effects.
+
+Now upload your PDF document to Canvas using this [link](https://tulane.instructure.com/courses/2306287/assignments/14892662) and you're all done.

@@ -8,7 +8,7 @@ Building on our previous analysis of the Family Connects New Orleans (FCNO) data
 
 ## Step 1: Create a New R Markdown File
 
-See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Markdown document. You can call this new project/folder "Family Connects" or whatever you'd like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Markdown file and save that file when you're finished. That way, if you need to use that code again (and you will), you'll have it saved and won't have to retype everything
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Markdown document. You can call this new project/folder "Family Connects" or whatever you'd like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Markdown file and save that file when you're finished. That way, if you need to use that code again (and you will), you'll have it saved and won't have to retype everything.
 
 ## Step 2: Importing the Data
 
@@ -63,7 +63,7 @@ Ok, this looks good. Let's add another variable to the table. Go back to the cod
 
 ```{r, eval = FALSE}
 table_data <- age_data %>%
-  left_join(spend_data, by = "patient_id")
+  left_join(prenatal_spend, by = "patient_id")
 ```
 
 This code is telling R to create the new data frame called "table_data" that is the product of joining the "age_data" data frame to the "spend_data" data frame. The `left_join` part of the code says to use age_data as the base data frame and then merge the spend_data to the age_date. It helps to visualize how these `join` statements work. Take a look at the diagrams [here](https://ugoproto.github.io/ugodoc/introduction_to_sql_joins/) to see different forms of the `join` statement.

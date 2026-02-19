@@ -1,0 +1,4 @@
+---
+title: "HPAM 7660 - Week 8 Materials"
+subtitle: "Dealing with Confounders: Regression Analysis and Biased Treatment Effects"
+---

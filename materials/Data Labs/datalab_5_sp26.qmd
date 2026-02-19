@@ -268,7 +268,7 @@ fcno_disease_agg <- fcno_disease %>%
     across(c(fcno, placenta_accreta, pulm_hyper, renal, cardiac, hiv_aids, pre_eclamp, plac_abrup,
              bleeding, anemia, multi_preg, preterm, plac_previa, neuromusc, asthma, eclamp_minor,
              tissue_immune, fibroids, sud, gastro, hyper, mental, diab, thyrotox, prev_csection,
-             gest_diab, bmi, maternal_age),
+             gest_diab, bmi),
            max)
   )
 ```

@@ -53,151 +53,203 @@ For this next step, we need to assign ICD-10 codes to comorbidity categories con
 fcno_disease <- fcno_data_clean %>%
   mutate(
     placenta_accreta = ifelse(
-      str_starts(dx1, c("O43213","O43223","O43233")) |
-        str_starts(dx2, c("O43213","O43223","O43233")),
+      dx1 %in% c("O43213","O43223","O43233") |
+        dx2 %in% c("O43213","O43223","O43233"),
       1, 0
     ),
+    
     pulm_hyper = ifelse(
-      str_starts(dx1, c("I270","I272")) | str_starts(dx2, c("I270","I272")),
+      str_sub(dx1, 1, 4) %in% c("I270","I272") |
+        str_sub(dx2, 1, 4) %in% c("I270","I272"),
       1, 0
     ),
+    
     renal = ifelse(
-      str_starts(dx1, c("I12","I13","N03","N04","N05","N07","N08","N18","N25",
-                        "O102","O103","N111","N118","N119","N269","O2683")) |
-        str_starts(dx2, c("I12","I13","N03","N04","N05","N07","N08","N18","N25",
-                          "O102","O103","N111","N118","N119","N269","O2683")),
+      str_sub(dx1, 1, 3) %in% c("I12","I13","N03","N04","N05","N07","N08","N18","N25") |
+        str_sub(dx2, 1, 3) %in% c("I12","I13","N03","N04","N05","N07","N08","N18","N25") |
+        str_sub(dx1, 1, 4) %in% c("O102","O103","N111","N118","N119","N269") |
+        str_sub(dx2, 1, 4) %in% c("O102","O103","N111","N118","N119","N269") |
+        str_sub(dx1, 1, 5) == "O2683" |
+        str_sub(dx2, 1, 5) == "O2683",
       1, 0
     ),
+    
     cardiac = ifelse(
-      str_starts(dx1, c("I05","I06","I07","I08","I09","I11","I13","I20","I25",
-                        "I31","I32","I34","I35","I36","I37","I38","I39","I44",
-                        "I45","I47","I48","I49","Q20","Q21","Q22","Q23","Q24",
-                        "I278","O101","O103","O9941","O9942")) |
-        str_starts(dx2, c("I05","I06","I07","I08","I09","I11","I13","I20","I25",
-                          "I31","I32","I34","I35","I36","I37","I38","I39","I44",
-                          "I45","I47","I48","I49","Q20","Q21","Q22","Q23","Q24",
-                          "I278","O101","O103","O9941","O9942")) |
-        str_starts(dx1, c("I15022","I15032","I15033","I15042","I15043","I150812","I150813")) |
-        str_starts(dx2, c("I15022","I15032","I15033","I15042","I15043","I150812","I150813")),
+      str_sub(dx1, 1, 3) %in% c("I05","I06","I07","I08","I09","I11","I13","I20","I25",
+                                "I31","I32","I34","I35","I36","I37","I38","I39","I44",
+                                "I45","I47","I48","I49","Q20","Q21","Q22","Q23","Q24") |
+        str_sub(dx2, 1, 3) %in% c("I05","I06","I07","I08","I09","I11","I13","I20","I25",
+                                  "I31","I32","I34","I35","I36","I37","I38","I39","I44",
+                                  "I45","I47","I48","I49","Q20","Q21","Q22","Q23","Q24") |
+        str_sub(dx1, 1, 4) %in% c("I278","O101","O103") |
+        str_sub(dx2, 1, 4) %in% c("I278","O101","O103") |
+        str_sub(dx1, 1, 5) %in% c("O9941","O9942") |
+        str_sub(dx2, 1, 5) %in% c("O9941","O9942") |
+        dx1 %in% c("I15022","I15032","I15033","I15042","I15043","I150812","I150813") |
+        dx2 %in% c("I15022","I15032","I15033","I15042","I15043","I150812","I150813"),
       1, 0
     ),
+    
     hiv_aids = ifelse(
-      str_starts(dx1, c("O987","B20")) | str_starts(dx2, c("O987","B20")),
+      str_sub(dx1, 1, 4) == "O987" | str_sub(dx2, 1, 4) == "O987" |
+        str_sub(dx1, 1, 3) == "B20" | str_sub(dx2, 1, 3) == "B20",
       1, 0
     ),
+    
     pre_eclamp = ifelse(
-      str_starts(dx1, c("O141","O142","O11")) | str_starts(dx2, c("O141","O142","O11")),
+      str_sub(dx1, 1, 4) %in% c("O141","O142") |
+        str_sub(dx2, 1, 4) %in% c("O141","O142") |
+        str_sub(dx1, 1, 3) == "O11" |
+        str_sub(dx2, 1, 3) == "O11",
       1, 0
     ),
+    
     plac_abrup = ifelse(
-      str_starts(dx1, "O45") | str_starts(dx2, "O45"),
+      str_sub(dx1, 1, 3) == "O45" | str_sub(dx2, 1, 3) == "O45",
       1, 0
     ),
+    
     bleeding = ifelse(
-      str_starts(dx1, c("D66","D67","D69","D680","D681","D682","D683","D684","D685","D686")) |
-        str_starts(dx2, c("D66","D67","D69","D680","D681","D682","D683","D684","D685","D686")),
+      str_sub(dx1, 1, 3) %in% c("D66","D67","D69") |
+        str_sub(dx2, 1, 3) %in% c("D66","D67","D69") |
+        str_sub(dx1, 1, 4) %in% c("D680","D681","D682","D683","D684","D685","D686") |
+        str_sub(dx2, 1, 4) %in% c("D680","D681","D682","D683","D684","D685","D686"),
       1, 0
     ),
+    
     anemia = ifelse(
-      str_starts(dx1, c("O9901","O9902","D571","D573","D649",
-                        "D50","D51","D52","D53","D55","D56","D58","D59",
-                        "D5720","D5740","D5780")) |
-        str_starts(dx2, c("O9901","O9902","D571","D573","D649",
-                          "D50","D51","D52","D53","D55","D56","D58","D59",
-                          "D5720","D5740","D5780")),
+      str_sub(dx1, 1, 4) %in% c("O9901","O9902","D571","D573","D649") |
+        str_sub(dx2, 1, 4) %in% c("O9901","O9902","D571","D573","D649") |
+        str_sub(dx1, 1, 3) %in% c("D50","D51","D52","D53","D55","D56","D58","D59") |
+        str_sub(dx2, 1, 3) %in% c("D50","D51","D52","D53","D55","D56","D58","D59") |
+        str_sub(dx1, 1, 5) %in% c("D5720","D5740","D5780") |
+        str_sub(dx2, 1, 5) %in% c("D5720","D5740","D5780"),
       1, 0
     ),
+    
     multi_preg = ifelse(
-      str_starts(dx1, c("O30","O31","O632","Z372","Z373","Z374","Z375","Z376","Z377")) |
-        str_starts(dx2, c("O30","O31","O632","Z372","Z373","Z374","Z375","Z376","Z377")),
+      str_sub(dx1, 1, 3) %in% c("O30","O31") |
+        str_sub(dx2, 1, 3) %in% c("O30","O31") |
+        str_sub(dx1, 1, 4) %in% c("O632","Z372","Z373","Z374","Z375","Z376","Z377") |
+        str_sub(dx2, 1, 4) %in% c("O632","Z372","Z373","Z374","Z375","Z376","Z377"),
       1, 0
     ),
+    
     preterm = ifelse(
-      str_starts(dx1, "O60") | str_starts(dx2, "O60"),
+      str_sub(dx1, 1, 3) == "O60" | str_sub(dx2, 1, 3) == "O60",
       1, 0
     ),
+    
     plac_previa = ifelse(
-      str_starts(dx1, c("O4403","O4413","O4423","O4433")) |
-        str_starts(dx2, c("O4403","O4413","O4423","O4433")),
+      str_sub(dx1, 1, 5) %in% c("O4403","O4413","O4423","O4433") |
+        str_sub(dx2, 1, 5) %in% c("O4403","O4413","O4423","O4433"),
       1, 0
     ),
+    
     neuromusc = ifelse(
-      str_starts(dx1, c("G40","G70")) | str_starts(dx2, c("G40","G70")),
+      str_sub(dx1, 1, 3) %in% c("G40","G70") |
+        str_sub(dx2, 1, 3) %in% c("G40","G70"),
       1, 0
     ),
+    
     asthma = ifelse(
-      str_starts(dx1, c("O995","J454","J455","J4521","J4522","J4531","J4532")) |
-        str_starts(dx2, c("O995","J454","J455","J4521","J4522","J4531","J4532")) |
-        str_starts(dx1, c("J45901","J45902")) |
-        str_starts(dx2, c("J45901","J45902")),
+      str_sub(dx1, 1, 4) %in% c("O995","J454","J455") |
+        str_sub(dx2, 1, 4) %in% c("O995","J454","J455") |
+        str_sub(dx1, 1, 5) %in% c("J4521","J4522","J4531","J4532") |
+        str_sub(dx2, 1, 5) %in% c("J4521","J4522","J4531","J4532") |
+        dx1 %in% c("J45901","J45902") |
+        dx2 %in% c("J45901","J45902"),
       1, 0
     ),
+    
     eclamp_minor = ifelse(
-      str_starts(dx1, c("O13","O140","O149")) | str_starts(dx2, c("O13","O140","O149")),
+      str_sub(dx1, 1, 3) == "O13" | str_sub(dx2, 1, 3) == "O13" |
+        str_sub(dx1, 1, 4) %in% c("O140","O149") |
+        str_sub(dx2, 1, 4) %in% c("O140","O149"),
       1, 0
     ),
+    
     tissue_immune = ifelse(
-      str_starts(dx1, c("M30","M31","M32","M33","M34","M35","M36")) |
-        str_starts(dx2, c("M30","M31","M32","M33","M34","M35","M36")),
+      str_sub(dx1, 1, 3) %in% c("M30","M31","M32","M33","M34","M35","M36") |
+        str_sub(dx2, 1, 3) %in% c("M30","M31","M32","M33","M34","M35","M36"),
       1, 0
     ),
+    
     fibroids = ifelse(
-      str_starts(dx1, c("D25","O341")) | str_starts(dx2, c("D25","O341")),
+      str_sub(dx1, 1, 3) == "D25" | str_sub(dx2, 1, 3) == "D25" |
+        str_sub(dx1, 1, 4) == "O341" | str_sub(dx2, 1, 4) == "O341",
       1, 0
     ),
+    
     sud = ifelse(
-      str_starts(dx1, c("F10","F11","F12","F13","F14","F15","F16","F17","F18","F19","F55",
-                        "O9931","O9932")) |
-        str_starts(dx2, c("F10","F11","F12","F13","F14","F15","F16","F17","F18","F19","F55",
-                          "O9931","O9932")),
+      str_sub(dx1, 1, 3) %in% c("F10","F11","F12","F13","F14","F15","F16","F17","F18","F19","F55") |
+        str_sub(dx2, 1, 3) %in% c("F10","F11","F12","F13","F14","F15","F16","F17","F18","F19","F55") |
+        str_sub(dx1, 1, 5) %in% c("O9931","O9932") |
+        str_sub(dx2, 1, 5) %in% c("O9931","O9932"),
       1, 0
     ),
+    
     gastro = ifelse(
-      str_starts(dx1, c("K50","K51","K52","K70","K71","K72","K73","K74","K75",
-                        "K76","K77","K80","K81","K82","K83","K85","K86","K87",
-                        "K94","K95","O266")) |
-        str_starts(dx2, c("K50","K51","K52","K70","K71","K72","K73","K74","K75",
-                          "K76","K77","K80","K81","K82","K83","K85","K86","K87",
-                          "K94","K95","O266")),
+      str_sub(dx1, 1, 3) %in% c("K50","K51","K52","K70","K71","K72","K73","K74","K75",
+                                "K76","K77","K80","K81","K82","K83","K85","K86","K87",
+                                "K94","K95") |
+        str_sub(dx2, 1, 3) %in% c("K50","K51","K52","K70","K71","K72","K73","K74","K75",
+                                  "K76","K77","K80","K81","K82","K83","K85","K86","K87",
+                                  "K94","K95") |
+        str_sub(dx1, 1, 4) == "O266" |
+        str_sub(dx2, 1, 4) == "O266",
       1, 0
     ),
+    
     hyper = ifelse(
-      str_starts(dx1, c("O11","I10","O100")) | str_starts(dx2, c("O11","I10","O100")),
+      str_sub(dx1, 1, 3) %in% c("O11","I10") |
+        str_sub(dx2, 1, 3) %in% c("O11","I10") |
+        str_sub(dx1, 1, 4) == "O100" |
+        str_sub(dx2, 1, 4) == "O100",
       1, 0
     ),
-
+    
     mental = ifelse(
-      str_starts(dx1, c("F06","F20","F21","F22","F23","F24","F25","F28","F29",
-                        "F30","F31","F32","F33","F34","F39","F41","F43","F53",
-                        "F60","F400")) |
-        str_starts(dx2, c("F06","F20","F21","F22","F23","F24","F25","F28","F29",
-                          "F30","F31","F32","F33","F34","F39","F41","F43","F53",
-                          "F60","F400")),
+      str_sub(dx1, 1, 3) %in% c("F06","F20","F21","F22","F23","F24","F25","F28","F29",
+                                "F30","F31","F32","F33","F34","F39","F41","F43","F53","F60") |
+        str_sub(dx2, 1, 3) %in% c("F06","F20","F21","F22","F23","F24","F25","F28","F29",
+                                  "F30","F31","F32","F33","F34","F39","F41","F43","F53","F60") |
+        str_sub(dx1, 1, 4) == "F400" |
+        str_sub(dx2, 1, 4) == "F400",
       1, 0
     ),
+    
     diab = ifelse(
-      str_starts(dx1, c("E08","E09","E10","E11","E12","E13",
-                        "O240","O241","O243","O248","O249","Z794")) |
-        str_starts(dx2, c("E08","E09","E10","E11","E12","E13",
-                          "O240","O241","O243","O248","O249","Z794")),
+      str_sub(dx1, 1, 3) %in% c("E08","E09","E10","E11","E12","E13") |
+        str_sub(dx2, 1, 3) %in% c("E08","E09","E10","E11","E12","E13") |
+        str_sub(dx1, 1, 4) %in% c("O240","O241","O243","O248","O249","Z794") |
+        str_sub(dx2, 1, 4) %in% c("O240","O241","O243","O248","O249","Z794"),
       1, 0
     ),
+    
     thyrotox = ifelse(
-      str_starts(dx1, "E05") | str_starts(dx2, "E05"),
+      str_sub(dx1, 1, 3) == "E05" | str_sub(dx2, 1, 3) == "E05",
       1, 0
     ),
+    
     prev_csection = ifelse(
-      str_starts(dx1, c("O3421","O6641")) | str_starts(dx2, c("O3421","O6641")),
+      str_sub(dx1, 1, 5) %in% c("O3421","O6641") |
+        str_sub(dx2, 1, 5) %in% c("O3421","O6641"),
       1, 0
     ),
+    
     gest_diab = ifelse(
-      str_starts(dx1, "O244") | str_starts(dx2, "O244"),
+      str_sub(dx1, 1, 4) == "O244" | str_sub(dx2, 1, 4) == "O244",
       1, 0
     ),
+    
     bmi = ifelse(
-      str_starts(dx1, c("Z684","E662","E6601")) | str_starts(dx2, c("Z684","E662","E6601")),
+      str_sub(dx1, 1, 4) %in% c("Z684","E662") |
+        str_sub(dx2, 1, 4) %in% c("Z684","E662") |
+        str_sub(dx1, 1, 5) == "E6601" |
+        str_sub(dx2, 1, 5) == "E6601",
       1, 0
-    )
+    ),
   )
 ```
 

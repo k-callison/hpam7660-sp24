@@ -9,5 +9,5 @@ subtitle: "Expanding Descriptive Comparisons in Family Connects New Orleans"
 
 ## Thursday, February 19
 
-- Data Lab 5 - <u> Expanding Descriptive Comparisons </u>
+- Data Lab 5 - [Expanding Descriptive Comparisons in Family Connects](/materials/Data Labs/datalab_5_sp26.qmd)
 

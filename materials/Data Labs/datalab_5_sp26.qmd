@@ -16,7 +16,7 @@ Load the Family Connects data into R using the `read.csv` command. See the instr
 
 ## Step 3: Recreate the Descriptive Statistics Table
 
-Using the code you wrote for [Data Lab 4](/materials/Data Labs/datalab_4.qmd), recreate your descriptive statistics table that includes average age and prenatal spending. You can copy that code over into your new Markdown file and re-run the code.
+Using the code you wrote for [Data Lab 4](/materials/Data Labs/datalab_4_sp26.qmd), recreate your descriptive statistics table that includes average age and prenatal spending. You can copy that code over into your new Markdown file and re-run the code.
 
 ## Step 4: The Obstetric Comorbidity Score
 

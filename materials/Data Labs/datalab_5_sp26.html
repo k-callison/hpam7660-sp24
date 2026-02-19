@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Lab 5 - Expanding Descriptive Comparisons in Family Connects – HPAM 7660 - Health Policy Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/site_icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8c383d5ffb40185931093cac90ac19b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HPAM 7660 - Health Policy Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources/index.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-create-a-new-r-markdown-file" id="toc-step-1-create-a-new-r-markdown-file" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</a></li>
+  <li><a href="#step-2-importing-the-data" id="toc-step-2-importing-the-data" class="nav-link" data-scroll-target="#step-2-importing-the-data">Step 2: Importing the Data</a></li>
+  <li><a href="#step-3-recreate-the-descriptive-statistics-table" id="toc-step-3-recreate-the-descriptive-statistics-table" class="nav-link" data-scroll-target="#step-3-recreate-the-descriptive-statistics-table">Step 3: Recreate the Descriptive Statistics Table</a></li>
+  <li><a href="#step-4-the-obstetric-comorbidity-score" id="toc-step-4-the-obstetric-comorbidity-score" class="nav-link" data-scroll-target="#step-4-the-obstetric-comorbidity-score">Step 4: The Obstetric Comorbidity Score</a></li>
+  <li><a href="#step-5-cleaning-the-diagnosis-codes" id="toc-step-5-cleaning-the-diagnosis-codes" class="nav-link" data-scroll-target="#step-5-cleaning-the-diagnosis-codes">Step 5: Cleaning the Diagnosis Codes</a></li>
+  <li><a href="#step-6-defining-comorbidities" id="toc-step-6-defining-comorbidities" class="nav-link" data-scroll-target="#step-6-defining-comorbidities">Step 6: Defining Comorbidities</a></li>
+  <li><a href="#step-7-aggregate-from-the-claim-level-to-the-person-level" id="toc-step-7-aggregate-from-the-claim-level-to-the-person-level" class="nav-link" data-scroll-target="#step-7-aggregate-from-the-claim-level-to-the-person-level">Step 7: Aggregate from the Claim Level to the Person Level</a></li>
+  <li><a href="#step-8-calculate-the-ocs" id="toc-step-8-calculate-the-ocs" class="nav-link" data-scroll-target="#step-8-calculate-the-ocs">Step 8: Calculate the OCS</a></li>
+  <li><a href="#step-9-update-the-descriptive-statistics-table" id="toc-step-9-update-the-descriptive-statistics-table" class="nav-link" data-scroll-target="#step-9-update-the-descriptive-statistics-table">Step 9: Update the Descriptive Statistics Table</a>
+  <ul class="collapse">
+  <li><a href="#question-type-the-answer-to-this-question-in-your-markdown-document" id="toc-question-type-the-answer-to-this-question-in-your-markdown-document" class="nav-link" data-scroll-target="#question-type-the-answer-to-this-question-in-your-markdown-document">Question (type the answer to this question in your Markdown document)</a></li>
+  </ul></li>
+  <li><a href="#summary-and-key-takeaways" id="toc-summary-and-key-takeaways" class="nav-link" data-scroll-target="#summary-and-key-takeaways">Summary and Key Takeaways</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Lab 5 - Expanding Descriptive Comparisons in Family Connects</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In the last Data Lab, we created the beginnings of a descriptive statistics table that allowed us to compare average age and prenatal spending between Family Connects New Orleans participants and non-participants. Today, we’re going to pick up where we left off and add some information on health status to the table.</p>
+<section id="step-1-create-a-new-r-markdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</h2>
+<p>See the instructions from <a href="../../materials/Data Labs/datalab_2.html">Data Lab 2</a> to create a new R Markdown document. You can call this new project/folder “Family Connects” or whatever you’d like to call it (as long as you remember the name!). You should type all of the code for this Data Lab in your R Markdown file and save that file when you’re finished. That way, if you need to use that code again (and you will), you’ll have it saved and won’t have to retype everything.</p>
+</section>
+<section id="step-2-importing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-importing-the-data">Step 2: Importing the Data</h2>
+<p>Load the Family Connects data into R using the <code>read.csv</code> command. See the instructions in <a href="../../materials/Data Labs/datalab_3_sp26.html">Data Lab 3</a> if you don’t remember the exact syntax. There’s a chance that the data is already loaded from the last time you used it in RStudio. You can look at your Environment tab to see if the data set is listed there (it should be called “fcno_data” unless you used a different name when you loaded the file. If you see the file in your Environment, then there’s no need to import it again.</p>
+</section>
+<section id="step-3-recreate-the-descriptive-statistics-table" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-recreate-the-descriptive-statistics-table">Step 3: Recreate the Descriptive Statistics Table</h2>
+<p>Using the code you wrote for <a href="../../materials/Data Labs/datalab_4.html">Data Lab 4</a>, recreate your descriptive statistics table that includes average age and prenatal spending. You can copy that code over into your new Markdown file and re-run the code.</p>
+</section>
+<section id="step-4-the-obstetric-comorbidity-score" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-the-obstetric-comorbidity-score">Step 4: The Obstetric Comorbidity Score</h2>
+<p>For reasons that will become clear in the next couple of Data Labs, we’ll want to have some measure of the average health of FCNO participants and non-participants. We have lots of options here, but we’ll use the <a href="10.1097/AOG.0000000000004022">“Obstetric Comorbidity Score”</a>. This scoring system, originally developed by the CDC, quantifies a woman’s risk for severe maternal morbidity (SMM) based on age and the presence of various prenatal diagnoses. Each prenatal diagnosis receives a score between 1 and 27 with a higher score indicating a stronger predictor for SMM. Individual scores are summed for each patient and that sum represents the patient’s Obstetric Comorbidity Score. You can find the values assigned to these prenatal conditions <a href="https://www.cmqcc.org/education-research/severe-maternal-morbidity/obstetric-comorbidity-scoring-system">here</a>.</p>
+<p>Using the information we have in our data file, let’s calculate each woman’s Obstetric Comorbidity Score (OCS) and then compare average scores for FCNO participants and non-participants.</p>
+<p>First, note that we have two diagnosis code columns in our data, “dx10_diag_code_1” and “dx10_diag_code_2”. This means that for each row (i.e., each claim) we can have two associated diagnoses codes. Diagnosis codes in our data are recorded using ICD-10 codes. That stands for International Classification of Diseases, 10th revision). These codes were developed by the World Health Organization and are the standard way of tracking diagnoses in medical claims data.</p>
+<p>Next, it helps to understand a bit about the formatting of ICD-10 codes. ICD-10 codes are typically 6 digits and grouped by disease type, though in many cases we’ll only care about the first 3, 4, or 5 digits of the code (since those first digits will capture multiple 6 digit codes that we’ll want to use in calculating the OCS).</p>
+</section>
+<section id="step-5-cleaning-the-diagnosis-codes" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-cleaning-the-diagnosis-codes">Step 5: Cleaning the Diagnosis Codes</h2>
+<p>Since we’ll be using the first 3, 4, or 5 digits of the ICD-10 codes, we’ll want to clean the diagnosis code fields so that we remove any leading or trailing blank spaces that might be present in the data. We also want to use the <code>filter</code> command to subset the data so that it only includes prenatal claims (since only prenatal conditions should contribute to the OCS). Run the following code to clean the data and create the new variables:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fcno_data_clean <span class="ot">&lt;-</span> fcno_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(days_from_delivery <span class="sc">&lt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dx1 =</span> <span class="fu">str_trim</span>(dx10_diag_code_1),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">dx2 =</span> <span class="fu">str_trim</span>(dx10_diag_code_2),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Take a look at the new data set in your Environment window and you should see that this new data set has fewer observations than the original data set, but has 11 variables instead of 9. Those two extra variables are “dx1” and “dx2”, which are the cleaned versions of “dx10_diag_code_1” and “dx10_diag_code_2”. We created those variables using the <code>mutate</code> command in the code above. That’s the most common way to create or manipulate variables in R.</p>
+</section>
+<section id="step-6-defining-comorbidities" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-defining-comorbidities">Step 6: Defining Comorbidities</h2>
+<p>For this next step, we need to assign ICD-10 codes to comorbidity categories consistent with the categories used to calculate the OCS. This can sometimes be a painfully dull process because it usually means you have to look up each diagnosis and find its associated ICD-10 codes. Luckily, I’ve already done that, so all you’ll need to do is run the code below that defines each comorbidity used in the OCS calculation:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fcno_disease <span class="ot">&lt;-</span> fcno_data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">placenta_accreta =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O43213"</span>,<span class="st">"O43223"</span>,<span class="st">"O43233"</span>)) <span class="sc">|</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O43213"</span>,<span class="st">"O43223"</span>,<span class="st">"O43233"</span>)),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">pulm_hyper =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"I270"</span>,<span class="st">"I272"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"I270"</span>,<span class="st">"I272"</span>)),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">renal =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"I12"</span>,<span class="st">"I13"</span>,<span class="st">"N03"</span>,<span class="st">"N04"</span>,<span class="st">"N05"</span>,<span class="st">"N07"</span>,<span class="st">"N08"</span>,<span class="st">"N18"</span>,<span class="st">"N25"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"O102"</span>,<span class="st">"O103"</span>,<span class="st">"N111"</span>,<span class="st">"N118"</span>,<span class="st">"N119"</span>,<span class="st">"N269"</span>,<span class="st">"O2683"</span>)) <span class="sc">|</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"I12"</span>,<span class="st">"I13"</span>,<span class="st">"N03"</span>,<span class="st">"N04"</span>,<span class="st">"N05"</span>,<span class="st">"N07"</span>,<span class="st">"N08"</span>,<span class="st">"N18"</span>,<span class="st">"N25"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"O102"</span>,<span class="st">"O103"</span>,<span class="st">"N111"</span>,<span class="st">"N118"</span>,<span class="st">"N119"</span>,<span class="st">"N269"</span>,<span class="st">"O2683"</span>)),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">cardiac =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"I05"</span>,<span class="st">"I06"</span>,<span class="st">"I07"</span>,<span class="st">"I08"</span>,<span class="st">"I09"</span>,<span class="st">"I11"</span>,<span class="st">"I13"</span>,<span class="st">"I20"</span>,<span class="st">"I25"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"I31"</span>,<span class="st">"I32"</span>,<span class="st">"I34"</span>,<span class="st">"I35"</span>,<span class="st">"I36"</span>,<span class="st">"I37"</span>,<span class="st">"I38"</span>,<span class="st">"I39"</span>,<span class="st">"I44"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"I45"</span>,<span class="st">"I47"</span>,<span class="st">"I48"</span>,<span class="st">"I49"</span>,<span class="st">"Q20"</span>,<span class="st">"Q21"</span>,<span class="st">"Q22"</span>,<span class="st">"Q23"</span>,<span class="st">"Q24"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"I278"</span>,<span class="st">"O101"</span>,<span class="st">"O103"</span>,<span class="st">"O9941"</span>,<span class="st">"O9942"</span>)) <span class="sc">|</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"I05"</span>,<span class="st">"I06"</span>,<span class="st">"I07"</span>,<span class="st">"I08"</span>,<span class="st">"I09"</span>,<span class="st">"I11"</span>,<span class="st">"I13"</span>,<span class="st">"I20"</span>,<span class="st">"I25"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"I31"</span>,<span class="st">"I32"</span>,<span class="st">"I34"</span>,<span class="st">"I35"</span>,<span class="st">"I36"</span>,<span class="st">"I37"</span>,<span class="st">"I38"</span>,<span class="st">"I39"</span>,<span class="st">"I44"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"I45"</span>,<span class="st">"I47"</span>,<span class="st">"I48"</span>,<span class="st">"I49"</span>,<span class="st">"Q20"</span>,<span class="st">"Q21"</span>,<span class="st">"Q22"</span>,<span class="st">"Q23"</span>,<span class="st">"Q24"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"I278"</span>,<span class="st">"O101"</span>,<span class="st">"O103"</span>,<span class="st">"O9941"</span>,<span class="st">"O9942"</span>)) <span class="sc">|</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"I15022"</span>,<span class="st">"I15032"</span>,<span class="st">"I15033"</span>,<span class="st">"I15042"</span>,<span class="st">"I15043"</span>,<span class="st">"I150812"</span>,<span class="st">"I150813"</span>)) <span class="sc">|</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"I15022"</span>,<span class="st">"I15032"</span>,<span class="st">"I15033"</span>,<span class="st">"I15042"</span>,<span class="st">"I15043"</span>,<span class="st">"I150812"</span>,<span class="st">"I150813"</span>)),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">hiv_aids =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O987"</span>,<span class="st">"B20"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O987"</span>,<span class="st">"B20"</span>)),</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">pre_eclamp =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O141"</span>,<span class="st">"O142"</span>,<span class="st">"O11"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O141"</span>,<span class="st">"O142"</span>,<span class="st">"O11"</span>)),</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">plac_abrup =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="st">"O45"</span>) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="st">"O45"</span>),</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">bleeding =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"D66"</span>,<span class="st">"D67"</span>,<span class="st">"D69"</span>,<span class="st">"D680"</span>,<span class="st">"D681"</span>,<span class="st">"D682"</span>,<span class="st">"D683"</span>,<span class="st">"D684"</span>,<span class="st">"D685"</span>,<span class="st">"D686"</span>)) <span class="sc">|</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"D66"</span>,<span class="st">"D67"</span>,<span class="st">"D69"</span>,<span class="st">"D680"</span>,<span class="st">"D681"</span>,<span class="st">"D682"</span>,<span class="st">"D683"</span>,<span class="st">"D684"</span>,<span class="st">"D685"</span>,<span class="st">"D686"</span>)),</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">anemia =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O9901"</span>,<span class="st">"O9902"</span>,<span class="st">"D571"</span>,<span class="st">"D573"</span>,<span class="st">"D649"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"D50"</span>,<span class="st">"D51"</span>,<span class="st">"D52"</span>,<span class="st">"D53"</span>,<span class="st">"D55"</span>,<span class="st">"D56"</span>,<span class="st">"D58"</span>,<span class="st">"D59"</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"D5720"</span>,<span class="st">"D5740"</span>,<span class="st">"D5780"</span>)) <span class="sc">|</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O9901"</span>,<span class="st">"O9902"</span>,<span class="st">"D571"</span>,<span class="st">"D573"</span>,<span class="st">"D649"</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"D50"</span>,<span class="st">"D51"</span>,<span class="st">"D52"</span>,<span class="st">"D53"</span>,<span class="st">"D55"</span>,<span class="st">"D56"</span>,<span class="st">"D58"</span>,<span class="st">"D59"</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"D5720"</span>,<span class="st">"D5740"</span>,<span class="st">"D5780"</span>)),</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">multi_preg =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O30"</span>,<span class="st">"O31"</span>,<span class="st">"O632"</span>,<span class="st">"Z372"</span>,<span class="st">"Z373"</span>,<span class="st">"Z374"</span>,<span class="st">"Z375"</span>,<span class="st">"Z376"</span>,<span class="st">"Z377"</span>)) <span class="sc">|</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O30"</span>,<span class="st">"O31"</span>,<span class="st">"O632"</span>,<span class="st">"Z372"</span>,<span class="st">"Z373"</span>,<span class="st">"Z374"</span>,<span class="st">"Z375"</span>,<span class="st">"Z376"</span>,<span class="st">"Z377"</span>)),</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">preterm =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="st">"O60"</span>) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="st">"O60"</span>),</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">plac_previa =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O4403"</span>,<span class="st">"O4413"</span>,<span class="st">"O4423"</span>,<span class="st">"O4433"</span>)) <span class="sc">|</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O4403"</span>,<span class="st">"O4413"</span>,<span class="st">"O4423"</span>,<span class="st">"O4433"</span>)),</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">neuromusc =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"G40"</span>,<span class="st">"G70"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"G40"</span>,<span class="st">"G70"</span>)),</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">asthma =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O995"</span>,<span class="st">"J454"</span>,<span class="st">"J455"</span>,<span class="st">"J4521"</span>,<span class="st">"J4522"</span>,<span class="st">"J4531"</span>,<span class="st">"J4532"</span>)) <span class="sc">|</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O995"</span>,<span class="st">"J454"</span>,<span class="st">"J455"</span>,<span class="st">"J4521"</span>,<span class="st">"J4522"</span>,<span class="st">"J4531"</span>,<span class="st">"J4532"</span>)) <span class="sc">|</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"J45901"</span>,<span class="st">"J45902"</span>)) <span class="sc">|</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"J45901"</span>,<span class="st">"J45902"</span>)),</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">eclamp_minor =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O13"</span>,<span class="st">"O140"</span>,<span class="st">"O149"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O13"</span>,<span class="st">"O140"</span>,<span class="st">"O149"</span>)),</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">tissue_immune =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"M30"</span>,<span class="st">"M31"</span>,<span class="st">"M32"</span>,<span class="st">"M33"</span>,<span class="st">"M34"</span>,<span class="st">"M35"</span>,<span class="st">"M36"</span>)) <span class="sc">|</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"M30"</span>,<span class="st">"M31"</span>,<span class="st">"M32"</span>,<span class="st">"M33"</span>,<span class="st">"M34"</span>,<span class="st">"M35"</span>,<span class="st">"M36"</span>)),</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="at">fibroids =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"D25"</span>,<span class="st">"O341"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"D25"</span>,<span class="st">"O341"</span>)),</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">sud =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"F10"</span>,<span class="st">"F11"</span>,<span class="st">"F12"</span>,<span class="st">"F13"</span>,<span class="st">"F14"</span>,<span class="st">"F15"</span>,<span class="st">"F16"</span>,<span class="st">"F17"</span>,<span class="st">"F18"</span>,<span class="st">"F19"</span>,<span class="st">"F55"</span>,</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"O9931"</span>,<span class="st">"O9932"</span>)) <span class="sc">|</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"F10"</span>,<span class="st">"F11"</span>,<span class="st">"F12"</span>,<span class="st">"F13"</span>,<span class="st">"F14"</span>,<span class="st">"F15"</span>,<span class="st">"F16"</span>,<span class="st">"F17"</span>,<span class="st">"F18"</span>,<span class="st">"F19"</span>,<span class="st">"F55"</span>,</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"O9931"</span>,<span class="st">"O9932"</span>)),</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">gastro =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"K50"</span>,<span class="st">"K51"</span>,<span class="st">"K52"</span>,<span class="st">"K70"</span>,<span class="st">"K71"</span>,<span class="st">"K72"</span>,<span class="st">"K73"</span>,<span class="st">"K74"</span>,<span class="st">"K75"</span>,</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"K76"</span>,<span class="st">"K77"</span>,<span class="st">"K80"</span>,<span class="st">"K81"</span>,<span class="st">"K82"</span>,<span class="st">"K83"</span>,<span class="st">"K85"</span>,<span class="st">"K86"</span>,<span class="st">"K87"</span>,</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"K94"</span>,<span class="st">"K95"</span>,<span class="st">"O266"</span>)) <span class="sc">|</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"K50"</span>,<span class="st">"K51"</span>,<span class="st">"K52"</span>,<span class="st">"K70"</span>,<span class="st">"K71"</span>,<span class="st">"K72"</span>,<span class="st">"K73"</span>,<span class="st">"K74"</span>,<span class="st">"K75"</span>,</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"K76"</span>,<span class="st">"K77"</span>,<span class="st">"K80"</span>,<span class="st">"K81"</span>,<span class="st">"K82"</span>,<span class="st">"K83"</span>,<span class="st">"K85"</span>,<span class="st">"K86"</span>,<span class="st">"K87"</span>,</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"K94"</span>,<span class="st">"K95"</span>,<span class="st">"O266"</span>)),</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    <span class="at">hyper =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O11"</span>,<span class="st">"I10"</span>,<span class="st">"O100"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O11"</span>,<span class="st">"I10"</span>,<span class="st">"O100"</span>)),</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    <span class="at">mental =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"F06"</span>,<span class="st">"F20"</span>,<span class="st">"F21"</span>,<span class="st">"F22"</span>,<span class="st">"F23"</span>,<span class="st">"F24"</span>,<span class="st">"F25"</span>,<span class="st">"F28"</span>,<span class="st">"F29"</span>,</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"F30"</span>,<span class="st">"F31"</span>,<span class="st">"F32"</span>,<span class="st">"F33"</span>,<span class="st">"F34"</span>,<span class="st">"F39"</span>,<span class="st">"F41"</span>,<span class="st">"F43"</span>,<span class="st">"F53"</span>,</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"F60"</span>,<span class="st">"F400"</span>)) <span class="sc">|</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"F06"</span>,<span class="st">"F20"</span>,<span class="st">"F21"</span>,<span class="st">"F22"</span>,<span class="st">"F23"</span>,<span class="st">"F24"</span>,<span class="st">"F25"</span>,<span class="st">"F28"</span>,<span class="st">"F29"</span>,</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"F30"</span>,<span class="st">"F31"</span>,<span class="st">"F32"</span>,<span class="st">"F33"</span>,<span class="st">"F34"</span>,<span class="st">"F39"</span>,<span class="st">"F41"</span>,<span class="st">"F43"</span>,<span class="st">"F53"</span>,</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"F60"</span>,<span class="st">"F400"</span>)),</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    <span class="at">diab =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"E08"</span>,<span class="st">"E09"</span>,<span class="st">"E10"</span>,<span class="st">"E11"</span>,<span class="st">"E12"</span>,<span class="st">"E13"</span>,</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"O240"</span>,<span class="st">"O241"</span>,<span class="st">"O243"</span>,<span class="st">"O248"</span>,<span class="st">"O249"</span>,<span class="st">"Z794"</span>)) <span class="sc">|</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"E08"</span>,<span class="st">"E09"</span>,<span class="st">"E10"</span>,<span class="st">"E11"</span>,<span class="st">"E12"</span>,<span class="st">"E13"</span>,</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"O240"</span>,<span class="st">"O241"</span>,<span class="st">"O243"</span>,<span class="st">"O248"</span>,<span class="st">"O249"</span>,<span class="st">"Z794"</span>)),</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    <span class="at">thyrotox =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="st">"E05"</span>) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="st">"E05"</span>),</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>    <span class="at">prev_csection =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"O3421"</span>,<span class="st">"O6641"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"O3421"</span>,<span class="st">"O6641"</span>)),</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>    <span class="at">gest_diab =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="st">"O244"</span>) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="st">"O244"</span>),</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>    <span class="at">bmi =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_starts</span>(dx1, <span class="fu">c</span>(<span class="st">"Z684"</span>,<span class="st">"E662"</span>,<span class="st">"E6601"</span>)) <span class="sc">|</span> <span class="fu">str_starts</span>(dx2, <span class="fu">c</span>(<span class="st">"Z684"</span>,<span class="st">"E662"</span>,<span class="st">"E6601"</span>)),</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is a LOT of code! But it’s pretty easy to see the pattern here. We’re defining a condition based on a set of ICD-10 codes and then using an <code>ifelse</code> statement to tell R, “if any of these codes are present on the claim, then this variable gets a value of 1, otherwise it gets a value of 0”. Take gestational diabetes for example (it’s the second to last condition we’re defining). The code reads as follows: create a variable called gest_diab. If dx1 or dx2 starts with “O244”, then give gest_diab a value of 1. If not, then give gest_diab a value of 0. the <code>str_starts</code> command translates to “string starts” and we use that because dx1 and dx2 are string (or character) variables.</p>
+</section>
+<section id="step-7-aggregate-from-the-claim-level-to-the-person-level" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-aggregate-from-the-claim-level-to-the-person-level">Step 7: Aggregate from the Claim Level to the Person Level</h2>
+<p>So now we have a data set called fcno_disease that has a separate variable indicating whether a diagnosis code for that OCS condition was present on the prenatal claim. But we’re not really interested in which <em>claims</em> had relevant diagnosis codes attached, but rather which <em>people</em> had which diagnoses - remember we’re trying to calculate the OCS for each <em>person</em> by FCNO participation status.</p>
+<p>That means we’ll want to aggregate the data from the claim level to the person level. We can do that as follows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fcno_disease_agg <span class="ot">&lt;-</span> fcno_disease <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(patient_id) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(fcno, placenta_accreta, pulm_hyper, renal, cardiac, hiv_aids, pre_eclamp, plac_abrup,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>             bleeding, anemia, multi_preg, preterm, plac_previa, neuromusc, asthma, eclamp_minor,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>             tissue_immune, fibroids, sud, gastro, hyper, mental, diab, thyrotox, prev_csection,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             gest_diab, bmi, maternal_age),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>           max)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s walk through this code step-by-step so that you can see what’s happening. First, we’re creating a new data frame called “fcno_disease_agg” using data that we’re pulling from the “fcno_disase” data frame that we created in the previous step. We’re using the <code>group_by(patient_id)</code> command to tell R that we want to aggregate the data from the claim level to the person level where “patient_id” identifies each person. We’re then using the <code>summarise</code> command to calculate our disease indicators. It’s important to note that this is the same command that we used to calculate mean values for age and prenatal spending in the last Data Lab. But we’re NOT calculating means here! You can see that we’ve added the <code>max</code> argument to the end of our variable list. That tells R that we want the maximum value for each of these variables for each person in the data. Since, by construction, these variables take the value of 1 if a diagnosis is present on a claim and 0 otherwise, we know that the <code>max</code> argument will return a value of 1 if a patient EVER had a diagnosis for this condition in the prenatal period.</p>
+<p>To see why this is important, imagine the following case: a women gets diagnosed with anemia during a prenatal visit. At her next visit, the doctor doesn’t order a blood draw and so there’s no anemia diagnoses attached to the claim for the second visit. We still want to record that this patient had a prenatal diagnosis of anemia, even if that diagnosis isn’t present on all prenatal claims. So using <code>summarise(, max)</code> allows us to create an indicator for the presence of anemia at ANY POINT during the prenatal period.</p>
+</section>
+<section id="step-8-calculate-the-ocs" class="level2">
+<h2 class="anchored" data-anchor-id="step-8-calculate-the-ocs">Step 8: Calculate the OCS</h2>
+<p>Now that we have our data set aggregated to the person level and indicators for the presence of each OCS condition, the next step is to calculate the OCS for each person. We can do that as follows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fcno_ocs <span class="ot">&lt;-</span> fcno_disease_agg <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ocs =</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="dv">27</span><span class="sc">*</span>placenta_accreta <span class="sc">+</span> <span class="dv">20</span><span class="sc">*</span>pulm_hyper <span class="sc">+</span> <span class="dv">17</span><span class="sc">*</span>renal <span class="sc">+</span> <span class="dv">14</span><span class="sc">*</span>cardiac <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="dv">13</span><span class="sc">*</span>hiv_aids <span class="sc">+</span> <span class="dv">12</span><span class="sc">*</span>pre_eclamp <span class="sc">+</span> <span class="dv">9</span><span class="sc">*</span>plac_abrup <span class="sc">+</span> <span class="dv">9</span><span class="sc">*</span>bleeding <span class="sc">+</span> <span class="dv">9</span><span class="sc">*</span>anemia <span class="sc">+</span> <span class="dv">9</span><span class="sc">*</span>multi_preg <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="dv">8</span><span class="sc">*</span>preterm <span class="sc">+</span> <span class="dv">8</span><span class="sc">*</span>plac_previa <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>neuromusc <span class="sc">+</span> <span class="dv">5</span><span class="sc">*</span>asthma <span class="sc">+</span> <span class="dv">5</span><span class="sc">*</span>eclamp_minor <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>tissue_immune <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="dv">4</span><span class="sc">*</span>fibroids <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>sud <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>gastro <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>hyper <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>mental <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>diab <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>thyrotox <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span><span class="sc">*</span>prev_csection <span class="sc">+</span> <span class="dv">1</span><span class="sc">*</span>gest_diab <span class="sc">+</span> <span class="dv">1</span><span class="sc">*</span>bmi</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We’ve now created a data frame called “fcno_ocs” that contains the obstetric comorbidity score for each person in the data. Let’s take a look at the distribution of the OCS variable using the <code>summary</code> command:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fcno_ocs<span class="sc">$</span>ocs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You should see that the mean OCS value is 5.729, the median value is 3, and the maximum value is 60. Remember that a higher value is associated with a higher risk of SMM.</p>
+</section>
+<section id="step-9-update-the-descriptive-statistics-table" class="level2">
+<h2 class="anchored" data-anchor-id="step-9-update-the-descriptive-statistics-table">Step 9: Update the Descriptive Statistics Table</h2>
+<p>Now that you’ve calculated the OCS, add the mean OCS values by participation status to your descriptive statistics table by adjusting the code you wrote in the previous Data Lab. <em>For this Data Lab, you should start with the prenatal spending file and use that as the basis for your joins.</em></p>
+<p>I’d also like you to run the following line of code to modify the age data frame that we created back in <a href="../../materials/Data Labs/datalab_3.html">Data Lab 3</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>age_data <span class="ot">&lt;-</span> age_data <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(patient_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here’s what this code is doing. When we created the “age_data” data frame back in Data Lab 3, we kept all claims with a “days_from_delivery” value equal to zero. This was fine for our purposes at the time, but it can cause some issues when we’re attempting to join different data frames (because some people have multiple claims with a “days_from_delivery” date of zero. Running the code above keeps only a single observation per person.</p>
+<section id="question-type-the-answer-to-this-question-in-your-markdown-document" class="level3">
+<h3 class="anchored" data-anchor-id="question-type-the-answer-to-this-question-in-your-markdown-document">Question (type the answer to this question in your Markdown document)</h3>
+<p>What do the OCS values indicate about the average risk of SMM for FCNO participants and non-participants?</p>
+</section>
+</section>
+<section id="summary-and-key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>In this Data Lab, we saw how to generate new variables and to populate those variables using the maximum value across individuals. This allowed us to calculate the obstetric comorbidity score for each woman who gave birth in our sample. We then compared average values of these scores across FCNO program participants and non-participants.</p>
+<p>In our next Data Lab, we’ll examine the role of confounders and how those confounders might bias estimates of the program treatment effects.</p>
+<p>Now upload your PDF document to Canvas using this <a href="https://tulane.instructure.com/courses/2306287/assignments/14892662">link</a> and you’re all done.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hpam7660\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

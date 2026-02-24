@@ -12,6 +12,7 @@ subtitle: "Randomization & Mock Committee Hearing"
 - Mock Committee Hearing\
 - Team Assignments and Topics:
 
+
 <u>Private Equity</u>\
 Victoria\
 Amelia\

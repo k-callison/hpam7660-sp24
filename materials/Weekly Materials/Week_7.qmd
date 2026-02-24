@@ -5,7 +5,7 @@ subtitle: "Estimating Treatment Effects, Randomization, & Mock Committee Hearing
 
 ## Tuesday, Februray 24
 
-- Slides - [Research Design - Randomization](/slides/HPAM_7660_Randomization.pdfx)
+- Slides - [Research Design - Randomization](/slides/HPAM_7660_Estimating_Treatment_Effects.pdf)
 - Assignment - [Landscape Analysis](https://tulane.instructure.com/courses/2306287/assignments/14896600)
 
 ## Thursday, February 27

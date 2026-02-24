@@ -1,6 +1,6 @@
 ---
 title: "HPAM 7660 - Week 7 Materials"
-subtitle: "Randomization & Mock Committee Hearing"
+subtitle: "Estimating Treatment Effects, Randomization, & Mock Committee Hearing"
 ---
 
 ## Tuesday, Februray 24

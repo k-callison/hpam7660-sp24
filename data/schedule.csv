@@ -13,9 +13,9 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 6,2026-02-19,,Data Lab - Expanding Descriptive Comparisons,,"materials/Weekly Materials/Week_6","/materials/Data Labs/datalab_5_sp26.qmd",""
 7,2026-02-24,,Research Design - Estimating Treatment Effects/Randomization,,"materials/Weekly Materials/Week_7",,https://tulane.instructure.com/courses/2306287/assignments/14896600
 7,2026-02-26,,Mock Committee Hearing,,"materials/Weekly Materials/Week_7",,
-8,2026-03-03,,Research Design - Randomization/Regression Analysis,,,,
+8,2026-03-03,,Research Design - Randomization,,,,
 8,2026-03-05,,Data Lab - Confounders and Treatment Effects,,,,
-9,2026-03-10,,Research Design - Natural Experiments Pt.1,,,,
+9,2026-03-10,,Research Design - Regression Analysis,,,,
 9,2026-03-12,,Data Lab - Regression Basics: Controlling for Confounders Pt.1,,,,
 10,2026-03-17,,No Class - Washington DC Trip,,,,
 10,2026-03-19,,Data Lab - Regression Basics: Controlling for Confounders Pt.2,,,,
@@ -23,12 +23,12 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 11,2026-03-26,,No Class - Spring Break,,,,
 12,2026-03-31,,No Class - State Capitol Trip,,,,
 12,2026-04-02,,Data Lab - Causal Inference Pt.1,,,,
-13,2026-04-07,,Research Design - Natural Experiments Pt.2,,,,
+13,2026-04-07,,Research Design - Natural Experiments Pt.1,,,,
 13,2026-04-09,,Data Lab - Causal Inference Pt.2,,,,
-14,2026-04-14,,Research Design - Quasi-Experimental Designs Pt.1,,,,
+14,2026-04-14,,Research Design - Natural Experiments Pt.2,,,,
 14,2026-04-16,,Data Lab - Data Visualization Pt.1,,,,
-15,2026-04-21,,Research Design - Quasi-Experimental Designs Pt.2,,,,
+15,2026-04-21,,Research Design - Quasi-Experimental Designs Pt.1,,,,
 15,2026-04-23,,Data Lab - Data Visualization Pt.2,,,,
-16,2026-04-28,,,,,,
+16,2026-04-28,,Research Design - Quasi-Experimental Designs Pt.2,,,,
 
 

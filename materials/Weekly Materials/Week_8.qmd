@@ -9,5 +9,5 @@ subtitle: "Dealing with Confounders: Biased Treatment Effects & Randomization"
 
 ## Thursday, March 5
 
-- Assignment - [Problem Set 3](/assignments/problem_set_3.qmd)
+- Assignment - [Problem Set 3](/assignments/Problem Sets/problem_set_3.qmd)
 - Data Lab 6 - [Confounders and Treatment Effects](/materials/Data Labs/datalab_6_sp26.qmd)

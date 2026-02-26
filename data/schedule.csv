@@ -14,7 +14,7 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 7,2026-02-24,,Research Design - Estimating Treatment Effects,,"materials/Weekly Materials/Week_7",,https://tulane.instructure.com/courses/2306287/assignments/14896600
 7,2026-02-26,,Mock Committee Hearing,,"materials/Weekly Materials/Week_7",,
 8,2026-03-03,,Research Design - Randomization,,,,
-8,2026-03-05,,Data Lab - Confounders and Treatment Effects,,,,
+8,2026-03-05,,Data Lab - Confounders and Treatment Effects,,,,"/assignments/Problem Sets/problem_set_3.qmd"
 9,2026-03-10,,Research Design - Regression Analysis,,,,
 9,2026-03-12,,Data Lab - Regression Basics: Controlling for Confounders Pt.1,,,,
 10,2026-03-17,,No Class - Washington DC Trip,,,,

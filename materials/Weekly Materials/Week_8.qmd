@@ -1,4 +1,13 @@
 ---
 title: "HPAM 7660 - Week 8 Materials"
-subtitle: "Dealing with Confounders: Regression Analysis and Biased Treatment Effects"
+subtitle: "Dealing with Confounders: Biased Treatment Effects & Randomization"
 ---
+
+## Tuesday, March 3
+
+- Slides - [Randomization](/slides/HPAM_7660_Randomization.pdfx) 
+
+## Thursday, March 5
+
+- Assignment - [Problem Set 3](/assignments/problem_set_3.qmd)
+- Data Lab 6 - [Confounders and Treatment Effects](/materials/Data Labs/datalab_6_sp26.qmd)

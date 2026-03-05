@@ -165,7 +165,7 @@ On average, what share of FCNO participants and non-participants experienced an 
 ### Question 4
 Look at the ED and inpatient results alongside the postnatal spending results from Step 4. Do the patterns go in the same direction across all three outcomes? What does this tell you about health care utilization among FCNO participants compared to non-participants in the postnatal period?
 
-## Step 7: Connecting the Dots — Confounders and Selection Bias
+## Step 8: Connecting the Dots — Confounders and Selection Bias
 
 Now let's step back and think carefully about what we've actually estimated in this Data Lab. In class, we defined the estimated Average Treatment Effect as:
 

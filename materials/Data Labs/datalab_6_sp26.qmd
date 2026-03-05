@@ -1,0 +1,194 @@
+---
+title: "Data Lab 6 - Estimating the Effect of Family Connects on Postnatal Outcomes"
+summary: >-
+  Comparing Postnatal Outcomes for Family Connects Participants and Non-Participants.
+---
+
+In the last few Data Labs, we've been building up a descriptive picture of the women in our data — their ages, their prenatal spending, and their overall health status as measured by the Obstetric Comorbidity Score. Along the way, we've started to notice some systematic differences between FCNO participants and non-participants. In class, we've talked about why those differences matter when we're trying to estimate the causal effect of a program like Family Connects.
+
+In this Data Lab, we're going to shift our focus from prenatal characteristics to postnatal outcomes, in other words outcomes that could plausibly be impacted by FCNO participation. Specifically, we'll look at three outcomes that Family Connects is designed to influence: spending after delivery, emergency department (ED) visits, and inpatient hospitalizations. We'll compare these outcomes for FCNO participants and non-participants, and then we'll think carefully about what those comparisons actually tell us (and what they don't).
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Markdown document. You should type all of the code for this Data Lab in your R Markdown file and save that file when you're finished.
+
+## Step 2: Importing the Data
+
+Load the Family Connects data into R using the `read.csv` command. See the instructions in [Data Lab 3](/materials/Data Labs/datalab_3_sp26.qmd) if you don't remember the exact syntax. As always, check your Environment tab first — if `fcno_data` is already loaded from a previous session, there's no need to import it again.
+
+## Step 3: Filter to the Postnatal Period
+
+In previous Data Labs, we filtered the data to the prenatal period using `filter(days_from_delivery < 0)`. Now we want to do something similar, but for the postnatal period. There's one wrinkle, though: Family Connects home visits typically occur around 30 days after delivery, which means any effects of the program on spending or health care use are unlikely to show up in that first month. To give the program a fair chance to show its effects, we'll focus on the period starting 30 days after delivery. Run the following code to create a postnatal data set:
+
+```{r, eval = FALSE}
+library(dplyr)
+library(stringr)
+
+postnatal_data <- fcno_data %>%
+  filter(days_from_delivery > 30)
+```
+
+Take a look at the new data set in your Environment window. You should see that it has considerably fewer rows than the original `fcno_data`, since we've dropped all prenatal claims and all claims occurring in the first 30 days after delivery.
+
+## Step 4: Keeping Only Those Continuously Enrolled in Medicaid
+
+Before we start comparing outcomes, there's an important data issue we need to address. Our data includes medical claims for up to one year after delivery, but not all of these women will remain enrolled in Medicaid for that entire year. Some will lose coverage. Maybe they got a job with employer-sponsored insurance or lost Medicaid because of an administrative change in their eligibility status. When a woman loses Medicaid coverage, she stops generating Medicaid claims. That means a stretch of missing claims at the end of the observation window doesn't necessarily mean she was healthy and didn't need care. It might just mean she was no longer covered by Medicaid.
+
+This matters a lot for our outcome comparisons. Remember that we're calculating outcomes over the entire postnatal period (days 31–365) for each woman in the data. If one woman was enrolled for the full year but another dropped out of Medicaid after three months, their spending totals aren't directly comparable.
+
+Why does this matter for our analysis of FCNO? Think about what kinds of women are likely to leave Medicaid shortly after giving birth. Women who find employment, gain access to private insurance, or have higher incomes are more likely to disenroll, and those same characteristics are probably associated with better health outcomes to begin with. If FCNO participants and non-participants disenroll at different rates, then our postnatal outcome comparisons will be mixing together the effect of the program with the effect of who stayed enrolled. That's just another form of selection bias.
+
+To address this, we'll restrict our analysis to women who appear to have been enrolled in Medicaid through at least the first six months of the postnatal period. To do so, we'll keep only women who have at least one claim on or after day 180. A woman whose last claim appears before day 180 almost certainly left Medicaid well before the end of our observation window, making her postnatal totals incomparable to women who stayed enrolled longer.
+
+Run the following code to identify women who have a claim on or after day 180:
+
+```{r, eval = FALSE}
+enrolled_patients <- postnatal_data %>%
+  group_by(patient_id) %>%
+  summarise(last_claim = max(days_from_delivery)) %>%
+  filter(last_claim >= 180) %>%
+  select(patient_id)
+```
+
+This code finds the latest claim date for each patient in the postnatal period and keeps only those whose last claim falls on or after day 180.
+
+Now let's filter our postnatal data to keep only those continuously enrolled women:
+
+```{r, eval = FALSE}
+postnatal_enrolled <- postnatal_data %>%
+  filter(patient_id %in% enrolled_patients$patient_id)
+```
+
+We're using the `in` command here which tells R to keep only women from the "postnatal_data" data frame who are also included in the "enrolled_patients" data frame.
+
+Now, we can use the `n_distinct` command to compare how many unique patients we had before and after applying this filter:
+
+```{r, eval = FALSE}
+n_distinct(postnatal_data$patient_id)
+n_distinct(postnatal_enrolled$patient_id)
+```
+
+You should see that we've gone from 8,256 women in our "postnatal_data" data frame to 4,936 women in our "postnatal_enrolled" data frame. So it looks like there were 3,320 women who weren't enrolled for at least 6 full months in our data.
+
+## Step 5: Postnatal Spending
+
+Now that we've restricted our sample to continuously enrolled women, let's calculate postnatal spending. This should feel familiar since it's the same approach we used to calculate prenatal spending back in [Data Lab 3](/materials/Data Labs/datalab_3_sp26.qmd), just applied to the postnatal period. Run the following code:
+
+```{r, eval = FALSE}
+postnatal_spend <- postnatal_enrolled %>%
+  group_by(patient_id) %>%
+  summarize(
+    postnatal_spend = sum(allowed_amt, na.rm = TRUE),
+    fcno = max(fcno, na.rm = TRUE)
+  )
+```
+
+Now let's compare average postnatal spending for FCNO participants and non-participants:
+
+```{r, eval = FALSE}
+postnatal_spend %>%
+  group_by(fcno) %>%
+  summarise(
+    N = n(),
+    Mean_Postnatal_Spend = mean(postnatal_spend, na.rm = TRUE)
+  )
+```
+
+### Question 1
+
+Compare postnatal spending for FCNO participants and non-participants. Do participants spend more or less than non-participants after delivery? Recall from class that the Average Treatment Effect (ATE) is defined as the difference in potential outcomes: what a person's outcome would be with treatment versus without treatment. Given that FCNO enrollment is voluntary, do you think this comparison gives us a reliable estimate of the program's true effect on spending (i.e., the true ATE)? Why or why not?
+
+## Step 6: Emergency Department Visits
+
+Postnatal spending is a useful summary measure, but it can be driven by very large expenditures for a small number of patients. It's often helpful to look at specific types of utilization as well. Let's look at emergency department (ED) visits next.
+
+In medical claims data, ED visits are typically identified using **revenue codes** or **procedure codes**. Revenue codes are three-digit codes that describe the type of facility or service being billed, while procedure codes describe the specific service performed. 
+
+We'll create an indicator variable on each claim that flags whether that claim is associated with an ED visit, and then aggregate to the person level to identify whether each woman had *any* ED visit in the postnatal period. Run the following code:
+
+```{r, eval = FALSE}
+ed_revenue_codes <- c("450", "452", "456", "981")
+ed_procedure_codes <- c("99281", "99282", "99283", "99284", "99285", "99291")
+
+postnatal_ed <- postnatal_enrolled %>%
+  mutate(
+    ed_visit = ifelse(
+      str_trim(revenue_code) %in% ed_revenue_codes |
+        str_trim(procedure_code) %in% ed_procedure_codes,
+      1, 0
+    )
+  ) %>%
+  group_by(patient_id) %>%
+  summarise(
+    any_ed = max(ed_visit, na.rm = TRUE),
+    fcno = max(fcno, na.rm = TRUE)
+  )
+```
+
+You'll recognize the structure of this code from Data Lab 5, where we used a similar approach to flag the presence of specific diagnoses on prenatal claims. Here we're doing the same thing: creating a 0/1 indicator on each claim and then using `max` to identify whether the condition was ever present for each person.
+
+*Now compare ED visit rates for participants and non-participants.*
+
+Note that because `any_ed` is a 0/1 variable, taking the mean gives us the *proportion* of women in each group who had at least one ED visit in the postnatal period.
+
+### Question 2
+On average, what share of FCNO participants and non-participants experienced an ED visit within the first year following delivery?
+
+## Step 7: Inpatient Hospitalizations
+
+Now let's look at inpatient hospitalizations, which are generally the most expensive and clinically significant type of health care use. Like ED visits, inpatient stays are identified using revenue codes and/or procedure codes. 
+
+Run the following code to generate an indicator variable for whether a women experienced a postnatal inpatient visit:
+
+```{r, eval = FALSE}
+ip_revenue_codes <- c("110", "112", "114", "120", "121", "122", "124", "126", "128")
+ip_procedure_codes <- c("99221", "99222", "99223", "99231", "99232", "99233", "99238", "99239")
+
+postnatal_ip <- postnatal_enrolled %>%
+  mutate(
+    ip_visit = ifelse(
+      str_trim(revenue_code) %in% ip_revenue_codes |
+        str_trim(procedure_code) %in% ip_procedure_codes,
+      1, 0
+    )
+  ) %>%
+  group_by(patient_id) %>%
+  summarise(
+    any_ip = max(ip_visit, na.rm = TRUE),
+    fcno = max(fcno, na.rm = TRUE)
+  )
+```
+
+### Question 3
+On average, what share of FCNO participants and non-participants experienced an inpatient stay within the first year following delivery?
+
+### Question 4
+Look at the ED and inpatient results alongside the postnatal spending results from Step 4. Do the patterns go in the same direction across all three outcomes? What does this tell you about health care utilization among FCNO participants compared to non-participants in the postnatal period?
+
+## Step 7: Connecting the Dots — Confounders and Selection Bias
+
+Now let's step back and think carefully about what we've actually estimated in this Data Lab. In class, we defined the estimated Average Treatment Effect as:
+
+$$\text{ATE}^{est} = \text{Avg}_n[Y_i^1 | D_i = 1] - \text{Avg}_n[Y_i^0 | D_i = 0]$$
+
+In our case, $Y_i$ is a postnatal outcome (spending, ED visits, or inpatient stays), and $D_i$ is FCNO participation. That's exactly what we calculated above: we compared average outcomes for participants ($D_i = 1$) and non-participants ($D_i = 0$).
+
+Recall from class that $\text{ATE}^{est} = \text{ATE}$ only when treatment assignment is *independent* of potential outcomes; that is, when $(Y^1, Y^0) \perp\!\!\!\perp D$. In other words, the people who get treated and the people who don't have to be comparable in terms of what their outcomes *would have been* regardless of treatment. Randomization guarantees this independence. But in our case, FCNO participation is entirely voluntary.
+
+### Question 5
+
+Refer back to the descriptive statistics table we built in Data Labs 4 and 5. We found that FCNO participants and non-participants differ on age, prenatal spending, and Obstetric Comorbidity Scores. Based on those differences that you observed, which characteristics concern you most as potential confounders? For each one, think through the following: Is this characteristic associated with FCNO participation? Is it also likely to be associated with postnatal health care use? If the answer to both questions is yes, then it's a confounder and it means our naïve estimates from this Data Lab are likely to be biased.
+
+### Question 6
+
+In which *direction* do you think the bias is likely to run? In other words, does your naïve estimate of the FCNO effect likely *overstate* the program's benefits, *understate* them, or is it hard to say? Use what you know about the characteristics of participants and non-participants to reason through your answer.
+
+## Summary and Key Takeaways
+
+In this Data Lab, we calculated naïve estimates of the average treatment effect of FCNO participation on postnatal outcomes, including Medicaid spending, ED visits, and inpatient hospitalizations. These comparisons give us a first look at whether the program appears to be associated with better outcomes, but as we've seen, "associated with" is not the same as "caused by."
+
+Because FCNO enrollment is voluntary, we have good reason to believe that the women who participate are systematically different from those who don't in ways that are likely to affect their postnatal health care use regardless of whether they participated in the program. That's the selection bias problem we discussed in class, and it means we should be skeptical of our naïve estimates.
+
+So what do can do about it? One approach is to try to *control* for the confounders using regression analysis. We'll begin to experiment with regression analysis in our next data lab.
+
+Render your Markdown file, upload your PDF document to Canvas [here](https://tulane.instructure.com/courses/2306287/assignments/14899620), and you're all done!

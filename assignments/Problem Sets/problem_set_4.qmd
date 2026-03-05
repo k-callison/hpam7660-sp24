@@ -1,34 +1,35 @@
 ---
-title: "Problem Set 4 - Data Visualization"
+title: "Problem Set 4 - Simple Linear Regression"
 summary: >-
-  Exercises in ModernDive Ch. 2 - Data Visualization
+  Exercises in ModernDive Ch. 5 - Simple Linear Regression
 ---
 
 ### Instructions
 
-Complete the following examples from [ModernDive Chapter 2 - Data Visualization](https://moderndive.com/2-viz.html). Before beginning the assignment, create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Problem Set 4", your name, the date, and "pdf_document" as the output format.
+Complete the following exercises based on [ModernDive Chapter 5 - Simple Linear Regression](https://moderndive.com/v2/regression.html). Before beginning, create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Problem Set 4", your name, the date, and "pdf_document" as the output format.
 
-**As you answer each of the following questions, be sure to include your R code and associated output in your R Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.**
+As you answer each of the following questions, be sure to include your R code and associated output in your R Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.
 
 ### Steps for Completing the Assignment
 
-1. Briefly explain the three essential components of the grammar of graphics: data, geom, aes.
+1. Install and load the `moderndive` package. This package contains the datasets and helper functions we'll be using throughout this problem set. You may also want to load `dplyr` and `ggplot2`.
 
-2. Using the data from the `gapminder` package, create a scatterplot of `gdpPercap` on the x-axis and `lifeExp` on the y-axis. (Remember that you will need to install any packages that you haven't yet used and load the relevant libraries before creating the scatterplot). Describe the relationship between per capita GDP and life expectancy depicted in the scatterplot.
+2. We'll start by exploring the `UN_data_ch5` dataset, which contains data on 181 UN member states and includes variables for life expectancy (`life_exp`), fertility rate (`fert_rate`), and obesity rate (`obes_rate`). Use the `glimpse()` function to preview the dataset and then use `tidy_summary()` to generate summary statistics for all variables. How would you describe the typical life expectancy and fertility rate across countries in the data?
 
-3. Modify the scatterplot by adding appropriate axis labels and a title. (Hint: axis labels and titles are not covered in ModernDive Chapter 2, but we've done this before in Data Lab 5).
+4. Now let's fit a simple linear regression model with `fert_rate` as the outcome and `life_exp` as the explanatory variable. Use the `lm()` function to fit the model and the `coef()` function to display the estimated coefficients. Write out the regression equation using the estimated values of the intercept and slope.
 
-4. When looking at this scatterplot, you'll notice a bunch of dots that overlap. That can make it tough to see how many individual countries are represented in the visualization. Modify the scatterplot to make the overalpping points more transparent.
+6. Interpret the slope coefficient from your regression. In practical terms, what does a one-year increase in life expectancy imply for a country's fertility rate? Be sure to use the word "associated" in your answer and explain why we use that language rather than saying life expectancy *causes* changes in fertility.
 
-5. Create an alternative version of the scatterplot using `geom_jitter()` to add small random noise to the points. Try using a width and height equal to 5 and describe which method you find to be more effective at revealing the pattern between GDP and life expectancy.
+7. Use the `get_regression_points()` function to generate a data frame of observed values, fitted values, and residuals. Does the United States have a higher or lower fertility rate than the model predicts? What does that mean in practical terms?
 
-6. Notice that there are some extreme values of per capita GDP that obscure the GDP/life expectency relationship in the scatterplot. Drop values of per capita GDP that are greater than 55,000 and recreate the scatterplot.
+8. Now let's shift to examining a *categorical* explanatory variable. We'll use the `gapminder2022` dataset, which contains life expectancy and continent information for 188 countries. Use `glimpse()` to inspect the data. Which continent has the highest median life expectancy? Which has the lowest?
 
-7. Use the `weather` dataset from the `nycflights13` package to create a histogram of `temp`. 
+9. Fit a linear regression model with `life_exp` as the outcome and `continent` as the explanatory variable. Display the coefficients. Which continent serves as the baseline for comparison, and how do you know? What is the model's predicted life expectancy for countries in Europe?
 
-8. Note that when using `geom_histogram()`, R will choose the bin sizes automatically. Choose a bin size of 10 instead and add white borders to the bars to help distinguish between the bins. 
+10. Interpret the coefficient on `continentAsia`. What does this value tell you about life expectancy in Asian countries relative to the baseline group? Is Asia above or below the baseline, and by how much?
 
-9. Finally use the `flights` dataset to create a barplot of the number of flights by carrier. Add a title to the barplot and change the y-axis label to "Number of Flights". Which carrier had the most flights in the data? Which carrier had the fewest flights?
+11. Use `get_regression_points()` with the `ID = "country"` argument to retrieve the fitted values and residuals for the continent model. Identify the five countries with the most negative residuals. What do large negative residuals tell us about these countries relative to others in their continent?
 
-10. Once you've finished Step 9, knit your PDF document, upload it to the Problem Set 4 assignment [link](https://tulane.instructure.com/courses/2291178/assignments/14673849) on Canvas you're done!
+12. Section 5.3.1 of ModernDive discusses the important distinction between correlation and causation. In your own words, what is a *confounding variable*, and why does its presence make it difficult to draw causal conclusions from a simple regression? Use the life expectancy and fertility rate example from the chapter to illustrate your answer.
 
+13. Once you've finished Step 12, knit your PDF document, upload it to the Problem Set 4 assignment [link](https://tulane.instructure.com/courses/2306287/assignments/14899633) on Canvas and you're done!

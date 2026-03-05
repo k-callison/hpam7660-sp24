@@ -9,4 +9,5 @@ subtitle: "Regression Analysis and Controlling for Confounders"
 
 ## Thursday, March 12
 
+- Assignment - [Problem Set 4](/assignments/Problem Sets/problem_set_4.qmd)
 - Data Lab 7 - [Regression Basics: Controlling for Confounders Pt.1](/materials/Data Labs/datalab_7_sp26.qmdx)

@@ -1,0 +1,34 @@
+---
+title: "Problem Set 4 - Data Visualization"
+summary: >-
+  Exercises in ModernDive Ch. 2 - Data Visualization
+---
+
+### Instructions
+
+Complete the following examples from [ModernDive Chapter 2 - Data Visualization](https://moderndive.com/2-viz.html). Before beginning the assignment, create a new R Markdown document and give it a YAML header that includes the title "HPAM 7660 Problem Set 4", your name, the date, and "pdf_document" as the output format.
+
+**As you answer each of the following questions, be sure to include your R code and associated output in your R Markdown document. Additionally, add a line or two describing what you're doing in each code chunk.**
+
+### Steps for Completing the Assignment
+
+1. Briefly explain the three essential components of the grammar of graphics: data, geom, aes.
+
+2. Using the data from the `gapminder` package, create a scatterplot of `gdpPercap` on the x-axis and `lifeExp` on the y-axis. (Remember that you will need to install any packages that you haven't yet used and load the relevant libraries before creating the scatterplot). Describe the relationship between per capita GDP and life expectancy depicted in the scatterplot.
+
+3. Modify the scatterplot by adding appropriate axis labels and a title. (Hint: axis labels and titles are not covered in ModernDive Chapter 2, but we've done this before in Data Lab 5).
+
+4. When looking at this scatterplot, you'll notice a bunch of dots that overlap. That can make it tough to see how many individual countries are represented in the visualization. Modify the scatterplot to make the overalpping points more transparent.
+
+5. Create an alternative version of the scatterplot using `geom_jitter()` to add small random noise to the points. Try using a width and height equal to 5 and describe which method you find to be more effective at revealing the pattern between GDP and life expectancy.
+
+6. Notice that there are some extreme values of per capita GDP that obscure the GDP/life expectency relationship in the scatterplot. Drop values of per capita GDP that are greater than 55,000 and recreate the scatterplot.
+
+7. Use the `weather` dataset from the `nycflights13` package to create a histogram of `temp`. 
+
+8. Note that when using `geom_histogram()`, R will choose the bin sizes automatically. Choose a bin size of 10 instead and add white borders to the bars to help distinguish between the bins. 
+
+9. Finally use the `flights` dataset to create a barplot of the number of flights by carrier. Add a title to the barplot and change the y-axis label to "Number of Flights". Which carrier had the most flights in the data? Which carrier had the fewest flights?
+
+10. Once you've finished Step 9, knit your PDF document, upload it to the Problem Set 4 assignment [link](https://tulane.instructure.com/courses/2291178/assignments/14673849) on Canvas you're done!
+

@@ -5,7 +5,7 @@ subtitle: "Dealing with Confounders: Biased Treatment Effects & Randomization"
 
 ## Tuesday, March 3
 
-- Slides - [Randomization](/slides/HPAM_7660_Randomization.pdfx) 
+- Slides - [Randomization](/slides/HPAM_7660_Randomization.pdf) 
 
 ## Thursday, March 5
 

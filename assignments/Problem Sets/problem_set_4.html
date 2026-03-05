@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Set 4 - Data Visualization – HPAM 7660 - Health Policy Analysis</title>
+<title>Problem Set 4 - Simple Linear Regression – HPAM 7660 - Health Policy Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Problem Set 4 - Data Visualization</h1>
+<h1 class="title">Problem Set 4 - Simple Linear Regression</h1>
 </div>
 
 
@@ -150,22 +150,23 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="instructions" class="level3">
 <h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
-<p>Complete the following examples from <a href="https://moderndive.com/2-viz.html">ModernDive Chapter 2 - Data Visualization</a>. Before beginning the assignment, create a new R Markdown document and give it a YAML header that includes the title “HPAM 7660 Problem Set 4”, your name, the date, and “pdf_document” as the output format.</p>
-<p><strong>As you answer each of the following questions, be sure to include your R code and associated output in your R Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</strong></p>
+<p>Complete the following exercises based on <a href="https://moderndive.com/v2/regression.html">ModernDive Chapter 5 - Simple Linear Regression</a>. Before beginning, create a new R Markdown document and give it a YAML header that includes the title “HPAM 7660 Problem Set 4”, your name, the date, and “pdf_document” as the output format.</p>
+<p>As you answer each of the following questions, be sure to include your R code and associated output in your R Markdown document. Additionally, add a line or two describing what you’re doing in each code chunk.</p>
 </section>
 <section id="steps-for-completing-the-assignment" class="level3">
 <h3 class="anchored" data-anchor-id="steps-for-completing-the-assignment">Steps for Completing the Assignment</h3>
 <ol type="1">
-<li><p>Briefly explain the three essential components of the grammar of graphics: data, geom, aes.</p></li>
-<li><p>Using the data from the <code>gapminder</code> package, create a scatterplot of <code>gdpPercap</code> on the x-axis and <code>lifeExp</code> on the y-axis. (Remember that you will need to install any packages that you haven’t yet used and load the relevant libraries before creating the scatterplot). Describe the relationship between per capita GDP and life expectancy depicted in the scatterplot.</p></li>
-<li><p>Modify the scatterplot by adding appropriate axis labels and a title. (Hint: axis labels and titles are not covered in ModernDive Chapter 2, but we’ve done this before in Data Lab 5).</p></li>
-<li><p>When looking at this scatterplot, you’ll notice a bunch of dots that overlap. That can make it tough to see how many individual countries are represented in the visualization. Modify the scatterplot to make the overalpping points more transparent.</p></li>
-<li><p>Create an alternative version of the scatterplot using <code>geom_jitter()</code> to add small random noise to the points. Try using a width and height equal to 5 and describe which method you find to be more effective at revealing the pattern between GDP and life expectancy.</p></li>
-<li><p>Notice that there are some extreme values of per capita GDP that obscure the GDP/life expectency relationship in the scatterplot. Drop values of per capita GDP that are greater than 55,000 and recreate the scatterplot.</p></li>
-<li><p>Use the <code>weather</code> dataset from the <code>nycflights13</code> package to create a histogram of <code>temp</code>.</p></li>
-<li><p>Note that when using <code>geom_histogram()</code>, R will choose the bin sizes automatically. Choose a bin size of 10 instead and add white borders to the bars to help distinguish between the bins.</p></li>
-<li><p>Finally use the <code>flights</code> dataset to create a barplot of the number of flights by carrier. Add a title to the barplot and change the y-axis label to “Number of Flights”. Which carrier had the most flights in the data? Which carrier had the fewest flights?</p></li>
-<li><p>Once you’ve finished Step 9, knit your PDF document, upload it to the Problem Set 4 assignment <a href="https://tulane.instructure.com/courses/2291178/assignments/14673849">link</a> on Canvas you’re done!</p></li>
+<li><p>Install and load the <code>moderndive</code> package. This package contains the datasets and helper functions we’ll be using throughout this problem set. You may also want to load <code>dplyr</code> and <code>ggplot2</code>.</p></li>
+<li><p>We’ll start by exploring the <code>UN_data_ch5</code> dataset, which contains data on 181 UN member states and includes variables for life expectancy (<code>life_exp</code>), fertility rate (<code>fert_rate</code>), and obesity rate (<code>obes_rate</code>). Use the <code>glimpse()</code> function to preview the dataset and then use <code>tidy_summary()</code> to generate summary statistics for all variables. How would you describe the typical life expectancy and fertility rate across countries in the data?</p></li>
+<li><p>Now let’s fit a simple linear regression model with <code>fert_rate</code> as the outcome and <code>life_exp</code> as the explanatory variable. Use the <code>lm()</code> function to fit the model and the <code>coef()</code> function to display the estimated coefficients. Write out the regression equation using the estimated values of the intercept and slope.</p></li>
+<li><p>Interpret the slope coefficient from your regression. In practical terms, what does a one-year increase in life expectancy imply for a country’s fertility rate? Be sure to use the word “associated” in your answer and explain why we use that language rather than saying life expectancy <em>causes</em> changes in fertility.</p></li>
+<li><p>Use the <code>get_regression_points()</code> function to generate a data frame of observed values, fitted values, and residuals. Does the United States have a higher or lower fertility rate than the model predicts? What does that mean in practical terms?</p></li>
+<li><p>Now let’s shift to examining a <em>categorical</em> explanatory variable. We’ll use the <code>gapminder2022</code> dataset, which contains life expectancy and continent information for 188 countries. Use <code>glimpse()</code> to inspect the data. Which continent has the highest median life expectancy? Which has the lowest?</p></li>
+<li><p>Fit a linear regression model with <code>life_exp</code> as the outcome and <code>continent</code> as the explanatory variable. Display the coefficients. Which continent serves as the baseline for comparison, and how do you know? What is the model’s predicted life expectancy for countries in Europe?</p></li>
+<li><p>Interpret the coefficient on <code>continentAsia</code>. What does this value tell you about life expectancy in Asian countries relative to the baseline group? Is Asia above or below the baseline, and by how much?</p></li>
+<li><p>Use <code>get_regression_points()</code> with the <code>ID = "country"</code> argument to retrieve the fitted values and residuals for the continent model. Identify the five countries with the most negative residuals. What do large negative residuals tell us about these countries relative to others in their continent?</p></li>
+<li><p>Section 5.3.1 of ModernDive discusses the important distinction between correlation and causation. In your own words, what is a <em>confounding variable</em>, and why does its presence make it difficult to draw causal conclusions from a simple regression? Use the life expectancy and fertility rate example from the chapter to illustrate your answer.</p></li>
+<li><p>Once you’ve finished Step 12, knit your PDF document, upload it to the Problem Set 4 assignment <a href="https://tulane.instructure.com/courses/2306287/assignments/14899633">link</a> on Canvas and you’re done!</p></li>
 </ol>
 
 

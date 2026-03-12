@@ -5,9 +5,9 @@ subtitle: "Regression Analysis and Controlling for Confounders"
 
 ## Tuesday, March 10
 
-- Slides - [Regression Analysis](/slides/HPAM_7660_Regression.pdfx)
+- Slides - [Regression Analysis](/slides/HPAM_7660_Regression.pdf)
 
 ## Thursday, March 12
 
 - Assignment - [Problem Set 4](/assignments/Problem Sets/problem_set_4.qmd)
-- Data Lab 7 - [Regression Basics: Controlling for Confounders Pt.1](/materials/Data Labs/datalab_7_sp26.qmdx)
+- Data Lab 7 - [Regression Basics: Controlling for Confounders Pt.1](/materials/Data Labs/datalab_7_sp26.qmd)

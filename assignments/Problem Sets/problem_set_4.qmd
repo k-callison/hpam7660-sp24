@@ -14,17 +14,15 @@ As you answer each of the following questions, be sure to include your R code an
 
 1. Install and load the `moderndive` package. This package contains the datasets and helper functions we'll be using throughout this problem set. You may also want to load `dplyr` and `ggplot2`.
 
-2. We'll start by exploring the `un_member_states_2024` dataset, which contains data on 181 UN member states and includes variables for life expectancy (`life_exp`), fertility rate (`fert_rate`), and obesity rate (`obes_rate`). Use the `glimpse()` function to preview the dataset and then use `tidy_summary()` to generate summary statistics for all variables. How would you describe the typical life expectancy and fertility rate across countries in the data?
+2. We'll start by exploring the `un_member_states_2024` dataset, which contains data on 181 UN member states and includes variables for life expectancy (`life_expectancy_2022`), fertility rate (`fertility_rate_2022`), and obesity rate (`obesity_rate_2024`). Use the `glimpse()` function to preview the dataset and then use `tidy_summary()` to generate summary statistics for all variables. How would you describe the typical life expectancy and fertility rate across countries in the data?
 
-4. Now let's fit a simple linear regression model with `fert_rate` as the outcome and `life_exp` as the explanatory variable. Use the `lm()` function to fit the model and the `coef()` function to display the estimated coefficients. Write out the regression equation using the estimated values of the intercept and slope.
+4. Now let's fit a simple linear regression model with `fertility_rate_2022` as the outcome and `life_expextancy_2022` as the explanatory variable. Use the `lm()` function to fit the model and the `coef()` function to display the estimated coefficients. Write out the regression equation using the estimated values of the intercept and slope.
 
 6. Interpret the slope coefficient from your regression. In practical terms, what does a one-year increase in life expectancy imply for a country's fertility rate? Be sure to use the word "associated" in your answer and explain why we use that language rather than saying life expectancy *causes* changes in fertility.
 
 7. Use the `get_regression_points()` function to generate a data frame of observed values, fitted values, and residuals. Does the United States have a higher or lower fertility rate than the model predicts? What does that mean in practical terms?
 
-8. Now let's shift to examining a *categorical* explanatory variable. We'll use the `gapminder2022` dataset, which contains life expectancy and continent information for 188 countries. Use `glimpse()` to inspect the data. Which continent has the highest median life expectancy? Which has the lowest?
-
-9. Fit a linear regression model with `life_exp` as the outcome and `continent` as the explanatory variable. Display the coefficients. Which continent serves as the baseline for comparison, and how do you know? What is the model's predicted life expectancy for countries in Europe?
+8. Now let's shift to examining a *categorical* explanatory variable. Fit a linear regression model with `life_expextancy_2022` as the outcome and `continent` as the explanatory variable. Display the coefficients. Which continent serves as the baseline for comparison, and how do you know? What is the model's predicted life expectancy for countries in Europe?
 
 10. Interpret the coefficient on `continentAsia`. What does this value tell you about life expectancy in Asian countries relative to the baseline group? Is Asia above or below the baseline, and by how much?
 

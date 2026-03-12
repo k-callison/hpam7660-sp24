@@ -12,7 +12,7 @@ As you answer each of the following questions, be sure to include your R code an
 
 ### Steps for Completing the Assignment
 
-1. Install and load the `moderndive` package. This package contains the datasets and helper functions we'll be using throughout this problem set. You may also want to load `dplyr` and `ggplot2`.
+1. Install and load the `moderndive` package. This package contains the datasets and helper functions we'll be using throughout this problem set. You'll also want to load the `dplyr` package.
 
 2. We'll start by exploring the `un_member_states_2024` dataset, which contains data on 181 UN member states and includes variables for life expectancy (`life_expectancy_2022`), fertility rate (`fertility_rate_2022`), and obesity rate (`obesity_rate_2024`). Use the `glimpse()` function to preview the dataset and then use `tidy_summary()` to generate summary statistics for all variables. How would you describe the typical life expectancy and fertility rate across countries in the data?
 

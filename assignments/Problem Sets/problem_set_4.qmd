@@ -14,7 +14,7 @@ As you answer each of the following questions, be sure to include your R code an
 
 1. Install and load the `moderndive` package. This package contains the datasets and helper functions we'll be using throughout this problem set. You may also want to load `dplyr` and `ggplot2`.
 
-2. We'll start by exploring the `UN_data_ch5` dataset, which contains data on 181 UN member states and includes variables for life expectancy (`life_exp`), fertility rate (`fert_rate`), and obesity rate (`obes_rate`). Use the `glimpse()` function to preview the dataset and then use `tidy_summary()` to generate summary statistics for all variables. How would you describe the typical life expectancy and fertility rate across countries in the data?
+2. We'll start by exploring the `un_member_states_2024` dataset, which contains data on 181 UN member states and includes variables for life expectancy (`life_exp`), fertility rate (`fert_rate`), and obesity rate (`obes_rate`). Use the `glimpse()` function to preview the dataset and then use `tidy_summary()` to generate summary statistics for all variables. How would you describe the typical life expectancy and fertility rate across countries in the data?
 
 4. Now let's fit a simple linear regression model with `fert_rate` as the outcome and `life_exp` as the explanatory variable. Use the `lm()` function to fit the model and the `coef()` function to display the estimated coefficients. Write out the regression equation using the estimated values of the intercept and slope.
 

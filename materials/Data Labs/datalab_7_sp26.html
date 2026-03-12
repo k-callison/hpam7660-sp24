@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Lab 7 - Using Regression to Control for Confounders – HPAM 7660 - Health Policy Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/site_icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8c383d5ffb40185931093cac90ac19b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HPAM 7660 - Health Policy Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources/index.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-create-a-new-r-markdown-file" id="toc-step-1-create-a-new-r-markdown-file" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</a></li>
+  <li><a href="#step-2-importing-the-data" id="toc-step-2-importing-the-data" class="nav-link" data-scroll-target="#step-2-importing-the-data">Step 2: Importing the Data</a></li>
+  <li><a href="#step-3-recreating-the-person-level-analysis-file" id="toc-step-3-recreating-the-person-level-analysis-file" class="nav-link" data-scroll-target="#step-3-recreating-the-person-level-analysis-file">Step 3: Recreating the Person-Level Analysis File</a></li>
+  <li><a href="#step-4-simple-regression" id="toc-step-4-simple-regression" class="nav-link" data-scroll-target="#step-4-simple-regression">Step 4: Simple Regression</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  </ul></li>
+  <li><a href="#step-5-controlling-for-age" id="toc-step-5-controlling-for-age" class="nav-link" data-scroll-target="#step-5-controlling-for-age">Step 5: Controlling for Age</a>
+  <ul class="collapse">
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  </ul></li>
+  <li><a href="#step-6-controlling-for-health-status" id="toc-step-6-controlling-for-health-status" class="nav-link" data-scroll-target="#step-6-controlling-for-health-status">Step 6: Controlling for Health Status</a>
+  <ul class="collapse">
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  </ul></li>
+  <li><a href="#step-7-comparing-the-three-models" id="toc-step-7-comparing-the-three-models" class="nav-link" data-scroll-target="#step-7-comparing-the-three-models">Step 7: Comparing the Three Models</a>
+  <ul class="collapse">
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  </ul></li>
+  <li><a href="#summary-and-key-takeaways" id="toc-summary-and-key-takeaways" class="nav-link" data-scroll-target="#summary-and-key-takeaways">Summary and Key Takeaways</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Lab 7 - Using Regression to Control for Confounders</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>At the end of Data Lab 6, we saw that the naïve comparisons we made between FCNO participants and non-participants are likely to be biased. Remember that when treatment assignment is not independent of potential outcomes (<span class="math inline">\((Y^1, Y^0) \not\perp\!\!\!\perp D\)</span>) our estimated ATE picks up two additional terms in addition to the true treatment effect:</p>
+<p><span class="math display">\[ATE_{est} = ATE + \underbrace{\{Avg_n[Y^0|D=1] - Avg_n[Y^0|D=0]\}}_{\text{Selection Bias}} + \underbrace{(1-\pi)(ATT - ATU)}_{\text{Heterogeneous Treatment Effect Bias}}\]</span></p>
+<p>Because FCNO enrollment is voluntary, we have every reason to believe that the women who participate differ systematically from those who don’t in ways that are also related to their postnatal health care use. That means our naïve estimates from Data Lab 6 are likely contaminated by selection bias.</p>
+<p>One approach to this problem is regression. By adding observed characteristics, like age and pre-delivery health status, as control variables, we can try to “make equal” the treatment and control groups on those dimensions and estimate the effect of FCNO <em>conditional</em> on those characteristics.</p>
+<p>The idea is to compare participants and non-participants who are similar on the things we can measure, so that what’s left over is more plausibly attributable to the program itself. If you completed Problem Set 4, you’ve already gotten some practice with the <code>lm()</code> function in R. Today we’re going to apply that same tool to the FCNO data.</p>
+<section id="step-1-create-a-new-r-markdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</h2>
+<p>See the instructions from <a href="../../materials/Data Labs/datalab_2.html">Data Lab 2</a> to create a new R Markdown document. You should type all of the code for this Data Lab in your R Markdown file and save that file when you’re finished.</p>
+</section>
+<section id="step-2-importing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-importing-the-data">Step 2: Importing the Data</h2>
+<p>Load the Family Connects data into R using the <code>read.csv</code> command. See the instructions in <a href="../../materials/Data Labs/datalab_3_sp26.html">Data Lab 3</a> if you don’t remember the exact syntax. As always, check your Environment tab first — if <code>fcno_data</code> is already loaded from a previous session, there’s no need to import it again.</p>
+</section>
+<section id="step-3-recreating-the-person-level-analysis-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-recreating-the-person-level-analysis-file">Step 3: Recreating the Person-Level Analysis File</h2>
+<p>In previous Data Labs, we built several person-level data sets that we’re going to need again today. Open your R Markdown files from those labs and re-run the relevant code to recreate the following data frames in your Environment:</p>
+<ul>
+<li><code>postnatal_spend</code> — a person-level file with each woman’s total postnatal spending and her FCNO participation status (from <a href="../../materials/Data Labs/datalab_6_sp26_updated.qmd">Data Lab 6</a>, Steps 3–5)</li>
+<li><code>age_data</code> — a person-level file with each woman’s age at delivery (from <a href="../../materials/Data Labs/datalab_4_sp26.html">Data Lab 4</a>, Step 3; also run the <code>distinct()</code> line from <a href="../../materials/Data Labs/datalab_5_sp26.html">Data Lab 5</a> to ensure one row per person)</li>
+<li><code>fcno_ocs</code> — a person-level file with each woman’s Obstetric Comorbidity Score (from <a href="../../materials/Data Labs/datalab_5_sp26.html">Data Lab 5</a>, Steps 5–8)</li>
+</ul>
+<p>Once you’ve recreated all three data frames, we’ll join them together into a single analysis file. Run the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>regression_data <span class="ot">&lt;-</span> postnatal_spend <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(age_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(patient_id, age), <span class="at">by =</span> <span class="st">"patient_id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(fcno_ocs <span class="sc">%&gt;%</span> <span class="fu">select</span>(patient_id, ocs), <span class="at">by =</span> <span class="st">"patient_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that before joining, we’re using <code>select()</code> to pull only the variables we need from <code>age_data</code> and <code>fcno_ocs</code>. This keeps us from ending up with duplicate columns (like two versions of <code>fcno</code>) in the merged file.</p>
+<p>Take a look at the new <code>regression_data</code> frame in your Environment. It should have one row per patient and five columns: <code>patient_id</code>, <code>postnatal_spend</code>, <code>fcno</code>, <code>age</code>, and <code>ocs</code>. Check that the number of rows matches what you had in <code>postnatal_spend</code>. If it’s different, something likely went wrong in one of the joins. Also note that some women may have missing values for <code>ocs</code> if they had no prenatal claims in the data. That’s ok and R will deal with those cases automatically when we run the regressions.</p>
+<p>Before moving on, let’s take a look at the mean values for age and ocs in the <code>regression_data</code> data frame:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>regression_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(fcno) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Age  =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_OCS  =</span> <span class="fu">mean</span>(ocs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now that we’ve subset the data to those with continuous enrollment, notice that we don’t see big differences between average age and average OCS scores between FCNO participants and non-participants. FCNO participants appear to be a little younger and a little healthier, but the differences are small. Keep this in mind as we continue to work through this Data Lab.</p>
+</section>
+<section id="step-4-simple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-simple-regression">Step 4: Simple Regression</h2>
+<p>Before we start running models, let’s think through the regression equation we’re going to estimate. In the notation you saw in class, our simplest model looks like this:</p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1 D_i + \varepsilon_i\]</span></p>
+<p>where <span class="math inline">\(y_i\)</span> is postnatal spending for woman <span class="math inline">\(i\)</span>, <span class="math inline">\(D_i\)</span> is her FCNO participation status (1 if she participated, 0 if she didn’t), <span class="math inline">\(\beta_0\)</span> is the intercept, <span class="math inline">\(\beta_1\)</span> is the slope on FCNO participation, and <span class="math inline">\(\varepsilon_i\)</span> is the residual — the difference between her actual spending and the spending the model predicts for her. R estimates this model by finding the values of <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> that minimize the sum of those squared residuals across all women in the sample.</p>
+<p>In this regression model, <span class="math inline">\(\hat{\beta}_1\)</span> is our estimate of the average difference in postnatal spending between FCNO participants and non-participants (i.e., our estimate of the average treatment effect), and <span class="math inline">\(\hat{\beta}_0\)</span> is our estimate of average spending for non-participants (i.e., when <span class="math inline">\(D_i = 0\)</span>). Note that to get average spending for participants, we’d add <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_0\)</span> together.</p>
+<p>Run the following code to fit the model:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(postnatal_spend <span class="sc">~</span> fcno, <span class="at">data =</span> regression_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <code>summary()</code> function displays the estimated coefficients alongside their standard errors and p-values. You may notice that the coefficient on <code>fcno</code> is very close to the simple mean difference you calculated in Step 5 of Data Lab 6. That’s not a coincidence! When you regress a continuous outcome on a single binary predictor with no other controls, the slope coefficient is algebraically equivalent to the difference in group means. Model 1 is just a regression way of expressing the same naïve comparison we already made.</p>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>What are the estimated values of <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> in Model 1? Interpret both coefficients in plain English describing what <span class="math inline">\(\hat{\beta}_0\)</span> tells you about postnatal spending for non-participants, and what <span class="math inline">\(\hat{\beta}_1\)</span> tells you about the difference in spending between participants and non-participants.</p>
+<p>Based on the p-value on <code>fcno</code>, does this difference appear to be statistically significant? What assumption would need to hold for <span class="math inline">\(\hat{\beta}_1\)</span> to be a valid estimate of the causal effect of Family Connects?</p>
+</section>
+</section>
+<section id="step-5-controlling-for-age" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-controlling-for-age">Step 5: Controlling for Age</h2>
+<p>Now let’s add age as a control variable. Maybe we think that age could be a confounder in this case because older mothers might face additional delivery complications, which would increase Medicaid spending.</p>
+<p>Adding a covariate to the regression changes what we’re estimating. Instead of comparing all participants to all non-participants regardless of age, we’re now estimating:</p>
+<p><span class="math display">\[ATE_{est} = Avg_n[Y^1|D=1, X] - Avg_n[Y^0|D=0, X]\]</span></p>
+<p>In other words, we’re comparing women who have the same value of <span class="math inline">\(X\)</span> (age) but differ in their FCNO participation status. Even though FCNO participation isn’t randomly assigned, we might <em>hope</em> that among women of the same age, participants and non-participants would have had similar postnatal spending in the absence of the program. In other words, we hope <span class="math inline">\((Y^1, Y^0) \perp\!\!\!\perp D\)</span> conditional on <span class="math inline">\(X\)</span>. As we discussed in class, this is a strong assumption, and unlike with randomization, it can’t be tested directly.</p>
+<p>Run the following code to estimate the model with age as an additional control:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(postnatal_spend <span class="sc">~</span> fcno <span class="sc">+</span> age, <span class="at">data =</span> regression_data)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p>What is the estimated coefficient on <code>fcno</code> in Model 2? How does it compare to the coefficient from Model 1? Did it get larger, smaller, or stay about the same? Based on what you know about the relationship between age and FCNO participation, does the direction of the change make sense? Explain your reasoning.</p>
+<p>What is the coefficient on <code>age</code>, and what does it tell you about the relationship between age and postnatal spending after holding FCNO participation constant?</p>
+</section>
+</section>
+<section id="step-6-controlling-for-health-status" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-controlling-for-health-status">Step 6: Controlling for Health Status</h2>
+<p>Now let’s try a different control variable: the Obstetric Comorbidity Score. Remember that women with higher OCS values have a greater risk of severe maternal morbidity. If sicker women have higher postnatal spending and if FCNO participants and non-participants have systematically different health profiles, then the OCS is a confounder and we need to control for it. Run the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(postnatal_spend <span class="sc">~</span> fcno <span class="sc">+</span> ocs, <span class="at">data =</span> regression_data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>What is the estimated coefficient on <code>fcno</code> in Model 3? Interpret the coefficient on <code>ocs</code>. What does it tell you about the relationship between health status and postnatal spending? Does controlling for OCS move the <code>fcno</code> coefficient in the direction you would have expected, given what you know about the health profiles of participants and non-participants?</p>
+</section>
+</section>
+<section id="step-7-comparing-the-three-models" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-comparing-the-three-models">Step 7: Comparing the Three Models</h2>
+<p>Now, let’s put all three specifications side by side for ease of comparison. Run the following code to pull the <code>fcno</code> coefficient from each model and display them together:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Model 1: No controls"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Model 2: Controlling for Age"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Model 3: Controlling for OCS"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">FCNO_Coefficient =</span> <span class="fu">c</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coef</span>(model_1)[<span class="st">"fcno"</span>],</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coef</span>(model_2)[<span class="st">"fcno"</span>],</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coef</span>(model_3)[<span class="st">"fcno"</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<p>Looking at how the <code>fcno</code> coefficient changes across the three models, what does the overall pattern suggest about the direction and magnitude of the bias in our naïve estimate from Model 1?</p>
+</section>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>When we fail to control for a confounder, we have an <em>omitted variable bias</em> problem: we think we’re estimating the effect of FCNO on postnatal spending, but we’re actually estimating the combined effect of FCNO and whatever unobserved factors we’ve left out. Even after controlling for OCS in Model 3, do you think we’ve fully solved this problem? Identify at least one characteristic that might differ between FCNO participants and non-participants that we haven’t been able to control for, and explain why omitting it is likely to bias our estimate of the FCNO effect.</p>
+</section>
+</section>
+<section id="summary-and-key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>In this Data Lab, we used simple linear regression to move beyond the naïve comparisons from Data Lab 6. By adding control variables — first age, then Obstetric Comorbidity Score — we were able to make more apples-to-apples comparisons between FCNO participants and non-participants and reduce the selection bias in our estimates.</p>
+<p>The key takeaway is that our estimate of the program effect does change when we add controls, and it changes in a predictable direction. We saw that FCNO participants tend to be younger and healthier than non-participants, but these differences are pretty small. Younger, healthier women also tend to have lower postnatal spending regardless of whether they participate in the program, so when we control for age and health status, some of what looked like an “effect” of FCNO turns out to reflect those pre-existing differences rather than anything the program actually did.</p>
+<p>The moral of the story, as we discussed in class, is this: regression is a useful tool when randomization isn’t feasible. The goal is to compare women who are “statistically identical” on observed characteristics and differ only in their exposure to the program. If we’ve controlled for all relevant confounders, then regression can recover a causal estimate of the treatment effect. But omitted variable bias is a serious threat whenever treatment is non-random. There are almost certainly unobserved differences between FCNO participants and non-participants that we can’t account for with the data we have, which means our regression estimates still can’t be fully trusted as causal.</p>
+<p>So what do we do when randomization is infeasible and we’re not confident that regression estimates are unbiased? That’s the question that motivates the next set of tools we’ll explore: natural experiments and quasi-experimental research designs.</p>
+<p>Now upload your PDF document to Canvas using this <a href="https://tulane.instructure.com/courses/2306287/assignments/14906686">link</a> and you’re all done.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hpam7660\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

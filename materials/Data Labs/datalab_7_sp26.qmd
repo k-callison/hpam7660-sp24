@@ -1,0 +1,156 @@
+---
+title: "Data Lab 7 - Using Regression to Control for Confounders"
+summary: >-
+  Estimating the Effect of Family Connects Using Simple Linear Regression.
+---
+
+At the end of Data Lab 6, we saw that the naïve comparisons we made between FCNO participants and non-participants are likely to be biased. Remember that when treatment assignment is not independent of potential outcomes ($(Y^1, Y^0) \not\perp\!\!\!\perp D$) our estimated ATE picks up two additional terms in addition to the true treatment effect:
+
+$$ATE_{est} = ATE + \underbrace{\{Avg_n[Y^0|D=1] - Avg_n[Y^0|D=0]\}}_{\text{Selection Bias}} + \underbrace{(1-\pi)(ATT - ATU)}_{\text{Heterogeneous Treatment Effect Bias}}$$
+
+Because FCNO enrollment is voluntary, we have every reason to believe that the women who participate differ systematically from those who don't in ways that are also related to their postnatal health care use. That means our naïve estimates from Data Lab 6 are likely contaminated by selection bias.
+
+One approach to this problem is regression. By adding observed characteristics, like age and pre-delivery health status, as control variables, we can try to "make equal" the treatment and control groups on those dimensions and estimate the effect of FCNO *conditional* on those characteristics. 
+
+The idea is to compare participants and non-participants who are similar on the things we can measure, so that what's left over is more plausibly attributable to the program itself. If you completed Problem Set 4, you've already gotten some practice with the `lm()` function in R. Today we're going to apply that same tool to the FCNO data.
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Markdown document. You should type all of the code for this Data Lab in your R Markdown file and save that file when you're finished.
+
+## Step 2: Importing the Data
+
+Load the Family Connects data into R using the `read.csv` command. See the instructions in [Data Lab 3](/materials/Data Labs/datalab_3_sp26.qmd) if you don't remember the exact syntax. As always, check your Environment tab first — if `fcno_data` is already loaded from a previous session, there's no need to import it again.
+
+## Step 3: Recreating the Person-Level Analysis File
+
+In previous Data Labs, we built several person-level data sets that we're going to need again today. Open your R Markdown files from those labs and re-run the relevant code to recreate the following data frames in your Environment:
+
+- `postnatal_spend` — a person-level file with each woman's total postnatal spending and her FCNO participation status (from [Data Lab 6](/materials/Data Labs/datalab_6_sp26_updated.qmd), Steps 3–5)
+- `age_data` — a person-level file with each woman's age at delivery (from [Data Lab 4](/materials/Data Labs/datalab_4_sp26.qmd), Step 3; also run the `distinct()` line from [Data Lab 5](/materials/Data Labs/datalab_5_sp26.qmd) to ensure one row per person)
+- `fcno_ocs` — a person-level file with each woman's Obstetric Comorbidity Score (from [Data Lab 5](/materials/Data Labs/datalab_5_sp26.qmd), Steps 5–8)
+
+Once you've recreated all three data frames, we'll join them together into a single analysis file. Run the following code:
+
+```{r, eval = FALSE}
+library(dplyr)
+
+regression_data <- postnatal_spend %>%
+  left_join(age_data %>% select(patient_id, age), by = "patient_id") %>%
+  left_join(fcno_ocs %>% select(patient_id, ocs), by = "patient_id")
+```
+
+Notice that before joining, we're using `select()` to pull only the variables we need from `age_data` and `fcno_ocs`. This keeps us from ending up with duplicate columns (like two versions of `fcno`) in the merged file.
+
+Take a look at the new `regression_data` frame in your Environment. It should have one row per patient and five columns: `patient_id`, `postnatal_spend`, `fcno`, `age`, and `ocs`. Check that the number of rows matches what you had in `postnatal_spend`. If it's different, something likely went wrong in one of the joins. Also note that some women may have missing values for `ocs` if they had no prenatal claims in the data. That's ok and R will deal with those cases automatically when we run the regressions.
+
+Before moving on, let's take a look at the mean values for age and ocs in the `regression_data` data frame:
+```{r, eval = FALSE}
+regression_data %>%
+  group_by(fcno) %>%
+  summarise(
+    N = n(),
+    Mean_Age  = mean(age, na.rm = TRUE),
+    Mean_OCS  = mean(ocs, na.rm = TRUE)
+  )
+```
+
+Now that we've subset the data to those with continuous enrollment, notice that we don't see big differences between average age and average OCS scores between FCNO participants and non-participants. FCNO participants appear to be a little younger and a little healthier, but the differences are small. Keep this in mind as we continue to work through this Data Lab.
+
+## Step 4: Simple Regression
+
+Before we start running models, let's think through the regression equation we're going to estimate. In the notation you saw in class, our simplest model looks like this:
+
+$$y_i = \beta_0 + \beta_1 D_i + \varepsilon_i$$
+
+where $y_i$ is postnatal spending for woman $i$, $D_i$ is her FCNO participation status (1 if she participated, 0 if she didn't), $\beta_0$ is the intercept, $\beta_1$ is the slope on FCNO participation, and $\varepsilon_i$ is the residual — the difference between her actual spending and the spending the model predicts for her. R estimates this model by finding the values of $\hat{\beta}_0$ and $\hat{\beta}_1$ that minimize the sum of those squared residuals across all women in the sample.
+
+In this regression model, $\hat{\beta}_1$ is our estimate of the average difference in postnatal spending between FCNO participants and non-participants (i.e., our estimate of the average treatment effect), and $\hat{\beta}_0$ is our estimate of average spending for non-participants (i.e., when $D_i = 0$). Note that to get average spending for participants, we'd add $\hat{\beta}_1$ and $\hat{\beta}_0$ together.
+
+Run the following code to fit the model:
+```{r, eval = FALSE}
+model_1 <- lm(postnatal_spend ~ fcno, data = regression_data)
+summary(model_1)
+```
+
+The `summary()` function displays the estimated coefficients alongside their standard errors and p-values. You may notice that the coefficient on `fcno` is very close to the simple mean difference you calculated in Step 5 of Data Lab 6. That's not a coincidence! When you regress a continuous outcome on a single binary predictor with no other controls, the slope coefficient is algebraically equivalent to the difference in group means. Model 1 is just a regression way of expressing the same naïve comparison we already made.
+
+### Question 1
+
+What are the estimated values of $\hat{\beta}_0$ and $\hat{\beta}_1$ in Model 1? Interpret both coefficients in plain English describing what $\hat{\beta}_0$ tells you about postnatal spending for non-participants, and what $\hat{\beta}_1$ tells you about the difference in spending between participants and non-participants. 
+
+Based on the p-value on `fcno`, does this difference appear to be statistically significant? What assumption would need to hold for $\hat{\beta}_1$ to be a valid estimate of the causal effect of Family Connects?
+
+## Step 5: Controlling for Age
+
+Now let's add age as a control variable. Maybe we think that age could be a confounder in this case because older mothers might face additional delivery complications, which would increase Medicaid spending. 
+
+Adding a covariate to the regression changes what we're estimating. Instead of comparing all participants to all non-participants regardless of age, we're now estimating:
+
+$$ATE_{est} = Avg_n[Y^1|D=1, X] - Avg_n[Y^0|D=0, X]$$
+
+In other words, we're comparing women who have the same value of $X$ (age) but differ in their FCNO participation status. Even though FCNO participation isn't randomly assigned, we might *hope* that among women of the same age, participants and non-participants would have had similar postnatal spending in the absence of the program. In other words, we hope $(Y^1, Y^0) \perp\!\!\!\perp D$ conditional on $X$. As we discussed in class, this is a strong assumption, and unlike with randomization, it can't be tested directly.
+
+Run the following code to estimate the model with age as an additional control:
+```{r, eval = FALSE}
+model_2 <- lm(postnatal_spend ~ fcno + age, data = regression_data)
+summary(model_2)
+```
+
+### Question 2
+
+What is the estimated coefficient on `fcno` in Model 2? How does it compare to the coefficient from Model 1? Did it get larger, smaller, or stay about the same? Based on what you know about the relationship between age and FCNO participation, does the direction of the change make sense? Explain your reasoning.
+
+What is the coefficient on `age`, and what does it tell you about the relationship between age and postnatal spending after holding FCNO participation constant?
+
+## Step 6: Controlling for Health Status
+
+Now let's try a different control variable: the Obstetric Comorbidity Score. Remember that women with higher OCS values have a greater risk of severe maternal morbidity. If sicker women have higher postnatal spending and if FCNO participants and non-participants have systematically different health profiles, then the OCS is a confounder and we need to control for it. Run the following code:
+
+```{r, eval = FALSE}
+model_3 <- lm(postnatal_spend ~ fcno + ocs, data = regression_data)
+summary(model_3)
+```
+
+### Question 3
+
+What is the estimated coefficient on `fcno` in Model 3? Interpret the coefficient on `ocs`. What does it tell you about the relationship between health status and postnatal spending? Does controlling for OCS move the `fcno` coefficient in the direction you would have expected, given what you know about the health profiles of participants and non-participants?
+
+## Step 7: Comparing the Three Models
+
+Now, let's put all three specifications side by side for ease of comparison. Run the following code to pull the `fcno` coefficient from each model and display them together:
+
+```{r, eval = FALSE}
+data.frame(
+  Model = c(
+    "Model 1: No controls",
+    "Model 2: Controlling for Age",
+    "Model 3: Controlling for OCS"
+  ),
+  FCNO_Coefficient = c(
+    coef(model_1)["fcno"],
+    coef(model_2)["fcno"],
+    coef(model_3)["fcno"]
+  )
+)
+```
+
+### Question 4
+
+Looking at how the `fcno` coefficient changes across the three models, what does the overall pattern suggest about the direction and magnitude of the bias in our naïve estimate from Model 1?
+
+### Question 5
+
+When we fail to control for a confounder, we have an *omitted variable bias* problem: we think we're estimating the effect of FCNO on postnatal spending, but we're actually estimating the combined effect of FCNO and whatever unobserved factors we've left out. Even after controlling for OCS in Model 3, do you think we've fully solved this problem? Identify at least one characteristic that might differ between FCNO participants and non-participants that we haven't been able to control for, and explain why omitting it is likely to bias our estimate of the FCNO effect.
+
+## Summary and Key Takeaways
+
+In this Data Lab, we used simple linear regression to move beyond the naïve comparisons from Data Lab 6. By adding control variables — first age, then Obstetric Comorbidity Score — we were able to make more apples-to-apples comparisons between FCNO participants and non-participants and reduce the selection bias in our estimates.
+
+The key takeaway is that our estimate of the program effect does change when we add controls, and it changes in a predictable direction. We saw that FCNO participants tend to be younger and healthier than non-participants, but these differences are pretty small. Younger, healthier women also tend to have lower postnatal spending regardless of whether they participate in the program, so when we control for age and health status, some of what looked like an "effect" of FCNO turns out to reflect those pre-existing differences rather than anything the program actually did.
+
+The moral of the story, as we discussed in class, is this: regression is a useful tool when randomization isn't feasible. The goal is to compare women who are "statistically identical" on observed characteristics and differ only in their exposure to the program. If we've controlled for all relevant confounders, then regression can recover a causal estimate of the treatment effect. But omitted variable bias is a serious threat whenever treatment is non-random. There are almost certainly unobserved differences between FCNO participants and non-participants that we can't account for with the data we have, which means our regression estimates still can't be fully trusted as causal.
+
+So what do we do when randomization is infeasible and we're not confident that regression estimates are unbiased? That's the question that motivates the next set of tools we'll explore: natural experiments and quasi-experimental research designs.
+
+Now upload your PDF document to Canvas using this [link](https://tulane.instructure.com/courses/2306287/assignments/14906686) and you're all done.

@@ -9,4 +9,4 @@ subtitle: "DC Trip and Controlling for Confounders Pt.2"
 
 ## Thursday, March 19
 
-- Data Lab 8 - [Regression Basics: Controlling for Confounders Pt.2](/materials/Data Labs/datalab_8_sp26.qmdx)
+- Data Lab 8 - [Regression Basics: Controlling for Confounders Pt.2](/materials/Data Labs/datalab_8_sp26.qmd)

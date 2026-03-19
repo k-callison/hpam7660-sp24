@@ -1,0 +1,155 @@
+---
+title: "Data Lab 8 - Multiple Regression and the Effects of Family Connects"
+summary: >-
+  Estimating the Effects of Family Connects Across Multiple Outcomes Using Multiple Regression.
+---
+
+In Data Lab 7, we used regression to start accounting for some potential confounders that could bias our estimates of the effect of FCNO participation. We found that controlling for age and the Obstetric Comorbidity Score moved the FCNO coefficient in a predictable direction: once we adjust for the fact that participants tend to be younger and healthier, the apparent "benefit" of FCNO on postnatal spending shrinks a bit (not a whole lot though because age and OCS were relatively similar across both groups). But we were adding those controls one at a time, and real confounders don't operate in isolation. For example, age and health status are both related to FCNO participation and to postnatal spending, and ideally we'd want to hold them all constant *simultaneously*.
+
+That's the idea behind **multiple regression**: instead of controlling for one thing at a time, we estimate a single model that includes all the controls we care about at once. Using the notation from class, our multiple regression model would be written as follows:
+
+$$y_i = \beta_0 + \beta_1 D_i + \beta_2 \text{age}_i + \beta_3 \text{ocs}_i + \varepsilon_i$$
+
+In this specification, $\hat{\beta}_1$ represents the estimated difference in outcomes between FCNO participants and non-participants after holding age and health status constant *at the same time*. 
+
+We'll also expand our analysis beyond postnatal spending to include the other two outcomes from Data Lab 6: inpatient hospitalizations and emergency department visits. 
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data Labs/datalab_2.qmd) to create a new R Markdown document. You should type all of the code for this Data Lab in your R Markdown file and save that file when you're finished.
+
+## Step 2: Importing the Data
+
+Load the Family Connects data into R using the `read.csv` command. See the instructions in [Data Lab 3](/materials/Data Labs/datalab_3_sp26.qmd) if you don't remember the exact syntax.
+
+## Step 3: Recreating the Analysis File
+
+We're going to need several data frames from previous Data Labs. Open your R Markdown files from those labs and re-run the relevant code to recreate the following data frames in your Environment. (We also did much of this in [Data Lab 7](/materials/Data Labs/datalab_7_sp26.qmd), so you could pull some of the code from there.). Note that you'll need to load the `dplyr` and `stringr` libraries before running the code.
+
+- `postnatal_spend` — a person-level file with each woman's total postnatal spending and FCNO participation status (from [Data Lab 6](/materials/Data Labs/datalab_6_sp26.qmd), Steps 3–5)
+- `postnatal_ed` — a person-level file with each woman's ED visit indicator (from [Data Lab 6](/materials/Data Labs/datalab_6_sp26.qmd), Step 6)
+- `postnatal_ip` — a person-level file with each woman's inpatient visit indicator (from [Data Lab 6](/materials/Data Labs/datalab_6_sp26.qmd), Step 7)
+- `age_data` — a person-level file with each woman's age at delivery (from [Data Lab 4](/materials/Data Labs/datalab_4_sp26.qmd), Step 3; also run the `distinct()` line from [Data Lab 5](/materials/Data Labs/datalab_5_sp26.qmd))
+- `fcno_ocs` — a person-level file with each woman's Obstetric Comorbidity Score (from [Data Lab 5](/materials/Data Labs/datalab_5_sp26.qmd), Steps 5–8)
+
+Once you've recreated all five data frames, we'll join them together into a single analysis file. Run the following code:
+
+```{r, eval = FALSE}
+library(dplyr)
+
+regression_data <- postnatal_spend %>%
+  left_join(age_data %>% select(patient_id, age), by = "patient_id") %>%
+  left_join(fcno_ocs %>% select(patient_id, ocs), by = "patient_id") %>%
+  left_join(postnatal_ed %>% select(patient_id, any_ed), by = "patient_id") %>%
+  left_join(postnatal_ip %>% select(patient_id, any_ip), by = "patient_id")
+```
+
+This is the same join structure we used in Data Lab 7, but now we're also pulling in the two binary outcome variables (`any_ed` and `any_ip`).
+
+Take a look at the new `regression_data` frame in your Environment. It should have one row per patient (4,936 observations) and seven columns: `patient_id`, `postnatal_spend`, `fcno`, `age`, `ocs`, `any_ed`, and `any_ip`. If the row count is different, something likely went wrong in one of the joins.
+
+Notice that because we started the join with `postnatal_spend`, which already reflects the continuous enrollment filter from Data Lab 6, we're automatically applying the same sample restrictions here. We're working with the same group of women as in Data Lab 7, just with a richer set of controls and outcomes.
+
+## Step 4: Descriptive Statistics
+Like we did last time, let's take a look at the mean values for each of our covariates and our outcome variables in the `regression_data` data frame:
+
+```{r, eval = FALSE}
+regression_data %>%
+  group_by(fcno) %>%
+  summarise(
+    N = n(),
+    Mean_Age  = mean(age, na.rm = TRUE),
+    Mean_OCS  = mean(ocs, na.rm = TRUE),
+    Mean_PostSpend = mean(postnatal_spend, na.rm = TRUE),
+    Mean_PostED = mean(any_ed, na.rm = TRUE),
+    Mean_PostIP = mean(any_ip, na.rm = TRUE)
+  )
+```
+
+You should see the same values for "Mean_Age" and "Mean_OCS" that you calculated in the last Data Lab, but now we've also added mean values for postnatal spending and teh share of women with postnatal ED and inpatient visits to the table.
+
+## Step 5: Multiple Regression — Postnatal Spending
+
+In Data Lab 7, we controlled for age and OCS in separate models. Now let's put both controls into a single model and see how the FCNO estimate changes. Run the following code:
+
+```{r, eval = FALSE}
+model_spend <- lm(postnatal_spend ~ fcno + age + ocs, data = regression_data)
+summary(model_spend)
+```
+
+### Question 1
+
+What is the estimated coefficient on `fcno` in this model? How does it compare to the estimates from the simple regression models in Data Lab 7, where we controlled for age and OCS separately?
+
+Interpret the coefficients on `age` and `ocs`. What do they tell you about the relationship between a woman's age, her prenatal health, and her postnatal spending? Does the direction of this relationships make sense?
+
+Take two hypothetical women in our data: one is a 25 years old non-FCNO participant with an OCS score of 1.5 and the other is a 32 year old FCNO participant with an OCS score of 9.4. Using your regression results, calculate predicted postnatal spending for each woman.
+
+## Step 6: Multiple Regression — Inpatient Visits
+
+Now let's run the same model but replace postnatal spending with the inpatient visit indicator as the outcome:
+
+```{r, eval = FALSE}
+model_ip <- lm(any_ip ~ fcno + age + ocs, data = regression_data)
+summary(model_ip)
+```
+
+Notice that `any_ip` is a binary variable that equals 1 if a woman had at least one inpatient hospitalization in the postnatal period, and 0 otherwise. When we use `lm()` to regress a 0/1 outcome on a set of predictors, we're estimating what's called a **Linear Probability Model (LPM)**. In an LPM, the coefficient on `fcno` represents a change in the *probability* of the outcome rather than a dollar amount. So a coefficient of, say, -0.05 would mean that FCNO participants were 5 percentage points less likely to have a postnatal inpatient hospitalization compared to non-participants with similar age, health status, and prenatal spending.
+
+### Question 2
+
+What is the estimated coefficient on `fcno` in the inpatient model? Interpret the coefficient in plain English: what does it tell you about the effect of FCNO participation on the probability of a postpartum inpatient hospitalization, after controlling for age and OCS?
+
+The estimated coefficient on `fcno` represents the *absolute* effect of FCNO participation on postnatal spending and is measured in percentage points. It's always a good idea to report both the *absolute* effect and the *relative* effect so that the true magnitude of the estimated effects are easily interpretable. Instead of percentage points, *relative* effects are measured in percentage terms. To calculate the *relative* effect of FCNO participation on inpatient use, you would divide the estimated coefficient on `fcno` by the baseline (i.e. prenatal) mean inpatient use rate among FCNO participants and multiply by 100. We haven't actually calculated the baseline mean inpatient use rate yet, but for FCNO participants, that rate is 0.167. Calculate and interpret the *relative* effect of FCNO participation on inpatient use. 
+
+## Step 7: Multiple Regression — ED Visits
+
+Now let's do the same thing for ED visits:
+
+```{r, eval = FALSE}
+model_ed <- lm(any_ed ~ fcno + age + ocs, data = regression_data)
+summary(model_ed)
+```
+
+### Question 3
+
+What is the estimated coefficient on `fcno` in the ED visit model? Interpret the coefficient in plain English. The baseline ED visit rate for FCNO participants is 0.757. Calculate the *relative* effect of FCNO participation on postnatal ED visits.
+
+## Step 8: Comparing Effects Across Outcomes
+
+Now let's pull the `fcno` coefficient from each of the three models and display them side by side. Run the following code:
+
+```{r, eval = FALSE}
+data.frame(
+  Outcome = c(
+    "Postnatal Spending",
+    "Any Inpatient Visit",
+    "Any ED Visit"
+  ),
+  FCNO_Coefficient = round(c(
+    coef(model_spend)["fcno"],
+    coef(model_ip)["fcno"],
+    coef(model_ed)["fcno"]
+  ), 3)
+)
+```
+
+### Question 4
+
+Look at the FCNO coefficients across the three outcomes. Do the estimated effects go in the same direction for all three? What does the overall pattern suggest about how FCNO participation is associated with postpartum health care use? If the effects are not consistent across outcomes, what might explain the discrepancy?
+
+### Question 5
+
+We now have a richer set of controls than we did in Data Lab 7, but does that mean we've fully solved the omitted variable bias problem? Identify at least one characteristic that might still differ systematically between FCNO participants and non-participants that we haven't been able to control for, and explain how omitting it is likely to bias our estimates of the FCNO effect.
+
+## Summary and Key Takeaways
+
+In this Data Lab, we extended the regression analysis from Data Lab 7 in two ways. First, we moved from simple regression (i.e., one control at a time) to multiple regression, which lets us hold multiple confounders constant simultaneously. Adding age and OCS to the same model gave us a somewhat richer picture of the pre-existing differences between participants and non-participants, and we can now see how the FCNO estimate shifts when we account for both of these factors at once.
+
+Second, we expanded our analysis to cover all three outcomes from Data Lab 6 (postnatal spending, inpatient hospitalizations, and ED visits) using a consistent analytic sample and the same set of controls throughout.
+
+That said, the core caveat from Data Lab 7 still applies here. Regression can only control for confounders that we can observe in the data. Even with age and OCS in the model together, there are almost certainly unobserved differences between FCNO participants and non-participants that we can't account for with the data we have. Regression-adjusted estimates may be better than naïve comparisons, but they don't give us the same confidence in our ATE estimates that a randomized experiment would.
+
+So what do we do when we're not confident that regression has eliminated all sources of bias? That question motivates the next set of tools we'll explore: quasi-experimental methods that use natural variation in treatment assignment to get closer to causal estimates even without randomization.
+
+Once you're finished, upload your PDF document to Canvas using this [link](https://tulane.instructure.com/courses/2306287/assignments/14908386) and you're all done.

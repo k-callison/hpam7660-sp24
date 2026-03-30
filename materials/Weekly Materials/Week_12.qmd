@@ -1,13 +1,13 @@
 ---
 title: "HPAM 7660 - Week 12 Materials"
-subtitle: "Research Design: Quasi-Experimental Designs"
+subtitle: "State Capitol Trip & Research Design: Causal Inference Pt.1"
 ---
 
-## Tuesday, April 1
+## Tuesday, March 31
 
-Slides - [Medicaid Financing: FMAP and Block Grants](/slides/HPAM_7660_Medicaid_FMAP_Block_Grants.pdf)
+- Assignment - [Proposed Solution](https://tulane.instructure.com/courses/2306287/assignments/14899641)
+- No class - Trip to State Capitol
 
 ## Thursday, April 3
 
-- Assignment - [Policy Memo Issue Analysis](https://tulane.instructure.com/courses/2291178/assignments/14673857)
-- Data Lab 10 - [Medicaid Expansion and Health](/materials/Data Labs/datalab_10.qmd)
+- Data Lab 9 - [Causal Inference Pt.1](/materials/Data Labs/datalab_9_sp26.qmd)

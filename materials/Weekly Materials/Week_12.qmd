@@ -8,6 +8,6 @@ subtitle: "State Capitol Trip & Research Design: Causal Inference Pt.1"
 - Assignment - [Proposed Solution](https://tulane.instructure.com/courses/2306287/assignments/14899641)
 - No class - Trip to State Capitol
 
-## Thursday, April 3
+## Thursday, April 2
 
 - Data Lab 9 - [Causal Inference Pt.1](/materials/Data Labs/datalab_9_sp26.qmd)

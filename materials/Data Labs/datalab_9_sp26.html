@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HPAM 7660 - Week 12 Materials – HPAM 7660 - Health Policy Analysis</title>
+<title>Data Lab 9 - Propensity Score Matching – HPAM 7660 - Health Policy Analysis</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -123,8 +158,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tuesday-march-31" id="toc-tuesday-march-31" class="nav-link active" data-scroll-target="#tuesday-march-31">Tuesday, March 31</a></li>
-  <li><a href="#thursday-april-2" id="toc-thursday-april-2" class="nav-link" data-scroll-target="#thursday-april-2">Thursday, April 2</a></li>
+  <li><a href="#step-1-create-a-new-r-markdown-file" id="toc-step-1-create-a-new-r-markdown-file" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</a></li>
+  <li><a href="#step-2-import-the-data-and-recreate-the-analysis-file" id="toc-step-2-import-the-data-and-recreate-the-analysis-file" class="nav-link" data-scroll-target="#step-2-import-the-data-and-recreate-the-analysis-file">Step 2: Import the Data and Recreate the Analysis File</a></li>
+  <li><a href="#step-3-install-the-matchit-package-and-estimate-propensity-scores" id="toc-step-3-install-the-matchit-package-and-estimate-propensity-scores" class="nav-link" data-scroll-target="#step-3-install-the-matchit-package-and-estimate-propensity-scores">Step 3: Install the MatchIt Package and Estimate Propensity Scores</a></li>
+  <li><a href="#step-4-check-balance" id="toc-step-4-check-balance" class="nav-link" data-scroll-target="#step-4-check-balance">Step 4: Check Balance</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  </ul></li>
+  <li><a href="#step-5-estimate-the-treatment-effect-on-the-matched-sample" id="toc-step-5-estimate-the-treatment-effect-on-the-matched-sample" class="nav-link" data-scroll-target="#step-5-estimate-the-treatment-effect-on-the-matched-sample">Step 5: Estimate the Treatment Effect on the Matched Sample</a>
+  <ul class="collapse">
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  </ul></li>
+  <li><a href="#summary-and-key-takeaways" id="toc-summary-and-key-takeaways" class="nav-link" data-scroll-target="#summary-and-key-takeaways">Summary and Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -133,8 +179,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HPAM 7660 - Week 12 Materials</h1>
-<p class="subtitle lead">State Capitol Trip &amp; Research Design: Causal Inference Pt.1</p>
+<h1 class="title">Data Lab 9 - Propensity Score Matching</h1>
 </div>
 
 
@@ -151,18 +196,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tuesday-march-31" class="level2">
-<h2 class="anchored" data-anchor-id="tuesday-march-31">Tuesday, March 31</h2>
-<ul>
-<li>Assignment - <a href="https://tulane.instructure.com/courses/2306287/assignments/14899641">Proposed Solution</a></li>
-<li>No class - Trip to State Capitol</li>
-</ul>
+<p>Propensity score matching (PSM) can be used as a way to potentially improve on the naïve comparisons we made in Data Lab 6 and the regression estimates from Data Labs 7 and 8. The core idea is that control units who more closely resemble treatment units on <em>observables</em> are also more likely to resemble them on <em>unobservables</em>. By constructing a matched comparison group, we hope to reduce the selection bias from non-random treatment exposure.</p>
+<p>In this Data Lab, we’ll implement the PSM steps from the slides using the FCNO data, and then compare the matching-based estimate to the regression estimates from Data Lab 8.</p>
+<section id="step-1-create-a-new-r-markdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</h2>
+<p>See the instructions from <a href="../../materials/Data Labs/datalab_2.html">Data Lab 2</a> to create a new R Markdown document. Type all of the code for this Data Lab in your R Markdown file and save it when you’re finished.</p>
 </section>
-<section id="thursday-april-2" class="level2">
-<h2 class="anchored" data-anchor-id="thursday-april-2">Thursday, April 2</h2>
-<ul>
-<li>Data Lab 9 - <a href="../../materials/Data Labs/datalab_9_sp26.html">Causal Inference Pt.1</a></li>
-</ul>
+<section id="step-2-import-the-data-and-recreate-the-analysis-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-import-the-data-and-recreate-the-analysis-file">Step 2: Import the Data and Recreate the Analysis File</h2>
+<p>Load the Family Connects data and recreate the <code>regression_data</code> file we built in <a href="../../materials/Data Labs/datalab_8_sp26.html">Data Lab 8</a>. That means you’ll need to rebuild <code>postnatal_spend</code>, <code>postnatal_ed</code>, <code>postnatal_ip</code>, <code>age_data</code>, and <code>fcno_ocs</code> and then join them together. The easiest way to do this is to copy the code from your Data Lab 8 R Markdown file into your Data Lab 9 Markdown finle. Your final <code>regression_data</code> file should have one row per patient (4,936 observations) and seven columns: <code>patient_id</code>, <code>postnatal_spend</code>, <code>fcno</code>, <code>age</code>, <code>ocs</code>, <code>any_ed</code>, and <code>any_ip</code>.</p>
+</section>
+<section id="step-3-install-the-matchit-package-and-estimate-propensity-scores" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-install-the-matchit-package-and-estimate-propensity-scores">Step 3: Install the MatchIt Package and Estimate Propensity Scores</h2>
+<p>We’ll use the <code>MatchIt</code> package to carry out the PSM. Install and load it along with the other libraries we’ll need:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"MatchIt"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>Note</em> that you should install the MatchIt package from the command line in the Console window and not from your markdown file (markdown doesn’t like to install packages). Include the <code>library</code> command in your markdown document.</p>
+<p>Recall from the slides that the first two PSM steps are (1) selecting covariates and (2) specifying a regression model to predict the probability of treatment. The <code>matchit()</code> function handles both of these at once. It fits a logistic regression model in the background that predicts FCNO participation from the covariates you supply, and then uses the predicted probabilities (i.e., the propensity scores) to find matches.</p>
+<p>We’ll match on age at delivery and Obstetric Comorbidity Score, the two covariates we used as controls in Data Lab 8. We’ll use nearest neighbor matching with a 1:1 ratio, meaning each treated woman is matched to the single control woman whose propensity score is closest to hers. Run the following code:</p>
+<p>Before running the matching, we need to handle one data issue. If you remember back from Data Lab 7, some women in our data have no prenatal claims at all, which means their OCS value is missing. The <code>matchit()</code> function requires complete data on all matching covariates, so we’ll drop those women before proceeding. Run the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>regression_data_complete <span class="ot">&lt;-</span> regression_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ocs))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>match_out <span class="ot">&lt;-</span> <span class="fu">matchit</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  fcno <span class="sc">~</span> age <span class="sc">+</span> ocs,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> regression_data_complete,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">method  =</span> <span class="st">"nearest"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ratio   =</span> <span class="dv">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-4-check-balance" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-check-balance">Step 4: Check Balance</h2>
+<p>One of the key advantages of PSM over regression alone is that we can directly inspect how well the matching worked by comparing pre- and post-matching covariate balance. A well-matched sample should have similar covariate distributions between the treatment and control groups.</p>
+<p>Run the following to get a balance summary:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(match_out)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The output will show the mean values of <code>age</code> and <code>ocs</code> for participants and non-participants both before and after matching. It will also display the standardized mean difference (SMD) for each covariate. The SMD is calculated as the difference in group means divided by the standard deviation. As a rule of thumb, an SMD below 0.1 is generally considered good balance.</p>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>Look at the standardized mean differences before and after matching. Did matching improve balance on age and OCS? Report the SMD for each covariate before and after matching and note whether the post-matching SMDs fall below the 0.1 threshold.</p>
+<p>Also note how many observations are in the matched sample compared to the full <code>regression_data_complete</code>. What happened to the unmatched control units?</p>
+</section>
+</section>
+<section id="step-5-estimate-the-treatment-effect-on-the-matched-sample" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-estimate-the-treatment-effect-on-the-matched-sample">Step 5: Estimate the Treatment Effect on the Matched Sample</h2>
+<p>Now we’ll extract the matched dataset and run a regression on it. Because we’ve already constructed a matched comparison group, even a simple regression of spending on FCNO participation with no additional controls may be an improvement over the naïve comparison from Data Lab 6.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>matched_data <span class="ot">&lt;-</span> <span class="fu">match.data</span>(match_out)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>model_matched <span class="ot">&lt;-</span> <span class="fu">lm</span>(postnatal_spend <span class="sc">~</span> fcno, <span class="at">data =</span> matched_data)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_matched)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can also run a regression model that adds age and OCS as additional controls on top of the matching. This is sometimes called a “doubly robust” approach: matching makes the treated and control groups similar on observables, and then regression accounts for any residual differences. Run the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model_matched_controls <span class="ot">&lt;-</span> <span class="fu">lm</span>(postnatal_spend <span class="sc">~</span> fcno <span class="sc">+</span> age <span class="sc">+</span> ocs, <span class="at">data =</span> matched_data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_matched_controls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p>Compare the “FCNO” coefficient from <code>model_matched</code> to the regression estimate from Data Lab 8 (<code>model_spend</code>, which controlled for age and OCS simultaneously). Is the coefficient estimate similar or did matching substantially change your estimate? Does adding controls on top of the matched sample (<code>model_matched_controls</code>) change the estimate much?</p>
+</section>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>Let’s look at what might be driving the difference in the “FCNO” coefficients in the matched and unmatched samples. Run the following code that generates a table of summary statistics for FCNO participants, the matched controls, and the unmatched controls:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>matched_control_ids <span class="ot">&lt;-</span> matched_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(patient_id)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>three_group_compare <span class="ot">&lt;-</span> regression_data_complete <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">ifelse</span>(patient_id <span class="sc">%in%</span> matched_control_ids,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Matched Controls"</span>, <span class="st">"Unmatched Controls"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    matched_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"FCNO Participants"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">N                =</span> <span class="fu">n</span>(),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Age         =</span> <span class="fu">round</span>(<span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_OCS         =</span> <span class="fu">round</span>(<span class="fu">mean</span>(ocs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Spend       =</span> <span class="fu">round</span>(<span class="fu">mean</span>(postnatal_spend, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">0</span>),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_Spend        =</span> <span class="fu">round</span>(<span class="fu">max</span>(postnatal_spend, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">0</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>three_group_compare</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>What do you notice about the unmatched controls that might help you explain the difference in the “FCNO” coefficient estimates?</p>
+</section>
+</section>
+<section id="summary-and-key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>In this Data Lab, we implemented propensity score matching as an alternative approach to estimating the average treatment effect of FCNO participation on postnatal spending. By restricting the comparison group to non-participants who closely resemble participants on age and health status, we constructed a more balanced comparison group than we had in our earlier naïve analyses.</p>
+<p>The key limitation of PSM is that it can only account for <em>observed</em> differences between participants and non-participants. If there are unobserved factors that drive both selection into FCNO and postnatal health care use, then our matching estimates will still be biased. Therefore, PSM is a useful tool, but it is not a substitute for a true natural experiment or randomized design.</p>
+<p>In the next Data Lab, we’ll begin exploring natural experiments that can help address selection on unobservables by exploiting variation in treatment timing or location.</p>
+<p>Render your Markdown file, upload your PDF document to Canvas <a href="https://tulane.instructure.com/courses/2306287/assignments/">here</a>, and you’re all done!</p>
 
 
 </section>

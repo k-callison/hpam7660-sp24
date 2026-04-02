@@ -1,0 +1,129 @@
+---
+title: "Data Lab 9 - Propensity Score Matching"
+summary: >-
+  Using Propensity Score Matching to Estimate the Effect of Family Connects on Postnatal Spending.
+---
+
+Propensity score matching (PSM) can be used as a way to potentially improve on the naïve comparisons we made in Data Lab 6 and the regression estimates from Data Labs 7 and 8. The core idea is that control units who more closely resemble treatment units on *observables* are also more likely to resemble them on *unobservables*. By constructing a matched comparison group, we hope to reduce the selection bias from non-random treatment exposure.
+
+In this Data Lab, we'll implement the PSM steps from the slides using the FCNO data, and then compare the matching-based estimate to the regression estimates from Data Lab 8.
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data%20Labs/datalab_2.qmd) to create a new R Markdown document. Type all of the code for this Data Lab in your R Markdown file and save it when you're finished.
+
+## Step 2: Import the Data and Recreate the Analysis File
+
+Load the Family Connects data and recreate the `regression_data` file we built in [Data Lab 8](/materials/Data%20Labs/datalab_8_sp26.qmd). That means you'll need to rebuild `postnatal_spend`, `postnatal_ed`, `postnatal_ip`, `age_data`, and `fcno_ocs` and then join them together. The easiest way to do this is to copy the code from your Data Lab 8 R Markdown file into your Data Lab 9 Markdown finle. Your final `regression_data` file should have one row per patient (4,936 observations) and seven columns: `patient_id`, `postnatal_spend`, `fcno`, `age`, `ocs`, `any_ed`, and `any_ip`.
+
+## Step 3: Install the MatchIt Package and Estimate Propensity Scores
+
+We'll use the `MatchIt` package to carry out the PSM. Install and load it along with the other libraries we'll need:
+
+```{r, eval = FALSE}
+install.packages("MatchIt")
+library(MatchIt)
+library(dplyr)
+```
+
+*Note* that you should install the MatchIt package from the command line in the Console window and not from your markdown file (markdown doesn't like to install packages). Include the `library` command in your markdown document.
+
+Recall from the slides that the first two PSM steps are (1) selecting covariates and (2) specifying a regression model to predict the probability of treatment. The `matchit()` function handles both of these at once. It fits a logistic regression model in the background that predicts FCNO participation from the covariates you supply, and then uses the predicted probabilities (i.e., the propensity scores) to find matches.
+
+We'll match on age at delivery and Obstetric Comorbidity Score, the two covariates we used as controls in Data Lab 8. We'll use nearest neighbor matching with a 1:1 ratio, meaning each treated woman is matched to the single control woman whose propensity score is closest to hers. Run the following code:
+
+Before running the matching, we need to handle one data issue. If you remember back from Data Lab 7, some women in our data have no prenatal claims at all, which means their OCS value is missing. The `matchit()` function requires complete data on all matching covariates, so we'll drop those women before proceeding. Run the following code:
+
+```{r, eval = FALSE}
+regression_data_complete <- regression_data %>%
+  filter(!is.na(ocs))
+
+match_out <- matchit(
+  fcno ~ age + ocs,
+  data    = regression_data_complete,
+  method  = "nearest",
+  ratio   = 1
+)
+```
+
+## Step 4: Check Balance
+
+One of the key advantages of PSM over regression alone is that we can directly inspect how well the matching worked by comparing pre- and post-matching covariate balance. A well-matched sample should have similar covariate distributions between the treatment and control groups.
+
+Run the following to get a balance summary:
+
+```{r, eval = FALSE}
+summary(match_out)
+```
+
+The output will show the mean values of `age` and `ocs` for participants and non-participants both before and after matching. It will also display the standardized mean difference (SMD) for each covariate. The SMD is calculated as the difference in group means divided by the standard deviation. As a rule of thumb, an SMD below 0.1 is generally considered good balance.
+
+### Question 1
+
+Look at the standardized mean differences before and after matching. Did matching improve balance on age and OCS? Report the SMD for each covariate before and after matching and note whether the post-matching SMDs fall below the 0.1 threshold.
+
+Also note how many observations are in the matched sample compared to the full `regression_data_complete`. What happened to the unmatched control units?
+
+## Step 5: Estimate the Treatment Effect on the Matched Sample
+
+Now we'll extract the matched dataset and run a regression on it. Because we've already constructed a matched comparison group, even a simple regression of spending on FCNO participation with no additional controls may be an improvement over the naïve comparison from Data Lab 6.
+
+```{r, eval = FALSE}
+matched_data <- match.data(match_out)
+
+model_matched <- lm(postnatal_spend ~ fcno, data = matched_data)
+summary(model_matched)
+```
+
+We can also run a regression model that adds age and OCS as additional controls on top of the matching. This is sometimes called a "doubly robust" approach: matching makes the treated and control groups similar on observables, and then regression accounts for any residual differences. Run the following:
+
+```{r, eval = FALSE}
+model_matched_controls <- lm(postnatal_spend ~ fcno + age + ocs, data = matched_data)
+summary(model_matched_controls)
+```
+
+### Question 2
+
+Compare the "FCNO" coefficient from `model_matched` to the regression estimate from Data Lab 8 (`model_spend`, which controlled for age and OCS simultaneously). Is the coefficient estimate similar or did matching substantially change your estimate? Does adding controls on top of the matched sample (`model_matched_controls`) change the estimate much?
+
+### Question 3
+
+Let's look at what might be driving the difference in the "FCNO" coefficients in the matched and unmatched samples. Run the following code that generates a table of summary statistics for FCNO participants, the matched controls, and the unmatched controls:
+
+```{r, eval = FALSE}
+matched_control_ids <- matched_data %>%
+  filter(fcno == 0) %>%
+  pull(patient_id)
+
+three_group_compare <- regression_data_complete %>%
+  filter(fcno == 0) %>%
+  mutate(group = ifelse(patient_id %in% matched_control_ids,
+                        "Matched Controls", "Unmatched Controls")) %>%
+  bind_rows(
+    matched_data %>%
+      filter(fcno == 1) %>%
+      mutate(group = "FCNO Participants")
+  ) %>%
+  group_by(group) %>%
+  summarise(
+    N                = n(),
+    Mean_Age         = round(mean(age, na.rm = TRUE), 1),
+    Mean_OCS         = round(mean(ocs, na.rm = TRUE), 2),
+    Mean_Spend       = round(mean(postnatal_spend, na.rm = TRUE), 0),
+    Max_Spend        = round(max(postnatal_spend, na.rm = TRUE), 0)
+  )
+
+three_group_compare
+```
+
+What do you notice about the unmatched controls that might help you explain the difference in the "FCNO" coefficient estimates?
+
+## Summary and Key Takeaways
+
+In this Data Lab, we implemented propensity score matching as an alternative approach to estimating the average treatment effect of FCNO participation on postnatal spending. By restricting the comparison group to non-participants who closely resemble participants on age and health status, we constructed a more balanced comparison group than we had in our earlier naïve analyses.
+
+The key limitation of PSM is that it can only account for *observed* differences between participants and non-participants. If there are unobserved factors that drive both selection into FCNO and postnatal health care use, then our matching estimates will still be biased. Therefore, PSM is a useful tool, but it is not a substitute for a true natural experiment or randomized design.
+
+In the next Data Lab, we'll begin exploring natural experiments that can help address selection on unobservables by exploiting variation in treatment timing or location.
+
+Render your Markdown file, upload your PDF document to Canvas [here](https://tulane.instructure.com/courses/2306287/assignments/), and you're all done!

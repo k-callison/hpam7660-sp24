@@ -1,5 +1,5 @@
 ---
-title: "Data Lab 9 - Propensity Score Matching"
+title: "Data Lab 9 - Regression Basics: Matching"
 summary: >-
   Using Propensity Score Matching to Estimate the Effect of Family Connects on Postnatal Spending.
 ---
@@ -126,4 +126,4 @@ The key limitation of PSM is that it can only account for *observed* differences
 
 In the next Data Lab, we'll begin exploring natural experiments that can help address selection on unobservables by exploiting variation in treatment timing or location.
 
-Render your Markdown file, upload your PDF document to Canvas [here](https://tulane.instructure.com/courses/2306287/assignments/), and you're all done!
+Render your Markdown file, upload your PDF document to Canvas [here](https://tulane.instructure.com/courses/2306287/assignments/14910818), and you're all done!

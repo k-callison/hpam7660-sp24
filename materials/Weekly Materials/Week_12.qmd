@@ -1,6 +1,6 @@
 ---
 title: "HPAM 7660 - Week 12 Materials"
-subtitle: "State Capitol Trip & Research Design: Causal Inference Pt.1"
+subtitle: "State Capitol Trip & Regression Basics: Matching"
 ---
 
 ## Tuesday, March 31
@@ -10,4 +10,5 @@ subtitle: "State Capitol Trip & Research Design: Causal Inference Pt.1"
 
 ## Thursday, April 2
 
+- Slides - [Estimating Treatment Effects: Matching](/slides/HPAM_7660_Matching.pdf)
 - Data Lab 9 - [Causal Inference Pt.1](/materials/Data Labs/datalab_9_sp26.qmd)

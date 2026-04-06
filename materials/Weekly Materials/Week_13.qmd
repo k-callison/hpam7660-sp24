@@ -1,34 +1,13 @@
 ---
 title: "HPAM 7660 - Week 13 Materials"
-subtitle: "Case Presentations"
+subtitle: "Research Design: Natural Experiments"
 ---
 
+## Tuesday, April 7
 
-- Readings - [Allen et al. (2013) - The Oregon Health Insurance Experiment: When Limited Resources Provide Research Opportunities](/materials/Readings/Allen_OHIE.pdf)
-- Audio - [Austin Frakt on Medicaid and the Oregon Medicaid Study](https://www.econtalk.org/frakt-on-medicaid-and-the-oregon-medicaid-study/) and [Jim Manzi on the Oregon Medicaid Study, Experimental Evidence, and Causality](https://www.econtalk.org/jim-manzi-on-the-oregon-medicaid-study-experimental-evidence-and-causality/)
-- Assignment - [Reading/Audio Discussion Questions](/assignments/Week 10 Reading Discussion Questions.pdf) 
-- Slides - [Natural Experiments \& The Oregon Medicaid Study](/slides/HPAM_7660_Natural_Experiments_Pt1.pdf) 
+- Slides - [Natural Experiments Pt.1]()
+- Assignment - [Issue One-Pager](https://tulane.instructure.com/courses/2306287/assignments/14910933)
 
-## Case Study: Reforming the Medicaid Program
+## Thursday, April 9
 
-- [Case Study: Reforming the Medicaid Program](/materials/Case/HPAM_7660_Case_Study_Sp25.pdf)
-- [Case Study Rubric](/materials/Case/HPAM 7660 - Case Rubric.pdf)
-- Please upload your slides to Canvas using this [link](https://tulane.instructure.com/courses/2291178/assignments/14673845) no later than 10am on the morning of your presentation.
-
-## Case Teams & Presentation Times
-
-<u>Tuesday, April 8th</u>
-
-Team 3: Harling, Nawab, Frank, Adkins - 10:30am to 11:00am
-
-Team 1: Wasim, Mun, Moukoury, Sharma - 11:00am to 11:30am
-
-Team 5: Golan, Lalani, Rong, Pickard - 11:30am to 12:00pm
-
-<u>Thursday, April 10th</u>
-
-Team 2: Romness, Nsibande, Ardoin, Moss - 10:30am to 11:00am
-
-Team 4: Benson, Shah, Ahlawat, Pecchia - 11:00am to 11:30am
-
-- [R Script for randomization](/assignments/Case/team_assignment.R) 
+- Data Lab 10 - [Causal Inference w/ Natural Experiments](/materials/Data Labs/datalab_10_sp26.qmd)

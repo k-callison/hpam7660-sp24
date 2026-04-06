@@ -11,4 +11,4 @@ subtitle: "State Capitol Trip & Regression Basics: Matching"
 ## Thursday, April 2
 
 - Slides - [Estimating Treatment Effects: Matching](/slides/HPAM_7660_Matching.pdf)
-- Data Lab 9 - [Causal Inference Pt.1](/materials/Data Labs/datalab_9_sp26.qmd)
+- Data Lab 9 - [Regression Basics: Matching](/materials/Data Labs/datalab_9_sp26.qmd)

@@ -1,6 +1,6 @@
 ---
 title: "HPAM 7660 - Week 13 Materials"
-subtitle: "Research Design: Natural Experiments"
+subtitle: "Research Design: Natural Experiments Pt.1"
 ---
 
 ## Tuesday, April 7
@@ -10,4 +10,4 @@ subtitle: "Research Design: Natural Experiments"
 
 ## Thursday, April 9
 
-- Data Lab 10 - [Causal Inference w/ Natural Experiments](/materials/Data Labs/datalab_10_sp26.qmd)
+- Data Lab 10 - [Regression Basics: Matching w/ Full Data Sample](/materials/Data Labs/datalab_10_sp26.qmd)

@@ -1,13 +1,8 @@
 ---
 title: "HPAM 7660 - Week 16 Materials"
-subtitle: "Provider Payment Refomrs: Policy Trade-Offs and Stakeholder Impacts"
+subtitle: "Data Visualization"
 ---
 
-## Tuesday, April 29
+## Tuesday, April 28
 
-- Data Lab 11 - [Medicaid Expansion and Health Pt.2](/materials/Data Labs/datalab_11.qmd)
-
-## Thursday, May 1
-
-- Assignment - [Policy Memo Final Draft](https://tulane.instructure.com/courses/2291178/assignments/14673855)
-- Assignment - [Peer Assessment](https://tulane.instructure.com/courses/2291178/assignments/14673853)
+- Data Lab 13 - [Data Visualization](/materials/Data Labs/datalab_13_sp26.qmd)

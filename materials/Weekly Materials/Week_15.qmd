@@ -1,13 +1,13 @@
 ---
 title: "HPAM 7660 - Week 15 Materials"
-subtitle: "Research Design: Quasi-Experimental Research Designs"
+subtitle: "Research Design: Quasi-Experimental Designs"
 ---
 
-## Tuesday, April 22
+## Tuesday, April 21
 
-- Slides - [Quasi-Experimental Research Designs](/slides/HPAM_7660_Quasi-Experiments.pdf)
+- Slides - [Quasi-Experimental Designs]()
+- Assignment - [Final Committee Testimony](https://tulane.instructure.com/courses/2306287/assignments/14911503)
 
-## Thursday, April 24
+## Thursday, April 23
 
-- Assignment - [Policy Memo Executive Summary and Conclusion](https://tulane.instructure.com/courses/2291178/assignments/14673854)
-- Slides - [Quasi-Experimental Research Designs Pt.2](xxxx)
+- Data Lab 12 - [Final Data Prep](/materials/Data Labs/datalab_12_sp26.qmd)

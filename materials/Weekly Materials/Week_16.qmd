@@ -5,4 +5,4 @@ subtitle: "Data Visualization"
 
 ## Tuesday, April 28
 
-- Data Lab 13 - [Data Visualization](/materials/Data Labs/datalab_13_sp26.qmd)
+- Data Lab 12 - [Data Visualization](/materials/Data Labs/datalab_13_sp26.qmd)

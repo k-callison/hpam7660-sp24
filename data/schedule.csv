@@ -24,11 +24,11 @@ week,date,date_end,title,deadline,content,tutorial,assignment
 12,2026-03-31,,No Class - State Capitol Trip,,"materials/Weekly Materials/Week_12",,
 12,2026-04-02,,Data Lab - Regression Basics: Matching,,"materials/Weekly Materials/Week_12","/materials/Data Labs/datalab_9_sp26.qmd",
 13,2026-04-07,,Research Design - Natural Experiments Pt.1,,"materials/Weekly Materials/Week_13",,https://tulane.instructure.com/courses/2306287/assignments/14910933
-13,2026-04-09,,Data Lab - Regression Basics: Matching w/ Full Data Sample,,"materials/Weekly Materials/Week_13",/materials/Data Labs/datalab_10_sp26.qmd,
-14,2026-04-14,,Research Design - Natural Experiments Pt.2,,"materials/Weekly Materials/Week_14",,https://tulane.instructure.com/courses/2306287/assignments/14910934
-14,2026-04-16,,Data Lab - Causal Inference w/ Natural Experiments ,,"materials/Weekly Materials/Week_14",/materials/Data Labs/datalab_11_sp26.qmd,
-15,2026-04-21,,Research Design - Quasi-Experimental Designs,,"materials/Weekly Materials/Week_15",,https://tulane.instructure.com/courses/2306287/assignments/14911503
-15,2026-04-23,,Data Lab - Final Data Prep,,"materials/Weekly Materials/Week_15",/materials/Data Labs/datalab_12_sp26.qmd,
-16,2026-04-28,,Data Lab - Data Visualization,,"materials/Weekly Materials/Week_16",/materials/Data Labs/datalab_13_sp26.qmd,
+13,2026-04-09,,Research Design - Natural Experiments Pt.2,,"materials/Weekly Materials/Week_13",,
+14,2026-04-14,,Data Lab - Full Data Prep,,"materials/Weekly Materials/Week_14",/materials/Data Labs/datalab_10_sp26.qmd,https://tulane.instructure.com/courses/2306287/assignments/14910934
+14,2026-04-16,,Research Design - Difference-in-Differences Analysis,,"materials/Weekly Materials/Week_14",,
+15,2026-04-21,,Data Lab - Causal Inference w/ Natural Experiments,,"materials/Weekly Materials/Week_15",/materials/Data Labs/datalab_11_sp26.qmd,
+15,2026-04-23,,Final Committee Testimony,,"materials/Weekly Materials/Week_15",,https://tulane.instructure.com/courses/2306287/assignments/14911503
+16,2026-04-28,,Data Lab - Data Visualization,,"materials/Weekly Materials/Week_16",/materials/Data Labs/datalab_12_sp26.qmd,
 
 

@@ -1,13 +1,13 @@
 ---
 title: "HPAM 7660 - Week 14 Materials"
-subtitle: "Research Design: Natural Experiments Pt.2"
+subtitle: "Research Design: Difference-in-Differences Analysis"
 ---
 
 ## Tuesday, April 14
 
-- Slides - [Natural Experiments Pt.2]()
+- Data Lab 10 - [Full Data Prep](/materials/Data Labs/datalab_10_sp26.qmd)
 - Assignment - [Infographic](https://tulane.instructure.com/courses/2306287/assignments/14910934)
 
 ## Thursday, April 16
 
-- Data Lab 11 - [Causal Inference w/ Natural Experiments](/materials/Data Labs/datalab_11_sp26.qmd)
+- Slides - [Difference-in-Differences Analysis]()

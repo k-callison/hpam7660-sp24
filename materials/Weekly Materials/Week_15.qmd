@@ -1,13 +1,12 @@
 ---
 title: "HPAM 7660 - Week 15 Materials"
-subtitle: "Research Design: Quasi-Experimental Designs"
+subtitle: "Research Design: Natural Experiments Data Lab & Committee Testimony"
 ---
 
 ## Tuesday, April 21
 
-- Slides - [Quasi-Experimental Designs]()
-- Assignment - [Final Committee Testimony](https://tulane.instructure.com/courses/2306287/assignments/14911503)
+- Data Lab 11 - [Causal Inference w/ Natural Experiments](/materials/Data Labs/datalab_11_sp26.qmd)
 
 ## Thursday, April 23
 
-- Data Lab 12 - [Final Data Prep](/materials/Data Labs/datalab_12_sp26.qmd)
+- Assignment - [Final Committee Testimony](https://tulane.instructure.com/courses/2306287/assignments/14911503)

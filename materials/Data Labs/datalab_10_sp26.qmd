@@ -30,7 +30,7 @@ This lab uses two data files. The first, `fcno_mom.csv`, is an updated version o
 
 The second file, `fcno_baby.csv`, contains Medicaid claims for the newborns in our data. It uses slightly different column names than the mother file: `baby_id` (instead of `mom_id`) and `days_from_birth` (instead of `days_from_delivery`). The baby file also includes `mother_age` and `mother_ocs`, which we'll use as controls in the baby-level regressions, just like we used `age` and `ocs` in the mother-level regressions.
 
-Download the mom data [here](https://www.dropbox.com/scl/fi/kxtctwvw3hshy5tywjqr6/fcno_baby.dta?rlkey=j1r1042jfq84eciqhae9e31m9&st=z19fp4lh&dl=1) and the baby data [here](https://www.dropbox.com/scl/fi/5ypr8ssigl17jncos2bm4/fcno_baby.csv?rlkey=54a06vqfe3uass538n0seq68c&st=0dbw2i9p&dl=1). 
+Download the mom data [here](https://www.dropbox.com/scl/fi/b6lu0y8u019s2eza5z3q9/fcno_mom.csv?rlkey=nufcoobt1hogfh3rms4q815i6&st=5t72boqv&dl=1) and the baby data [here](https://www.dropbox.com/scl/fi/5ypr8ssigl17jncos2bm4/fcno_baby.csv?rlkey=54a06vqfe3uass538n0seq68c&st=0dbw2i9p&dl=1). 
 
 Save both files to a directory on your computer that you'll remember and read the data into R using:
 ```{r, eval = FALSE}

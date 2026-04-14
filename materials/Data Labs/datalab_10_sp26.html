@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Lab 10 - Putting It All Together: Family Connects, Spending, and Utilization for Moms and Babies – HPAM 7660 - Health Policy Analysis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/site_icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-374e5727fcdd519fcaca485e8bd39bd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HPAM 7660 - Health Policy Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources/index.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-create-a-new-r-markdown-file" id="toc-step-1-create-a-new-r-markdown-file" class="nav-link active" data-scroll-target="#step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</a></li>
+  <li><a href="#step-2-import-the-data" id="toc-step-2-import-the-data" class="nav-link" data-scroll-target="#step-2-import-the-data">Step 2: Import the Data</a></li>
+  <li><a href="#step-3-build-the-mother-analysis-file" id="toc-step-3-build-the-mother-analysis-file" class="nav-link" data-scroll-target="#step-3-build-the-mother-analysis-file">Step 3: Build the Mother Analysis File</a></li>
+  <li><a href="#step-4-build-the-baby-analysis-file" id="toc-step-4-build-the-baby-analysis-file" class="nav-link" data-scroll-target="#step-4-build-the-baby-analysis-file">Step 4: Build the Baby Analysis File</a></li>
+  <li><a href="#step-5-unadjusted-means" id="toc-step-5-unadjusted-means" class="nav-link" data-scroll-target="#step-5-unadjusted-means">Step 5: Unadjusted Means</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  </ul></li>
+  <li><a href="#step-6-regression-adjusted-means" id="toc-step-6-regression-adjusted-means" class="nav-link" data-scroll-target="#step-6-regression-adjusted-means">Step 6: Regression-Adjusted Means</a>
+  <ul class="collapse">
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  </ul></li>
+  <li><a href="#step-7-psm-estimates" id="toc-step-7-psm-estimates" class="nav-link" data-scroll-target="#step-7-psm-estimates">Step 7: PSM Estimates</a>
+  <ul class="collapse">
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  </ul></li>
+  <li><a href="#summary-and-key-takeaways" id="toc-summary-and-key-takeaways" class="nav-link" data-scroll-target="#summary-and-key-takeaways">Summary and Key Takeaways</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Lab 10 - Putting It All Together: Family Connects, Spending, and Utilization for Moms and Babies</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In the previous data labs, we’ve seen three different methods for calculating the average treatment effect of FCNO participation on spending and health care utilization: naïve comparisons, regression-adjusted comparisons, and regression-adjusted comparisons with propensity score matching.</p>
+<p>In this Data Lab, we’ll bring everything together. We’ll also expand the analysis to include the babies of the moms in our sample. If FCNO connects mothers to better postpartum support, we might expect those benefits to extend to their infants.</p>
+<p>By the end of this lab, you’ll have constructed a single summary table showing naïve, regression-adjusted, and PSM estimates side by side for both populations. Tables like this one are standard in health policy research and let readers immediately compare whether estimated effects hold up across methods. When they do, that consistency is reassuring; when they diverge, it raises important questions about selection bias.</p>
+<section id="step-1-create-a-new-r-markdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-r-markdown-file">Step 1: Create a New R Markdown File</h2>
+<p>See the instructions from <a href="../../materials/Data Labs/datalab_2.html">Data Lab 2</a> to create a new R Markdown document. Load the following libraries at the top of your file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Note that if you haven’t installed <code>kableExtra</code> before, run <code>install.packages("kableExtra")</code> in your Console first (don’t put the install.packages command in your Markdown file!).</p>
+</section>
+<section id="step-2-import-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-import-the-data">Step 2: Import the Data</h2>
+<p>This lab uses two data files. The first, <code>fcno_mom.csv</code>, is an updated version of the claims data we’ve used all semester. It has the same structure as the <code>fcno_data.csv</code> from prior labs, but with two important differences: the patient identifier is now called <code>mom_id</code> instead of <code>patient_id</code>, and the Obstetric Comorbidity Score (<code>ocs</code>) is already included, so you won’t need to reconstruct it from diagnosis codes this time.</p>
+<p>The second file, <code>fcno_baby.csv</code>, contains Medicaid claims for the newborns in our data. It uses slightly different column names than the mother file: <code>baby_id</code> (instead of <code>mom_id</code>) and <code>days_from_birth</code> (instead of <code>days_from_delivery</code>). The baby file also includes <code>mother_age</code> and <code>mother_ocs</code>, which we’ll use as controls in the baby-level regressions, just like we used <code>age</code> and <code>ocs</code> in the mother-level regressions.</p>
+<p>Download the baby data <a href="https://www.dropbox.com/scl/fi/v7cflfqpsmk8nm097w4uf/fcno_mom_final.dta?rlkey=5n38sqo2q7ufqfita9a8imvvp&amp;st=sd199lc6&amp;dl=1">here</a> and the baby data <a href="https://www.dropbox.com/scl/fi/v7cflfqpsmk8nm097w4uf/fcno_mom_final.dta?rlkey=5n38sqo2q7ufqfita9a8imvvp&amp;st=kez5vj2x&amp;dl=1">here</a>.</p>
+<p>Save both files to a directory on your computer that you’ll remember and read the data into R using:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fcno_mom  <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"PATH/fcno_mom.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fcno_baby <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"PATH/fcno_baby.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Where you replace “PATH” with the directory pathway.</p>
+<p>Take a moment to look at both files in your Environment to familiarize yourself with the column names before moving on.</p>
+</section>
+<section id="step-3-build-the-mother-analysis-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-build-the-mother-analysis-file">Step 3: Build the Mother Analysis File</h2>
+<p>We’ll follow the same steps from Data Labs 6–9. Filter to the postnatal period (days 31–365), apply the continuous enrollment filter, then construct postnatal spending, ED visits, and inpatient visits. Finally, join everything into a single person-level analysis file.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to postnatal period</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>postnatal_mom <span class="ot">&lt;-</span> fcno_mom <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(days_from_delivery <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> days_from_delivery <span class="sc">&lt;=</span> <span class="dv">365</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Continuous enrollment filter</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>enrolled_moms <span class="ot">&lt;-</span> postnatal_mom <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mom_id) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">last_claim =</span> <span class="fu">max</span>(days_from_delivery)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(last_claim <span class="sc">&gt;=</span> <span class="dv">180</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mom_id)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>postnatal_mom_enrolled <span class="ot">&lt;-</span> postnatal_mom <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mom_id <span class="sc">%in%</span> enrolled_moms<span class="sc">$</span>mom_id)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Postnatal spending</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>mom_spend <span class="ot">&lt;-</span> postnatal_mom_enrolled <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mom_id) <span class="sc">%&gt;%</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">postnatal_spend =</span> <span class="fu">sum</span>(allowed_amt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">fcno =</span> <span class="fu">max</span>(fcno, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">age  =</span> <span class="fu">max</span>(age,  <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">ocs  =</span> <span class="fu">max</span>(ocs,  <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># ED visits</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>ed_revenue_codes   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"450"</span>, <span class="st">"452"</span>, <span class="st">"456"</span>, <span class="st">"981"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>ed_procedure_codes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"99281"</span>, <span class="st">"99282"</span>, <span class="st">"99283"</span>, <span class="st">"99284"</span>, <span class="st">"99285"</span>, <span class="st">"99291"</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>mom_ed <span class="ot">&lt;-</span> postnatal_mom_enrolled <span class="sc">%&gt;%</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ed_visit =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(revenue_code)   <span class="sc">%in%</span> ed_revenue_codes <span class="sc">|</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(procedure_code) <span class="sc">%in%</span> ed_procedure_codes,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mom_id) <span class="sc">%&gt;%</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">any_ed =</span> <span class="fu">max</span>(ed_visit, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Inpatient visits</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>ip_revenue_codes   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"110"</span>, <span class="st">"112"</span>, <span class="st">"114"</span>, <span class="st">"120"</span>, <span class="st">"121"</span>, <span class="st">"122"</span>, <span class="st">"124"</span>, <span class="st">"126"</span>, <span class="st">"128"</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>ip_procedure_codes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"99221"</span>, <span class="st">"99222"</span>, <span class="st">"99223"</span>, <span class="st">"99231"</span>, <span class="st">"99232"</span>, <span class="st">"99233"</span>, <span class="st">"99238"</span>, <span class="st">"99239"</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>mom_ip <span class="ot">&lt;-</span> postnatal_mom_enrolled <span class="sc">%&gt;%</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ip_visit =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(revenue_code)   <span class="sc">%in%</span> ip_revenue_codes <span class="sc">|</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(procedure_code) <span class="sc">%in%</span> ip_procedure_codes,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mom_id) <span class="sc">%&gt;%</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">any_ip =</span> <span class="fu">max</span>(ip_visit, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Join into a single analysis file</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>mom_data <span class="ot">&lt;-</span> mom_spend <span class="sc">%&gt;%</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(mom_ed, <span class="at">by =</span> <span class="st">"mom_id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(mom_ip, <span class="at">by =</span> <span class="st">"mom_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Your <code>mom_data</code> file should have one row per mother and seven columns: <code>mom_id</code>, <code>postnatal_spend</code>, <code>fcno</code>, <code>age</code>, <code>ocs</code>, <code>any_ed</code>, and <code>any_ip</code>.</p>
+</section>
+<section id="step-4-build-the-baby-analysis-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-build-the-baby-analysis-file">Step 4: Build the Baby Analysis File</h2>
+<p>Now we’ll construct the same three outcome variables for babies. The structure is identical, but we use <code>baby_id</code>, <code>days_from_birth</code>, <code>clc_procedure_code</code>, and <code>clrv_rev_code</code>. We apply the same enrollment filter, keeping only babies with at least one claim on or after day 180, and exclude the first 30 days for the same reason we did for mothers.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to postnatal period</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>postnatal_baby <span class="ot">&lt;-</span> fcno_baby <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(days_from_birth <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> days_from_birth <span class="sc">&lt;=</span> <span class="dv">365</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Continuous enrollment filter</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>enrolled_babies <span class="ot">&lt;-</span> postnatal_baby <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(baby_id) <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">last_claim =</span> <span class="fu">max</span>(days_from_birth)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(last_claim <span class="sc">&gt;=</span> <span class="dv">180</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(baby_id)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>postnatal_baby_enrolled <span class="ot">&lt;-</span> postnatal_baby <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(baby_id <span class="sc">%in%</span> enrolled_babies<span class="sc">$</span>baby_id)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Baby spending</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>baby_spend <span class="ot">&lt;-</span> postnatal_baby_enrolled <span class="sc">%&gt;%</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(baby_id) <span class="sc">%&gt;%</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">postnatal_spend =</span> <span class="fu">sum</span>(allowed_amt,  <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">fcno       =</span> <span class="fu">max</span>(fcno,        <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">mother_age =</span> <span class="fu">max</span>(mother_age,  <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">mother_ocs =</span> <span class="fu">max</span>(mother_ocs,  <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Baby ED visits (note the different column names)</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>baby_ed <span class="ot">&lt;-</span> postnatal_baby_enrolled <span class="sc">%&gt;%</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ed_visit =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(clrv_rev_code)      <span class="sc">%in%</span> ed_revenue_codes <span class="sc">|</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(clc_procedure_code) <span class="sc">%in%</span> ed_procedure_codes,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(baby_id) <span class="sc">%&gt;%</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">any_ed =</span> <span class="fu">max</span>(ed_visit, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Baby inpatient visits</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>baby_ip <span class="ot">&lt;-</span> postnatal_baby_enrolled <span class="sc">%&gt;%</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ip_visit =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(clrv_rev_code)      <span class="sc">%in%</span> ip_revenue_codes <span class="sc">|</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_trim</span>(clc_procedure_code) <span class="sc">%in%</span> ip_procedure_codes,</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(baby_id) <span class="sc">%&gt;%</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">any_ip =</span> <span class="fu">max</span>(ip_visit, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Join</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>baby_data <span class="ot">&lt;-</span> baby_spend <span class="sc">%&gt;%</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(baby_ed, <span class="at">by =</span> <span class="st">"baby_id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(baby_ip, <span class="at">by =</span> <span class="st">"baby_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-5-unadjusted-means" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-unadjusted-means">Step 5: Unadjusted Means</h2>
+<p>Let’s start with the naïve comparisons. Compute group means for each outcome for both mothers and babies:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mom_unadj <span class="ot">&lt;-</span> mom_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(fcno) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_spend =</span> <span class="fu">mean</span>(postnatal_spend, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ed    =</span> <span class="fu">mean</span>(any_ed,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ip    =</span> <span class="fu">mean</span>(any_ip,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>mom_unadj</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>baby_unadj <span class="ot">&lt;-</span> baby_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(fcno) <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_spend =</span> <span class="fu">mean</span>(postnatal_spend, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ed    =</span> <span class="fu">mean</span>(any_ed,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ip    =</span> <span class="fu">mean</span>(any_ip,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>baby_unadj</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Since we’re going to be putting these estimates in a nice table, you’ll need to pull out the necessary information to include in the table. Run the following code to grab the means:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>u_mom_fcno  <span class="ot">&lt;-</span> mom_unadj  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>u_mom_non   <span class="ot">&lt;-</span> mom_unadj  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>u_baby_fcno <span class="ot">&lt;-</span> baby_unadj <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>u_baby_non  <span class="ot">&lt;-</span> baby_unadj <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then create the table by running the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>round_mixed <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">round</span>(x[<span class="dv">1</span>], <span class="dv">0</span>), <span class="fu">round</span>(x[<span class="dv">2</span>], <span class="dv">3</span>), <span class="fu">round</span>(x[<span class="dv">3</span>], <span class="dv">3</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(x[<span class="dv">4</span>], <span class="dv">0</span>), <span class="fu">round</span>(x[<span class="dv">5</span>], <span class="dv">3</span>), <span class="fu">round</span>(x[<span class="dv">6</span>], <span class="dv">3</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>results_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Group   =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Mothers"</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">"Babies"</span>, <span class="dv">3</span>)),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Outcome =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Spending ($)"</span>, <span class="st">"Any ED Visit"</span>, <span class="st">"Any IP Visit"</span>), <span class="dv">2</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Unadj_FCNO    =</span> <span class="fu">round</span>(<span class="fu">c</span>(u_mom_fcno<span class="sc">$</span>mean_spend,  u_mom_fcno<span class="sc">$</span>mean_ed,  u_mom_fcno<span class="sc">$</span>mean_ip,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                           u_baby_fcno<span class="sc">$</span>mean_spend, u_baby_fcno<span class="sc">$</span>mean_ed, u_baby_fcno<span class="sc">$</span>mean_ip), <span class="dv">3</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Unadj_NonFCNO =</span> <span class="fu">round</span>(<span class="fu">c</span>(u_mom_non<span class="sc">$</span>mean_spend,   u_mom_non<span class="sc">$</span>mean_ed,   u_mom_non<span class="sc">$</span>mean_ip,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                           u_baby_non<span class="sc">$</span>mean_spend,  u_baby_non<span class="sc">$</span>mean_ed,  u_baby_non<span class="sc">$</span>mean_ip), <span class="dv">3</span>),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Unadj_Diff    =</span> <span class="fu">round</span>(<span class="fu">c</span>(u_mom_fcno<span class="sc">$</span>mean_spend  <span class="sc">-</span> u_mom_non<span class="sc">$</span>mean_spend,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                           u_mom_fcno<span class="sc">$</span>mean_ed     <span class="sc">-</span> u_mom_non<span class="sc">$</span>mean_ed,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                           u_mom_fcno<span class="sc">$</span>mean_ip     <span class="sc">-</span> u_mom_non<span class="sc">$</span>mean_ip,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                           u_baby_fcno<span class="sc">$</span>mean_spend <span class="sc">-</span> u_baby_non<span class="sc">$</span>mean_spend,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                           u_baby_fcno<span class="sc">$</span>mean_ed    <span class="sc">-</span> u_baby_non<span class="sc">$</span>mean_ed,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                           u_baby_fcno<span class="sc">$</span>mean_ip    <span class="sc">-</span> u_baby_non<span class="sc">$</span>mean_ip), <span class="dv">3</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(results_table,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs  =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Group"</span>, <span class="st">"Outcome"</span>, <span class="st">"FCNO"</span>, <span class="st">"Non-FCNO"</span>, <span class="st">"Diff."</span>),</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption   =</span> <span class="st">"Table 1. Estimates of the Association Between FCNO Participation and Postnatal Health Care Use"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Unadjusted"</span> <span class="ot">=</span> <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">font_size =</span> <span class="dv">9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>Look at the unadjusted means for mothers and babies. Do FCNO participants appear to have higher or lower spending and health care use than non-participants? Are the patterns consistent across moms and babies?</p>
+</section>
+</section>
+<section id="step-6-regression-adjusted-means" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-regression-adjusted-means">Step 6: Regression-Adjusted Means</h2>
+<p>Next, we’ll run multiple regression models like those from Data Lab 8 and compute adjusted means from the coefficients. However, before comparing adjusted means for FCNO participants and non-participants, it’s helpful to center the data on age and OCS so that we don’t need to factor those variables explicitly into our mean calculations. Run the following code to create centered measures of mother age and OCS:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mom_reg_data <span class="ot">&lt;-</span> mom_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ocs)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_c =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ocs_c =</span> ocs <span class="sc">-</span> <span class="fu">mean</span>(ocs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>baby_reg_data <span class="ot">&lt;-</span> baby_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(mother_ocs)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">mother_age_c =</span> mother_age <span class="sc">-</span> <span class="fu">mean</span>(mother_age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">mother_ocs_c =</span> mother_ocs <span class="sc">-</span> <span class="fu">mean</span>(mother_ocs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now, run the following regression models for moms that control for mothers age and OCS:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mother models</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model_mom_spend <span class="ot">&lt;-</span> <span class="fu">lm</span>(postnatal_spend <span class="sc">~</span> fcno <span class="sc">+</span> age_c <span class="sc">+</span> ocs_c, <span class="at">data =</span> mom_reg_data)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>model_mom_ed    <span class="ot">&lt;-</span> <span class="fu">lm</span>(any_ed          <span class="sc">~</span> fcno <span class="sc">+</span> age_c <span class="sc">+</span> ocs_c, <span class="at">data =</span> mom_reg_data)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>model_mom_ip    <span class="ot">&lt;-</span> <span class="fu">lm</span>(any_ip          <span class="sc">~</span> fcno <span class="sc">+</span> age_c <span class="sc">+</span> ocs_c, <span class="at">data =</span> mom_reg_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next, run the baby models:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Baby models</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>model_baby_spend <span class="ot">&lt;-</span> <span class="fu">lm</span>(postnatal_spend <span class="sc">~</span> fcno <span class="sc">+</span> mother_age_c <span class="sc">+</span> mother_ocs_c, <span class="at">data =</span> baby_reg_data)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>model_baby_ed    <span class="ot">&lt;-</span> <span class="fu">lm</span>(any_ed          <span class="sc">~</span> fcno <span class="sc">+</span> mother_age_c <span class="sc">+</span> mother_ocs_c, <span class="at">data =</span> baby_reg_data)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>model_baby_ip    <span class="ot">&lt;-</span> <span class="fu">lm</span>(any_ip          <span class="sc">~</span> fcno <span class="sc">+</span> mother_age_c <span class="sc">+</span> mother_ocs_c, <span class="at">data =</span> baby_reg_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can extract the adjusted means from the regression models. We’ll write a short helper function to do this cleanly for each model:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>adj_means <span class="ot">&lt;-</span> <span class="cf">function</span>(model) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">coef</span>(model)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">nonfcno =</span> b[<span class="st">"(Intercept)"</span>],</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fcno    =</span> b[<span class="st">"(Intercept)"</span>] <span class="sc">+</span> b[<span class="st">"fcno"</span>],</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">diff    =</span> b[<span class="st">"fcno"</span>]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>ra_mom_spend  <span class="ot">&lt;-</span> <span class="fu">adj_means</span>(model_mom_spend)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>ra_mom_ed     <span class="ot">&lt;-</span> <span class="fu">adj_means</span>(model_mom_ed)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>ra_mom_ip     <span class="ot">&lt;-</span> <span class="fu">adj_means</span>(model_mom_ip)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>ra_baby_spend <span class="ot">&lt;-</span> <span class="fu">adj_means</span>(model_baby_spend)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ra_baby_ed    <span class="ot">&lt;-</span> <span class="fu">adj_means</span>(model_baby_ed)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ra_baby_ip    <span class="ot">&lt;-</span> <span class="fu">adj_means</span>(model_baby_ip)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Add these regression adjusted results to the output table by running the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>results_table <span class="ot">&lt;-</span> results_table <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Reg_FCNO    =</span> <span class="fu">round_mixed</span>(<span class="fu">c</span>(ra_mom_spend<span class="sc">$</span>fcno,    ra_mom_ed<span class="sc">$</span>fcno,    ra_mom_ip<span class="sc">$</span>fcno,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                                ra_baby_spend<span class="sc">$</span>fcno,   ra_baby_ed<span class="sc">$</span>fcno,   ra_baby_ip<span class="sc">$</span>fcno)),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Reg_NonFCNO =</span> <span class="fu">round_mixed</span>(<span class="fu">c</span>(ra_mom_spend<span class="sc">$</span>nonfcno, ra_mom_ed<span class="sc">$</span>nonfcno, ra_mom_ip<span class="sc">$</span>nonfcno,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                                ra_baby_spend<span class="sc">$</span>nonfcno,ra_baby_ed<span class="sc">$</span>nonfcno,ra_baby_ip<span class="sc">$</span>nonfcno)),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Reg_Diff    =</span> <span class="fu">round_mixed</span>(<span class="fu">c</span>(ra_mom_spend<span class="sc">$</span>diff,    ra_mom_ed<span class="sc">$</span>diff,    ra_mom_ip<span class="sc">$</span>diff,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                                ra_baby_spend<span class="sc">$</span>diff,   ra_baby_ed<span class="sc">$</span>diff,   ra_baby_ip<span class="sc">$</span>diff))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(results_table,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs  =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Group"</span>, <span class="st">"Outcome"</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"FCNO"</span>, <span class="st">"Non-FCNO"</span>, <span class="st">"Diff."</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"FCNO"</span>, <span class="st">"Non-FCNO"</span>, <span class="st">"Diff."</span>),</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption   =</span> <span class="st">"Table 1. Estimates of the Association Between FCNO Participation and Postnatal Health Care Use"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Unadjusted"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Regression-Adjusted"</span> <span class="ot">=</span> <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">font_size =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">6</span>, <span class="at">border_left =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p>Compare the regression-adjusted differences (<code>diff</code>) to the naïve differences from Step 5. Do the estimates move in the direction you would expect, given what you know about the observable differences between FCNO participants and non-participants? For which outcome do the regression and naïve estimates differ the most?</p>
+</section>
+</section>
+<section id="step-7-psm-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-psm-estimates">Step 7: PSM Estimates</h2>
+<p>Now we’ll repeat the PSM procedure from Data Lab 9 for both mothers and babies. We’ll use 1:1 nearest-neighbor matching on age and OCS (or their baby-file equivalents), then compute group means in the matched samples.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mother PSM</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>mom_psm_data <span class="ot">&lt;-</span> mom_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ocs))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>match_out_mom <span class="ot">&lt;-</span> <span class="fu">matchit</span>(fcno <span class="sc">~</span> age <span class="sc">+</span> ocs,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data   =</span> mom_psm_data,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">method =</span> <span class="st">"nearest"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">ratio  =</span> <span class="dv">1</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>matched_mom <span class="ot">&lt;-</span> <span class="fu">match.data</span>(match_out_mom)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Baby PSM</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>baby_psm_data <span class="ot">&lt;-</span> baby_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(mother_ocs))</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>match_out_baby <span class="ot">&lt;-</span> <span class="fu">matchit</span>(fcno <span class="sc">~</span> mother_age <span class="sc">+</span> mother_ocs,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                          <span class="at">data   =</span> baby_psm_data,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                          <span class="at">method =</span> <span class="st">"nearest"</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ratio  =</span> <span class="dv">1</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>matched_baby <span class="ot">&lt;-</span> <span class="fu">match.data</span>(match_out_baby)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next, we’ll compute means in the matched samples and add them to the table:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mom_psm_means <span class="ot">&lt;-</span> matched_mom <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(fcno) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_spend =</span> <span class="fu">mean</span>(postnatal_spend, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ed    =</span> <span class="fu">mean</span>(any_ed,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ip    =</span> <span class="fu">mean</span>(any_ip,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>baby_psm_means <span class="ot">&lt;-</span> matched_baby <span class="sc">%&gt;%</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(fcno) <span class="sc">%&gt;%</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_spend =</span> <span class="fu">mean</span>(postnatal_spend, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ed    =</span> <span class="fu">mean</span>(any_ed,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ip    =</span> <span class="fu">mean</span>(any_ip,          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract group-specific rows</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>p_mom_fcno  <span class="ot">&lt;-</span> mom_psm_means  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>p_mom_non   <span class="ot">&lt;-</span> mom_psm_means  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>p_baby_fcno <span class="ot">&lt;-</span> baby_psm_means <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>p_baby_non  <span class="ot">&lt;-</span> baby_psm_means <span class="sc">%&gt;%</span> <span class="fu">filter</span>(fcno <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Add PSM columns to the results table</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>results_table <span class="ot">&lt;-</span> results_table <span class="sc">%&gt;%</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">PSM_FCNO    =</span> <span class="fu">round_mixed</span>(<span class="fu">c</span>(p_mom_fcno<span class="sc">$</span>mean_spend,  p_mom_fcno<span class="sc">$</span>mean_ed,  p_mom_fcno<span class="sc">$</span>mean_ip,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>                                p_baby_fcno<span class="sc">$</span>mean_spend, p_baby_fcno<span class="sc">$</span>mean_ed, p_baby_fcno<span class="sc">$</span>mean_ip)),</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">PSM_NonFCNO =</span> <span class="fu">round_mixed</span>(<span class="fu">c</span>(p_mom_non<span class="sc">$</span>mean_spend,   p_mom_non<span class="sc">$</span>mean_ed,   p_mom_non<span class="sc">$</span>mean_ip,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                                p_baby_non<span class="sc">$</span>mean_spend,  p_baby_non<span class="sc">$</span>mean_ed,  p_baby_non<span class="sc">$</span>mean_ip)),</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">PSM_Diff    =</span> <span class="fu">round_mixed</span>(<span class="fu">c</span>(p_mom_fcno<span class="sc">$</span>mean_spend  <span class="sc">-</span> p_mom_non<span class="sc">$</span>mean_spend,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>                                p_mom_fcno<span class="sc">$</span>mean_ed     <span class="sc">-</span> p_mom_non<span class="sc">$</span>mean_ed,</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>                                p_mom_fcno<span class="sc">$</span>mean_ip     <span class="sc">-</span> p_mom_non<span class="sc">$</span>mean_ip,</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>                                p_baby_fcno<span class="sc">$</span>mean_spend <span class="sc">-</span> p_baby_non<span class="sc">$</span>mean_spend,</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>                                p_baby_fcno<span class="sc">$</span>mean_ed    <span class="sc">-</span> p_baby_non<span class="sc">$</span>mean_ed,</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>                                p_baby_fcno<span class="sc">$</span>mean_ip    <span class="sc">-</span> p_baby_non<span class="sc">$</span>mean_ip))</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(results_table,</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs  =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Group"</span>, <span class="st">"Outcome"</span>,</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"FCNO"</span>, <span class="st">"Non-FCNO"</span>, <span class="st">"Diff."</span>,</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"FCNO"</span>, <span class="st">"Non-FCNO"</span>, <span class="st">"Diff."</span>,</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"FCNO"</span>, <span class="st">"Non-FCNO"</span>, <span class="st">"Diff."</span>),</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption   =</span> <span class="st">"Table 1. Estimates of the Association Between FCNO Participation and Postnatal Health Care Use"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Unadjusted"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Regression-Adjusted"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"PSM"</span> <span class="ot">=</span> <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>   <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"scale_down"</span>, <span class="st">"hold_position"</span>), <span class="at">font_size =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">6</span>, <span class="at">border_left =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">9</span>, <span class="at">border_left =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>Look at the three “Difference” columns across all six outcomes. How do the estimates change as you move from unadjusted to regression-adjusted to PSM? Do they move in a consistent direction? Based on what you know about the characteristics of FCNO participants, does the direction of that movement make sense?</p>
+</section>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<p>Compare the pattern of results for mothers and babies. Are the estimated effects on spending, ED visits, and IP visits larger or smaller for babies than for mothers?</p>
+</section>
+</section>
+<section id="summary-and-key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>In this Data Lab, you built a summary table presenting naïve, regression-adjusted, and PSM estimates of the effects of FCNO participation on postnatal health care use for mothers and their babies. Showing estimates from multiple methods side by side lets us assess how sensitive the findings are to the choice of estimation strategy. Stable ATE estimates across methods strengthen the case for a true effect, while large movements raise questions about selection bias.</p>
+<p>What none of these methods can fully resolve is selection on <em>unobservables</em>. Regression and PSM address differences we can observe, but if FCNO participants differ from non-participants in ways we cannot observe (motivation, social support, health literacy), those differences will still contaminate our estimates. Addressing that kind of bias requires a true natural experiment or randomized design. Since people weren’t randomly assigned to FCNO participation, we’ll use a natural experiment desing in the next Data Lab to further assess our findings on the FCNO program.</p>
+<p>Render your Markdown file, upload your PDF document to Canvas <a href="https://tulane.instructure.com/courses/2306287/assignments/">here</a>, and you’re all done!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hpam7660\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

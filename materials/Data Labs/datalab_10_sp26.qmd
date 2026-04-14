@@ -1,0 +1,402 @@
+---
+title: "Data Lab 10 - Putting It All Together: Family Connects, Spending, and Utilization for Moms and Babies"
+summary: >-
+  Building a polished summary table of Family Connects effects on maternal and infant health care use across three estimation methods.
+---
+
+In the previous data labs, we've seen three different methods for calculating the average treatment effect of FCNO participation on spending and health care utilization: naïve comparisons, regression-adjusted comparisons, and regression-adjusted comparisons with propensity score matching.
+
+In this Data Lab, we'll bring everything together. We'll also expand the analysis to include the babies of the moms in our sample. If FCNO connects mothers to better postpartum support, we might expect those benefits to extend to their infants.
+
+By the end of this lab, you'll have constructed a single summary table showing naïve, regression-adjusted, and PSM estimates side by side for both populations. Tables like this one are standard in health policy research and let readers immediately compare whether estimated effects hold up across methods. When they do, that consistency is reassuring; when they diverge, it raises important questions about selection bias.
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data%20Labs/datalab_2.qmd) to create a new R Markdown document. Load the following libraries at the top of your file:
+
+```{r, eval = FALSE}
+library(dplyr)
+library(stringr)
+library(MatchIt)
+library(knitr)
+library(kableExtra)
+```
+
+Note that if you haven't installed `kableExtra` before, run `install.packages("kableExtra")` in your Console first (don't put the install.packages command in your Markdown file!).
+
+## Step 2: Import the Data
+
+This lab uses two data files. The first, `fcno_mom.csv`, is an updated version of the claims data we've used all semester. It has the same structure as the `fcno_data.csv` from prior labs, but with two important differences: the patient identifier is now called `mom_id` instead of `patient_id`, and the Obstetric Comorbidity Score (`ocs`) is already included, so you won't need to reconstruct it from diagnosis codes this time.
+
+The second file, `fcno_baby.csv`, contains Medicaid claims for the newborns in our data. It uses slightly different column names than the mother file: `baby_id` (instead of `mom_id`) and `days_from_birth` (instead of `days_from_delivery`). The baby file also includes `mother_age` and `mother_ocs`, which we'll use as controls in the baby-level regressions, just like we used `age` and `ocs` in the mother-level regressions.
+
+Download the baby data [here](https://www.dropbox.com/scl/fi/v7cflfqpsmk8nm097w4uf/fcno_mom_final.dta?rlkey=5n38sqo2q7ufqfita9a8imvvp&st=sd199lc6&dl=1) and the baby data [here](https://www.dropbox.com/scl/fi/v7cflfqpsmk8nm097w4uf/fcno_mom_final.dta?rlkey=5n38sqo2q7ufqfita9a8imvvp&st=kez5vj2x&dl=1). 
+
+Save both files to a directory on your computer that you'll remember and read the data into R using:
+```{r, eval = FALSE}
+fcno_mom  <- read.csv("PATH/fcno_mom.csv")
+fcno_baby <- read.csv("PATH/fcno_baby.csv")
+```
+Where you replace "PATH" with the directory pathway.
+
+Take a moment to look at both files in your Environment to familiarize yourself with the column names before moving on.
+
+## Step 3: Build the Mother Analysis File
+
+We'll follow the same steps from Data Labs 6–9. Filter to the postnatal period (days 31–365), apply the continuous enrollment filter, then construct postnatal spending, ED visits, and inpatient visits. Finally, join everything into a single person-level analysis file.
+
+```{r, eval = FALSE}
+# Filter to postnatal period
+postnatal_mom <- fcno_mom %>%
+  filter(days_from_delivery > 30 & days_from_delivery <= 365)
+
+# Continuous enrollment filter
+enrolled_moms <- postnatal_mom %>%
+  group_by(mom_id) %>%
+  summarise(last_claim = max(days_from_delivery)) %>%
+  filter(last_claim >= 180) %>%
+  select(mom_id)
+
+postnatal_mom_enrolled <- postnatal_mom %>%
+  filter(mom_id %in% enrolled_moms$mom_id)
+
+# Postnatal spending
+mom_spend <- postnatal_mom_enrolled %>%
+  group_by(mom_id) %>%
+  summarize(
+    postnatal_spend = sum(allowed_amt, na.rm = TRUE),
+    fcno = max(fcno, na.rm = TRUE),
+    age  = max(age,  na.rm = TRUE),
+    ocs  = max(ocs,  na.rm = TRUE)
+  )
+
+# ED visits
+ed_revenue_codes   <- c("450", "452", "456", "981")
+ed_procedure_codes <- c("99281", "99282", "99283", "99284", "99285", "99291")
+
+mom_ed <- postnatal_mom_enrolled %>%
+  mutate(ed_visit = ifelse(
+    str_trim(revenue_code)   %in% ed_revenue_codes |
+    str_trim(procedure_code) %in% ed_procedure_codes,
+    1, 0)) %>%
+  group_by(mom_id) %>%
+  summarise(any_ed = max(ed_visit, na.rm = TRUE))
+
+# Inpatient visits
+ip_revenue_codes   <- c("110", "112", "114", "120", "121", "122", "124", "126", "128")
+ip_procedure_codes <- c("99221", "99222", "99223", "99231", "99232", "99233", "99238", "99239")
+
+mom_ip <- postnatal_mom_enrolled %>%
+  mutate(ip_visit = ifelse(
+    str_trim(revenue_code)   %in% ip_revenue_codes |
+    str_trim(procedure_code) %in% ip_procedure_codes,
+    1, 0)) %>%
+  group_by(mom_id) %>%
+  summarise(any_ip = max(ip_visit, na.rm = TRUE))
+
+# Join into a single analysis file
+mom_data <- mom_spend %>%
+  left_join(mom_ed, by = "mom_id") %>%
+  left_join(mom_ip, by = "mom_id")
+```
+
+Your `mom_data` file should have one row per mother and seven columns: `mom_id`, `postnatal_spend`, `fcno`, `age`, `ocs`, `any_ed`, and `any_ip`.
+
+## Step 4: Build the Baby Analysis File
+
+Now we'll construct the same three outcome variables for babies. The structure is identical, but we use `baby_id`, `days_from_birth`, `clc_procedure_code`, and `clrv_rev_code`. We apply the same enrollment filter, keeping only babies with at least one claim on or after day 180, and exclude the first 30 days for the same reason we did for mothers.
+
+```{r, eval = FALSE}
+# Filter to postnatal period
+postnatal_baby <- fcno_baby %>%
+  filter(days_from_birth > 30 & days_from_birth <= 365)
+
+# Continuous enrollment filter
+enrolled_babies <- postnatal_baby %>%
+  group_by(baby_id) %>%
+  summarise(last_claim = max(days_from_birth)) %>%
+  filter(last_claim >= 180) %>%
+  select(baby_id)
+
+postnatal_baby_enrolled <- postnatal_baby %>%
+  filter(baby_id %in% enrolled_babies$baby_id)
+
+# Baby spending
+baby_spend <- postnatal_baby_enrolled %>%
+  group_by(baby_id) %>%
+  summarize(
+    postnatal_spend = sum(allowed_amt,  na.rm = TRUE),
+    fcno       = max(fcno,        na.rm = TRUE),
+    mother_age = max(mother_age,  na.rm = TRUE),
+    mother_ocs = max(mother_ocs,  na.rm = TRUE)
+  )
+
+# Baby ED visits (note the different column names)
+baby_ed <- postnatal_baby_enrolled %>%
+  mutate(ed_visit = ifelse(
+    str_trim(clrv_rev_code)      %in% ed_revenue_codes |
+    str_trim(clc_procedure_code) %in% ed_procedure_codes,
+    1, 0)) %>%
+  group_by(baby_id) %>%
+  summarise(any_ed = max(ed_visit, na.rm = TRUE))
+
+# Baby inpatient visits
+baby_ip <- postnatal_baby_enrolled %>%
+  mutate(ip_visit = ifelse(
+    str_trim(clrv_rev_code)      %in% ip_revenue_codes |
+    str_trim(clc_procedure_code) %in% ip_procedure_codes,
+    1, 0)) %>%
+  group_by(baby_id) %>%
+  summarise(any_ip = max(ip_visit, na.rm = TRUE))
+
+# Join
+baby_data <- baby_spend %>%
+  left_join(baby_ed, by = "baby_id") %>%
+  left_join(baby_ip, by = "baby_id")
+```
+
+## Step 5: Unadjusted Means
+
+Let's start with the naïve comparisons. Compute group means for each outcome for both mothers and babies:
+
+```{r, eval = FALSE}
+mom_unadj <- mom_data %>%
+  group_by(fcno) %>%
+  summarise(
+    mean_spend = mean(postnatal_spend, na.rm = TRUE),
+    mean_ed    = mean(any_ed,          na.rm = TRUE),
+    mean_ip    = mean(any_ip,          na.rm = TRUE)
+  )
+mom_unadj
+
+baby_unadj <- baby_data %>%
+  group_by(fcno) %>%
+  summarise(
+    mean_spend = mean(postnatal_spend, na.rm = TRUE),
+    mean_ed    = mean(any_ed,          na.rm = TRUE),
+    mean_ip    = mean(any_ip,          na.rm = TRUE)
+  )
+baby_unadj
+```
+
+Since we're going to be putting these estimates in a nice table, you'll need to pull out the necessary information to include in the table. Run the following code to grab the means:
+
+```{r, eval = FALSE}
+u_mom_fcno  <- mom_unadj  %>% filter(fcno == 1)
+u_mom_non   <- mom_unadj  %>% filter(fcno == 0)
+u_baby_fcno <- baby_unadj %>% filter(fcno == 1)
+u_baby_non  <- baby_unadj %>% filter(fcno == 0)
+```
+
+Then create the table by running the following code:
+
+```{r, eval = FALSE}
+round_mixed <- function(x) {
+  c(round(x[1], 0), round(x[2], 3), round(x[3], 3),
+    round(x[4], 0), round(x[5], 3), round(x[6], 3))
+}
+
+results_table <- data.frame(
+  Group   = c(rep("Mothers", 3), rep("Babies", 3)),
+  Outcome = rep(c("Spending ($)", "Any ED Visit", "Any IP Visit"), 2),
+  Unadj_FCNO    = round(c(u_mom_fcno$mean_spend,  u_mom_fcno$mean_ed,  u_mom_fcno$mean_ip,
+                           u_baby_fcno$mean_spend, u_baby_fcno$mean_ed, u_baby_fcno$mean_ip), 3),
+  Unadj_NonFCNO = round(c(u_mom_non$mean_spend,   u_mom_non$mean_ed,   u_mom_non$mean_ip,
+                           u_baby_non$mean_spend,  u_baby_non$mean_ed,  u_baby_non$mean_ip), 3),
+  Unadj_Diff    = round(c(u_mom_fcno$mean_spend  - u_mom_non$mean_spend,
+                           u_mom_fcno$mean_ed     - u_mom_non$mean_ed,
+                           u_mom_fcno$mean_ip     - u_mom_non$mean_ip,
+                           u_baby_fcno$mean_spend - u_baby_non$mean_spend,
+                           u_baby_fcno$mean_ed    - u_baby_non$mean_ed,
+                           u_baby_fcno$mean_ip    - u_baby_non$mean_ip), 3)
+)
+
+kable(results_table,
+      booktabs  = TRUE,
+      col.names = c("Group", "Outcome", "FCNO", "Non-FCNO", "Diff."),
+      caption   = "Table 1. Estimates of the Association Between FCNO Participation and Postnatal Health Care Use") %>%
+  add_header_above(c(" " = 2, "Unadjusted" = 3)) %>%
+  kable_styling(latex_options = "hold_position", font_size = 9)
+```
+
+### Question 1
+
+Look at the unadjusted means for mothers and babies. Do FCNO participants appear to have higher or lower spending and health care use than non-participants? Are the patterns consistent across moms and babies?
+
+## Step 6: Regression-Adjusted Means
+
+Next, we'll run multiple regression models like those from Data Lab 8 and compute adjusted means from the coefficients. However, before comparing adjusted means for FCNO participants and non-participants, it's helpful to center the data on age and OCS so that we don't need to factor those variables explicitly into our mean calculations. Run the following code to create centered measures of mother age and OCS:
+
+```{r, eval = FALSE}
+mom_reg_data <- mom_data %>%
+  filter(!is.na(ocs)) %>%
+  mutate(
+    age_c = age - mean(age, na.rm = TRUE),
+    ocs_c = ocs - mean(ocs, na.rm = TRUE)
+  )
+
+baby_reg_data <- baby_data %>%
+  filter(!is.na(mother_ocs)) %>%
+  mutate(
+    mother_age_c = mother_age - mean(mother_age, na.rm = TRUE),
+    mother_ocs_c = mother_ocs - mean(mother_ocs, na.rm = TRUE)
+  )
+```
+
+Now, run the following regression models for moms that control for mothers age and OCS:
+
+```{r, eval = FALSE}
+# Mother models
+model_mom_spend <- lm(postnatal_spend ~ fcno + age_c + ocs_c, data = mom_reg_data)
+model_mom_ed    <- lm(any_ed          ~ fcno + age_c + ocs_c, data = mom_reg_data)
+model_mom_ip    <- lm(any_ip          ~ fcno + age_c + ocs_c, data = mom_reg_data)
+```
+
+Next, run the baby models:
+```{r, eval = FALSE}
+# Baby models
+model_baby_spend <- lm(postnatal_spend ~ fcno + mother_age_c + mother_ocs_c, data = baby_reg_data)
+model_baby_ed    <- lm(any_ed          ~ fcno + mother_age_c + mother_ocs_c, data = baby_reg_data)
+model_baby_ip    <- lm(any_ip          ~ fcno + mother_age_c + mother_ocs_c, data = baby_reg_data)
+```
+
+Now we can extract the adjusted means from the regression models. We'll write a short helper function to do this cleanly for each model:
+
+```{r, eval = FALSE}
+adj_means <- function(model) {
+  b <- coef(model)
+  list(
+    nonfcno = b["(Intercept)"],
+    fcno    = b["(Intercept)"] + b["fcno"],
+    diff    = b["fcno"]
+  )
+}
+
+ra_mom_spend  <- adj_means(model_mom_spend)
+ra_mom_ed     <- adj_means(model_mom_ed)
+ra_mom_ip     <- adj_means(model_mom_ip)
+ra_baby_spend <- adj_means(model_baby_spend)
+ra_baby_ed    <- adj_means(model_baby_ed)
+ra_baby_ip    <- adj_means(model_baby_ip)
+```
+
+Add these regression adjusted results to the output table by running the following code:
+
+```{r, eval = FALSE}
+results_table <- results_table %>%
+  mutate(
+    Reg_FCNO    = round_mixed(c(ra_mom_spend$fcno,    ra_mom_ed$fcno,    ra_mom_ip$fcno,
+                                ra_baby_spend$fcno,   ra_baby_ed$fcno,   ra_baby_ip$fcno)),
+    Reg_NonFCNO = round_mixed(c(ra_mom_spend$nonfcno, ra_mom_ed$nonfcno, ra_mom_ip$nonfcno,
+                                ra_baby_spend$nonfcno,ra_baby_ed$nonfcno,ra_baby_ip$nonfcno)),
+    Reg_Diff    = round_mixed(c(ra_mom_spend$diff,    ra_mom_ed$diff,    ra_mom_ip$diff,
+                                ra_baby_spend$diff,   ra_baby_ed$diff,   ra_baby_ip$diff))
+  )
+
+kable(results_table,
+      booktabs  = TRUE,
+      col.names = c("Group", "Outcome",
+                    "FCNO", "Non-FCNO", "Diff.",
+                    "FCNO", "Non-FCNO", "Diff."),
+      caption   = "Table 1. Estimates of the Association Between FCNO Participation and Postnatal Health Care Use") %>%
+  add_header_above(c(" " = 2, "Unadjusted" = 3, "Regression-Adjusted" = 3)) %>%
+  kable_styling(latex_options = "hold_position", font_size = 9) %>%
+  column_spec(6, border_left = TRUE)
+```
+
+### Question 2
+
+Compare the regression-adjusted differences (`diff`) to the naïve differences from Step 5. Do the estimates move in the direction you would expect, given what you know about the observable differences between FCNO participants and non-participants? For which outcome do the regression and naïve estimates differ the most?
+
+## Step 7: PSM Estimates
+
+Now we'll repeat the PSM procedure from Data Lab 9 for both mothers and babies. We'll use 1:1 nearest-neighbor matching on age and OCS (or their baby-file equivalents), then compute group means in the matched samples.
+
+```{r, eval = FALSE}
+# Mother PSM
+mom_psm_data <- mom_data %>% filter(!is.na(ocs))
+
+match_out_mom <- matchit(fcno ~ age + ocs,
+                         data   = mom_psm_data,
+                         method = "nearest",
+                         ratio  = 1)
+matched_mom <- match.data(match_out_mom)
+
+# Baby PSM
+baby_psm_data <- baby_data %>% filter(!is.na(mother_ocs))
+
+match_out_baby <- matchit(fcno ~ mother_age + mother_ocs,
+                          data   = baby_psm_data,
+                          method = "nearest",
+                          ratio  = 1)
+matched_baby <- match.data(match_out_baby)
+```
+
+Next, we'll compute means in the matched samples and add them to the table:
+
+```{r, eval = FALSE}
+mom_psm_means <- matched_mom %>%
+  group_by(fcno) %>%
+  summarise(
+    mean_spend = mean(postnatal_spend, na.rm = TRUE),
+    mean_ed    = mean(any_ed,          na.rm = TRUE),
+    mean_ip    = mean(any_ip,          na.rm = TRUE)
+  )
+
+baby_psm_means <- matched_baby %>%
+  group_by(fcno) %>%
+  summarise(
+    mean_spend = mean(postnatal_spend, na.rm = TRUE),
+    mean_ed    = mean(any_ed,          na.rm = TRUE),
+    mean_ip    = mean(any_ip,          na.rm = TRUE)
+  )
+
+# Extract group-specific rows
+p_mom_fcno  <- mom_psm_means  %>% filter(fcno == 1)
+p_mom_non   <- mom_psm_means  %>% filter(fcno == 0)
+p_baby_fcno <- baby_psm_means %>% filter(fcno == 1)
+p_baby_non  <- baby_psm_means %>% filter(fcno == 0)
+
+# Add PSM columns to the results table
+results_table <- results_table %>%
+  mutate(
+    PSM_FCNO    = round_mixed(c(p_mom_fcno$mean_spend,  p_mom_fcno$mean_ed,  p_mom_fcno$mean_ip,
+                                p_baby_fcno$mean_spend, p_baby_fcno$mean_ed, p_baby_fcno$mean_ip)),
+    PSM_NonFCNO = round_mixed(c(p_mom_non$mean_spend,   p_mom_non$mean_ed,   p_mom_non$mean_ip,
+                                p_baby_non$mean_spend,  p_baby_non$mean_ed,  p_baby_non$mean_ip)),
+    PSM_Diff    = round_mixed(c(p_mom_fcno$mean_spend  - p_mom_non$mean_spend,
+                                p_mom_fcno$mean_ed     - p_mom_non$mean_ed,
+                                p_mom_fcno$mean_ip     - p_mom_non$mean_ip,
+                                p_baby_fcno$mean_spend - p_baby_non$mean_spend,
+                                p_baby_fcno$mean_ed    - p_baby_non$mean_ed,
+                                p_baby_fcno$mean_ip    - p_baby_non$mean_ip))
+  )
+
+kable(results_table,
+      booktabs  = TRUE,
+      col.names = c("Group", "Outcome",
+                    "FCNO", "Non-FCNO", "Diff.",
+                    "FCNO", "Non-FCNO", "Diff.",
+                    "FCNO", "Non-FCNO", "Diff."),
+      caption   = "Table 1. Estimates of the Association Between FCNO Participation and Postnatal Health Care Use") %>%
+  add_header_above(c(" " = 2, "Unadjusted" = 3, "Regression-Adjusted" = 3, "PSM" = 3)) %>%
+   kable_styling(latex_options = c("scale_down", "hold_position"), font_size = 9) %>%
+  column_spec(6, border_left = TRUE) %>%
+  column_spec(9, border_left = TRUE)
+```
+
+### Question 3
+
+Look at the three "Difference" columns across all six outcomes. How do the estimates change as you move from unadjusted to regression-adjusted to PSM? Do they move in a consistent direction? Based on what you know about the characteristics of FCNO participants, does the direction of that movement make sense?
+
+### Question 4
+
+Compare the pattern of results for mothers and babies. Are the estimated effects on spending, ED visits, and IP visits larger or smaller for babies than for mothers? 
+
+## Summary and Key Takeaways
+
+In this Data Lab, you built a summary table presenting naïve, regression-adjusted, and PSM estimates of the effects of FCNO participation on postnatal health care use for mothers and their babies. Showing estimates from multiple methods side by side lets us assess how sensitive the findings are to the choice of estimation strategy. Stable ATE estimates across methods strengthen the case for a true effect, while large movements raise questions about selection bias.
+
+What none of these methods can fully resolve is selection on *unobservables*. Regression and PSM address differences we can observe, but if FCNO participants differ from non-participants in ways we cannot observe (motivation, social support, health literacy), those differences will still contaminate our estimates. Addressing that kind of bias requires a true natural experiment or randomized design. Since people weren't randomly assigned to FCNO participation, we'll use a natural experiment desing in the next Data Lab to further assess our findings on the FCNO program.
+
+Render your Markdown file, upload your PDF document to Canvas [here](https://tulane.instructure.com/courses/2306287/assignments/), and you're all done!

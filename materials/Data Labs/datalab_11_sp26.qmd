@@ -1,0 +1,272 @@
+---
+title: "Data Lab 11 - Difference-in-Differences Analysis with Family Connects"
+summary: >-
+  Using difference-in-differences to estimate the effect of FCNO expansion on postnatal health care use, exploiting variation in program eligiblity.
+---
+
+In the previous data labs, we used naïve comparisons, regression, and propensity score matching (PSM) to estimate the effect of FCNO participation on postnatal spending and health care use. Each approach improved on the last, but all three share a common limitation: they can only account for differences between FCNO participants and non-participants that we can *observe* in the data. If the two groups differ in ways we cannot fireclty measure (e.g., motivation, social support, health literacy) our estimates will still be biased.
+
+In this Data Lab, we use a quasi-experimental research design called **difference-in-differences (DD)** to estimate the effects of FCNO participation. Instead of comparing individual participants to non-participants, we exploit the fact that eligiblity for FCNO depends on living in Orleans Parish. Mothers who lived and delivered their babies in Orleans Parish had access to the program, while mothers who delivered in Orleans Parish, but lived outside Orleans Parish did not.
+
+The DD estimator is the difference in the pre-to-post change in outcomes for the Orleans group versus the pre-to-post change for the non-Orleans group. Formally:
+
+$$\hat{\delta}_{DD} = (\bar{Y}_{\text{Orleans, post}} - \bar{Y}_{\text{Orleans, pre}}) - (\bar{Y}_{\text{non-Orleans, post}} - \bar{Y}_{\text{non-Orleans, pre}})$$
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data%20Labs/datalab_2.qmd) to create a new R Markdown document. Load the following libraries at the top of your file:
+
+```{r, eval = FALSE}
+library(dplyr)
+library(stringr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+```
+
+If you haven't installed `ggplot2` before, run `install.packages("ggplot2")` in your Console first.
+
+## Step 2: Import the Data
+
+This lab uses a new data file, `fcno_dd_data.csv`. Download it [here](https://www.dropbox.com/scl/fi/wi23u2ivc4rmlbhmo4ut3/fcno_dd_data.csv?rlkey=ntg1xtav3wabhsbv2dce4t4gj&st=1tob08nk&dl=1). It has the same structure as `fcno_data.csv` from prior labs, but adds three new columns:
+
+- `delivery_year` — the calendar year the patient delivered
+- `delivery_month` — the calendar month the patient delivered
+- `orleans` — equals 1 if the patient delivered in Orleans Parish, 0 otherwise
+
+The `fcno` column is still present and still indicates whether the patient participated in FCNO, but in this lab we will not use it as the primary treatment indicator. Instead, we will use `orleans`, which captures whether a patient was eligible for the FCNO program, as the basis for our DD analysis. Note that this is an *intent-to-treat* design since we're estimating the effect of program eligiblity, regardless of whether any individual patient actually enrolled.
+
+```{r, eval = FALSE}
+fcno_dd <- read.csv("PATH/fcno_dd_data.csv")
+```
+Where you replace "PATH" with the directory pathway.
+
+Take a moment to browse the data in your Environment and confirm you see the new columns before continuing.
+
+## Step 3: Build the Analysis File
+
+We will follow the same data-building steps from the earlier Data Labs. Our outcome window this time will be the first six months of the postnatal period, excluding the first 30 days. We will apply the same continuous enrollment filter that we've used before where we keep only patients who have at least one claim on or after day 150, which ensures they were enrolled through approximately the full six-month window.
+
+```{r, eval = FALSE}
+# Filter to the 31-180 day postnatal window
+postnatal <- fcno_dd %>%
+  filter(days_from_delivery > 30 & days_from_delivery <= 180)
+
+# Continuous enrollment filter
+enrolled <- postnatal %>%
+  group_by(patient_id) %>%
+  summarise(last_claim = max(days_from_delivery)) %>%
+  filter(last_claim >= 150) %>%
+  select(patient_id)
+
+postnatal_enrolled <- postnatal %>%
+  filter(patient_id %in% enrolled$patient_id)
+```
+
+Now construct the three outcome variables: postnatal spending, any ED visit, and any inpatient visit.
+
+```{r, eval = FALSE}
+# Postnatal spending
+spend <- postnatal_enrolled %>%
+  group_by(patient_id) %>%
+  summarize(
+    postnatal_spend = sum(allowed_amt,   na.rm = TRUE),
+    orleans         = max(orleans,        na.rm = TRUE),
+    fcno            = max(fcno,           na.rm = TRUE),
+    delivery_year   = max(delivery_year,  na.rm = TRUE),
+    delivery_month  = max(delivery_month, na.rm = TRUE),
+    age             = max(age,            na.rm = TRUE)
+  )
+
+# ED visits
+ed_revenue_codes   <- c("450", "452", "456", "981")
+ed_procedure_codes <- c("99281", "99282", "99283", "99284", "99285", "99291")
+
+ed_visits <- postnatal_enrolled %>%
+  mutate(ed_visit = ifelse(
+    str_trim(revenue_code)   %in% ed_revenue_codes |
+    str_trim(procedure_code) %in% ed_procedure_codes,
+    1, 0)) %>%
+  group_by(patient_id) %>%
+  summarise(any_ed = max(ed_visit, na.rm = TRUE))
+
+# Inpatient visits
+ip_revenue_codes   <- c("110", "112", "114", "120", "121", "122", "124", "126", "128")
+ip_procedure_codes <- c("99221", "99222", "99223", "99231", "99232", "99233", "99238", "99239")
+
+ip_visits <- postnatal_enrolled %>%
+  mutate(ip_visit = ifelse(
+    str_trim(revenue_code)   %in% ip_revenue_codes |
+    str_trim(procedure_code) %in% ip_procedure_codes,
+    1, 0)) %>%
+  group_by(patient_id) %>%
+  summarise(any_ip = max(ip_visit, na.rm = TRUE))
+
+# Join into a single analysis file
+dd_data <- spend %>%
+  left_join(ed_visits, by = "patient_id") %>%
+  left_join(ip_visits, by = "patient_id")
+```
+
+Your `dd_data` file should have one row per patient and nine columns: `patient_id`, `postnatal_spend`, `orleans`, `fcno`, `delivery_year`, `delivery_month`, `age`, `any_ed`, and `any_ip`.
+
+## Step 4: Create the Post-Period Indicator
+
+We'll define the post-period as delivery years 2024 and 2025, and the pre-period as delivery years 2021 through 2023. Technically, the first FCNO participants delivered in late 2023, but the program didn't enroll very many people until 2024. Add a `post` variable to your analysis file:
+
+```{r, eval = FALSE}
+dd_data <- dd_data %>%
+  mutate(post = ifelse(delivery_year >= 2024, 1, 0))
+```
+
+## Step 5: Compute the 2×2 DD Table
+
+Before running any regression, it helps to see the DD estimate directly from group means. The classic DD table has two rows (Orleans and non-Orleans) and two columns (pre and post). The DD estimate is the difference in those two differences.
+
+Compute mean postnatal spending for each group-by-period cell:
+
+```{r, eval = FALSE}
+means <- dd_data %>%
+  group_by(orleans, post) %>%
+  summarise(
+    mean_spend = mean(postnatal_spend, na.rm = TRUE),
+    mean_ed    = mean(any_ed,          na.rm = TRUE),
+    mean_ip    = mean(any_ip,          na.rm = TRUE),
+    n          = n()
+  )
+
+means
+```
+
+Now extract the four cells and compute the DD estimate for spending:
+
+```{r, eval = FALSE}
+orleans_pre  <- means %>% filter(orleans == 1, post == 0) %>% pull(mean_spend)
+orleans_post <- means %>% filter(orleans == 1, post == 1) %>% pull(mean_spend)
+non_pre      <- means %>% filter(orleans == 0, post == 0) %>% pull(mean_spend)
+non_post     <- means %>% filter(orleans == 0, post == 1) %>% pull(mean_spend)
+
+dd_estimate_spend <- (orleans_post - orleans_pre) - (non_post - non_pre)
+
+spend_2x2 <- data.frame(
+  Group  = c("Orleans", "Non-Orleans", "Difference"),
+  Pre    = round(c(orleans_pre,  non_pre,  orleans_pre  - non_pre),  0),
+  Post   = round(c(orleans_post, non_post, orleans_post - non_post), 0),
+  Change = round(c(orleans_post - orleans_pre,
+                   non_post     - non_pre,
+                   dd_estimate_spend), 0)
+)
+
+kable(spend_2x2,
+      col.names = c("Group", "Pre (2021–2023)", "Post (2024–2025)", "Change"),
+      caption   = "Table 1. Mean 6-Month Postnatal Spending by Group and Period") %>%
+  kable_styling(latex_options = "hold_position")
+```
+
+### Question 1
+
+Based on the table you created:
+
+(a) How did mean spending change from pre to post for FCNO-eligible mothers? For non-eligible mothers?
+
+(b) What is the DD estimate? In plain language, what does it tell you?
+
+## Step 6: Estimate the DD Regression
+
+The 2×2 table gives us the DD estimate directly, but regression lets us attach a standard error to it and eventually control for additional covariates if we want to. The DD regression takes the form:
+
+$$Y_i = \beta_0 + \beta_1 \cdot \text{Orleans}_i + \beta_2 \cdot \text{Post}_i + \beta_3 \cdot (\text{Orleans}_i \times \text{Post}_i) + \varepsilon_i$$
+
+Here, $\beta_3$, the coefficient on the interaction term, is the DD estimate. It captures how much more outcomes changed for FCNO-eligible moms relative to non-eligible moms after the program took effect.
+
+Run the DD regression for each outcome:
+
+```{r, eval = FALSE}
+model_spend <- lm(postnatal_spend ~ orleans + post + orleans:post, data = dd_data)
+summary(model_spend)
+
+model_ed <- lm(any_ed ~ orleans + post + orleans:post, data = dd_data)
+summary(model_ed)
+
+model_ip <- lm(any_ip ~ orleans + post + orleans:post, data = dd_data)
+summary(model_ip)
+```
+
+### Question 2
+
+Look at the regression output for `model_spend`.
+
+(a) What is the coefficient on `orleans:post`? Does it match the DD estimate from your table in Step 5?
+
+(b) Interpret each of the four coefficients ($\beta_0$, $\beta_1$, $\beta_2$, $\beta_3$) in plain language.
+
+(c) What do the DD estimates for ED visits and inpatient visits suggest about the effect of the program expansion on health care use for mothers?
+
+## Step 7: Examine Pre-Trends
+
+A requirement for the validity of the difference-in-differences model is that eligible and ineligible mothers would have followed the same trajectory in spending and health care use in the absence of the FCNO program. We cannot directly test this counterfactual, but we can look at whether the two groups were tracking together before the program took effect in 2024. If pre-period trends diverge, it casts doubt on the validity of the model; if they look parallel, that's reassuring.
+
+Compute annual mean spending by group and plot the trends:
+
+```{r, eval = FALSE}
+annual_trends <- dd_data %>%
+  group_by(delivery_year, orleans) %>%
+  summarise(mean_spend = mean(postnatal_spend, na.rm = TRUE)) %>%
+  mutate(Group = ifelse(orleans == 1, "Orleans", "Non-Orleans"))
+
+ggplot(annual_trends, aes(x = delivery_year, y = mean_spend,
+                           color = Group, group = Group)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  geom_vline(xintercept = 2023.5, linetype = "dashed", color = "gray50") +
+  annotate("text", x = 2023.6, y = 4750,
+           label = "FCNO Implementation", hjust = 0, size = 3, color = "gray40") +
+  scale_y_continuous(limits = c(0, 5000)) +
+  labs(
+    title = "Mean 6-Month Postnatal Spending by Year and Group",
+    x     = "Delivery Year",
+    y     = "Mean Spending ($)",
+    color = ""
+  ) +
+  theme_minimal()
+```
+
+### Question 3
+
+(a) Do Orleans and non-Orleans mothers appear to have been following similar trends in postnatal spending before 2024? Describe what you see in the figure.
+
+(b) Does the pattern you observe after 2024 look consistent with a program effect? Why or why not?
+
+
+### Question 4
+
+Reflect on the DD design in this context.
+
+(a) In the prior data labs, we used `fcno == 1` as the treatment indicator. In this lab, we used `orleans == 1` instead. Why? What kind of estimate does each approach produce, and which do you think is more defensible for evaluating FCNO's causal effect?
+
+(b) The `fcno` variable in `dd_data` indicates whether a mother actually participated in FCNO. Use it to compute the FCNO participation rate among Orleans mothers by year:
+
+```{r, eval = FALSE}
+participation <- dd_data %>%
+  filter(orleans == 1) %>%
+  group_by(delivery_year) %>%
+  summarise(
+    n_eligible         = n(),
+    n_participated     = sum(fcno),
+    participation_rate = round(n_participated / n_eligible * 100, 1)
+  )
+
+participation
+```
+
+What do you notice about FCNO participation rates? If only a small fraction of Orleans mothers actually enrolled in FCNO, what does that imply about the magnitude of the ITT estimate relative to the effect of the program on mothers who actually participated? Is the ITT estimate likely to be larger or smaller than the true effect on participants, and why?
+
+## Summary and Key Takeaways
+
+In this Data Lab, you implemented a difference-in-differences design to estimate the effect of the FCNO program expansion on postnatal health care use. By comparing the pre-to-post change in outcomes for Orleans Parish mothers to the same change for non-Orleans mothers, you obtained an estimate that accounts for both time-invariant differences between groups (captured by the `orleans` coefficient) and common time trends affecting all mothers (captured by the `post` coefficient).
+
+The DD framework is helpful because it can remove selection bias that comes from stable, unobserved differences across groups. If Orleans mothers are systematically different from non-Orleans mothers in ways we cannot measure, those differences cancel out when we take the pre-to-post difference.
+
+What DD cannot address is selection bias that changes over time, like if something other than FCNO caused Orleans mothers' outcomes to diverge from non-Orleans mothers' outcomes after 2024, our estimate would be biased.
+
+Render your Markdown file, upload your PDF document to Canvas [here](https://tulane.instructure.com/courses/2306287/assignments/14921203), and you're done!

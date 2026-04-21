@@ -5,9 +5,9 @@ subtitle: "Research Design: Natural Experiments"
 
 ## Tuesday, April 7
 
-- Slides - [Natural Experiments Pt.1]()
+- Slides - [Natural Experiments Pt.1](/slides/HPAM_7660_Natural_Experiments_Pt1.pdf)
 - Assignment - [Issue One-Pager](https://tulane.instructure.com/courses/2306287/assignments/14910933)
 
 ## Thursday, April 9
 
-- Slides - [Natural Experiments Pt.2]()
+- Slides - [Natural Experiments Pt.2](/slides/HPAM_7660_Natural_Experiments_Pt2.pdf)

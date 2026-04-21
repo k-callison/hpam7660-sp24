@@ -10,4 +10,4 @@ subtitle: "Research Design: Difference-in-Differences Analysis"
 
 ## Thursday, April 16
 
-- Slides - [Difference-in-Differences Analysis]()
+- Slides - [Difference-in-Differences Analysis](/slides/HPAM_7660_Difference_in_Differences.pdf)

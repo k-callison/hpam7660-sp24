@@ -1,0 +1,36 @@
+---
+title: "Data Lab 11 - Data Visualization"
+summary: >-
+  Using Family Connects New Orleans Data to Explore Data Visualization Techniques
+---
+
+In this Data Lab, our last of the semester(!), we'll use the FCNO data to explore a few different methods for creating data visualizations in R. Data visualization is often a key part of data analysis for two reasons. First, visualizing your data through graphs, plots, etc. can help you better understand the characteristics of the data that you're working with. Second, people often have an easier time understanding the "story" your analysis is telling if they can see that story in pictures.
+
+## Step 1: Create a New R Markdown File
+
+See the instructions from [Data Lab 2](/materials/Data%20Labs/datalab_2.qmd) to create a new R Markdown document. Load the following libraries at the top of your file:
+
+```{r, eval = FALSE}
+library(dplyr)
+library(stringr)
+library(MatchIt)
+library(knitr)
+library(kableExtra)
+```
+
+Note that if you haven't installed `kableExtra` before, run `install.packages("kableExtra")` in your Console first (don't put the install.packages command in your Markdown file!).
+
+## Step 2: Import the Data and Recreate the Analysis File
+
+Load the Family Connects data and recreate the `dd_data` file we built in [Data Lab 11](/materials/Data%20Labs/datalab_11_sp26.qmd).
+
+
+## Step 3: Scatterplots of Age and OCS
+
+First, let's take a look at the relationship between age and postnatal spending among women who participated in the FCNO program. Run the following code to generate the scatterplot:
+
+```{r, eval=FALSE}
+ggplot(data = dd_data, mapping = aes(x = age, y = postnatal_spend)) + 
+  geom_point()
+```
+

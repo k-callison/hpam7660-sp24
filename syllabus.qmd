@@ -91,7 +91,7 @@ The following components and weights will be used to calculate your final grade:
 | Data Analysis Proposal                          | Extra Credit                    |
 | Participation (contributing to class discussions, asking relevant questions, and engaging in group activities) | 30%                    |
 | Data Labs & Problem Sets | 25%                    |
-| Peer Assessment                             | 10%                    |
+| Peer Assessment                             | 15%                    |
 | Total                                       | 100%                   |
 
 <br>
